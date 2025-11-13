@@ -20,6 +20,7 @@
             --white: #FFFFFF;
             --black: #000000;
             --grey: #777777;
+            --pink: #FF69B4;
             
             /* Backgrounds */
             --dark-bg: #0a0a0a;
@@ -121,15 +122,15 @@
         .tiktok-color { --current-color: #69C9D0; }
         .whatsapp-color { --current-color: #25D366; }
         
-        /* Screen 1: Become Nothing */
+        /* Screen 1: Become Nothing - BLACK & WHITE */
         .become-nothing-screen {
-            background: radial-gradient(circle at center, #0c0c1d 0%, #000000 100%);
+            background: radial-gradient(circle at center, #000000 0%, #0c0c1d 100%);
         }
         
         .blinking-i {
             font-size: 15rem;
-            color: var(--current-color);
-            text-shadow: 0 0 20px var(--current-color);
+            color: #FFFFFF; /* White color */
+            text-shadow: 0 0 20px #FFFFFF;
             animation: blink 2s infinite;
             cursor: pointer;
             margin-bottom: 2rem;
@@ -144,24 +145,24 @@
         
         .reset-button {
             background: transparent;
-            border: 2px solid var(--current-color);
-            color: var(--current-color);
+            border: 2px solid #FFFFFF; /* White border */
+            color: #FFFFFF; /* White text */
             padding: 12px 25px;
             border-radius: 8px;
             font-family: var(--font-code);
             font-size: 1.1rem;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 0 15px var(--current-color);
+            box-shadow: 0 0 15px #FFFFFF;
             margin-top: 2rem;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
         
         .reset-button:hover {
-            background: rgba(0, 176, 240, 0.1);
+            background: rgba(255, 255, 255, 0.1);
             transform: translateY(-3px);
-            box-shadow: 0 0 20px var(--current-color);
+            box-shadow: 0 0 20px #FFFFFF;
         }
         
         /* Card Styles */
@@ -225,6 +226,24 @@
             outline: none;
             border-color: var(--white);
             box-shadow: 0 0 10px var(--current-color);
+        }
+        
+        /* Future Name Input with Gender-based Colors */
+        .male-name {
+            color: var(--blue);
+        }
+        
+        .female-name {
+            color: var(--pink);
+        }
+        
+        .others-name {
+            background: linear-gradient(90deg, 
+                #FF0018, #FFA52C, #FFFF41, #008018, 
+                #0000F9, #86007D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .phone-container {
@@ -1206,41 +1225,6 @@
             box-shadow: 0 0 15px rgba(255,255,255,0.8);
         }
         
-        /* Tabs */
-        .tabs {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            background: rgba(0,0,0,0.7);
-            padding: 10px 0;
-            z-index: 50;
-        }
-        
-        .tab {
-            padding: 12px 25px;
-            margin: 0 5px;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: var(--font-futuristic);
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-        
-        .tab:hover {
-            background: rgba(255,255,255,0.2);
-        }
-        
-        .tab.active {
-            background: var(--active-color);
-            box-shadow: 0 0 10px var(--active-color);
-        }
-        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             body {
@@ -1313,17 +1297,6 @@
             .vip-services-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .tabs {
-                flex-wrap: wrap;
-                padding: 5px;
-            }
-            
-            .tab {
-                padding: 8px 15px;
-                margin: 3px;
-                font-size: 0.8rem;
-            }
         }
     </style>
 </head>
@@ -1335,7 +1308,7 @@
     <div class="screen become-nothing-screen active" id="screen-1">
         <div class="blinking-i" id="blinking-i">I</div>
         <div class="reset-button" id="reset-button">
-            <i class="fas fa-redo"></i> RESET
+            <i class="fas fa-redo"></i>RESET
         </div>
     </div>
     
@@ -1411,35 +1384,39 @@
             <div class="input-group">
                 <label>FUTURE TRIBE (VIBGYOR)</label>
                 <div class="color-options">
-                    <div class="color-option violet" data-color="violet" data-name="Violet Visionary" style="background-color: var(--violet);">
+                    <div class="color-option violet" data-color="violet" data-code="VIP" style="background-color: var(--violet);">
                         <div>Violet</div>
                         <div>Visionary</div>
                     </div>
-                    <div class="color-option indigo" data-color="indigo" data-name="Indigo Innovator" style="background-color: var(--indigo);">
+                    <div class="color-option indigo" data-color="indigo" data-code="IPI" style="background-color: var(--indigo);">
                         <div>Indigo</div>
                         <div>Innovator</div>
                     </div>
-                    <div class="color-option blue" data-color="blue" data-name="Blue Strategist" style="background-color: var(--blue);">
+                    <div class="color-option blue" data-color="blue" data-code="IPB" style="background-color: var(--blue);">
                         <div>Blue</div>
                         <div>Strategist</div>
                     </div>
-                    <div class="color-option green" data-color="green" data-name="Green Entrepreneur" style="background-color: var(--green);">
+                    <div class="color-option green" data-color="green" data-code="IPG" style="background-color: var(--green);">
                         <div>Green</div>
                         <div>Entrepreneur</div>
                     </div>
-                    <div class="color-option yellow" data-color="yellow" data-name="Yellow Pioneer" style="background-color: var(--yellow);">
+                    <div class="color-option yellow" data-color="yellow" data-code="IPY" style="background-color: var(--yellow);">
                         <div>Yellow</div>
                         <div>Pioneer</div>
                     </div>
-                    <div class="color-option orange" data-color="orange" data-name="Orange Creator" style="background-color: var(--orange);">
+                    <div class="color-option orange" data-color="orange" data-code="IPO" style="background-color: var(--orange);">
                         <div>Orange</div>
                         <div>Creator</div>
                     </div>
-                    <div class="color-option red" data-color="red" data-name="Red Disruptor" style="background-color: var(--red);">
+                    <div class="color-option red" data-color="red" data-code="IPR" style="background-color: var(--red);">
                         <div>Red</div>
                         <div>Disruptor</div>
                     </div>
-                    <div class="color-option grey" data-color="grey" data-name="Grey Analyst" style="background-color: var(--grey);">
+                    <div class="color-option white" data-color="white" data-code="IPW" style="background-color: var(--white); color: black;">
+                        <div>White</div>
+                        <div>Policy Maker</div>
+                    </div>
+                    <div class="color-option grey" data-color="grey" data-code="IPGY" style="background-color: var(--grey);">
                         <div>Grey</div>
                         <div>Analyst</div>
                     </div>
@@ -1454,10 +1431,9 @@
             <div class="input-group">
                 <label for="future-gender">FUTURE GENDER</label>
                 <select id="future-gender">
-                    <option value="Neutral">Neutral</option>
-                    <option value="Masculine">Masculine</option>
-                    <option value="Feminine">Feminine</option>
-                    <option value="Fluid">Fluid</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
                 </select>
             </div>
             
@@ -1567,6 +1543,7 @@
     <span class="yellow">YELLOW</span> - Young Revolution (18-23)
     <span class="orange">ORANGE</span> - Wisdom & Culture
     <span class="red">RED</span> - Real Estate & Power
+    <span class="white">WHITE</span> - Policy Makers
     <span class="grey">NOMAD</span> - Just Curious
                                     </div>
                                     
@@ -1601,18 +1578,8 @@
             <div class="pc-color-option yellow" style="background-color: var(--yellow);" onclick="changeColor('yellow')"></div>
             <div class="pc-color-option orange" style="background-color: var(--orange);" onclick="changeColor('orange')"></div>
             <div class="pc-color-option red" style="background-color: var(--red);" onclick="changeColor('red')"></div>
-            <div class="pc-color-option grey" style="background-color: var(--grey);" onclick="changeColor('grey')"></div>
             <div class="pc-color-option white" style="background-color: var(--white); border: 1px solid #000;" onclick="changeColor('white')"></div>
-            <div class="pc-color-option black" style="background-color: var(--black); border: 1px solid #333;" onclick="changeColor('black')"></div>
-        </div>
-
-        <!-- Tabs -->
-        <div class="tabs">
-            <div class="tab active" onclick="openApp('addressBook')">Address Book</div>
-            <div class="tab" onclick="openApp('expenseEvaluator')">Expense Evaluator</div>
-            <div class="tab" onclick="openApp('namelessAstrology')">Nameless Astrology</div>
-            <div class="tab" onclick="openApp('ipnotecEvents')">IPNOTEC Events</div>
-            <div class="tab" onclick="openApp('vipServices')">VIP Services</div>
+            <div class="pc-color-option grey" style="background-color: var(--grey);" onclick="changeColor('grey')"></div>
         </div>
 
         <!-- App Windows -->
@@ -1810,6 +1777,11 @@
                         <div class="event-desc">Strategies for property investment and development</div>
                         <div class="event-priority red">Priority: High</div>
                     </div>
+                    <div class="event-card white">
+                        <div class="event-title">Policy Makers Forum</div>
+                        <div class="event-desc">Discussion on governance and policy innovation</div>
+                        <div class="event-priority white">Priority: High</div>
+                    </div>
                     <div class="event-card grey">
                         <div class="event-title">Nomad Networking</div>
                         <div class="event-desc">Casual meetup for curious explorers</div>
@@ -1902,6 +1874,7 @@
         let phoneSum = 0;
         let ipNumber = 0;
         let selectedTribe = 'blue';
+        let selectedTribeCode = 'IPB';
         let selectedTribeName = 'Blue Strategist';
         
         // Virtual PC variables
@@ -1917,7 +1890,7 @@
         const takenNames = ['Nexus', 'Quantum', 'Vortex', 'Nova', 'Orion', 'Zenith', 'Eclipse', 'Helios', 'Solar', 'Blaze'];
 
         // Color name mappings
-        const colorNames = {
+        const colorCodes = {
             violet: "VIP",
             indigo: "IPI",
             blue: "IPB",
@@ -1926,8 +1899,7 @@
             orange: "IPO",
             red: "IPR",
             white: "IPW",
-            grey: "IPGY",
-            black: "IPBL"
+            grey: "IPGY"
         };
 
         // Random name generators by color
@@ -1940,8 +1912,7 @@
             orange: ["Ember", "Amber", "Topaz", "Copper", "Rust", "Tiger", "Sienna"],
             red: ["Crimson", "Scarlet", "Ruby", "Garnet", "Blaze", "Flame", "Rose"],
             white: ["Pearl", "Ivory", "Alabaster", "Crystal", "Diamond", "Frost", "Ghost"],
-            grey: ["Slate", "Steel", "Iron", "Silver", "Mercury", "Ash", "Smoke"],
-            black: ["Void", "Abyss", "Onyx", "Shadow", "Eclipse", "Midnight", "Obsidian"]
+            grey: ["Slate", "Steel", "Iron", "Silver", "Mercury", "Ash", "Smoke"]
         };
 
         // Initialize the app
@@ -1972,11 +1943,30 @@
                     
                     // Set selected tribe
                     selectedTribe = this.dataset.color;
-                    selectedTribeName = this.dataset.name;
+                    selectedTribeCode = this.dataset.code;
+                    selectedTribeName = this.querySelector('div:last-child').textContent;
                     
                     // Update theme color
                     updateThemeColor(selectedTribe);
                 });
+            });
+            
+            // Set up gender selection for future name color
+            document.getElementById('future-gender').addEventListener('change', function() {
+                const futureNameInput = document.getElementById('future-name');
+                const gender = this.value;
+                
+                // Remove previous gender classes
+                futureNameInput.classList.remove('male-name', 'female-name', 'others-name');
+                
+                // Add appropriate class based on gender
+                if (gender === 'Male') {
+                    futureNameInput.classList.add('male-name');
+                } else if (gender === 'Female') {
+                    futureNameInput.classList.add('female-name');
+                } else if (gender === 'Others') {
+                    futureNameInput.classList.add('others-name');
+                }
             });
             
             // Select default tribe
@@ -2090,7 +2080,7 @@
             // Remove all color theme classes
             document.body.classList.remove(
                 'violet-theme', 'indigo-theme', 'blue-theme', 'green-theme',
-                'yellow-theme', 'orange-theme', 'red-theme', 'grey-theme'
+                'yellow-theme', 'orange-theme', 'red-theme', 'white-theme', 'grey-theme'
             );
             
             // Add the selected color theme
@@ -2175,8 +2165,8 @@
                 return;
             }
             
-            // Generate unique user ID
-            const userId = `IPNOTEC.VIP/${selectedTribe.toUpperCase()}/${futureName.replace(/\s/g, '')}${ipNumber}`;
+            // Generate unique user ID in the format: COLORCODE.CityName.FutureName
+            const userId = `${selectedTribeCode}.${futureCity}.${futureName}`;
             
             // Display final ID
             document.getElementById('final-user-id').textContent = userId;
@@ -2266,6 +2256,11 @@
             document.getElementById('phone').value = '';
             document.getElementById('future-city').value = '';
             document.getElementById('future-name').value = '';
+            
+            // Reset gender selection
+            document.getElementById('future-gender').value = 'Male';
+            document.getElementById('future-name').classList.remove('male-name', 'female-name', 'others-name');
+            document.getElementById('future-name').classList.add('male-name');
             
             // Reset results displays
             document.getElementById('dob-result').classList.remove('active');
@@ -2363,12 +2358,6 @@
             // Open selected app
             document.getElementById(appId).style.display = 'block';
             
-            // Update active tab
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            document.querySelector(`.tab[onclick="openApp('${appId}')"]`).classList.add('active');
-            
             // Load data if needed
             if (appId === 'addressBook') {
                 loadContacts();
@@ -2381,7 +2370,7 @@
         
         function changeColor(color) {
             currentColor = color;
-            currentColorCode = colorNames[color];
+            currentColorCode = colorCodes[color];
             
             // Update PC border
             const pc = document.getElementById('virtualPc');
