@@ -48,15 +48,24 @@
             box-sizing: border-box;
         }
         
-        body {
+        html, body {
             font-family: var(--font-main);
             background-color: var(--bg-color);
             color: var(--text-color);
             min-height: 100vh;
             overflow-x: hidden;
+            width: 100%;
+            height: 100%;
         }
         
         /* Screen Management */
+        .screen-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
         .screen {
             position: absolute;
             top: 0;
@@ -72,6 +81,7 @@
             opacity: 0;
             pointer-events: none;
             transform: translateY(20px);
+            overflow-y: auto;
         }
         
         .screen.active {
@@ -127,7 +137,7 @@
         }
         
         .blinking-i {
-            font-size: 15rem;
+            font-size: min(15rem, 20vw);
             color: var(--current-color);
             text-shadow: 0 0 20px var(--current-color);
             animation: blink 2s infinite;
@@ -185,12 +195,13 @@
             background: rgba(0, 0, 30, 0.7);
             border: 2px solid var(--current-color);
             border-radius: 15px;
-            padding: 30px;
+            padding: 20px;
             width: 100%;
             max-width: 500px;
             box-shadow: 0 0 30px var(--current-color);
             position: relative;
             overflow: hidden;
+            margin: 10px 0;
         }
         
         .card::before {
@@ -1210,21 +1221,21 @@
             box-shadow: 0 0 15px var(--green);
         }
         
-        /* Color Picker */
+        /* Color Picker - Updated to be smaller and square */
         .color-picker {
             position: fixed;
             bottom: 20px;
             right: 20px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
             z-index: 100;
         }
         
         .pc-color-option {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
             cursor: pointer;
             border: 2px solid transparent;
             transition: all 0.3s ease;
@@ -1291,6 +1302,23 @@
             z-index: 1001;
             text-align: center;
             color: var(--white);
+        }
+        
+        /* Chat Message Styles */
+        .chat-message {
+            margin: 10px 0;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .chat-user {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        
+        .chat-content {
+            font-size: 0.9rem;
         }
         
         /* Responsive adjustments */
@@ -1384,6 +1412,16 @@
             .name-next-container .next-button {
                 width: 100%;
             }
+            
+            .color-picker {
+                bottom: 10px;
+                right: 10px;
+            }
+            
+            .pc-color-option {
+                width: 25px;
+                height: 25px;
+            }
         }
     </style>
 </head>
@@ -1391,210 +1429,212 @@
     <!-- Circuit Background -->
     <div class="circuit-background" id="circuit-background"></div>
     
-    <!-- Screen 1: Become Nothing -->
-    <div class="screen become-nothing-screen active" id="screen-1">
-        <div class="blinking-i" id="blinking-i">I</div>
-        <div class="reset-button" id="reset-button">
-            <i class="fas fa-redo"></i> RESET
-        </div>
-    </div>
-    
-    <!-- Screen 2: PAST CARD -->
-    <div class="screen" id="screen-2">
-        <div class="card">
-            <h2 class="card-title">PAST CARD</h2>
-            <p style="text-align: center; margin-bottom: 1.5rem; opacity: 0.8;">Your past shapes your digital identity</p>
-            
-            <div class="input-group">
-                <label for="dob">Enter Your Date of Birth</label>
-                <input type="date" id="dob" max="2023-12-31">
-            </div>
-            
-            <button id="calculate-dob">Calculate Past Sum</button>
-            
-            <div class="result-display" id="dob-result">
-                <div>Your Past Sum: <span class="number" id="dob-sum">0</span></div>
+    <div class="screen-container">
+        <!-- Screen 1: Become Nothing -->
+        <div class="screen become-nothing-screen active" id="screen-1">
+            <div class="blinking-i" id="blinking-i">I</div>
+            <div class="reset-button" id="reset-button">
+                <i class="fas fa-redo"></i> RESET
             </div>
         </div>
-    </div>
-    
-    <!-- Screen 3: PRESENT CARD -->
-    <div class="screen" id="screen-3">
-        <div class="card">
-            <h2 class="card-title">PRESENT CARD</h2>
-            <p style="text-align: center; margin-bottom: 1.5rem; opacity: 0.8;">Your current connection to the digital world</p>
-            
-            <div class="phone-container">
-                <div class="input-group">
-                    <label for="country-code">Country Code</label>
-                    <input type="text" id="country-code" placeholder="+1" maxlength="4">
-                </div>
-                <div class="input-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="text" id="phone" placeholder="Phone Number">
-                </div>
-            </div>
-            
-            <button id="calculate-phone">Calculate Present Sum</button>
-            
-            <div class="result-display" id="phone-result">
-                <div>Your Present Sum: <span class="number" id="phone-sum">0</span></div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Screen 4: MY IP -->
-    <div class="screen" id="screen-4">
-        <div class="card">
-            <h2 class="card-title">MY IP</h2>
-            <p style="text-align: center; margin-bottom: 1.5rem; opacity: 0.8;">Your unique identity in the IPNOTEC ecosystem</p>
-            
-            <div class="result-display active">
-                <div>Your Past Sum: <span class="number" id="display-dob-sum">0</span></div>
-                <div>Your Present Sum: <span class="number" id="display-phone-sum">0</span></div>
-                <div style="margin-top: 1rem;">Your IP: <span class="number" id="ip-number">0</span></div>
-                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
-                    This is the number that connects your past and present
-                </p>
-            </div>
-            
-            <button id="proceed-to-future">STEP INTO THE FUTURE</button>
-        </div>
-    </div>
-    
-    <!-- Screen 5: FUTURE CARD -->
-    <div class="screen" id="screen-5">
-        <div class="card">
-            <h2 class="card-title">FUTURE CARD</h2>
-            <p style="text-align: center; margin-bottom: 1.5rem; opacity: 0.8;">Create your future identity in the IPNOTEC ecosystem</p>
-            
-            <div class="input-group">
-                <label>FUTURE TRIBE (VIBGYOR)</label>
-                <div class="color-options">
-                    <div class="color-option violet" data-color="violet" data-name="Violet Visionary" style="background-color: var(--violet);">
-                        <div>Violet</div>
-                        <div>Visionary</div>
-                    </div>
-                    <div class="color-option indigo" data-color="indigo" data-name="Indigo Innovator" style="background-color: var(--indigo);">
-                        <div>Indigo</div>
-                        <div>Innovator</div>
-                    </div>
-                    <div class="color-option blue" data-color="blue" data-name="Blue Strategist" style="background-color: var(--blue);">
-                        <div>Blue</div>
-                        <div>Strategist</div>
-                    </div>
-                    <div class="color-option green" data-color="green" data-name="Green Entrepreneur" style="background-color: var(--green);">
-                        <div>Green</div>
-                        <div>Entrepreneur</div>
-                    </div>
-                    <div class="color-option yellow" data-color="yellow" data-name="Yellow Pioneer" style="background-color: var(--yellow);">
-                        <div>Yellow</div>
-                        <div>Pioneer</div>
-                    </div>
-                    <div class="color-option orange" data-color="orange" data-name="Orange Creator" style="background-color: var(--orange);">
-                        <div>Orange</div>
-                        <div>Creator</div>
-                    </div>
-                    <div class="color-option red" data-color="red" data-name="Red Disruptor" style="background-color: var(--red);">
-                        <div>Red</div>
-                        <div>Disruptor</div>
-                    </div>
-                    <div class="color-option grey" data-color="grey" data-name="Grey Analyst" style="background-color: var(--grey);">
-                        <div>Grey</div>
-                        <div>Analyst</div>
-                    </div>
-                    <div class="color-option white" data-color="white" data-name="White Policy Maker" style="background-color: var(--white); color: #000; text-shadow: none;">
-                        <div>White</div>
-                        <div>Policy Maker</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="input-group">
-                <label for="future-city">FUTURE CITY</label>
-                <select id="future-city">
-                    <option value="" disabled selected>Select City</option>
-                    <option value="DEL">Delhi (DEL)</option>
-                    <option value="BOM">Mumbai (BOM)</option>
-                    <option value="BLR">Bangalore (BLR)</option>
-                    <option value="MAA">Chennai (MAA)</option>
-                    <option value="HYD">Hyderabad (HYD)</option>
-                    <option value="CCU">Kolkata (CCU)</option>
-                    <option value="JFK">New York (JFK)</option>
-                    <option value="LAX">Los Angeles (LAX)</option>
-                    <option value="LHR">London (LHR)</option>
-                    <option value="CDG">Paris (CDG)</option>
-                    <option value="FRA">Frankfurt (FRA)</option>
-                    <option value="DXB">Dubai (DXB)</option>
-                    <option value="SIN">Singapore (SIN)</option>
-                    <option value="HKG">Hong Kong (HKG)</option>
-                    <option value="NRT">Tokyo (NRT)</option>
-                    <option value="SYD">Sydney (SYD)</option>
-                    <option value="YYZ">Toronto (YYZ)</option>
-                    <option value="GRU">São Paulo (GRU)</option>
-                    <option value="JNB">Johannesburg (JNB)</option>
-                    <option value="CAI">Cairo (CAI)</option>
-                </select>
-            </div>
-            
-            <div class="input-group">
-                <label for="future-gender">FUTURE GENDER</label>
-                <select id="future-gender">
-                    <option value="" disabled selected>Select Gender</option>
-                    <option value="Male">MALE</option>
-                    <option value="Female">FEMALE</option>
-                    <option value="Others">OTHERS</option>
-                </select>
-            </div>
-            
-            <div class="name-next-container">
-                <div class="input-group">
-                    <label for="future-name">FUTURE NAME</label>
-                    <input type="text" id="future-name" placeholder="Enter your future name">
-                </div>
-                <button class="next-button" id="next-to-vip">NEXT</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Screen 6: VIP ID DISPLAY -->
-    <div class="screen" id="screen-6">
-        <div class="card">
-            <h2 class="card-title">YOUR IPNOTEC VIP ID</h2>
-            <p style="text-align: center; margin-bottom: 1.5rem; opacity: 0.8;">Your unique identity in the IPNOTEC ecosystem</p>
-            
-            <div class="result-display active">
-                <div>Your V[IP]: <span class="number" id="vip-id-display">IPV.BLR.FutureName.0</span></div>
-                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
-                    This is your unique identifier in the IPNOTEC multiverse
-                </p>
-            </div>
-            
-            <div class="payment-section">
-                <div class="payment-amount">Payment: ₹1001</div>
-                <p style="text-align: center; margin-bottom: 1rem; font-size: 0.9rem; opacity: 0.8;">
-                    Secure your unique identity in the IPNOTEC ecosystem
-                </p>
-                <button id="make-payment">PAY & GENERATE ID</button>
-                <button id="payment-simulation" style="margin-top: 10px; background: var(--green);">SIMULATE PAYMENT</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Screen 7: FINAL SCREEN -->
-    <div class="screen final-screen" id="screen-7">
-        <h1 class="final-title">V[IP]</h1>
-        <div class="user-id" id="final-user-id">IPNOTEC.VIP/UserID</div>
-        <div class="final-message" id="final-message">SEE YOU IN THE FUTURE, <span id="future-name-display">User</span></div>
         
-        <div class="progress-indicator">
-            <div class="progress-dot active"></div>
-            <div class="progress-dot active"></div>
-            <div class="progress-dot active"></div>
-            <div class="progress-dot active"></div>
-            <div class="progress-dot active"></div>
-            <div class="progress-dot active"></div>
-            <div class="progress-dot active"></div>
+        <!-- Screen 2: PAST CARD -->
+        <div class="screen" id="screen-2">
+            <div class="card">
+                <h2 class="card-title">PAST CARD</h2>
+                <p style="text-align: center; margin-bottom: 1.5rem; opacity: 0.8;">Your past shapes your digital identity</p>
+                
+                <div class="input-group">
+                    <label for="dob">Enter Your Date of Birth</label>
+                    <input type="date" id="dob" max="2023-12-31">
+                </div>
+                
+                <button id="calculate-dob">Calculate Past Sum</button>
+                
+                <div class="result-display" id="dob-result">
+                    <div>Your Past Sum: <span class="number" id="dob-sum">0</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Screen 3: PRESENT CARD -->
+        <div class="screen" id="screen-3">
+            <div class="card">
+                <h2 class="card-title">PRESENT CARD</h2>
+                <p style="text-align: center; margin-bottom: 1.5rem; opacity: 0.8;">Your current connection to the digital world</p>
+                
+                <div class="phone-container">
+                    <div class="input-group">
+                        <label for="country-code">Country Code</label>
+                        <input type="text" id="country-code" placeholder="+1" maxlength="4">
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" id="phone" placeholder="Phone Number">
+                    </div>
+                </div>
+                
+                <button id="calculate-phone">Calculate Present Sum</button>
+                
+                <div class="result-display" id="phone-result">
+                    <div>Your Present Sum: <span class="number" id="phone-sum">0</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Screen 4: MY IP -->
+        <div class="screen" id="screen-4">
+            <div class="card">
+                <h2 class="card-title">MY IP</h2>
+                <p style="text-align: center; margin-bottom: 1.5rem; opacity: 0.8;">Your unique identity in the IPNOTEC ecosystem</p>
+                
+                <div class="result-display active">
+                    <div>Your Past Sum: <span class="number" id="display-dob-sum">0</span></div>
+                    <div>Your Present Sum: <span class="number" id="display-phone-sum">0</span></div>
+                    <div style="margin-top: 1rem;">Your IP: <span class="number" id="ip-number">0</span></div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                        This is the number that connects your past and present
+                    </p>
+                </div>
+                
+                <button id="proceed-to-future">STEP INTO THE FUTURE</button>
+            </div>
+        </div>
+        
+        <!-- Screen 5: FUTURE CARD -->
+        <div class="screen" id="screen-5">
+            <div class="card">
+                <h2 class="card-title">FUTURE CARD</h2>
+                <p style="text-align: center; margin-bottom: 1.5rem; opacity: 0.8;">Create your future identity in the IPNOTEC ecosystem</p>
+                
+                <div class="input-group">
+                    <label>FUTURE TRIBE (VIBGYOR)</label>
+                    <div class="color-options">
+                        <div class="color-option violet" data-color="violet" data-name="Violet Visionary" style="background-color: var(--violet);">
+                            <div>Violet</div>
+                            <div>Visionary</div>
+                        </div>
+                        <div class="color-option indigo" data-color="indigo" data-name="Indigo Innovator" style="background-color: var(--indigo);">
+                            <div>Indigo</div>
+                            <div>Innovator</div>
+                        </div>
+                        <div class="color-option blue" data-color="blue" data-name="Blue Strategist" style="background-color: var(--blue);">
+                            <div>Blue</div>
+                            <div>Strategist</div>
+                        </div>
+                        <div class="color-option green" data-color="green" data-name="Green Entrepreneur" style="background-color: var(--green);">
+                            <div>Green</div>
+                            <div>Entrepreneur</div>
+                        </div>
+                        <div class="color-option yellow" data-color="yellow" data-name="Yellow Pioneer" style="background-color: var(--yellow);">
+                            <div>Yellow</div>
+                            <div>Pioneer</div>
+                        </div>
+                        <div class="color-option orange" data-color="orange" data-name="Orange Creator" style="background-color: var(--orange);">
+                            <div>Orange</div>
+                            <div>Creator</div>
+                        </div>
+                        <div class="color-option red" data-color="red" data-name="Red Disruptor" style="background-color: var(--red);">
+                            <div>Red</div>
+                            <div>Disruptor</div>
+                        </div>
+                        <div class="color-option grey" data-color="grey" data-name="Grey Analyst" style="background-color: var(--grey);">
+                            <div>Grey</div>
+                            <div>Analyst</div>
+                        </div>
+                        <div class="color-option white" data-color="white" data-name="White Policy Maker" style="background-color: var(--white); color: #000; text-shadow: none;">
+                            <div>White</div>
+                            <div>Policy Maker</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="future-city">FUTURE CITY</label>
+                    <select id="future-city">
+                        <option value="" disabled selected>Select City</option>
+                        <option value="DEL">Delhi (DEL)</option>
+                        <option value="BOM">Mumbai (BOM)</option>
+                        <option value="BLR">Bangalore (BLR)</option>
+                        <option value="MAA">Chennai (MAA)</option>
+                        <option value="HYD">Hyderabad (HYD)</option>
+                        <option value="CCU">Kolkata (CCU)</option>
+                        <option value="JFK">New York (JFK)</option>
+                        <option value="LAX">Los Angeles (LAX)</option>
+                        <option value="LHR">London (LHR)</option>
+                        <option value="CDG">Paris (CDG)</option>
+                        <option value="FRA">Frankfurt (FRA)</option>
+                        <option value="DXB">Dubai (DXB)</option>
+                        <option value="SIN">Singapore (SIN)</option>
+                        <option value="HKG">Hong Kong (HKG)</option>
+                        <option value="NRT">Tokyo (NRT)</option>
+                        <option value="SYD">Sydney (SYD)</option>
+                        <option value="YYZ">Toronto (YYZ)</option>
+                        <option value="GRU">São Paulo (GRU)</option>
+                        <option value="JNB">Johannesburg (JNB)</option>
+                        <option value="CAI">Cairo (CAI)</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="future-gender">FUTURE GENDER</label>
+                    <select id="future-gender">
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="Male">MALE</option>
+                        <option value="Female">FEMALE</option>
+                        <option value="Others">OTHERS</option>
+                    </select>
+                </div>
+                
+                <div class="name-next-container">
+                    <div class="input-group">
+                        <label for="future-name">FUTURE NAME</label>
+                        <input type="text" id="future-name" placeholder="Enter your future name">
+                    </div>
+                    <button class="next-button" id="next-to-vip">NEXT</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Screen 6: VIP ID DISPLAY -->
+        <div class="screen" id="screen-6">
+            <div class="card">
+                <h2 class="card-title">YOUR IPNOTEC VIP ID</h2>
+                <p style="text-align: center; margin-bottom: 1.5rem; opacity: 0.8;">Your unique identity in the IPNOTEC ecosystem</p>
+                
+                <div class="result-display active">
+                    <div>Your V[IP]: <span class="number" id="vip-id-display">IPV.BLR.FutureName.0</span></div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                        This is your unique identifier Virtual IP in the IPNOTEC multiverse
+                    </p>
+                </div>
+                
+                <div class="payment-section">
+                    <div class="payment-amount">Payment: ₹1001</div>
+                    <p style="text-align: center; margin-bottom: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                        Secure your unique identity in the IPNOTEC ecosystem
+                    </p>
+                    <button id="make-payment">PAY & GENERATE ID</button>
+                    <button id="payment-simulation" style="margin-top: 10px; background: var(--green);">SIMULATE PAYMENT</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Screen 7: FINAL SCREEN -->
+        <div class="screen final-screen" id="screen-7">
+            <h1 class="final-title">V[IP]</h1>
+            <div class="user-id" id="final-user-id">IPNOTEC.VIP/UserID</div>
+            <div class="final-message" id="final-message">SEE YOU IN THE FUTURE, <span id="future-name-display">User</span></div>
+            
+            <div class="progress-indicator">
+                <div class="progress-dot active"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot active"></div>
+            </div>
         </div>
     </div>
 
@@ -1698,7 +1738,7 @@
             </div>
         </div>
 
-        <!-- Color Picker -->
+        <!-- Color Picker - Updated to be smaller and square -->
         <div class="color-picker">
             <div class="pc-color-option violet active" style="background-color: var(--violet);" onclick="changeColor('violet')"></div>
             <div class="pc-color-option indigo" style="background-color: var(--indigo);" onclick="changeColor('indigo')"></div>
@@ -2500,12 +2540,19 @@
                                 newResponse.className = 'response';
                                 terminalBody.appendChild(newResponse);
                                 
+                                // Get user's gender for chat color
+                                const userGender = document.getElementById('future-gender').value;
+                                let userColor;
+                                if (userGender === 'Male') userColor = 'blue';
+                                else if (userGender === 'Female') userColor = '#FF69B4';
+                                else userColor = 'linear-gradient(to right, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3)';
+                                
                                 typeWriter(
                                     "USER CONNECTED\n" +
                                     "-----------------------\n" +
                                     "IPNOTEC ID: " + userFutureID + "\n" +
                                     "STATUS: <span class=\"green\">ACTIVE</span>\n\n" +
-                                    "> READY FOR PORTAL ENTRY",
+                                    "> JOIN VIBGYOR CHAT<span class=\"cursor\"></span>",
                                     newResponse,
                                     30,
                                     function() {
@@ -2516,6 +2563,74 @@
                                         
                                         // Scroll to bottom
                                         terminalBody.scrollTop = terminalBody.scrollHeight;
+                                        
+                                        // After another delay, show the chat simulation
+                                        setTimeout(() => {
+                                            const cursor = document.querySelector('.cursor');
+                                            if (cursor) cursor.style.display = 'none';
+                                            
+                                            const newCommand = document.createElement('div');
+                                            newCommand.className = 'command';
+                                            newCommand.textContent = '> JOIN VIBGYOR CHAT';
+                                            terminalBody.appendChild(newCommand);
+                                            
+                                            const newResponse = document.createElement('div');
+                                            newResponse.className = 'response';
+                                            terminalBody.appendChild(newResponse);
+                                            
+                                            // Simulate VIBGYOR users chatting
+                                            const vibgyorChat = `
+    JOINING VIBGYOR CHAT...
+    -----------------------
+    
+    <div class="chat-message">
+        <div class="chat-user" style="color: var(--violet)">[VIP] VioletVisionary:</div>
+        <div class="chat-content">Welcome to the future, ${document.getElementById('future-name').value}!</div>
+    </div>
+    
+    <div class="chat-message">
+        <div class="chat-user" style="color: var(--indigo)">[VIP] IndigoInnovator:</div>
+        <div class="chat-content">Great to see another visionary joining our ecosystem!</div>
+    </div>
+    
+    <div class="chat-message">
+        <div class="chat-user" style="color: var(--blue)">[VIP] BlueStrategist:</div>
+        <div class="chat-content">Your branding strategy looks promising. Let's connect!</div>
+    </div>
+    
+    <div class="chat-message">
+        <div class="chat-user" style="color: var(--green)">[VIP] GreenEntrepreneur:</div>
+        <div class="chat-content">Love your sustainable approach. The future needs more like you!</div>
+    </div>
+    
+    <div class="chat-message">
+        <div class="chat-user" style="color: var(--yellow)">[VIP] YellowPioneer:</div>
+        <div class="chat-content">Young blood! Excited to see what you'll create.</div>
+    </div>
+    
+    <div class="chat-message">
+        <div class="chat-user" style="color: var(--orange)">[VIP] OrangeCreator:</div>
+        <div class="chat-content">Wisdom meets innovation. Perfect combination!</div>
+    </div>
+    
+    <div class="chat-message">
+        <div class="chat-user" style="color: var(--red)">[VIP] RedDisruptor:</div>
+        <div class="chat-content">Ready to disrupt the status quo together?</div>
+    </div>
+    
+    <div class="chat-message">
+        <div class="chat-user" style="color: ${userGender === 'Male' ? 'var(--blue)' : userGender === 'Female' ? '#FF69B4' : 'transparent'}; ${userGender === 'Others' ? 'background: linear-gradient(to right, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3); -webkit-background-clip: text; -webkit-text-fill-color: transparent;' : ''}">[VIP] ${document.getElementById('future-name').value}:</div>
+        <div class="chat-content">Thank you all for the warm welcome! Excited to be part of this visionary community.</div>
+    </div>
+    
+    > READY TO EXPLORE THE MULTIVERSE<span class="cursor"></span>
+                                            `;
+                                            
+                                            newResponse.innerHTML = vibgyorChat;
+                                            
+                                            // Scroll to bottom
+                                            terminalBody.scrollTop = terminalBody.scrollHeight;
+                                        }, 1500);
                                     }
                                 );
                             }, 1500);
