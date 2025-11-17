@@ -122,7 +122,6 @@
         .whatsapp-color { --current-color: #25D366; }
         
         /* Screen 1: Become Nothing */
-        /* --- CHANGE: Make Screen 1 Black and White --- */
         .become-nothing-screen {
             background: #000000; /* Pure black background */
         }
@@ -180,8 +179,7 @@
             background: rgba(255, 255, 255, 0.1); /* White hover */
             box-shadow: 0 0 20px #FFFFFF; /* White glow on hover */
         }
-        /* --- END CHANGE --- */
-
+        
         /* Card Styles */
         .card {
             background: rgba(0, 0, 30, 0.7);
@@ -311,7 +309,6 @@
         /* Future Tribe Selection */
         .color-options {
             display: grid;
-            /* --- CHANGE: Update grid to 3 columns for 9 items --- */
             grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
             margin-top: 1rem;
@@ -411,6 +408,22 @@
         .progress-dot.active {
             background: var(--current-color);
             box-shadow: 0 0 10px var(--current-color);
+        }
+        
+        /* Name and Next Button Container */
+        .name-next-container {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+        
+        .name-next-container .input-group {
+            flex: 1;
+        }
+        
+        .name-next-container .next-button {
+            flex: 0 0 100px;
+            margin-top: 0;
         }
         
         /* Virtual PC Styles */
@@ -1228,7 +1241,6 @@
         }
         
         /* Tabs */
-        /* --- CHANGE: Hide the tab bar --- */
         .tabs {
             position: fixed;
             bottom: 0;
@@ -1240,7 +1252,6 @@
             padding: 10px 0;
             z-index: 50;
         }
-        /* --- END CHANGE --- */
         
         .tab {
             padding: 12px 25px;
@@ -1262,6 +1273,24 @@
         .tab.active {
             background: var(--active-color);
             box-shadow: 0 0 10px var(--active-color);
+        }
+        
+        /* Custom Alert */
+        #custom-alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(30, 30, 30, 0.95);
+            border: 2px solid var(--current-color);
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 0 30px var(--current-color);
+            z-index: 1001;
+            text-align: center;
+            color: var(--white);
         }
         
         /* Responsive adjustments */
@@ -1346,6 +1375,14 @@
                 padding: 8px 15px;
                 margin: 3px;
                 font-size: 0.8rem;
+            }
+            
+            .name-next-container {
+                flex-direction: column;
+            }
+            
+            .name-next-container .next-button {
+                width: 100%;
             }
         }
     </style>
@@ -1466,35 +1503,71 @@
                         <div>Grey</div>
                         <div>Analyst</div>
                     </div>
-                    <!-- --- CHANGE: Added White Policy Maker option --- -->
                     <div class="color-option white" data-color="white" data-name="White Policy Maker" style="background-color: var(--white); color: #000; text-shadow: none;">
                         <div>White</div>
                         <div>Policy Maker</div>
                     </div>
-                    <!-- --- END CHANGE --- -->
                 </div>
             </div>
             
             <div class="input-group">
                 <label for="future-city">FUTURE CITY</label>
-                <input type="text" id="future-city" placeholder="Enter your future city">
+                <select id="future-city">
+                    <option value="" disabled selected>Select City</option>
+                    <option value="DEL">Delhi (DEL)</option>
+                    <option value="BOM">Mumbai (BOM)</option>
+                    <option value="BLR">Bangalore (BLR)</option>
+                    <option value="MAA">Chennai (MAA)</option>
+                    <option value="HYD">Hyderabad (HYD)</option>
+                    <option value="CCU">Kolkata (CCU)</option>
+                    <option value="JFK">New York (JFK)</option>
+                    <option value="LAX">Los Angeles (LAX)</option>
+                    <option value="LHR">London (LHR)</option>
+                    <option value="CDG">Paris (CDG)</option>
+                    <option value="FRA">Frankfurt (FRA)</option>
+                    <option value="DXB">Dubai (DXB)</option>
+                    <option value="SIN">Singapore (SIN)</option>
+                    <option value="HKG">Hong Kong (HKG)</option>
+                    <option value="NRT">Tokyo (NRT)</option>
+                    <option value="SYD">Sydney (SYD)</option>
+                    <option value="YYZ">Toronto (YYZ)</option>
+                    <option value="GRU">São Paulo (GRU)</option>
+                    <option value="JNB">Johannesburg (JNB)</option>
+                    <option value="CAI">Cairo (CAI)</option>
+                </select>
             </div>
             
             <div class="input-group">
                 <label for="future-gender">FUTURE GENDER</label>
-                <!-- --- CHANGE: Updated Gender dropdown --- -->
                 <select id="future-gender">
                     <option value="" disabled selected>Select Gender</option>
                     <option value="Male">MALE</option>
                     <option value="Female">FEMALE</option>
                     <option value="Others">OTHERS</option>
                 </select>
-                <!-- --- END CHANGE --- -->
             </div>
             
-            <div class="input-group">
-                <label for="future-name">FUTURE NAME</label>
-                <input type="text" id="future-name" placeholder="Enter your future name">
+            <div class="name-next-container">
+                <div class="input-group">
+                    <label for="future-name">FUTURE NAME</label>
+                    <input type="text" id="future-name" placeholder="Enter your future name">
+                </div>
+                <button class="next-button" id="next-to-vip">NEXT</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Screen 6: VIP ID DISPLAY -->
+    <div class="screen" id="screen-6">
+        <div class="card">
+            <h2 class="card-title">YOUR IPNOTEC VIP ID</h2>
+            <p style="text-align: center; margin-bottom: 1.5rem; opacity: 0.8;">Your unique identity in the IPNOTEC ecosystem</p>
+            
+            <div class="result-display active">
+                <div>Your V[IP]: <span class="number" id="vip-id-display">IPV.BLR.FutureName.0</span></div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                    This is your unique identifier in the IPNOTEC multiverse
+                </p>
             </div>
             
             <div class="payment-section">
@@ -1503,17 +1576,19 @@
                     Secure your unique identity in the IPNOTEC ecosystem
                 </p>
                 <button id="make-payment">PAY & GENERATE ID</button>
+                <button id="payment-simulation" style="margin-top: 10px; background: var(--green);">SIMULATE PAYMENT</button>
             </div>
         </div>
     </div>
     
-    <!-- Screen 6: FINAL SCREEN -->
-    <div class="screen final-screen" id="screen-6">
+    <!-- Screen 7: FINAL SCREEN -->
+    <div class="screen final-screen" id="screen-7">
         <h1 class="final-title">V[IP]</h1>
         <div class="user-id" id="final-user-id">IPNOTEC.VIP/UserID</div>
         <div class="final-message" id="final-message">SEE YOU IN THE FUTURE, <span id="future-name-display">User</span></div>
         
         <div class="progress-indicator">
+            <div class="progress-dot active"></div>
             <div class="progress-dot active"></div>
             <div class="progress-dot active"></div>
             <div class="progress-dot active"></div>
@@ -1944,12 +2019,9 @@
         let userFutureID = '';
         let paymentCompleted = false;
         
-        // Taken names for simulation
-        const takenNames = ['Nexus', 'Quantum', 'Vortex', 'Nova', 'Orion', 'Zenith', 'Eclipse', 'Helios', 'Solar', 'Blaze'];
-
         // Color name mappings
         const colorNames = {
-            violet: "VIP",
+            violet: "IPV",
             indigo: "IPI",
             blue: "IPB",
             green: "IPG",
@@ -1959,20 +2031,6 @@
             white: "IPW",
             grey: "IPGY",
             black: "IPBL"
-        };
-
-        // Random name generators by color
-        const randomNames = {
-            violet: ["Nexus", "Quantum", "Vortex", "Nova", "Orion", "Zenith", "Eclipse"],
-            indigo: ["Neptune", "Azure", "Mariner", "Abyss", "Deep", "Triton", "Cobalt"],
-            blue: ["Aero", "Stratus", "Cirrus", "Zephyr", "Nimbus", "Cumulus", "Sky"],
-            green: ["Verdant", "Emerald", "Jade", "Forest", "Moss", "Olive", "Clover"],
-            yellow: ["Helios", "Solar", "Phoenix", "Blaze", "Flare", "Radiance", "Dawn"],
-            orange: ["Ember", "Amber", "Topaz", "Copper", "Rust", "Tiger", "Sienna"],
-            red: ["Crimson", "Scarlet", "Ruby", "Garnet", "Blaze", "Flame", "Rose"],
-            white: ["Pearl", "Ivory", "Alabaster", "Crystal", "Diamond", "Frost", "Ghost"],
-            grey: ["Slate", "Steel", "Iron", "Silver", "Mercury", "Ash", "Smoke"],
-            black: ["Void", "Abyss", "Onyx", "Shadow", "Eclipse", "Midnight", "Obsidian"]
         };
 
         // Initialize the app
@@ -1990,7 +2048,9 @@
             document.getElementById('calculate-dob').addEventListener('click', calculateDOBSum);
             document.getElementById('calculate-phone').addEventListener('click', calculatePhoneSum);
             document.getElementById('proceed-to-future').addEventListener('click', nextScreen);
+            document.getElementById('next-to-vip').addEventListener('click', nextToVIP);
             document.getElementById('make-payment').addEventListener('click', generateFinalID);
+            document.getElementById('payment-simulation').addEventListener('click', simulatePayment);
             
             // Set up tribe selection
             document.querySelectorAll('.color-option').forEach(option => {
@@ -2014,7 +2074,7 @@
             document.querySelector('.color-option[data-color="blue"]').classList.add('selected');
             updateThemeColor('blue');
             
-            // --- CHANGE: Add event listener for Gender dropdown ---
+            // Add event listener for Gender dropdown
             document.getElementById('future-gender').addEventListener('change', function() {
                 const futureNameInput = document.getElementById('future-name');
                 const selectedGender = this.value;
@@ -2042,7 +2102,6 @@
                     futureNameInput.style.webkitTextFillColor = 'unset';
                 }
             });
-            // --- END CHANGE ---
 
             // Virtual PC initialization
             const pcPower = document.getElementById('pcPower');
@@ -2070,50 +2129,6 @@
                     });
                 }
             });
-            
-            // Terminal functionality
-            // We find *all* enter-btns, though there is only one
-            const enterBtns = document.querySelectorAll('.enter-btn');
-            const terminalWindow = document.getElementById('terminalWindow');
-            const terminalBody = document.getElementById('terminalBody');
-            
-            if (enterBtns.length > 0) {
-                // Add listener to the first one found (which is the main desktop)
-                // This is safer than a single ID lookup if IDs change
-                // We will add listeners to all buttons found just in case
-                enterBtns.forEach(enterBtn => {
-                    // Check if the button is one of the app-launching buttons
-                    if (!enterBtn.getAttribute('onclick')) {
-                        // This is likely the main "ENTER" button, but this is a fragile check.
-                        // A better check might be to see if it's NOT an app button.
-                        // For now, let's assume the first button in the list that *doesn't* have an onclick
-                        // is the one we want.
-                        // Let's just re-find the buttons *inside* the logo section
-                        // to be sure we're not getting the app buttons.
-                    }
-                });
-
-                // The original logic was to find *the* enter-btn. 
-                // The issue is the app buttons *also* have the class 'enter-btn'.
-                // Let's target the buttons inside '.logo-section' specifically for apps,
-                // and if we need a main "Enter" button, it should have a unique ID or class.
-                
-                // The current HTML has no main "Enter" button, but rather buttons for each app.
-                // The terminal window seems to be hidden by default.
-                // Let's re-read the code...
-                // Ah, I see. The terminal window is *hidden* and there is no button to show it.
-                // The *original* code had an event listener for `.enter-btn` that showed the terminal.
-                // This must have been a mistake in the original file, as *all* buttons have that class.
-                // Let's find the original listener again.
-                // if (enterBtn) { ... } -> This implies `enterBtn` was `document.querySelector('.enter-btn')`
-                // This is bad.
-                // I will assume the terminal *should* be shown, so I'll show it.
-                terminalWindow.style.display = 'block';
-
-                // The old logic for typing in the terminal after a click is now broken.
-                // I will modify it to type *after* the boot sequence.
-                // This logic is now in `simulateBoot`, at the end.
-            }
         });
         
         // Create circuit background with social media colors
@@ -2168,7 +2183,6 @@
             const dob = document.getElementById('dob').value;
             
             if (!dob) {
-                // Use a custom modal or message box instead of alert()
                 showCustomAlert("Please enter your Date of Birth.");
                 return;
             }
@@ -2220,14 +2234,12 @@
             setTimeout(nextScreen, 1500);
         }
         
-        // Generate final ID
-        function generateFinalID() {
-            // --- CHANGE: Get new values for validation and ID format ---
+        // Move to VIP ID screen
+        function nextToVIP() {
             const futureCity = document.getElementById('future-city').value;
-            const futureGender = document.getElementById('future-gender').value;
             const futureName = document.getElementById('future-name').value;
             
-            if (!futureCity || !futureName || !futureGender) {
+            if (!futureCity || !futureName) {
                 showCustomAlert("Please complete all future identity fields.");
                 return;
             }
@@ -2235,9 +2247,39 @@
             // Get color code from map
             const colorCode = colorNames[selectedTribe] || selectedTribe.toUpperCase();
             
-            // Generate unique user ID in the new format
-            const userId = `${colorCode}.${futureCity}.${futureName.replace(/\s/g, '')}`;
-            // --- END CHANGE ---
+            // Generate VIP ID in the new format: ColorCode.CityCode.FutureName.IPNumber
+            const vipId = `${colorCode}.${futureCity}.${futureName.replace(/\s/g, '')}.${ipNumber}`;
+            
+            // Display VIP ID
+            document.getElementById('vip-id-display').textContent = vipId;
+            
+            // Move to next screen
+            nextScreen();
+        }
+        
+        // Simulate payment
+        function simulatePayment() {
+            showCustomAlert("Payment simulation: ₹1001 payment successful!");
+            setTimeout(() => {
+                generateFinalID();
+            }, 1500);
+        }
+        
+        // Generate final ID
+        function generateFinalID() {
+            const futureCity = document.getElementById('future-city').value;
+            const futureName = document.getElementById('future-name').value;
+            
+            if (!futureCity || !futureName) {
+                showCustomAlert("Please complete all future identity fields.");
+                return;
+            }
+            
+            // Get color code from map
+            const colorCode = colorNames[selectedTribe] || selectedTribe.toUpperCase();
+            
+            // Generate unique user ID in the new format: ColorCode.CityCode.FutureName.IPNumber
+            const userId = `${colorCode}.${futureCity}.${futureName.replace(/\s/g, '')}.${ipNumber}`;
             
             // Display final ID
             document.getElementById('final-user-id').textContent = userId;
@@ -2264,8 +2306,6 @@
                 document.getElementById('userModel').textContent = `MODEL: ${userFutureID}`;
                 
                 // Set PC color to match user's chosen color
-                // No, PC color should be independent. User can change it.
-                // Let's set the *initial* PC color to their tribe color.
                 changeColor(selectedTribe); 
                 
                 // Initialize PC
@@ -2438,7 +2478,7 @@
                             mainContent.style.display = 'flex';
                             createParticles();
                             
-                            // --- CHANGE: Run terminal logic after boot ---
+                            // Run terminal logic after boot
                             const terminalBody = document.getElementById('terminalBody');
                             const terminalWindow = document.getElementById('terminalWindow');
                             terminalWindow.style.display = 'block'; // Show terminal
@@ -2479,8 +2519,6 @@
                                     }
                                 );
                             }, 1500);
-                            // --- END CHANGE ---
-
                         }, 500);
                     }, 500);
                 }
