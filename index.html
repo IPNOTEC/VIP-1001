@@ -134,6 +134,9 @@
         /* Screen 1: Become Nothing */
         .become-nothing-screen {
             background: #000000; /* Pure black background */
+            border: 4px solid var(--current-color);
+            box-shadow: 0 0 30px var(--current-color);
+            transition: border-color 0.5s ease, box-shadow 0.5s ease;
         }
         
         .blinking-i {
@@ -1223,7 +1226,7 @@
         
         /* Color Picker - Updated to be smaller and square */
         .color-picker {
-            position: fixed;
+            position: absolute;
             bottom: 20px;
             right: 20px;
             display: flex;
@@ -1436,6 +1439,20 @@
             <div class="reset-button" id="reset-button">
                 <i class="fas fa-redo"></i> RESET
             </div>
+            
+            <!-- Color Picker - Moved to first screen -->
+            <div class="color-picker">
+                <div class="pc-color-option violet" style="background-color: var(--violet);" onclick="changeColor('violet')"></div>
+                <div class="pc-color-option indigo" style="background-color: var(--indigo);" onclick="changeColor('indigo')"></div>
+                <div class="pc-color-option blue active" style="background-color: var(--blue);" onclick="changeColor('blue')"></div>
+                <div class="pc-color-option green" style="background-color: var(--green);" onclick="changeColor('green')"></div>
+                <div class="pc-color-option yellow" style="background-color: var(--yellow);" onclick="changeColor('yellow')"></div>
+                <div class="pc-color-option orange" style="background-color: var(--orange);" onclick="changeColor('orange')"></div>
+                <div class="pc-color-option red" style="background-color: var(--red);" onclick="changeColor('red')"></div>
+                <div class="pc-color-option grey" style="background-color: var(--grey);" onclick="changeColor('grey')"></div>
+                <div class="pc-color-option white" style="background-color: var(--white); border: 1px solid #000;" onclick="changeColor('white')"></div>
+                <div class="pc-color-option black" style="background-color: var(--black); border: 1px solid #333;" onclick="changeColor('black')"></div>
+            </div>
         </div>
         
         <!-- Screen 2: PAST CARD -->
@@ -1603,9 +1620,9 @@
                 <p style="text-align: center; margin-bottom: 1.5rem; opacity: 0.8;">Your unique identity in the IPNOTEC ecosystem</p>
                 
                 <div class="result-display active">
-                    <div>Your V[IP]: <span class="number" id="vip-id-display">IPV.BLR.FutureName.0</span></div>
+                    <div>Your VIP ID: <span class="number" id="vip-id-display">IPB.BLR.FutureName</span></div>
                     <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
-                        This is your unique identifier Virtual IP in the IPNOTEC multiverse
+                        This is your unique identifier in the IPNOTEC multiverse
                     </p>
                 </div>
                 
@@ -1736,20 +1753,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Color Picker - Updated to be smaller and square -->
-        <div class="color-picker">
-            <div class="pc-color-option violet active" style="background-color: var(--violet);" onclick="changeColor('violet')"></div>
-            <div class="pc-color-option indigo" style="background-color: var(--indigo);" onclick="changeColor('indigo')"></div>
-            <div class="pc-color-option blue" style="background-color: var(--blue);" onclick="changeColor('blue')"></div>
-            <div class="pc-color-option green" style="background-color: var(--green);" onclick="changeColor('green')"></div>
-            <div class="pc-color-option yellow" style="background-color: var(--yellow);" onclick="changeColor('yellow')"></div>
-            <div class="pc-color-option orange" style="background-color: var(--orange);" onclick="changeColor('orange')"></div>
-            <div class="pc-color-option red" style="background-color: var(--red);" onclick="changeColor('red')"></div>
-            <div class="pc-color-option grey" style="background-color: var(--grey);" onclick="changeColor('grey')"></div>
-            <div class="pc-color-option white" style="background-color: var(--white); border: 1px solid #000;" onclick="changeColor('white')"></div>
-            <div class="pc-color-option black" style="background-color: var(--black); border: 1px solid #333;" onclick="changeColor('black')"></div>
         </div>
 
         <!-- Tabs -->
@@ -2051,26 +2054,26 @@
         let selectedTribeName = 'Blue Strategist';
         
         // Virtual PC variables
-        let currentColor = 'green';
-        let currentColorCode = 'IPG';
+        let currentColor = 'blue';
+        let currentColorCode = 'IPB';
         let ipcCode = 0;
         let finalVIP = '';
         let futureID = '';
         let userFutureID = '';
         let paymentCompleted = false;
         
-        // Color name mappings
+        // Color name mappings - Updated with new codes
         const colorNames = {
-            violet: "IPV",
-            indigo: "IPI",
-            blue: "IPB",
-            green: "IPG",
-            yellow: "IPY",
-            orange: "IPO",
-            red: "IPR",
-            white: "IPW",
-            grey: "IPGY",
-            black: "IPBL"
+            violet: "VIP",   // Changed from "IPV"
+            indigo: "IPI",   // Keep as is
+            blue: "IPB",     // Keep as is
+            green: "IPG",    // Keep as is
+            yellow: "IPY",   // Keep as is
+            orange: "IPO",   // Keep as is
+            red: "IPR",      // Keep as is
+            white: "IPW",    // Keep as is
+            grey: "IPN",     // Changed from "IPGY" to "IPN"
+            black: "IPBL"    // Keep as is
         };
 
         // Initialize the app
@@ -2208,6 +2211,45 @@
             
             // Update CSS variable
             document.documentElement.style.setProperty('--current-color', getComputedStyle(document.documentElement).getPropertyValue(`--${color}`));
+            
+            // Update frame border color immediately
+            const firstScreen = document.getElementById('screen-1');
+            firstScreen.style.borderColor = `var(--${color})`;
+            firstScreen.style.boxShadow = `0 0 30px var(--${color})`;
+            
+            // Update blinking I and reset button colors
+            const blinkingI = document.getElementById('blinking-i');
+            const resetButton = document.getElementById('reset-button');
+            
+            blinkingI.style.color = `var(--${color})`;
+            blinkingI.style.textShadow = `0 0 20px var(--${color})`;
+            
+            resetButton.style.borderColor = `var(--${color})`;
+            resetButton.style.color = `var(--${color})`;
+            resetButton.style.boxShadow = `0 0 15px var(--${color})`;
+            
+            resetButton.addEventListener('mouseover', function() {
+                this.style.background = `rgba(${hexToRgb(getComputedStyle(document.documentElement).getPropertyValue(`--${color}`))}, 0.1)`;
+                this.style.boxShadow = `0 0 20px var(--${color})`;
+            });
+            
+            resetButton.addEventListener('mouseout', function() {
+                this.style.background = 'transparent';
+                this.style.boxShadow = `0 0 15px var(--${color})`;
+            });
+        }
+        
+        // Helper function to convert hex to rgb
+        function hexToRgb(hex) {
+            // Remove # if present
+            hex = hex.replace('#', '');
+            
+            // Parse the hex values
+            const r = parseInt(hex.substring(0, 2), 16);
+            const g = parseInt(hex.substring(2, 4), 16);
+            const b = parseInt(hex.substring(4, 6), 16);
+            
+            return `${r}, ${g}, ${b}`;
         }
         
         // Calculate digital root (sum to single digit)
@@ -2287,8 +2329,8 @@
             // Get color code from map
             const colorCode = colorNames[selectedTribe] || selectedTribe.toUpperCase();
             
-            // Generate VIP ID in the new format: ColorCode.CityCode.FutureName.IPNumber
-            const vipId = `${colorCode}.${futureCity}.${futureName.replace(/\s/g, '')}.${ipNumber}`;
+            // Generate VIP ID in the new format: ColorCode.CityCode.FutureName
+            const vipId = `${colorCode}.${futureCity}.${futureName.replace(/\s/g, '')}`;
             
             // Display VIP ID
             document.getElementById('vip-id-display').textContent = vipId;
@@ -2318,8 +2360,8 @@
             // Get color code from map
             const colorCode = colorNames[selectedTribe] || selectedTribe.toUpperCase();
             
-            // Generate unique user ID in the new format: ColorCode.CityCode.FutureName.IPNumber
-            const userId = `${colorCode}.${futureCity}.${futureName.replace(/\s/g, '')}.${ipNumber}`;
+            // Generate unique user ID in the new format: ColorCode.CityCode.FutureName
+            const userId = `${colorCode}.${futureCity}.${futureName.replace(/\s/g, '')}`;
             
             // Display final ID
             document.getElementById('final-user-id').textContent = userId;
@@ -2698,6 +2740,9 @@
             
             // Update active color variable
             document.documentElement.style.setProperty('--active-color', `var(--${color})`);
+            
+            // Update theme color for the entire app
+            updateThemeColor(color);
         }
         
         function loadContacts() {
