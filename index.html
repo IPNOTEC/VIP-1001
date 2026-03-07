@@ -3,299 +3,1363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPNOTEC | Digital World Map</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700;900&family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>IPNOTEC VIP | STEP INTO THE FUTURE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --violet: #8F00FF; --indigo: #0070C0; --blue: #00B0F0; --green: #45de12;
-            --yellow: #FFFF00; --orange: #FF6900; --red: #FF0000; --white: #FFFFFF;
-            --black: #000000; --grey: #777777;
-            --current-color: var(--blue);
-            --bg-color: var(--black);
-            --text-color: var(--white);
+            --v:#BF00FF; --i:#6A0EFF; --b:#00C8FF; --g:#39FF14;
+            --y:#FFE600; --o:#FF6200; --u:#FF00FF; --gr:#AAAAAA; --w:#FFFFFF;
+            --accent:#888888;
+            --bg:#000000;
+            --gold:#FFD700;
         }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; border-radius:0 !important; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* ===== GLOBAL 27% SHRINK ===== */
+        html { zoom: 0.73; }
 
         body, html {
-            width: 100%; height: 100%;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Rajdhani', sans-serif;
-            overflow: hidden;
-            transition: background-color 0.8s ease;
+            width:100%; height:100%;
+            background:#000;
+            color:#fff;
+            font-family:'Space Mono', monospace;
+            overflow:hidden;
         }
 
-        /* Sequenced Header Ribbon */
+        /* SCANLINES */
+        body::after {
+            content:'';
+            position:fixed; top:0; left:0; width:100%; height:100%;
+            background:repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.18) 2px, rgba(0,0,0,0.18) 4px);
+            pointer-events:none;
+            z-index:10000;
+        }
+
+        /* ====== HEADER ====== */
         .header-ribbon {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(5px);
-            text-align: center;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 4px;
-            color: rgba(255, 255, 255, 0.2); /* Dim by default */
-            z-index: 2000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position:fixed; top:0; left:0; width:100%; height:46px;
+            background:rgba(0,0,0,0.92);
+            border-bottom:2px solid var(--accent);
+            display:flex; align-items:center; justify-content:center;
+            font-family:'Orbitron', sans-serif;
+            font-size:0.78rem;
+            letter-spacing:6px;
+            z-index:5000;
+            overflow:hidden;
+        }
+        .header-ribbon::after {
+            content:'';
+            position:absolute; top:0; left:-80%;
+            width:40%; height:100%;
+            background:linear-gradient(90deg, transparent, rgba(0,200,255,0.18), transparent);
+            animation:hScan 3s linear infinite;
+        }
+        @keyframes hScan { to { left:160%; } }
+
+        .hchar {
+            display:inline-block;
+            color:rgba(255,255,255,0.25);
+            animation:hpulse 4s infinite ease-in-out;
+        }
+        @keyframes hpulse {
+            0%,100% { color:rgba(255,255,255,0.25); text-shadow:none; }
+            50% { color:#fff; text-shadow:0 0 12px #fff, 0 0 25px var(--accent); }
         }
 
-        .header-ribbon span {
-            display: inline-block;
-            animation: letterBrighten 3s infinite;
+        /* ====== FOOTER ====== */
+        footer {
+            position:fixed; bottom:0; left:0; width:100%; height:56px;
+            background:rgba(0,0,0,0.96);
+            border-top:2px solid var(--accent);
+            display:grid;
+            grid-template-columns: auto 1fr auto;
+            align-items:center;
+            padding:0 22px;
+            gap:12px;
+            z-index:5000;
+            transition: border-color 0.6s;
+        }
+        .footer-logo {
+            font-family:'Orbitron', sans-serif;
+            font-weight:900; font-size:1rem;
+            letter-spacing:5px;
+            color:var(--accent);
+            text-shadow:0 0 18px var(--accent);
+            transition: color 0.6s, text-shadow 0.6s;
+            white-space:nowrap;
+        }
+        /* ── CENTER: LAUNCH TOGGLE ── */
+        .footer-mid {
+            text-align:center;
+            font-family:'Orbitron', sans-serif;
+            cursor:pointer;
+            user-select:none;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:2px;
+        }
+        .ftr-launch-num {
+            font-size:0.68rem;
+            letter-spacing:6px;
+            color:rgba(255,255,255,0.45);
+            line-height:1;
+        }
+        .ftr-launch-num strong {
+            color:var(--accent);
+            text-shadow: 0 0 12px var(--accent);
+            font-weight:900;
+            letter-spacing:4px;
+            transition: color 0.6s, text-shadow 0.6s;
+        }
+        .ftr-date-reveal {
+            font-size:0.6rem; letter-spacing:3px;
+            color:var(--y); text-shadow:0 0 10px var(--y);
+            display:none;
+            white-space:nowrap;
+        }
+        #countdown {
+            font-size:0.6rem; letter-spacing:1px;
+            color:var(--accent); text-shadow:0 0 8px var(--accent);
+            font-weight:700;
+            transition: color 0.6s;
+        }
+        /* ── HOME BUTTON WITH ANIMATED CLOCK ZEROS ── */
+        .home-btn {
+            font-family:'Space Mono', monospace;
+            font-weight:700;
+            color:var(--accent);
+            border:2px solid var(--accent);
+            padding:6px 12px;
+            cursor:pointer;
+            background:transparent;
+            font-size:0.8rem;
+            transition:0.2s;
+            display:flex;
+            align-items:center;
+            gap:7px;
+            white-space:nowrap;
+        }
+        .home-btn:hover { background:var(--accent); color:#000; }
+        .home-btn:hover .clock-hand { background:#000; }
+
+        /* Clock face — inline SVG-style with CSS */
+        .clock-face {
+            display:inline-block;
+            width:14px; height:14px;
+            border:1.5px solid var(--accent);
+            position:relative;
+            vertical-align:middle;
+            flex-shrink:0;
+            transition:border-color 0.6s;
+        }
+        /* Center dot */
+        .clock-face::before {
+            content:'';
+            position:absolute;
+            top:50%; left:50%;
+            width:2px; height:2px;
+            background:var(--accent);
+            transform:translate(-50%,-50%);
+            transition:background 0.6s;
+        }
+        /* Clock hand */
+        .clock-hand {
+            position:absolute;
+            bottom:50%; left:50%;
+            width:1.5px; height:42%;
+            background:var(--accent);
+            transform-origin:bottom center;
+            margin-left:-0.75px;
+            box-shadow:0 0 3px var(--accent);
+            transition:background 0.6s, box-shadow 0.6s;
+        }
+        .clock-cw  .clock-hand { animation:handCW  2.4s linear infinite; }
+        .clock-ccw .clock-hand { animation:handCCW 3s linear infinite; }
+        @keyframes handCW  { from{transform:rotate(0deg)}   to{transform:rotate(360deg)}  }
+        @keyframes handCCW { from{transform:rotate(0deg)}   to{transform:rotate(-360deg)} }
+
+        /* ====== CONTENT WRAPPER ====== */
+        #cw {
+            position:absolute;
+            top:46px; left:0;
+            width:100%;
+            height:calc(100% - 102px);
+            overflow:hidden;
         }
 
-        @keyframes letterBrighten {
-            0%, 20%, 100% { color: rgba(255,255,255,0.2); text-shadow: none; }
-            10% { color: var(--white); text-shadow: 0 0 10px var(--white); }
+        /* ====== SCREENS ====== */
+        .screen {
+            position:absolute; top:0; left:0;
+            width:100%; height:100%;
+            display:none;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            overflow:hidden;
+        }
+        .screen.active { display:flex; }
+        .screen.scrollable { overflow-y:auto; justify-content:flex-start; padding-top:20px; }
+
+        /* ====== WORLD MAP BG ====== */
+        .wmap {
+            position:absolute; top:0; left:0; width:100%; height:100%;
+            background:url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg') no-repeat center;
+            background-size:contain;
+            opacity:0.07;
+            filter:invert(1) sepia(1) saturate(2) hue-rotate(170deg);
+            pointer-events:none;
         }
 
-        /* Main Framed Content Area */
-        #content-wrapper {
-            position: absolute;
-            top: 45px;
-            left: 0;
-            width: 100%;
-            height: calc(100% - 105px);
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        #view-frame {
-            width: 100%; height: 100%;
-            border: none;
-            display: none;
-            background: white;
-        }
-
-        .landing-container {
-            width: 100%; height: 100%;
-            display: flex; justify-content: center; align-items: center;
-            position: relative;
-        }
-
-        .world-map {
-            position: absolute; width: 100%; height: 100%;
-            opacity: 0.07;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg') no-repeat center;
-            background-size: contain;
-            filter: invert(1);
-            z-index: 2;
-        }
-
-        .blinking-i {
-            position: relative; z-index: 10;
-            font-size: min(15rem, 20vw);
-            color: var(--current-color);
-            text-shadow: 0 0 40px var(--current-color);
-            font-family: 'Space Mono', monospace;
-            font-weight: 900;
-            transition: 0.5s ease;
-        }
-
-        .floating-word {
-            position: absolute;
-            font-family: 'Space Mono', monospace;
-            font-weight: bold;
-            font-size: 0.9rem;
-            opacity: 0.5;
-            pointer-events: none;
-            z-index: 8;
-            transition: all 0.5s ease;
-        }
+        /* ====== LANDING ====== */
+        #screen-landing { position:relative; }
 
         .city-node {
-            position: absolute; z-index: 5;
-            display: flex; flex-direction: column; align-items: center;
-            opacity: 0.1; transition: 0.5s;
+            position:absolute;
+            display:flex; flex-direction:column; align-items:center;
+            opacity:0.08; transition:opacity 0.5s, transform 0.5s;
         }
-        .city-node.active { opacity: 1; transform: scale(1.1); }
-        .user-dot {
-            width: 5px; height: 5px;
-            background-color: var(--current-color);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--current-color);
+        .city-node.active { opacity:1; transform:scale(1.15); }
+        .city-dot {
+            width:6px; height:6px;
+            background:var(--accent);
+            box-shadow:0 0 14px var(--accent), 0 0 28px var(--accent);
         }
-        .city-code { font-family: 'Orbitron', sans-serif; font-size: 0.6rem; color: var(--text-color); margin-top: 3px; }
-
-        .btn-overlay {
-            position: absolute; bottom: 30px;
-            display: flex; gap: 20px; z-index: 15;
-        }
-        .action-btn {
-            padding: 10px 20px;
-            border: 1px solid var(--current-color);
-            background: rgba(0,0,0,0.8);
-            color: white;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .action-btn:hover { background: var(--current-color); color: black; }
-
-        /* Footer Overlay */
-        footer {
-            position: fixed; bottom: 0; left: 0; width: 100%;
-            height: 60px;
-            background: rgba(0, 0, 0, 0.95);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 0 25px; z-index: 2000;
-        }
-        .footer-logo { font-family: 'Orbitron', sans-serif; letter-spacing: 3px; color: var(--current-color); font-weight: bold; }
-        
-        /* New Footer Button with Slow Blinking Zeros */
-        .home-btn {
-            padding: 5px 15px;
-            border: 1px solid var(--current-color);
-            font-family: 'Space Mono', monospace;
-            font-weight: 900;
-            color: var(--current-color);
-            text-decoration: none;
-            border-radius: 3px;
-            transition: 0.3s;
-            cursor: pointer;
-            letter-spacing: 4px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .slow-zero {
-            animation: slowBlink 5s infinite ease-in-out;
-            opacity: 1;
+        .city-code {
+            font-family:'Orbitron', sans-serif;
+            font-size:0.55rem; letter-spacing:2px;
+            margin-top:4px; color:#fff;
         }
 
-        @keyframes slowBlink {
-            0%, 100% { opacity: 1; filter: brightness(1.2); }
-            50% { opacity: 0.2; filter: brightness(0.5); }
+        .big-i {
+            font-family:'Space Mono', monospace;
+            font-weight:700;
+            font-size:min(14rem, 20vw);
+            color:var(--accent);
+            text-shadow:0 0 40px var(--accent), 0 0 90px var(--accent), 0 0 140px var(--accent);
+            transition:color 0.5s, text-shadow 0.5s;
+            position:relative; z-index:10;
+            animation:bigIGlow 2s ease-in-out infinite;
+        }
+        @keyframes bigIGlow {
+            0%,100%{ text-shadow:0 0 40px var(--accent), 0 0 80px var(--accent); }
+            50%{ text-shadow:0 0 70px var(--accent), 0 0 130px var(--accent), 0 0 220px var(--accent); }
         }
 
-        .home-btn:hover { background: var(--current-color); color: black; }
+        .floating-phrase {
+            position:absolute;
+            font-family:'Orbitron', sans-serif;
+            font-size:clamp(0.6rem, 1.2vw, 1rem);
+            font-weight:700;
+            letter-spacing:7px;
+            opacity:0;
+            text-shadow:0 0 20px currentColor;
+            z-index:8;
+            animation:phraseAnim 3s ease-in-out forwards;
+            pointer-events:none;
+        }
+        @keyframes phraseAnim {
+            0%{opacity:0;transform:translateY(10px)}
+            20%{opacity:0.7}
+            80%{opacity:0.7}
+            100%{opacity:0;transform:translateY(-10px)}
+        }
 
-        /* Themes */
-        body.white-theme { background-color: var(--white); --text-color: var(--black); }
-        body.white-theme .header-ribbon { background: rgba(0,0,0,0.05); color: rgba(0,0,0,0.2); }
-        body.white-theme .world-map { filter: invert(0); }
-        body.white-theme footer { background: #f0f0f0; border-top-color: #ccc; }
+        .landing-btns {
+            position:absolute; bottom:22px;
+            display:flex; gap:16px; z-index:20; flex-wrap:wrap; justify-content:center;
+        }
+
+        /* ====== FORM BOX ====== */
+        .fbx {
+            width:min(500px,93vw);
+            border:2px solid var(--accent);
+            padding:36px 40px;
+            background:rgba(0,0,0,0.85);
+            box-shadow:0 0 50px rgba(0,200,255,0.08), inset 0 0 30px rgba(0,200,255,0.03);
+            position:relative;
+        }
+        .fbx::before { content:''; position:absolute; top:-2px; left:16px; width:70px; height:3px; background:var(--accent); }
+        .fbx::after  { content:''; position:absolute; bottom:-2px; right:16px; width:70px; height:3px; background:var(--accent); }
+
+        .corner { position:absolute; width:14px; height:14px; }
+        .ctlx { top:-2px; left:-2px; border-top:3px solid var(--accent); border-left:3px solid var(--accent); }
+        .ctrx { top:-2px; right:-2px; border-top:3px solid var(--accent); border-right:3px solid var(--accent); }
+        .cblx { bottom:-2px; left:-2px; border-bottom:3px solid var(--accent); border-left:3px solid var(--accent); }
+        .cbrx { bottom:-2px; right:-2px; border-bottom:3px solid var(--accent); border-right:3px solid var(--accent); }
+
+        .step-lbl {
+            font-family:'Orbitron', sans-serif;
+            font-size:0.55rem; letter-spacing:6px;
+            color:var(--accent); opacity:0.8;
+            margin-bottom:6px;
+        }
+        .form-title {
+            font-family:'Orbitron', sans-serif;
+            font-size:clamp(1.1rem,3vw,1.5rem);
+            font-weight:900; letter-spacing:2px;
+            color:#fff;
+            text-shadow:0 0 20px rgba(255,255,255,0.2);
+            margin-bottom:6px;
+            line-height:1.2;
+        }
+        .form-sub {
+            font-size:0.72rem; color:rgba(255,255,255,0.38);
+            margin-bottom:26px; letter-spacing:1px;
+            font-family:'Rajdhani', sans-serif;
+            line-height:1.5;
+        }
+
+        .igrp { margin-bottom:18px; }
+        .ilbl {
+            display:block;
+            font-size:0.55rem; letter-spacing:5px;
+            color:rgba(255,255,255,0.45);
+            margin-bottom:7px;
+            font-family:'Orbitron', sans-serif;
+        }
+        .tinput {
+            width:100%;
+            background:rgba(255,255,255,0.025);
+            border:1px solid rgba(0,200,255,0.35);
+            color:#fff;
+            padding:12px 14px;
+            font-family:'Space Mono', monospace;
+            font-size:0.95rem; letter-spacing:3px;
+            outline:none; transition:0.2s;
+        }
+        .tinput:focus {
+            border-color:var(--accent);
+            box-shadow:0 0 18px rgba(0,200,255,0.2);
+            background:rgba(0,200,255,0.04);
+        }
+        .tinput::placeholder { color:rgba(255,255,255,0.18); font-size:0.75rem; }
+
+        /* OTP */
+        .otp-row { display:flex; gap:10px; justify-content:center; margin:16px 0; }
+        .otp-box {
+            width:50px; height:58px;
+            background:rgba(255,255,255,0.02);
+            border:2px solid rgba(0,200,255,0.28);
+            color:#fff; text-align:center;
+            font-family:'Space Mono', monospace;
+            font-size:1.4rem; font-weight:700;
+            outline:none; transition:0.2s;
+        }
+        .otp-box:focus {
+            border-color:var(--accent);
+            box-shadow:0 0 18px rgba(0,200,255,0.3);
+            background:rgba(0,200,255,0.04);
+        }
+
+        /* BUTTONS */
+        .btn-main {
+            display:inline-block;
+            padding:12px 24px;
+            border:2px solid var(--accent);
+            background:rgba(0,200,255,0.06);
+            color:var(--accent);
+            font-family:'Orbitron', sans-serif;
+            font-size:0.72rem; font-weight:700;
+            letter-spacing:3px;
+            cursor:pointer;
+            transition:0.2s;
+            text-shadow:0 0 8px var(--accent);
+            box-shadow:0 0 14px rgba(0,200,255,0.15);
+            text-decoration:none;
+            text-align:center;
+        }
+        .btn-main:hover { background:var(--accent); color:#000; box-shadow:0 0 30px var(--accent); text-shadow:none; }
+        .btn-full { width:100%; padding:14px; font-size:0.72rem; margin-top:8px; }
+        .btn-vip { border-color:var(--y); color:var(--y); background:rgba(255,230,0,0.05); text-shadow:0 0 8px var(--y); box-shadow:0 0 14px rgba(255,230,0,0.12); }
+        .btn-vip:hover { background:var(--y); color:#000; box-shadow:0 0 30px var(--y); }
+        .btn-green { border-color:var(--g); color:var(--g); background:rgba(57,255,20,0.05); text-shadow:0 0 8px var(--g); }
+        .btn-green:hover { background:var(--g); color:#000; }
+
+        /* MSG */
+        .msgbox {
+            padding:9px 14px;
+            font-size:0.65rem; letter-spacing:2px;
+            margin-top:10px; display:none;
+            font-family:'Orbitron', sans-serif;
+        }
+        .msgbox.err { border:1px solid var(--o); color:var(--o); background:rgba(255,98,0,0.05); }
+        .msgbox.suc { border:1px solid var(--g); color:var(--g); background:rgba(57,255,20,0.05); }
+        .msgbox.show { display:block; }
+
+        /* PROGRESS DOTS */
+        .pdots { display:flex; gap:7px; justify-content:center; margin-bottom:18px; }
+        .pdot { width:7px; height:3px; background:rgba(255,255,255,0.15); transition:0.3s; }
+        .pdot.done { background:var(--accent); box-shadow:0 0 5px var(--accent); }
+        .pdot.now { width:18px; background:#fff; }
+
+        /* TEXT DIM */
+        .dim { color:rgba(255,255,255,0.35); font-size:0.65rem; letter-spacing:1px; font-family:'Rajdhani',sans-serif; }
+
+        /* ====== PATH CHOICE ====== */
+        #screen-path { background:#000; }
+        .path-grid {
+            display:grid; grid-template-columns:1fr 1fr; gap:14px;
+            width:min(580px,93vw); margin-top:18px;
+        }
+        .path-card {
+            border:2px solid;
+            padding:28px 18px; text-align:center;
+            cursor:pointer; transition:0.2s;
+            background:rgba(0,0,0,0.8);
+            position:relative; overflow:hidden;
+        }
+        .path-card::before {
+            content:''; position:absolute;
+            top:0; left:-100%; width:100%; height:2px;
+            animation:pcScan 2.5s linear infinite;
+        }
+        @keyframes pcScan { to { left:100%; } }
+        .path-card:hover { transform:translateY(-4px); }
+        .path-card.fp { border-color:var(--g); }
+        .path-card.fp::before { background:var(--g); }
+        .path-card.vp { border-color:var(--y); }
+        .path-card.vp::before { background:var(--y); }
+        .path-icon { font-size:2.2rem; margin-bottom:10px; display:block; }
+        .path-name {
+            font-family:'Orbitron', sans-serif;
+            font-size:0.85rem; font-weight:700; letter-spacing:4px; margin-bottom:8px;
+        }
+        .fp .path-name { color:var(--g); text-shadow:0 0 14px var(--g); }
+        .vp .path-name { color:var(--y); text-shadow:0 0 14px var(--y); }
+        .path-desc { font-size:0.62rem; color:rgba(255,255,255,0.38); line-height:1.6; font-family:'Rajdhani',sans-serif; }
+        .path-badge {
+            display:inline-block; margin-top:10px;
+            padding:3px 10px;
+            font-family:'Orbitron', sans-serif; font-size:0.5rem; letter-spacing:3px;
+            border:1px solid;
+        }
+        .fp .path-badge { color:var(--g); border-color:var(--g); }
+        .vp .path-badge { color:var(--y); border-color:var(--y); }
+
+        /* ====== PERSONA GRID ====== */
+        .persona-grid {
+            display:grid; grid-template-columns:repeat(3,1fr); gap:9px;
+            margin:16px 0;
+        }
+        .ptile {
+            padding:14px 8px; border:2px solid;
+            cursor:pointer; text-align:center;
+            transition:0.2s; position:relative;
+        }
+        .ptile:hover { transform:scale(1.03); }
+        .ptile.sel { box-shadow:0 0 22px var(--tc); }
+        .pltr {
+            font-family:'Space Mono', monospace;
+            font-weight:700; font-size:1.7rem;
+            display:block; margin-bottom:3px;
+        }
+        .pname {
+            font-size:0.48rem; letter-spacing:2px;
+            font-family:'Orbitron', sans-serif; opacity:0.8;
+        }
+
+        /* ====== JOURNEY ====== */
+        #screen-journey { background:#000; position:relative; }
+        .jw { position:relative; z-index:10; text-align:center; width:100%; }
+        .jlbl {
+            font-family:'Orbitron', sans-serif;
+            font-size:0.55rem; letter-spacing:8px;
+            color:rgba(255,255,255,0.35); margin-bottom:16px;
+        }
+        .jname {
+            font-family:'Space Mono', monospace; font-weight:700;
+            font-size:min(4rem,10vw);
+            color:var(--accent); text-shadow:0 0 40px var(--accent);
+            margin-bottom:8px;
+            animation:jNamePulse 1.8s ease-in-out infinite;
+        }
+        @keyframes jNamePulse {
+            0%,100%{ text-shadow:0 0 30px var(--accent), 0 0 60px var(--accent); }
+            50%{ text-shadow:0 0 70px var(--accent), 0 0 140px var(--accent); }
+        }
+        .jcity {
+            font-family:'Orbitron', sans-serif;
+            font-size:clamp(0.8rem,2vw,1.2rem); letter-spacing:5px;
+            color:var(--y); text-shadow:0 0 18px var(--y);
+            margin-bottom:22px;
+        }
+        .pcard {
+            display:inline-flex; gap:24px; flex-wrap:wrap; justify-content:center;
+            border:1px solid rgba(255,255,255,0.08);
+            padding:14px 24px; margin-bottom:22px;
+            background:rgba(0,0,0,0.6);
+        }
+        .pci { text-align:center; }
+        .pck { font-size:0.48rem; letter-spacing:4px; color:rgba(255,255,255,0.35); font-family:'Orbitron',sans-serif; display:block; margin-bottom:3px; }
+        .pcv { font-size:0.8rem; font-weight:700; letter-spacing:2px; }
+
+        .jpbar { width:min(380px,75vw); height:4px; background:rgba(255,255,255,0.08); margin:0 auto 14px; }
+        .jpfill { height:100%; background:var(--accent); box-shadow:0 0 10px var(--accent); width:0%; transition:width 0.08s linear; }
+        .jstatus { font-family:'Orbitron',sans-serif; font-size:0.55rem; letter-spacing:4px; color:rgba(255,255,255,0.38); }
+
+        /* DATA STREAMS */
+        .dstream {
+            position:absolute;
+            font-family:'Space Mono', monospace; font-size:0.5rem;
+            white-space:nowrap;
+            animation:dfall 5s linear infinite;
+            pointer-events:none;
+        }
+        @keyframes dfall {
+            0%{ transform:translateY(-20%); opacity:0; }
+            10%{ opacity:1; }
+            90%{ opacity:0.8; }
+            100%{ transform:translateY(110vh); opacity:0; }
+        }
+
+        /* ====== PAYMENT ====== */
+        #screen-payment { background:#000; }
+        .pay-amount {
+            font-family:'Space Mono', monospace; font-weight:700;
+            font-size:min(3.5rem,10vw);
+            color:var(--y); text-shadow:0 0 30px var(--y), 0 0 60px var(--y);
+            letter-spacing:4px; margin-bottom:8px;
+        }
+        .pay-label {
+            font-family:'Orbitron', sans-serif;
+            font-size:0.8rem; letter-spacing:6px;
+            color:rgba(255,255,255,0.5); margin-bottom:24px;
+        }
+        .pay-btn {
+            padding:16px 44px;
+            background:var(--y); color:#000;
+            border:none;
+            font-family:'Orbitron', sans-serif;
+            font-weight:900; font-size:0.9rem; letter-spacing:4px;
+            cursor:pointer;
+            box-shadow:0 0 30px rgba(255,230,0,0.45);
+            transition:0.2s;
+            animation:payPulse 2s ease-in-out infinite;
+        }
+        @keyframes payPulse {
+            0%,100%{ box-shadow:0 0 20px rgba(255,230,0,0.4); }
+            50%{ box-shadow:0 0 60px rgba(255,230,0,0.8), 0 0 120px rgba(255,230,0,0.3); }
+        }
+        .pay-btn:hover { transform:scale(1.04); }
+
+        .order-box {
+            border:1px solid rgba(255,255,255,0.09);
+            padding:16px; margin:18px 0; text-align:left;
+            background:rgba(255,255,255,0.015);
+        }
+        .order-row {
+            display:flex; justify-content:space-between;
+            font-size:0.7rem; margin-bottom:8px;
+        }
+        .order-row span:first-child { color:rgba(255,255,255,0.5); }
+
+        /* ====== PROCESSING ====== */
+        #screen-processing { background:#000; text-align:center; }
+        .proc-spin {
+            font-size:3.5rem;
+            animation:spinCol 0.6s steps(4) infinite;
+            display:block; margin-bottom:20px;
+        }
+        @keyframes spinCol {
+            0%{ content:'◰'; }
+            25%{ content:'◳'; }
+            50%{ content:'◲'; }
+            75%{ content:'◱'; }
+        }
+        .proc-status {
+            font-family:'Orbitron', sans-serif;
+            font-size:0.7rem; letter-spacing:4px;
+            color:var(--y); text-shadow:0 0 10px var(--y);
+            margin-top:10px;
+        }
+
+        /* ====== REVEAL ====== */
+        #screen-reveal { background:#000; }
+        .reveal-wrap { width:min(580px,92vw); padding:10px 0 20px; margin:0 auto; }
+        .ticket-chip {
+            font-family:'Space Mono', monospace; font-size:0.65rem;
+            letter-spacing:5px; color:var(--accent);
+            border:1px solid rgba(0,200,255,0.3);
+            padding:9px 18px; display:inline-block; margin-bottom:16px;
+        }
+        .rev-title {
+            font-family:'Orbitron', sans-serif;
+            font-size:clamp(1.6rem,5vw,2.3rem); font-weight:900;
+            letter-spacing:3px; margin-bottom:10px; line-height:1.2;
+        }
+        .rev-grid {
+            display:grid; grid-template-columns:1fr 1fr; gap:10px;
+            margin:18px 0;
+        }
+        .rev-item {
+            border:1px solid rgba(255,255,255,0.09);
+            padding:16px; background:rgba(255,255,255,0.018);
+        }
+        .rev-icon { font-size:1.1rem; margin-bottom:7px; display:block; }
+        .rev-ititle { font-family:'Orbitron',sans-serif; font-size:0.55rem; letter-spacing:3px; margin-bottom:5px; }
+        .rev-idesc { font-size:0.65rem; color:rgba(255,255,255,0.45); line-height:1.6; font-family:'Rajdhani',sans-serif; }
+        .ipnotec-cta {
+            display:block; padding:14px 26px;
+            border:2px solid var(--accent); color:var(--accent);
+            font-family:'Orbitron',sans-serif; font-size:0.7rem;
+            letter-spacing:4px; text-decoration:none;
+            text-shadow:0 0 8px var(--accent);
+            box-shadow:0 0 20px rgba(0,200,255,0.18);
+            transition:0.2s; text-align:center;
+        }
+        .ipnotec-cta:hover { background:var(--accent); color:#000; text-shadow:none; }
+
+        /* ====== FINAL ====== */
+        #screen-final { background:#000; position:relative; overflow:hidden; }
+        .final-see { font-family:'Orbitron',sans-serif; font-size:clamp(2rem,5vw,3rem); font-weight:900; letter-spacing:4px; animation:fglow 2.5s ease-in-out infinite; }
+        .final-in  { font-family:'Orbitron',sans-serif; font-size:clamp(2.5rem,6vw,3.8rem); font-weight:900; letter-spacing:4px; animation:fglow 2.5s ease-in-out infinite 0.2s; }
+        .final-future { font-family:'Orbitron',sans-serif; font-size:clamp(3rem,8vw,5.5rem); font-weight:900; letter-spacing:4px; animation:fglow 2.5s ease-in-out infinite 0.4s; }
+        @keyframes fglow {
+            0%,100%{ text-shadow:0 0 25px currentColor; }
+            50%{ text-shadow:0 0 70px currentColor, 0 0 140px currentColor; }
+        }
+
+        /* ====== FREE INTERNET ====== */
+        #screen-free { background:#000; text-align:center; padding:20px; }
+
+        /* ====== SCROLLBAR ====== */
+        ::-webkit-scrollbar { width:3px; }
+        ::-webkit-scrollbar-track { background:#000; }
+        ::-webkit-scrollbar-thumb { background:var(--accent); }
+
+        /* ====== RESPONSIVE ====== */
+        @media(max-width:480px) {
+            .path-grid { grid-template-columns:1fr; }
+            .rev-grid { grid-template-columns:1fr; }
+            .fbx { padding:24px 20px; }
+        }
     </style>
 </head>
-<body id="main-body">
+<body>
 
-    <div class="header-ribbon" id="header-text">STEP INTO THE FUTURE -></div>
+    <!-- HEADER -->
+    <div class="header-ribbon" id="hdr">STEP INTO THE FUTURE -></div>
 
-    <div id="content-wrapper">
-        <iframe id="view-frame" name="view-frame" src=""></iframe>
-        
-        <div class="landing-container" id="landing-page">
-            <div class="world-map"></div>
+    <!-- MAIN CONTENT -->
+    <div id="cw">
+
+        <!-- ===== LANDING ===== -->
+        <div class="screen active" id="screen-landing">
+            <div class="wmap"></div>
             <div id="map-nodes"></div>
             <div id="word-layer"></div>
-            <div class="blinking-i" id="main-i">I</div>
-            <div class="btn-overlay">
-                <button onclick="loadLink('https://i-pc.vercel.app')" class="action-btn">MY IPNOTEC</button>
-                <button onclick="loadLink('https://isp-eureka.vercel.app')" class="action-btn">FREE IPNOTEC INTERNET</button>
+            <div class="big-i" id="main-i">I</div>
+            <div class="landing-btns">
+                <button class="btn-main btn-green" onclick="startFlow('free')">FREE IPNOTEC INTERNET</button>
+                <button class="btn-main btn-vip" onclick="startFlow('vip')">◆ IPNOTEC VIP</button>
             </div>
         </div>
+
+        <!-- ===== PHONE ===== -->
+        <div class="screen" id="screen-phone">
+            <div class="fbx">
+                <div class="corner ctlx"></div><div class="corner ctrx"></div>
+                <div class="corner cblx"></div><div class="corner cbrx"></div>
+                <div class="pdots" id="ph-dots"></div>
+                <div class="step-lbl">STEP 01 · CONNECT</div>
+                <div class="form-title">ENTER YOUR<br>PHONE NUMBER</div>
+                <div class="form-sub">We'll send a 6-digit OTP to verify your identity</div>
+                <div class="igrp">
+                    <label class="ilbl">PHONE NUMBER</label>
+                    <input type="tel" class="tinput" id="phone-in" placeholder="+91 XXXXX XXXXX" maxlength="15">
+                </div>
+                <div class="msgbox err" id="phone-err">INVALID NUMBER. MINIMUM 10 DIGITS REQUIRED</div>
+                <button class="btn-main btn-full" onclick="sendOTP()">SEND OTP →</button>
+                <div class="dim" style="margin-top:14px;text-align:center">By continuing, you agree to IPNOTEC Terms of Service</div>
+            </div>
+        </div>
+
+        <!-- ===== OTP ===== -->
+        <div class="screen" id="screen-otp">
+            <div class="fbx">
+                <div class="corner ctlx"></div><div class="corner ctrx"></div>
+                <div class="corner cblx"></div><div class="corner cbrx"></div>
+                <div class="step-lbl">STEP 02 · AUTHENTICATE</div>
+                <div class="form-title">ENTER OTP</div>
+                <div class="form-sub" id="otp-sub">Code sent to your number</div>
+                <div class="otp-row">
+                    <input class="otp-box" maxlength="1" id="o0" type="text" inputmode="numeric" autocomplete="off">
+                    <input class="otp-box" maxlength="1" id="o1" type="text" inputmode="numeric" autocomplete="off">
+                    <input class="otp-box" maxlength="1" id="o2" type="text" inputmode="numeric" autocomplete="off">
+                    <input class="otp-box" maxlength="1" id="o3" type="text" inputmode="numeric" autocomplete="off">
+                    <input class="otp-box" maxlength="1" id="o4" type="text" inputmode="numeric" autocomplete="off">
+                    <input class="otp-box" maxlength="1" id="o5" type="text" inputmode="numeric" autocomplete="off">
+                </div>
+                <div class="msgbox err" id="otp-err">INCORRECT CODE. TRY AGAIN.</div>
+                <div class="msgbox suc" id="otp-suc">✓ IDENTITY VERIFIED</div>
+                <button class="btn-main btn-full" onclick="verifyOTP()">VERIFY →</button>
+                <div class="dim" style="margin-top:12px;text-align:center;cursor:pointer" onclick="sendOTP()">↺ Resend OTP</div>
+            </div>
+        </div>
+
+        <!-- ===== PATH CHOICE ===== -->
+        <div class="screen" id="screen-path" style="flex-direction:column;padding:20px;text-align:center">
+            <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:7px;color:rgba(255,255,255,0.4)">IDENTITY VERIFIED · CHOOSE YOUR PATH</div>
+            <div class="form-title" style="font-family:'Orbitron',sans-serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:900;letter-spacing:3px;text-align:center;margin-top:8px;margin-bottom:6px">WHICH FUTURE<br>CALLS TO YOU?</div>
+            <div class="dim" style="margin-bottom:4px">Select your access level to proceed</div>
+            <div class="path-grid">
+                <div class="path-card fp" onclick="takePath('free')">
+                    <span class="path-icon" style="color:var(--g)">◈</span>
+                    <div class="path-name">FREE INTERNET</div>
+                    <div class="path-desc">Connect to IPNOTEC's free internet service. No commitment. Access starts instantly.</div>
+                    <div class="path-badge">FREE · INSTANT ACCESS</div>
+                </div>
+                <div class="path-card vp" onclick="takePath('vip')">
+                    <span class="path-icon" style="color:var(--y)">◆</span>
+                    <div class="path-name">IPNOTEC VIP</div>
+                    <div class="path-desc">Create your future profile. Secure your place in history. First to step into the future.</div>
+                    <div class="path-badge">VIP · ₹ 1001</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== FREE INTERNET ===== -->
+        <div class="screen" id="screen-free">
+            <div style="width:min(480px,92vw);text-align:center">
+                <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:7px;color:var(--g);text-align:center;margin-bottom:14px">✓ FREE ACCESS GRANTED</div>
+                <div class="form-title" style="font-family:'Orbitron',sans-serif;font-size:clamp(1.5rem,5vw,2.2rem);font-weight:900;letter-spacing:3px;color:var(--g);text-shadow:0 0 30px var(--g);text-align:center;margin-bottom:12px">YOU ARE<br>CONNECTED</div>
+                <div class="dim" style="margin-bottom:28px;line-height:1.7">Welcome to IPNOTEC Free Internet.<br>Experience the future of connectivity — right now.</div>
+                <a href="https://isp-eureka.vercel.app" target="_blank" class="btn-main btn-green btn-full" style="display:block;text-decoration:none">LAUNCH FREE INTERNET →</a>
+                <div style="margin-top:24px;border:1px solid rgba(255,255,255,0.08);padding:20px;background:rgba(255,255,255,0.015)">
+                    <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:5px;color:var(--y);text-align:center;margin-bottom:8px">WANT THE FULL FUTURE?</div>
+                    <div class="dim" style="margin-bottom:14px;text-align:center">Upgrade to VIP. Create your future profile. Secure launch priority.</div>
+                    <button class="btn-main btn-vip btn-full" onclick="takePath('vip')">UPGRADE TO IPNOTEC VIP →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== DOB ===== -->
+        <div class="screen" id="screen-dob">
+            <div class="fbx">
+                <div class="corner ctlx"></div><div class="corner ctrx"></div>
+                <div class="corner cblx"></div><div class="corner cbrx"></div>
+                <div class="pdots" id="dob-dots"></div>
+                <div class="step-lbl">VIP PROFILE · 1 OF 4</div>
+                <div class="form-title">DATE OF BIRTH</div>
+                <div class="form-sub">Your birthdate anchors your place on the future timeline</div>
+                <div class="igrp">
+                    <label class="ilbl">DATE OF BIRTH</label>
+                    <input type="date" class="tinput" id="dob-in" style="color-scheme:dark">
+                </div>
+                <div class="msgbox err" id="dob-err">PLEASE SELECT YOUR DATE OF BIRTH</div>
+                <button class="btn-main btn-full btn-vip" onclick="saveDOB()">CONTINUE →</button>
+            </div>
+        </div>
+
+        <!-- ===== PERSONA ===== -->
+        <div class="screen" id="screen-persona">
+            <div class="fbx" style="width:min(560px,94vw);padding:28px 32px">
+                <div class="corner ctlx"></div><div class="corner ctrx"></div>
+                <div class="corner cblx"></div><div class="corner cbrx"></div>
+                <div class="pdots" id="per-dots"></div>
+                <div class="step-lbl">VIP PROFILE · 2 OF 4</div>
+                <div class="form-title">VIBGYOU PERSONA</div>
+                <div class="form-sub">The wavelength that defines your future identity</div>
+                <div class="persona-grid" id="pgrid"></div>
+                <div class="msgbox err" id="per-err">SELECT YOUR VIBGYOU PERSONA</div>
+                <button class="btn-main btn-full btn-vip" onclick="savePersona()">CONTINUE →</button>
+            </div>
+        </div>
+
+        <!-- ===== FUTURE CITY ===== -->
+        <div class="screen" id="screen-city">
+            <div class="fbx">
+                <div class="corner ctlx"></div><div class="corner ctrx"></div>
+                <div class="corner cblx"></div><div class="corner cbrx"></div>
+                <div class="pdots" id="city-dots"></div>
+                <div class="step-lbl">VIP PROFILE · 3 OF 4</div>
+                <div class="form-title">YOUR FUTURE CITY</div>
+                <div class="form-sub">Where will you be on JAN 10 2027 at 10:01 HRS?</div>
+                <div class="igrp">
+                    <label class="ilbl">FUTURE CITY</label>
+                    <input type="text" class="tinput" id="city-in" placeholder="e.g. BOMBAY 2027" style="text-transform:uppercase">
+                </div>
+                <div class="msgbox err" id="city-err">ENTER YOUR FUTURE CITY</div>
+                <button class="btn-main btn-full btn-vip" onclick="saveCity()">CONTINUE →</button>
+            </div>
+        </div>
+
+        <!-- ===== FUTURE NAME ===== -->
+        <div class="screen" id="screen-fname">
+            <div class="fbx">
+                <div class="corner ctlx"></div><div class="corner ctrx"></div>
+                <div class="corner cblx"></div><div class="corner cbrx"></div>
+                <div class="pdots" id="name-dots"></div>
+                <div class="step-lbl">VIP PROFILE · 4 OF 4</div>
+                <div class="form-title">YOUR FUTURE NAME</div>
+                <div class="form-sub">The name you'll carry when the future arrives</div>
+                <div class="igrp">
+                    <label class="ilbl">FUTURE NAME</label>
+                    <input type="text" class="tinput" id="fname-in" placeholder="e.g. NOVA SEVEN" style="text-transform:uppercase">
+                </div>
+                <div class="msgbox err" id="fname-err">ENTER YOUR FUTURE NAME</div>
+                <button class="btn-main btn-full btn-vip" onclick="saveFutureName()">GENERATE PROFILE →</button>
+            </div>
+        </div>
+
+        <!-- ===== JOURNEY ===== -->
+        <div class="screen" id="screen-journey">
+            <div class="wmap" id="j-wmap"></div>
+            <div id="j-streams"></div>
+            <div id="j-nodes"></div>
+            <div class="jw">
+                <div class="jlbl">INITIALIZING YOUR FUTURE TIMELINE</div>
+                <div class="jname" id="j-name">—</div>
+                <div class="jcity" id="j-city">—</div>
+                <div class="pcard" id="j-pcard"></div>
+                <div class="jpbar"><div class="jpfill" id="j-pfill"></div></div>
+                <div class="jstatus" id="j-status">CONNECTING TO FUTURE GRID...</div>
+            </div>
+        </div>
+
+        <!-- ===== PAYMENT ===== -->
+        <div class="screen" id="screen-payment">
+            <div class="fbx" style="text-align:center">
+                <div class="corner ctlx"></div><div class="corner ctrx"></div>
+                <div class="corner cblx"></div><div class="corner cbrx"></div>
+                <div class="step-lbl" style="text-align:center">SECURE TRANSACTION · IPNOTEC VIP</div>
+                <div class="form-title" style="text-align:center">TICKET TO<br>THE FUTURE</div>
+                <div class="dim" style="text-align:center;margin-bottom:20px">One-time access. Lifetime priority. Be first.</div>
+                <div class="pay-amount">₹ 1001</div>
+                <div class="pay-label">BUY TICKET TO THE FUTURE</div>
+                <div class="order-box">
+                    <div class="step-lbl" style="margin-bottom:12px">ORDER SUMMARY</div>
+                    <div class="order-row"><span>IPNOTEC VIP Membership</span><span>₹ 1001</span></div>
+                    <div class="order-row"><span>Future Profile Creation</span><span style="color:var(--g)">INCLUDED</span></div>
+                    <div class="order-row"><span>VIBGYOU Identity Lock</span><span style="color:var(--g)">INCLUDED</span></div>
+                    <div class="order-row"><span>Launch Priority Access</span><span style="color:var(--g)">INCLUDED</span></div>
+                    <div style="border-top:1px solid rgba(255,255,255,0.08);margin-top:10px;padding-top:10px;display:flex;justify-content:space-between;font-weight:700;font-size:0.85rem">
+                        <span>TOTAL</span><span style="color:var(--y)">₹ 1001</span>
+                    </div>
+                </div>
+                <button class="pay-btn" onclick="processPayment()">PAY ₹1001 →</button>
+                <div class="dim" style="text-align:center;margin-top:14px;font-size:0.58rem">SIMULATED TRANSACTION · NO REAL MONEY CHARGED</div>
+            </div>
+        </div>
+
+        <!-- ===== PROCESSING ===== -->
+        <div class="screen" id="screen-processing" style="background:#000;text-align:center">
+            <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:8px;color:rgba(255,255,255,0.35);margin-bottom:28px">PROCESSING TRANSACTION</div>
+            <div id="proc-frames" style="font-size:4rem;color:var(--y);text-shadow:0 0 40px var(--y);margin-bottom:22px">◰</div>
+            <div class="proc-status" id="proc-status">INITIATING SECURE TRANSFER...</div>
+        </div>
+
+        <!-- ===== REVEAL ===== -->
+        <div class="screen scrollable" id="screen-reveal" style="align-items:center">
+            <div class="reveal-wrap" style="text-align:center">
+                <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:6px;color:var(--g);margin-bottom:10px">✓ PAYMENT CONFIRMED · TICKET SECURED</div>
+                <div class="ticket-chip" id="ticket-chip">TKT-XXXXXXXX</div>
+                <div class="rev-title">WELCOME TO<br><span style="color:var(--y);text-shadow:0 0 25px var(--y)">THE FUTURE</span></div>
+                <div class="dim" style="margin-bottom:18px;line-height:1.7">Your VIP seat is reserved. Here is what awaits you when IPNOTEC APP launches.</div>
+                <div class="rev-grid">
+                    <div class="rev-item">
+                        <span class="rev-icon" style="color:var(--b)">◈</span>
+                        <div class="rev-ititle" style="color:var(--b)">IPNOTEC PC</div>
+                        <div class="rev-idesc">Your personal future-ready computer interface. Access from anywhere in the world.</div>
+                    </div>
+                    <div class="rev-item">
+                        <span class="rev-icon" style="color:var(--g)">◆</span>
+                        <div class="rev-ititle" style="color:var(--g)">FREE INTERNET</div>
+                        <div class="rev-idesc">Unlimited IPNOTEC internet access bundled with your VIP membership. Zero cost.</div>
+                    </div>
+                    <div class="rev-item">
+                        <span class="rev-icon" style="color:var(--v)">▲</span>
+                        <div class="rev-ititle" style="color:var(--v)">VIBGYOU IDENTITY</div>
+                        <div class="rev-idesc">Your persona, future name &amp; city — permanently locked to your profile.</div>
+                    </div>
+                    <div class="rev-item">
+                        <span class="rev-icon" style="color:var(--y)">◉</span>
+                        <div class="rev-ititle" style="color:var(--y)">LAUNCH PRIORITY</div>
+                        <div class="rev-idesc">First in line on JAN 10 2027 at 10:01 HRS. You go first. Always.</div>
+                    </div>
+                </div>
+                <div style="border:1px solid rgba(0,200,255,0.18);padding:20px;margin:16px 0;background:rgba(0,200,255,0.025)">
+                    <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:5px;color:var(--accent);text-align:center;margin-bottom:12px">PREVIEW YOUR FUTURE — RIGHT NOW</div>
+                    <a href="https://i-pc.vercel.app" target="_blank" class="ipnotec-cta">EXPLORE IPNOTEC PC →</a>
+                    <div class="dim" style="margin-top:10px;text-align:center">This is what you'll get when the IPNOTEC APP goes live.</div>
+                </div>
+                <button class="btn-main btn-full btn-vip" style="padding:16px;font-size:0.78rem;letter-spacing:5px;margin-top:8px" onclick="goTo('final')">SEE YOU IN THE FUTURE →</button>
+            </div>
+        </div>
+
+        <!-- ===== FINAL ===== -->
+        <div class="screen" id="screen-final">
+            <div class="wmap" style="opacity:0.04"></div>
+            <div id="final-streams"></div>
+            <div style="position:relative;z-index:10;text-align:center;padding:20px">
+                <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:9px;color:rgba(255,255,255,0.25);margin-bottom:24px">TRANSMISSION COMPLETE</div>
+                <div class="final-see" style="color:var(--accent)">SEE YOU</div>
+                <div class="final-in" style="color:var(--y)">IN THE</div>
+                <div class="final-future" style="color:#fff">FUTURE</div>
+                <div style="margin-top:26px;font-family:'Space Mono',monospace;font-size:0.7rem;color:rgba(255,255,255,0.25);letter-spacing:5px">JAN 10 2027 · 10:01 HRS</div>
+                <div style="margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+                    <a href="https://i-pc.vercel.app" target="_blank" class="btn-main" style="font-size:0.65rem;text-decoration:none">IPNOTEC PC →</a>
+                    <button class="btn-main btn-green" style="font-size:0.65rem" onclick="goTo('landing')">← BACK TO HOME</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <footer>
+    <!-- FOOTER -->
+    <footer id="site-footer">
         <div class="footer-logo">IPNOTEC</div>
-        <div class="home-btn" onclick="goHome()">
-            <span>|</span> <span class="slow-zero">0 0</span> <span>|</span>
+        <div class="footer-mid" onclick="toggleLaunchDate()" title="Click to reveal launch date">
+            <span class="ftr-launch-num" id="ftr-launch-txt">LAUNCH &nbsp;<strong>10</strong>&nbsp;&nbsp;<strong>01</strong></span>
+            <span class="ftr-date-reveal" id="ftr-date-reveal">JAN 10TH 2027 &nbsp;·&nbsp; 10:01 HRS IST</span>
+            <span id="countdown">—</span>
         </div>
+        <button class="home-btn" onclick="goTo('landing')">
+            <span>|</span>
+            <span class="clock-face clock-cw"><span class="clock-hand"></span></span>
+            <span class="clock-face clock-ccw"><span class="clock-hand"></span></span>
+            <span>|</span>
+        </button>
     </footer>
 
     <script>
-        // Animate Header Letters Sequence
-        const header = document.getElementById('header-text');
-        const text = header.innerText;
-        header.innerHTML = '';
-        [...text].forEach((char, i) => {
-            const span = document.createElement('span');
-            span.innerText = char === ' ' ? '\u00A0' : char;
-            span.style.animationDelay = `${i * 0.1}s`;
-            header.appendChild(span);
+    // ===================== STATE =====================
+    const S = {
+        path:'vip', phone:'', genOTP:'',
+        dob:'', persona:null, city:'', fname:'',
+        pColor:'#888888'
+    };
+
+    // ===================== COLOR MODE =====================
+    // Landing cycles through grey/white/black shades until persona chosen
+    const GREY_PALETTE = ['#888888','#aaaaaa','#bbbbbb','#777777','#999999','#cccccc','#666666','#dddddd','#eeeeee'];
+    let colorUnlocked = false;
+
+    // ===================== PERSONAS =====================
+    const PERSONAS = [
+        { k:'V', n:'VIOLET',      c:'#BF00FF' },
+        { k:'I', n:'INDIGO',      c:'#6A0EFF' },
+        { k:'B', n:'BLUE',        c:'#00C8FF' },
+        { k:'G', n:'GREEN',       c:'#39FF14' },
+        { k:'Y', n:'YELLOW',      c:'#FFE600' },
+        { k:'O', n:'ORANGE',      c:'#FF6200' },
+        { k:'U', n:'ULTRAVIOLET', c:'#FF00FF' },
+        { k:'GR',n:'GREY',        c:'#AAAAAA' },
+        { k:'W', n:'WHITE',       c:'#FFFFFF' },
+    ];
+
+    // ===================== CITIES =====================
+    const CITIES = [
+        {c:'JFK',t:'34%',l:'22%'},{c:'LAX',t:'41%',l:'13%'},{c:'LHR',t:'24%',l:'49%'},
+        {c:'DXB',t:'44%',l:'62%'},{c:'BOM',t:'51%',l:'70%'},{c:'SIN',t:'60%',l:'83%'},
+        {c:'HND',t:'33%',l:'88%'},{c:'SYD',t:'78%',l:'90%'},{c:'GIG',t:'72%',l:'35%'}
+    ];
+    const COLORS  = ['#BF00FF','#6A0EFF','#00C8FF','#39FF14','#FFE600','#FF6200','#FF00FF','#AAAAAA','#FFFFFF'];
+    const PHRASES = ['FROM NOTHING','COMES EVERYTHING','STEP FORWARD','YOUR FUTURE','THE FUTURE IS NOW'];
+    let cIdx = 0, ciIdx = 0;
+
+    // ===================== SET ACCENT =====================
+    function setAccent(col) {
+        document.documentElement.style.setProperty('--accent', col);
+    }
+
+    // ===================== ANIMATE HEADER =====================
+    (function() {
+        const h = document.getElementById('hdr');
+        const t = h.innerText;
+        h.innerHTML = '';
+        [...t].forEach((ch, i) => {
+            const s = document.createElement('span');
+            s.className = 'hchar';
+            s.innerText = ch === ' ' ? '\u00A0' : ch;
+            s.style.animationDelay = `${i * 0.14}s`;
+            h.appendChild(s);
+        });
+    })();
+
+    // ===================== BUILD MAP NODES =====================
+    const nodeContainer = document.getElementById('map-nodes');
+    CITIES.forEach((city, i) => {
+        const d = document.createElement('div');
+        d.className = 'city-node'; d.id = `nd-${i}`;
+        d.style.top = city.t; d.style.left = city.l;
+        d.innerHTML = `<div class="city-dot"></div><span class="city-code">${city.c}</span>`;
+        nodeContainer.appendChild(d);
+    });
+
+    // ===================== LANDING CYCLE =====================
+    function landingCycle() {
+        // Use grey shades until color is unlocked
+        const palette = colorUnlocked ? COLORS : GREY_PALETTE;
+        const col = palette[cIdx % palette.length];
+        setAccent(col);
+        const mi = document.getElementById('main-i');
+        mi.style.color = col;
+        mi.style.textShadow = `0 0 40px ${col}, 0 0 90px ${col}, 0 0 150px ${col}`;
+        document.querySelectorAll('.city-dot').forEach(d => {
+            d.style.background = col;
+            d.style.boxShadow  = `0 0 14px ${col}, 0 0 28px ${col}`;
+        });
+        // Floating phrase
+        const wl = document.getElementById('word-layer');
+        wl.innerHTML = '';
+        const w = document.createElement('div');
+        w.className = 'floating-phrase';
+        w.innerText = PHRASES[Math.floor(Math.random() * PHRASES.length)];
+        w.style.top   = (Math.random() * 60 + 12) + '%';
+        w.style.left  = (Math.random() * 55 + 8)  + '%';
+        w.style.color = col;
+        wl.appendChild(w);
+        // City nodes pulse
+        document.querySelectorAll('.city-node').forEach(n => n.classList.remove('active'));
+        for (let k = 0; k < 4; k++) {
+            const el = document.getElementById(`nd-${(ciIdx + k) % CITIES.length}`);
+            if (el) el.classList.add('active');
+        }
+        ciIdx = (ciIdx + 1) % CITIES.length;
+        cIdx  = (cIdx  + 1) % palette.length;
+    }
+    setInterval(landingCycle, 3000);
+    landingCycle();
+
+    // ===================== BUILD PERSONA GRID =====================
+    const pg = document.getElementById('pgrid');
+    PERSONAS.forEach((p) => {
+        const t = document.createElement('div');
+        t.className = 'ptile';
+        t.style.borderColor = p.c + '55';
+        t.style.background  = p.c + '12';
+        t.style.setProperty('--tc', p.c);
+        t.innerHTML = `<span class="pltr" style="color:${p.c};text-shadow:0 0 15px ${p.c}">${p.k}</span><span class="pname" style="color:${p.c}">${p.n}</span>`;
+        t.onclick = () => {
+            document.querySelectorAll('.ptile').forEach(x => { x.classList.remove('sel'); x.style.boxShadow='none'; });
+            t.classList.add('sel');
+            t.style.borderColor = p.c;
+            t.style.boxShadow   = `0 0 22px ${p.c}70, inset 0 0 18px ${p.c}18`;
+            S.persona = p; S.pColor = p.c;
+        };
+        pg.appendChild(t);
+    });
+
+    // ===================== SCREEN NAVIGATION =====================
+    function goTo(id) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        const el = document.getElementById(`screen-${id}`);
+        if (el) el.classList.add('active');
+        if (id === 'landing') landingCycle();
+        if (id === 'final')   spawnFinalStreams();
+    }
+
+    function startFlow(path) {
+        S.path = path;
+        makeDots('ph-dots', 2, 0);
+        goTo('phone');
+    }
+
+    function takePath(path) {
+        S.path = path;
+        if (path === 'free') { goTo('free'); return; }
+        makeDots('dob-dots', 4, 0);
+        goTo('dob');
+    }
+
+    // ===================== PROGRESS DOTS =====================
+    function makeDots(id, total, current) {
+        const c = document.getElementById(id);
+        if (!c) return;
+        c.innerHTML = '';
+        for (let i = 0; i < total; i++) {
+            const d = document.createElement('div');
+            d.className = 'pdot' + (i < current ? ' done' : '') + (i === current ? ' now' : '');
+            c.appendChild(d);
+        }
+    }
+
+    // ===================== OTP FLOW =====================
+    function sendOTP() {
+        const raw = document.getElementById('phone-in').value.replace(/[\s\-]/g,'');
+        const err = document.getElementById('phone-err');
+        if (raw.replace('+','').length < 10) { err.classList.add('show'); return; }
+        err.classList.remove('show');
+        S.phone   = raw;
+        S.genOTP  = Math.floor(100000 + Math.random() * 900000).toString();
+        // Show hint inline (demo mode)
+        document.getElementById('otp-sub').innerHTML =
+            `Code sent to <strong>${raw}</strong>&nbsp;&nbsp;<span style="color:#999;font-size:0.65rem;font-family:'Space Mono',monospace">[DEMO: ${S.genOTP}]</span>`;
+        document.getElementById('otp-err').classList.remove('show');
+        document.getElementById('otp-suc').classList.remove('show');
+        // Clear boxes
+        for (let i = 0; i < 6; i++) {
+            const b = document.getElementById(`o${i}`);
+            if (b) b.value = '';
+        }
+        goTo('otp');
+        setTimeout(() => { const f = document.getElementById('o0'); if (f) f.focus(); }, 220);
+    }
+
+    // OTP auto-advance — clean rebuild on each page load
+    (function setupOTP() {
+        for (let i = 0; i < 6; i++) {
+            const b = document.getElementById(`o${i}`);
+            if (!b) continue;
+            b.addEventListener('input', function() {
+                // Strip non-digits, keep only first
+                this.value = this.value.replace(/\D/g, '').slice(0, 1);
+                if (this.value && i < 5) {
+                    const nxt = document.getElementById(`o${i + 1}`);
+                    if (nxt) nxt.focus();
+                }
+            });
+            b.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && !this.value && i > 0) {
+                    const prev = document.getElementById(`o${i - 1}`);
+                    if (prev) { prev.value = ''; prev.focus(); }
+                }
+            });
+        }
+        // Paste support on first box
+        const b0 = document.getElementById('o0');
+        if (b0) {
+            b0.addEventListener('paste', function(e) {
+                e.preventDefault();
+                const pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g,'');
+                for (let j = 0; j < 6 && j < pasted.length; j++) {
+                    const box = document.getElementById(`o${j}`);
+                    if (box) box.value = pasted[j];
+                }
+                const lastIdx = Math.min(pasted.length - 1, 5);
+                const last = document.getElementById(`o${lastIdx}`);
+                if (last) last.focus();
+            });
+        }
+    })();
+
+    function verifyOTP() {
+        const entered = Array.from({length:6}, (_, i) => {
+            const b = document.getElementById(`o${i}`); return b ? b.value : '';
+        }).join('');
+        const err = document.getElementById('otp-err');
+        const suc = document.getElementById('otp-suc');
+        if (entered.length < 6) { err.classList.add('show'); return; }
+        if (entered !== S.genOTP) { err.classList.add('show'); suc.classList.remove('show'); return; }
+        err.classList.remove('show'); suc.classList.add('show');
+        setTimeout(() => {
+            if      (S.path === 'free') goTo('free');
+            else if (S.path === 'vip')  { makeDots('dob-dots', 4, 0); goTo('dob'); }
+            else    goTo('path');
+        }, 900);
+    }
+
+    // ===================== VIP PROFILE =====================
+    function saveDOB() {
+        const v   = document.getElementById('dob-in').value;
+        const err = document.getElementById('dob-err');
+        if (!v) { err.classList.add('show'); return; }
+        err.classList.remove('show');
+        S.dob = v;
+        makeDots('per-dots', 4, 1);
+        goTo('persona');
+    }
+
+    function savePersona() {
+        const err = document.getElementById('per-err');
+        if (!S.persona) { err.classList.add('show'); return; }
+        err.classList.remove('show');
+
+        // ════ UNLOCK COLOR — from this screen forward, the world has color ════
+        colorUnlocked = true;
+        cIdx = 0; // restart landing palette index for when user returns home
+        setAccent(S.pColor);
+
+        makeDots('city-dots', 4, 2);
+        goTo('city');
+    }
+
+    function saveCity() {
+        const v   = document.getElementById('city-in').value.trim();
+        const err = document.getElementById('city-err');
+        if (!v) { err.classList.add('show'); return; }
+        err.classList.remove('show');
+        S.city = v.toUpperCase();
+        makeDots('name-dots', 4, 3);
+        goTo('fname');
+    }
+
+    function saveFutureName() {
+        const v   = document.getElementById('fname-in').value.trim();
+        const err = document.getElementById('fname-err');
+        if (!v) { err.classList.add('show'); return; }
+        err.classList.remove('show');
+        S.fname = v.toUpperCase();
+        startJourney();
+    }
+
+    // ===================== JOURNEY =====================
+    function startJourney() {
+        goTo('journey');
+        const col = S.pColor;
+
+        const jn = document.getElementById('j-name');
+        jn.innerText   = S.fname;
+        jn.style.color = col;
+        jn.style.textShadow = `0 0 40px ${col}, 0 0 80px ${col}`;
+
+        const jc = document.getElementById('j-city');
+        jc.innerText   = '► ' + S.city;
+        jc.style.color = col;
+        jc.style.textShadow = `0 0 18px ${col}`;
+
+        document.getElementById('j-pcard').innerHTML = `
+            <div class="pci"><span class="pck">DOB</span><span class="pcv" style="color:${col}">${S.dob}</span></div>
+            <div class="pci"><span class="pck">PERSONA</span><span class="pcv" style="color:${col}">${S.persona.k} · ${S.persona.n}</span></div>
+            <div class="pci"><span class="pck">CITY</span><span class="pcv" style="color:#fff">${S.city}</span></div>
+        `;
+
+        // Data streams
+        const jst = document.getElementById('j-streams');
+        jst.innerHTML = '';
+        const words = ['01001101','IPNOTEC','10110010',S.fname,S.city,'11000101','VIP//FUTURE','01110110','10010011','∞','2027','→'];
+        for (let i = 0; i < 18; i++) {
+            const s = document.createElement('div');
+            s.className = 'dstream';
+            s.style.left            = (Math.random() * 96) + '%';
+            s.style.animationDelay  = (Math.random() * 5)  + 's';
+            s.style.animationDuration = (3 + Math.random() * 4) + 's';
+            s.style.color = col + '35';
+            s.innerText   = words[i % words.length];
+            jst.appendChild(s);
+        }
+
+        // City nodes
+        const jnodes = document.getElementById('j-nodes');
+        jnodes.innerHTML = '';
+        CITIES.forEach((city, i) => {
+            const d = document.createElement('div');
+            d.className = 'city-node'; d.id = `jnd-${i}`;
+            d.style.top = city.t; d.style.left = city.l; d.style.opacity = '0';
+            d.innerHTML = `<div class="city-dot" style="background:${col};box-shadow:0 0 12px ${col}"></div><span class="city-code">${city.c}</span>`;
+            jnodes.appendChild(d);
         });
 
-        const colors = ['#8F00FF', '#0070C0', '#00B0F0', '#45de12', '#FFFF00', '#FF6900', '#FF0000', '#000000'];
-        const phrase = ["FROM", "NOTHING", "COMES", "EVERYTHING"];
-        const cities = [
-            {c:'JFK', t:'30%', l:'20%'}, {c:'LAX', t:'38%', l:'12%'}, {c:'LHR', t:'22%', l:'48%'},
-            {c:'DXB', t:'42%', l:'62%'}, {c:'BOM', t:'50%', l:'70%'}, {c:'SIN', t:'60%', l:'82%'},
-            {c:'HND', t:'32%', l:'88%'}, {c:'SYD', t:'78%', l:'92%'}, {c:'GIG', t:'72%', l:'35%'}
+        // Progress bar
+        const statuses = [
+            'CONNECTING TO FUTURE GRID...',
+            'ENCODING IDENTITY...',
+            'MAPPING FUTURE CITY...',
+            `CALIBRATING ${S.persona.n} PERSONA...`,
+            'ACTIVATING VIP NODES...',
+            'LINKING TIMELINE...',
+            'INITIALIZING IPNOTEC CORE...',
+            'PROFILE LOCKED. PREPARING PAYMENT →'
         ];
+        let prog = 0, si = 0;
+        const pf = document.getElementById('j-pfill');
+        const ps = document.getElementById('j-status');
+        pf.style.background = col;
+        pf.style.boxShadow  = `0 0 10px ${col}`;
 
-        const nodeContainer = document.getElementById('map-nodes');
-        const wordLayer = document.getElementById('word-layer');
-        const body = document.getElementById('main-body');
-        let colorIdx = 0;
-        let cityIdx = 0;
-
-        cities.forEach((city, i) => {
-            const div = document.createElement('div');
-            div.className = 'city-node';
-            div.id = `node-${i}`;
-            div.style.top = city.t; div.style.left = city.l;
-            div.innerHTML = `<div class="user-dot"></div><span class="city-code">${city.c}</span>`;
-            nodeContainer.appendChild(div);
-        });
-
-        function updateCycle() {
-            const curCol = colors[colorIdx];
-            document.documentElement.style.setProperty('--current-color', curCol);
-
-            if (curCol === '#000000') body.classList.add('white-theme');
-            else body.classList.remove('white-theme');
-
-            wordLayer.innerHTML = '';
-            const randomWord = phrase[Math.floor(Math.random() * phrase.length)];
-            const wordEl = document.createElement('div');
-            wordEl.className = 'floating-word';
-            wordEl.innerText = randomWord;
-            wordEl.style.top = Math.random() * 70 + 15 + '%';
-            wordEl.style.left = Math.random() * 70 + 15 + '%';
-
-            if (randomWord === "NOTHING") {
-                wordEl.style.color = ['#000', '#FFF', '#777'][Math.floor(Math.random() * 3)];
-            } else if (randomWord === "EVERYTHING") {
-                wordEl.style.color = colors[Math.floor(Math.random() * (colors.length-1))];
-            } else {
-                wordEl.style.color = '#FFF';
+        const iv = setInterval(() => {
+            prog += 1.1;
+            pf.style.width = Math.min(prog, 100) + '%';
+            if (si < statuses.length && prog > si * 13) { ps.innerText = statuses[si]; si++; }
+            const jnEls = jnodes.children;
+            for (let k = 0; k < jnEls.length; k++) {
+                if (prog > k * 12) jnEls[k].style.opacity = '1';
             }
-            wordLayer.appendChild(wordEl);
-
-            document.querySelectorAll('.city-node').forEach(n => n.classList.remove('active'));
-            for(let i=0; i<4; i++) {
-                const active = (cityIdx + i) % cities.length;
-                document.getElementById(`node-${active}`).classList.add('active');
+            if (prog >= 100) {
+                clearInterval(iv);
+                setTimeout(() => goTo('payment'), 700);
             }
+        }, 50);
+    }
 
-            cityIdx = (cityIdx + 1) % cities.length;
-            colorIdx = (colorIdx + 1) % colors.length;
+    // ===================== PAYMENT =====================
+    function processPayment() {
+        goTo('processing');
+        const frames   = ['◰','◳','◲','◱'];
+        let fi = 0;
+        const fEl      = document.getElementById('proc-frames');
+        const frameIv  = setInterval(() => { fEl.innerText = frames[fi++ % 4]; }, 150);
+        const statuses = [
+            'INITIATING SECURE TRANSFER...',
+            'VERIFYING IDENTITY...',
+            'CONNECTING TO PAYMENT NODE...',
+            'PROCESSING ₹1001...',
+            'ENCRYPTING TICKET...',
+            '✓ CONFIRMED'
+        ];
+        let pi = 0;
+        const pEl = document.getElementById('proc-status');
+        const pIv = setInterval(() => {
+            pEl.innerText = statuses[pi];
+            if (pi === statuses.length - 1) {
+                clearInterval(pIv); clearInterval(frameIv);
+                fEl.innerText     = '◆';
+                fEl.style.color   = 'var(--g)';
+                fEl.style.textShadow = '0 0 40px var(--g)';
+                pEl.style.color   = 'var(--g)';
+                setTimeout(() => {
+                    document.getElementById('ticket-chip').innerText =
+                        'TKT-' + Math.random().toString(36).toUpperCase().slice(2,10);
+                    goTo('reveal');
+                }, 700);
+            }
+            pi++;
+        }, 650);
+    }
+
+    // ===================== FINAL STREAMS =====================
+    function spawnFinalStreams() {
+        const el = document.getElementById('final-streams');
+        el.innerHTML = '';
+        for (let i = 0; i < 22; i++) {
+            const s = document.createElement('div');
+            s.className = 'dstream';
+            s.style.left            = (Math.random() * 96) + '%';
+            s.style.animationDelay  = (Math.random() * 6)  + 's';
+            s.style.animationDuration = (4 + Math.random() * 6) + 's';
+            s.style.color = COLORS[i % COLORS.length] + '25';
+            s.innerText   = ['01','10','1001','IPNOTEC','→','∞','2027','10:01'][i % 8];
+            el.appendChild(s);
         }
+    }
 
-        function loadLink(url) {
-            const frame = document.getElementById('view-frame');
-            const landing = document.getElementById('landing-page');
-            landing.style.display = 'none';
-            frame.style.display = 'block';
-            frame.src = url;
+    // ===================== FOOTER: LAUNCH DATE TOGGLE =====================
+    let _dateShowing = false;
+    function toggleLaunchDate() {
+        _dateShowing = !_dateShowing;
+        const txt  = document.getElementById('ftr-launch-txt');
+        const date = document.getElementById('ftr-date-reveal');
+        if (_dateShowing) {
+            txt.style.display  = 'none';
+            date.style.display = 'block';
+        } else {
+            txt.style.display  = '';
+            date.style.display = 'none';
         }
+    }
 
-        function goHome() {
-            const frame = document.getElementById('view-frame');
-            const landing = document.getElementById('landing-page');
-            frame.style.display = 'none';
-            frame.src = 'about:blank';
-            landing.style.display = 'flex';
+    // ===================== COUNTDOWN =====================
+    function updateCountdown() {
+        const launch = new Date('2027-01-10T10:01:00+05:30').getTime();
+        const diff   = launch - Date.now();
+        const el     = document.getElementById('countdown');
+        if (!el) return;
+        if (diff <= 0) {
+            el.innerText   = 'LAUNCHING NOW ◆';
+            el.style.color = 'var(--g)';
+            return;
         }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000)  / 60000);
+        const s = Math.floor((diff % 60000)    / 1000);
+        el.innerText = `${d}D ${String(h).padStart(2,'0')}H ${String(m).padStart(2,'0')}M ${String(s).padStart(2,'0')}S`;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-        setInterval(updateCycle, 3000);
-        updateCycle();
     </script>
 </body>
 </html>
