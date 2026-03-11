@@ -6,11 +6,11 @@
 <meta name="theme-color" content="#000000">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>IPNOTEC VIP | STEP INTO THE FUTURE</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --v:#BF00FF; --i:#6A0EFF; --b:#00C8FF; --g:#39FF14;
-  --y:#FFE600; --o:#FF6200; --u:#FF00FF; --gr:#AAAAAA; --w:#FFFFFF;
+  --y:#FFE600; --o:#FF6200; --r:#FF1744; --n:#AAAAAA; --w:#FFFFFF; --rg:#C9907A;
   --accent:#888888; --bg:#000;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -30,7 +30,7 @@ footer{position:fixed;bottom:0;left:0;width:100%;height:64px;background:rgba(0,0
 .ftr-logo{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(.85rem,3vw,1.05rem);letter-spacing:4px;color:var(--accent);text-shadow:0 0 18px var(--accent);transition:all .6s;white-space:nowrap;}
 .ftr-mid{text-align:center;font-family:'Orbitron',sans-serif;cursor:pointer;user-select:none;display:flex;flex-direction:column;align-items:center;gap:2px;}
 .ftr-launch-txt{font-size:clamp(.52rem,1.4vw,.68rem);letter-spacing:3px;color:rgba(255,255,255,.4);line-height:1;}
-.ftr-launch-txt strong{color:var(--accent);text-shadow:0 0 12px var(--accent);font-weight:900;transition:all .6s;}
+.ftr-launch-txt strong{color:var(--rg);text-shadow:0 0 10px var(--rg);font-weight:900;transition:all .6s;}
 .ftr-date-reveal{font-size:.58rem;letter-spacing:2px;color:var(--y);text-shadow:0 0 10px var(--y);display:none;white-space:nowrap;}
 #countdown{font-size:clamp(.48rem,1.3vw,.6rem);letter-spacing:1px;color:var(--accent);text-shadow:0 0 8px var(--accent);font-weight:700;transition:color .6s;}
 .home-btn{font-family:'Space Mono',monospace;font-weight:700;color:var(--accent);border:2px solid var(--accent);padding:8px 12px;cursor:pointer;background:transparent;font-size:.85rem;transition:.2s;display:flex;align-items:center;gap:6px;white-space:nowrap;min-height:44px;}
@@ -94,8 +94,8 @@ select.tinput option{background:#000;color:#fff;}
 .btn-main{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border:2px solid var(--accent);background:rgba(0,200,255,.06);color:var(--accent);font-family:'Orbitron',sans-serif;font-size:clamp(.72rem,2vw,.82rem);font-weight:700;letter-spacing:3px;cursor:pointer;transition:.2s;text-shadow:0 0 8px var(--accent);box-shadow:0 0 14px rgba(0,200,255,.12);text-decoration:none;text-align:center;min-height:52px;}
 .btn-main:hover{background:var(--accent);color:#000;box-shadow:0 0 30px var(--accent);text-shadow:none;}
 .btn-full{width:100%;margin-top:10px;}
-.btn-vip{border-color:var(--y);color:var(--y);background:rgba(255,230,0,.05);text-shadow:0 0 8px var(--y);box-shadow:0 0 14px rgba(255,230,0,.1);}
-.btn-vip:hover{background:var(--y);color:#000;box-shadow:0 0 30px var(--y);}
+.btn-vip{border-color:var(--rg);color:var(--rg);background:rgba(201,144,122,.06);text-shadow:0 0 8px var(--rg);box-shadow:0 0 14px rgba(201,144,122,.12);}
+.btn-vip:hover{background:var(--rg);color:#fff;box-shadow:0 0 30px var(--rg);}
 .btn-green{border-color:var(--g);color:var(--g);background:rgba(57,255,20,.05);text-shadow:0 0 8px var(--g);}
 .btn-green:hover{background:var(--g);color:#000;}
 .btn-blue{border-color:var(--b);color:var(--b);background:rgba(0,200,255,.06);text-shadow:0 0 8px var(--b);}
@@ -123,16 +123,16 @@ select.tinput option{background:#000;color:#fff;}
 .path-card:hover{transform:translateY(-4px);}
 .path-card.fp{border-color:var(--g);}
 .path-card.fp::before{background:var(--g);}
-.path-card.vp{border-color:var(--y);}
-.path-card.vp::before{background:var(--y);}
+.path-card.vp{border-color:var(--rg);}
+.path-card.vp::before{background:var(--rg);}
 .path-icon{font-size:2.5rem;margin-bottom:12px;display:block;}
 .path-name{font-family:'Orbitron',sans-serif;font-size:clamp(.8rem,2.5vw,.95rem);font-weight:700;letter-spacing:4px;margin-bottom:10px;}
 .fp .path-name{color:var(--g);text-shadow:0 0 14px var(--g);}
-.vp .path-name{color:var(--y);text-shadow:0 0 14px var(--y);}
+.vp .path-name{color:var(--rg);text-shadow:0 0 10px var(--rg);}
 .path-desc{font-size:clamp(.65rem,2vw,.72rem);color:rgba(255,255,255,.4);line-height:1.6;font-family:'Rajdhani',sans-serif;}
 .path-badge{display:inline-block;margin-top:12px;padding:4px 12px;font-family:'Orbitron',sans-serif;font-size:clamp(.5rem,1.5vw,.58rem);letter-spacing:3px;border:1px solid;}
 .fp .path-badge{color:var(--g);border-color:var(--g);}
-.vp .path-badge{color:var(--y);border-color:var(--y);}
+.vp .path-badge{color:var(--rg);border-color:var(--rg);}
 
 /* ─── FREE NODE ─── */
 #screen-free-node{background:#000;flex-direction:column;overflow-y:auto;justify-content:flex-start;}
@@ -173,8 +173,8 @@ select.tinput option{background:#000;color:#fff;}
 .nc-connect{border-color:rgba(255,230,0,.4);color:var(--y);}
 .nc-connect:hover{background:rgba(255,230,0,.08);}
 
-.node-cta{margin:0 16px 20px;padding:18px;border:1px solid rgba(255,230,0,.22);background:rgba(255,230,0,.025);text-align:center;}
-.node-cta-title{font-family:'Orbitron',sans-serif;font-size:clamp(.62rem,1.8vw,.72rem);letter-spacing:4px;color:var(--y);text-shadow:0 0 12px var(--y);margin-bottom:8px;}
+.node-cta{margin:0 16px 20px;padding:18px;border:1px solid rgba(201,144,122,.25);background:rgba(201,144,122,.03);text-align:center;}
+.node-cta-title{font-family:'Orbitron',sans-serif;font-size:clamp(.62rem,1.8vw,.72rem);letter-spacing:4px;color:var(--rg);text-shadow:0 0 12px var(--y);margin-bottom:8px;}
 .node-cta-desc{font-size:clamp(.7rem,2vw,.78rem);color:rgba(255,255,255,.38);line-height:1.6;font-family:'Rajdhani',sans-serif;margin-bottom:14px;}
 
 /* NODE MODAL */
@@ -211,13 +211,13 @@ select.tinput option{background:#000;color:#fff;}
 
 /* ─── TICKET SCREEN ─── */
 #screen-ticket{background:#000;}
-.tkt-panel{width:min(520px,94vw);border:2px solid var(--y);padding:24px;background:rgba(255,230,0,.025);position:relative;text-align:center;margin-bottom:20px;}
+.tkt-panel{width:min(520px,94vw);border:2px solid var(--rg);padding:24px;background:rgba(201,144,122,.025);position:relative;text-align:center;margin-bottom:20px;}
 .tkt-panel::before{content:'';position:absolute;top:-2px;left:14px;width:50px;height:3px;background:var(--y);}
 .tkt-panel::after{content:'';position:absolute;bottom:-2px;right:14px;width:50px;height:3px;background:var(--y);}
-.tkt-lbl{font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:7px;color:rgba(255,230,0,.6);margin-bottom:12px;}
-.tkt-number{font-family:'Space Mono',monospace;font-size:clamp(.82rem,2.5vw,1.05rem);font-weight:700;color:var(--y);text-shadow:0 0 20px var(--y);letter-spacing:2px;margin-bottom:14px;word-break:break-all;}
+.tkt-lbl{font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:7px;color:rgba(201,144,122,.8);margin-bottom:12px;}
+.tkt-number{font-family:'Space Mono',monospace;font-size:clamp(.82rem,2.5vw,1.05rem);font-weight:700;color:var(--rg);text-shadow:0 0 20px var(--rg);letter-spacing:2px;margin-bottom:14px;word-break:break-all;}
 .tkt-math{font-family:'Space Mono',monospace;font-size:.62rem;color:rgba(255,255,255,.28);letter-spacing:1px;line-height:1.9;margin-top:10px;}
-.tkt-math span{color:rgba(255,230,0,.7);}
+.tkt-math span{color:var(--rg);}
 .fname-box{width:min(520px,94vw);}
 .avail-status{padding:12px 16px;font-family:'Orbitron',sans-serif;font-size:.7rem;letter-spacing:1.5px;margin:10px 0;display:none;line-height:1.5;}
 .avail-status.checking{border:1px solid rgba(0,200,255,.4);color:var(--b);background:rgba(0,200,255,.04);display:block;}
@@ -226,10 +226,10 @@ select.tinput option{background:#000;color:#fff;}
 .locked-name{padding:14px 18px;border:1px solid var(--g);color:var(--g);background:rgba(57,255,20,.04);font-family:'Space Mono',monospace;font-size:clamp(.9rem,2.5vw,1rem);letter-spacing:3px;text-align:center;margin-bottom:14px;display:none;}
 
 /* ─── PAYMENT ─── */
-.pay-amount{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(2.5rem,10vw,3.5rem);color:var(--y);text-shadow:0 0 30px var(--y),0 0 60px var(--y);letter-spacing:4px;margin-bottom:8px;}
+.pay-amount{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(2.5rem,10vw,3.5rem);color:var(--rg);text-shadow:0 0 20px var(--rg),0 0 40px var(--rg);letter-spacing:4px;margin-bottom:8px;}
 .pay-label{font-family:'Orbitron',sans-serif;font-size:clamp(.72rem,2vw,.85rem);letter-spacing:6px;color:rgba(255,255,255,.5);margin-bottom:22px;}
-.pay-btn{padding:18px;background:var(--y);color:#000;border:none;font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(.85rem,3vw,1rem);letter-spacing:4px;cursor:pointer;box-shadow:0 0 30px rgba(255,230,0,.4);transition:.2s;animation:payPulse 2s ease-in-out infinite;width:100%;min-height:58px;}
-@keyframes payPulse{0%,100%{box-shadow:0 0 20px rgba(255,230,0,.35);}50%{box-shadow:0 0 60px rgba(255,230,0,.75),0 0 120px rgba(255,230,0,.25);}}
+.pay-btn{padding:18px;background:var(--rg);color:#fff;border:none;font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(.85rem,3vw,1rem);letter-spacing:4px;cursor:pointer;box-shadow:0 0 30px rgba(201,144,122,.4);transition:.2s;animation:payPulse 2s ease-in-out infinite;width:100%;min-height:58px;}
+@keyframes payPulse{0%,100%{box-shadow:0 0 20px rgba(201,144,122,.35);}50%{box-shadow:0 0 50px rgba(201,144,122,.65),0 0 100px rgba(201,144,122,.2);}}
 .pay-btn:hover{transform:scale(1.02);}
 .order-box{border:1px solid rgba(255,255,255,.09);padding:18px;margin:18px 0;text-align:left;background:rgba(255,255,255,.012);}
 .order-row{display:flex;justify-content:space-between;font-size:clamp(.68rem,2vw,.76rem);margin-bottom:10px;font-family:'Space Mono',monospace;}
@@ -237,7 +237,7 @@ select.tinput option{background:#000;color:#fff;}
 
 /* ─── REVEAL ─── */
 .reveal-wrap{width:min(580px,92vw);padding:10px 10px 30px;margin:0 auto;}
-.rev-ticket{font-family:'Space Mono',monospace;font-size:clamp(.65rem,2vw,.82rem);letter-spacing:2px;color:var(--y);border:1px solid rgba(255,230,0,.4);padding:12px 18px;display:inline-block;margin-bottom:18px;word-break:break-all;max-width:100%;text-align:center;}
+.rev-ticket{font-family:'Space Mono',monospace;font-size:clamp(.65rem,2vw,.82rem);letter-spacing:2px;color:var(--rg);border:1px solid rgba(201,144,122,.5);padding:12px 18px;display:inline-block;margin-bottom:18px;word-break:break-all;max-width:100%;text-align:center;}
 .rev-title{font-family:'Orbitron',sans-serif;font-size:clamp(1.5rem,5.5vw,2.3rem);font-weight:900;letter-spacing:3px;margin-bottom:12px;line-height:1.2;}
 .rev-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0;}
 @media(max-width:420px){.rev-grid{grid-template-columns:1fr;}}
@@ -258,12 +258,545 @@ select.tinput option{background:#000;color:#fff;}
 ::-webkit-scrollbar{width:3px;}
 ::-webkit-scrollbar-track{background:#000;}
 ::-webkit-scrollbar-thumb{background:var(--accent);}
+
+/* ─── MODE TOGGLE BUTTON — DISCREET BOTTOM-RIGHT ─── */
+#mode-toggle{
+  position:fixed;
+  bottom:72px;
+  right:10px;
+  z-index:6000;
+  display:flex;align-items:center;gap:5px;
+  padding:5px 10px 5px 8px;
+  background:rgba(0,0,0,0.65);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:6px;
+  color:rgba(255,255,255,.32);
+  font-family:'Space Mono',monospace;
+  font-size:.48rem;font-weight:700;letter-spacing:2px;
+  cursor:pointer;
+  transition:all .2s ease;
+  white-space:nowrap;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+#mode-toggle:hover{
+  color:rgba(255,255,255,.75);
+  border-color:rgba(255,255,255,.28);
+  background:rgba(0,0,0,0.85);
+}
+#mt-icon{font-size:.72rem;line-height:1;opacity:.7;}
+
+/* ══════════════════════════════════════════════════════════
+   CLASSIC MODE — WARM AUTHORITY
+   Nardo Grey · Amber accent · Outfit + Nunito Sans
+══════════════════════════════════════════════════════════ */
+:root{
+  --cl-bg:#38393B;
+  --cl-surface:#2A2B2D;
+  --cl-card:#2A2B2D;
+  --cl-border:rgba(255,255,255,0.08);
+  --cl-amber:#FBBF24;
+  --cl-amber-dim:rgba(251,191,36,0.12);
+  --cl-amber-border:rgba(251,191,36,0.35);
+  --cl-green:#4ADE80;
+  --cl-red:#F87171;
+  --cl-text:#F1F0EE;
+  --cl-muted:rgba(241,240,238,0.48);
+  --cl-radius:8px;
+  --cl-r-sm:6px;
+  --cl-r-btn:6px;
+}
+
+/* ── BASE ── */
+body.classic{
+  font-family:'Nunito Sans',sans-serif;
+  background:var(--cl-bg);
+}
+body.classic::after{display:none;} /* kill scanlines */
+body.classic ::-webkit-scrollbar-track{background:var(--cl-bg);}
+body.classic ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:4px;}
+
+/* ── FLOATING TOGGLE IN CLASSIC ── */
+body.classic #mode-toggle{
+  font-family:'Outfit',sans-serif;font-weight:600;
+  font-size:.48rem;letter-spacing:1.5px;
+  background:rgba(251,191,36,0.1);
+  border:1px solid var(--cl-amber-border);
+  color:var(--cl-amber);
+  box-shadow:none;
+}
+body.classic #mode-toggle:hover{
+  background:rgba(251,191,36,0.2);
+  color:var(--cl-amber);
+  border-color:var(--cl-amber);
+}
+
+/* ── HEADER ── */
+body.classic .hdr{
+  background:var(--cl-surface);
+  border-bottom:1px solid var(--cl-border);
+  font-family:'Outfit',sans-serif;font-weight:500;
+  font-size:.82rem;letter-spacing:2px;
+}
+body.classic .hdr::after{display:none;}
+body.classic .hchar{animation:none;color:rgba(241,240,238,.55);}
+
+/* ── FOOTER ── */
+body.classic footer{
+  background:var(--cl-surface);
+  border-top:1px solid var(--cl-border);
+}
+body.classic .ftr-logo{
+  font-family:'Outfit',sans-serif;font-weight:700;
+  color:var(--cl-text);text-shadow:none;letter-spacing:2px;
+}
+body.classic .ftr-launch-txt{font-family:'Outfit',sans-serif;}
+body.classic .ftr-launch-txt strong{color:var(--cl-amber);text-shadow:none;}
+body.classic #countdown{
+  color:var(--cl-muted);
+  font-family:'Outfit',monospace;
+  font-size:.55rem;text-shadow:none;
+}
+body.classic .home-btn{
+  font-family:'Outfit',sans-serif;
+  border-radius:var(--cl-r-btn);
+  border-color:var(--cl-border);
+  color:var(--cl-muted);
+}
+body.classic .home-btn:hover{background:rgba(255,255,255,.06);color:var(--cl-text);}
+body.classic .clock-face{border-color:var(--cl-muted);}
+body.classic .clock-face::before{background:var(--cl-muted);}
+body.classic .clock-hand{background:var(--cl-muted);box-shadow:none;}
+
+/* ── WORLD MAP ── */
+body.classic .wmap{opacity:.03;filter:none;}
+
+/* ── FORM BOX — warm frosted card ── */
+body.classic .fbx{
+  background:var(--cl-card);
+  border:1px solid var(--cl-border);
+  border-radius:var(--cl-radius);
+  box-shadow:0 8px 32px rgba(0,0,0,0.35);
+  backdrop-filter:none;
+}
+body.classic .fbx::before,
+body.classic .fbx::after{display:none;}
+body.classic .corner{display:none;}
+
+/* ── STEP LABEL ── */
+body.classic .step-lbl{
+  font-family:'Outfit',sans-serif;font-weight:500;
+  font-size:.65rem;letter-spacing:2px;
+  color:var(--cl-amber);opacity:1;
+  text-shadow:none;
+}
+
+/* ── FORM TITLE ── */
+body.classic .form-title{
+  font-family:'Outfit',sans-serif;font-weight:700;
+  color:var(--cl-text);text-shadow:none;letter-spacing:.3px;
+}
+
+/* ── FORM SUB ── */
+body.classic .form-sub{
+  font-family:'Nunito Sans',sans-serif;
+  color:var(--cl-muted);line-height:1.7;
+}
+
+/* ── INPUT LABEL ── */
+body.classic .ilbl{
+  font-family:'Outfit',sans-serif;font-weight:500;
+  letter-spacing:.5px;font-size:.68rem;
+  color:var(--cl-muted);
+}
+
+/* ── INPUTS ── */
+body.classic .tinput,
+body.classic select.tinput{
+  background:rgba(255,255,255,0.05);
+  border:1px solid var(--cl-border);
+  border-radius:var(--cl-r-sm);
+  color:var(--cl-text);
+  font-family:'Nunito Sans',sans-serif;
+  font-size:.95rem;letter-spacing:.2px;
+}
+body.classic .tinput:focus,
+body.classic select.tinput:focus{
+  border-color:var(--cl-amber-border);
+  box-shadow:0 0 0 3px rgba(251,191,36,.1);
+  background:rgba(251,191,36,0.03);
+  outline:none;
+}
+body.classic .tinput::placeholder{color:rgba(241,240,238,.22);}
+body.classic select.tinput option{background:var(--cl-surface);color:var(--cl-text);}
+
+/* ── OTP BOXES ── */
+body.classic .otp-box{
+  background:rgba(255,255,255,0.05);
+  border:1px solid var(--cl-border);
+  border-radius:var(--cl-r-sm);
+  color:var(--cl-text);
+  font-family:'Outfit',sans-serif;font-weight:700;
+}
+body.classic .otp-box:focus{
+  border-color:var(--cl-amber-border);
+  box-shadow:0 0 0 3px rgba(251,191,36,.1);
+}
+
+/* ── BUTTONS ── */
+body.classic .btn-main{
+  font-family:'Outfit',sans-serif;font-weight:600;
+  letter-spacing:.5px;
+  border-radius:var(--cl-r-btn);
+  border:1px solid var(--cl-amber-border);
+  color:var(--cl-amber);
+  background:var(--cl-amber-dim);
+  text-shadow:none;box-shadow:none;
+  transition:.2s;
+}
+body.classic .btn-main:hover{
+  background:var(--cl-amber);
+  color:#1a1a1a;
+  box-shadow:0 4px 16px rgba(251,191,36,.3);
+}
+body.classic .btn-vip{
+  border-color:var(--cl-amber-border);
+  color:var(--cl-amber);
+  background:var(--cl-amber-dim);
+}
+body.classic .btn-vip:hover{background:var(--cl-amber);color:#1a1a1a;box-shadow:0 4px 16px rgba(251,191,36,.3);}
+body.classic .btn-green{
+  border-color:rgba(74,222,128,.35);
+  color:var(--cl-green);
+  background:rgba(74,222,128,.08);
+}
+body.classic .btn-green:hover{background:var(--cl-green);color:#1a1a1a;box-shadow:0 4px 16px rgba(74,222,128,.25);}
+body.classic .btn-blue{
+  border-color:var(--cl-amber-border);
+  color:var(--cl-amber);
+  background:var(--cl-amber-dim);
+}
+body.classic .btn-blue:hover{background:var(--cl-amber);color:#1a1a1a;}
+
+/* ── MESSAGE BOXES ── */
+body.classic .msgbox.err{
+  border:1px solid rgba(248,113,113,.3);color:var(--cl-red);
+  background:rgba(248,113,113,.07);
+  font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);
+}
+body.classic .msgbox.suc{
+  border:1px solid rgba(74,222,128,.3);color:var(--cl-green);
+  background:rgba(74,222,128,.07);
+  font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);
+}
+body.classic .msgbox.info{
+  border:1px solid var(--cl-amber-border);color:var(--cl-amber);
+  background:var(--cl-amber-dim);
+  font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);
+}
+
+/* ── PROGRESS DOTS ── */
+body.classic .pdot{border-radius:4px;background:rgba(255,255,255,.12);}
+body.classic .pdot.done{background:var(--cl-amber);box-shadow:none;}
+body.classic .pdot.now{background:var(--cl-text);}
+
+/* ── DIM TEXT ── */
+body.classic .dim{font-family:'Nunito Sans',sans-serif;color:var(--cl-muted);}
+
+/* ── LANDING SCREEN ── */
+body.classic .big-i{
+  color:var(--cl-amber);
+  text-shadow:none;
+  animation:none;opacity:.9;
+}
+body.classic .floating-phrase{
+  font-family:'Outfit',sans-serif;
+  letter-spacing:2px;text-shadow:none;
+}
+body.classic .city-code{font-family:'Outfit',monospace;}
+
+/* ── PATH CHOICE ── */
+body.classic .path-card{
+  border-radius:var(--cl-radius);
+  background:var(--cl-card);
+  border-width:1px;
+}
+body.classic .path-card::before{display:none;}
+body.classic .path-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
+}
+body.classic .path-name{
+  font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.5px;
+}
+body.classic .path-desc{font-family:'Nunito Sans',sans-serif;}
+body.classic .path-badge{
+  font-family:'Outfit',sans-serif;font-weight:600;
+  border-radius:20px;font-size:.58rem;letter-spacing:.5px;
+}
+body.classic .fp{border-color:rgba(74,222,128,.3);}
+body.classic .fp .path-name{color:var(--cl-green);text-shadow:none;}
+body.classic .fp .path-badge{color:var(--cl-green);border-color:rgba(74,222,128,.35);}
+body.classic .vp{border-color:var(--cl-amber-border);}
+body.classic .vp .path-name{color:var(--cl-amber);text-shadow:none;}
+body.classic .vp .path-badge{color:var(--cl-amber);border-color:var(--cl-amber-border);}
+body.classic #screen-path .step-lbl,
+body.classic #screen-path .form-title{font-family:'Outfit',sans-serif;}
+
+/* ── PERSONA GRID ── */
+body.classic .ptile{border-radius:var(--cl-radius);border-width:1px;}
+body.classic .ptile:hover{transform:scale(1.03);box-shadow:0 6px 20px rgba(0,0,0,.4);}
+body.classic .pltr{text-shadow:none !important;}
+body.classic .pname{font-family:'Outfit',sans-serif;letter-spacing:.3px;}
+
+/* ══════════════════════════════════════════
+   FREE NODE — WhatsApp chat list style
+══════════════════════════════════════════ */
+body.classic #screen-free-node{background:var(--cl-bg);}
+body.classic .node-header{
+  background:var(--cl-surface);
+  border-bottom:1px solid var(--cl-border);
+}
+body.classic .node-title{
+  font-family:'Outfit',sans-serif;font-weight:600;
+  color:var(--cl-green);letter-spacing:.5px;text-shadow:none;
+}
+body.classic .node-pulse{box-shadow:none;}
+body.classic .node-num{
+  font-family:'Outfit',sans-serif;font-weight:700;
+  text-shadow:none;color:var(--cl-amber);
+}
+body.classic .node-num-lbl{
+  font-family:'Outfit',sans-serif;
+  color:var(--cl-muted);letter-spacing:1px;
+}
+body.classic .node-city-lbl{font-family:'Outfit',sans-serif;color:var(--cl-muted);}
+body.classic .sb2{background:var(--cl-green);}
+body.classic .sig-lbl{font-family:'Outfit',sans-serif;color:var(--cl-green);text-shadow:none;}
+body.classic .ng-lbl{
+  font-family:'Outfit',sans-serif;font-weight:500;
+  color:var(--cl-muted);letter-spacing:.5px;font-size:.68rem;
+}
+
+/* Chat list layout */
+body.classic .node-grid{
+  display:flex;flex-direction:column;gap:0;
+  background:transparent;
+}
+body.classic .node-card{
+  border:none !important;border-radius:0 !important;
+  background:transparent;
+  padding:12px 16px;
+  display:flex;align-items:flex-start;gap:12px;
+  transition:background .15s;
+}
+body.classic .node-card:hover{background:rgba(255,255,255,.04);}
+body.classic .node-card + .node-card{border-top:1px solid rgba(255,255,255,.05) !important;}
+body.classic .node-card > div[style*="position:absolute"]{display:none !important;}
+body.classic .nc-avatar{
+  width:40px !important;height:40px !important;min-width:40px !important;
+  border-radius:50% !important;border-width:1.5px !important;
+}
+body.classic .nc-name{
+  font-family:'Outfit',sans-serif;font-weight:700;
+  font-size:.88rem;letter-spacing:.1px;
+  text-shadow:none !important;line-height:1.2;
+}
+body.classic .nc-name::after{
+  content:' · Node';
+  font-weight:400;font-size:.7rem;
+  color:var(--cl-muted);
+  font-family:'Nunito Sans',sans-serif;
+}
+body.classic .nc-city{
+  font-family:'Nunito Sans',sans-serif;
+  font-size:.7rem;color:var(--cl-muted);
+  letter-spacing:.3px;margin-top:2px;
+}
+body.classic .nc-id{
+  font-family:'Outfit',monospace;
+  font-size:.62rem;color:var(--cl-muted);
+  filter:blur(1.5px);margin-top:3px;margin-bottom:6px;
+}
+body.classic .nc-btn{
+  font-family:'Outfit',sans-serif;font-weight:600;
+  font-size:.6rem;letter-spacing:.3px;
+  border-radius:20px;padding:5px 14px;
+}
+body.classic .nc-ping{
+  border-color:rgba(251,191,36,.4);color:var(--cl-amber);
+}
+body.classic .nc-ping:hover,.nc-ping.pinged{background:rgba(251,191,36,.12);}
+body.classic .nc-connect{
+  border-color:rgba(74,222,128,.35);color:var(--cl-green);
+}
+body.classic .nc-connect:hover{background:rgba(74,222,128,.1);}
+
+/* Node CTA */
+body.classic .node-cta{
+  margin:0 12px 16px;
+  border-radius:var(--cl-radius);
+  border:1px solid var(--cl-amber-border);
+  background:var(--cl-amber-dim);
+}
+body.classic .node-cta-title{
+  font-family:'Outfit',sans-serif;font-weight:700;
+  color:var(--cl-amber);text-shadow:none;letter-spacing:.5px;
+}
+body.classic .node-cta-desc{font-family:'Nunito Sans',sans-serif;color:var(--cl-muted);}
+
+/* Node Modal */
+body.classic .nm-box{
+  border-radius:var(--cl-radius);
+  border:1px solid var(--cl-border);
+  background:var(--cl-surface);
+  box-shadow:0 20px 60px rgba(0,0,0,.55);
+}
+body.classic .nm-box::before{display:none;}
+body.classic .nm-status{
+  font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);
+}
+
+/* ── JOURNEY SCREEN ── */
+body.classic #screen-journey{background:var(--cl-bg);}
+body.classic .jlbl{
+  font-family:'Outfit',sans-serif;font-weight:500;letter-spacing:1px;
+}
+body.classic .jname{
+  font-family:'Outfit',sans-serif;font-weight:800;
+  text-shadow:none;animation:none;
+}
+body.classic .jcity{
+  font-family:'Outfit',sans-serif;font-weight:600;
+  letter-spacing:1px;text-shadow:none;
+}
+body.classic .pcard{
+  border:1px solid var(--cl-border);
+  border-radius:var(--cl-r-sm);
+  background:rgba(255,255,255,.04);
+}
+body.classic .pck{font-family:'Outfit',sans-serif;letter-spacing:.5px;}
+body.classic .pcv{font-family:'Outfit',monospace;font-weight:600;}
+body.classic .jpfill{border-radius:3px;background:var(--cl-amber) !important;box-shadow:none !important;}
+body.classic .jpbar{border-radius:3px;background:rgba(255,255,255,.08);}
+body.classic .jstatus{font-family:'Outfit',sans-serif;letter-spacing:.5px;}
+body.classic .dstream{opacity:.3;font-family:'Outfit',monospace;}
+
+/* ── TICKET SCREEN ── */
+body.classic .tkt-panel{
+  border:1px solid var(--cl-amber-border);
+  border-radius:var(--cl-radius);
+  background:var(--cl-amber-dim);
+}
+body.classic .tkt-panel::before,
+body.classic .tkt-panel::after{display:none;}
+body.classic .tkt-lbl{
+  font-family:'Outfit',sans-serif;font-weight:500;
+  color:var(--cl-amber);letter-spacing:1px;
+}
+body.classic .tkt-number{
+  font-family:'Outfit',monospace;font-weight:700;
+  text-shadow:none;color:var(--cl-amber);
+}
+body.classic .tkt-math{
+  font-family:'Outfit',monospace;font-size:.65rem;line-height:1.8;
+}
+body.classic .avail-status{
+  font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);
+}
+body.classic .locked-name{
+  font-family:'Outfit',monospace;border-radius:var(--cl-r-sm);
+}
+
+/* ── PAYMENT SCREEN ── */
+body.classic #screen-payment{background:var(--cl-bg);}
+body.classic .pay-amount{
+  font-family:'Outfit',sans-serif;font-weight:800;
+  text-shadow:none;color:var(--cl-amber);
+}
+body.classic .pay-label{
+  font-family:'Outfit',sans-serif;letter-spacing:1px;color:var(--cl-muted);
+}
+body.classic .pay-btn{
+  border-radius:var(--cl-r-btn);
+  font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:1px;
+  background:var(--cl-amber);color:#1a1a1a;
+  box-shadow:0 4px 16px rgba(251,191,36,.3);
+  animation:none;border:none;
+}
+body.classic .pay-btn:hover{box-shadow:0 6px 24px rgba(251,191,36,.45);}
+body.classic .order-box{
+  border:1px solid var(--cl-border);
+  border-radius:var(--cl-r-sm);
+  background:rgba(255,255,255,.03);
+}
+body.classic .order-row{font-family:'Nunito Sans',sans-serif;}
+
+/* ── PROCESSING ── */
+body.classic #screen-processing{background:var(--cl-bg);}
+body.classic #proc-frames{text-shadow:none;color:var(--cl-amber) !important;}
+body.classic #proc-status{
+  font-family:'Outfit',sans-serif;letter-spacing:2px;
+  color:var(--cl-amber) !important;text-shadow:none !important;
+}
+
+/* ── REVEAL SCREEN ── */
+body.classic .rev-ticket{
+  font-family:'Outfit',monospace;font-weight:700;
+  border:1px solid var(--cl-amber-border);
+  border-radius:var(--cl-r-sm);
+  color:var(--cl-amber);
+}
+body.classic .rev-title{
+  font-family:'Outfit',sans-serif;font-weight:800;
+}
+body.classic .rev-item{
+  border:1px solid var(--cl-border);
+  border-radius:var(--cl-r-sm);
+  background:rgba(255,255,255,.03);
+}
+body.classic .rev-ititle{
+  font-family:'Outfit',sans-serif;font-weight:600;letter-spacing:.3px;
+}
+body.classic .rev-idesc{font-family:'Nunito Sans',sans-serif;}
+body.classic .pingg-launch{
+  border-radius:var(--cl-r-btn);
+  animation:none;
+  font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.5px;
+  border:1px solid var(--cl-amber-border);
+  color:var(--cl-amber);background:var(--cl-amber-dim);
+  text-shadow:none;box-shadow:none;
+}
+body.classic .pingg-launch:hover{
+  background:var(--cl-amber);color:#1a1a1a;
+  box-shadow:0 4px 16px rgba(251,191,36,.3);
+}
+
+/* ── FINAL SCREEN ── */
+body.classic #screen-final{background:var(--cl-bg);}
+body.classic .final-see,
+body.classic .final-in,
+body.classic .final-future{
+  font-family:'Outfit',sans-serif;font-weight:800;
+  animation:none;text-shadow:none;
+}
+body.classic .final-see{color:var(--cl-amber);}
+body.classic .final-in{color:var(--cl-muted);}
+body.classic .final-future{color:var(--cl-text);}
+
+/* General screen bg */
+body.classic .screen{background:var(--cl-bg);}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <div class="hdr" id="hdr">STEP INTO THE FUTURE -></div>
+<!-- FLOATING MODE TOGGLE -->
+<button id="mode-toggle" onclick="toggleMode()" title="Switch UI Mode">
+  <span id="mt-icon">⬡</span>
+  <span id="mt-label">CLASSIC</span>
+</button>
 
 <div id="cw">
 
@@ -332,10 +865,10 @@ select.tinput option{background:#000;color:#fff;}
       <div class="path-badge">FREE · INSTANT</div>
     </div>
     <div class="path-card vp" onclick="takePath('vip')">
-      <span class="path-icon" style="color:var(--y)">◆</span>
+      <span class="path-icon" style="color:var(--rg)">◆</span>
       <div class="path-name">IPNOTEC VIP</div>
       <div class="path-desc">Create your future profile. Lock your identity. First to step into the future.</div>
-      <div class="path-badge">VIP · RS 1001</div>
+      <div class="path-badge" style="color:var(--rg);border-color:var(--rg);">VIP · RS 1001</div>
     </div>
   </div>
 </div>
@@ -388,7 +921,7 @@ select.tinput option{background:#000;color:#fff;}
       <button class="btn-main" style="flex:.6;font-size:.72rem;padding:12px 8px;border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.4);background:transparent;text-shadow:none;" onclick="closeNodeModal()">CANCEL</button>
     </div>
     <div style="border:1px solid rgba(255,230,0,.2);padding:14px;background:rgba(255,230,0,.02);text-align:center;">
-      <div class="dim" style="color:rgba(255,230,0,.7);font-size:.65rem;margin-bottom:8px;">NO IPNOTEC ID? GET VIP</div>
+      <div class="dim" style="color:var(--rg);font-size:.65rem;margin-bottom:8px;">NO IPNOTEC ID? GET VIP</div>
       <button class="btn-main btn-vip" style="font-size:.68rem;padding:10px;width:100%;" onclick="closeNodeModal();takePath('vip')">UPGRADE TO VIP →</button>
     </div>
   </div>
@@ -461,7 +994,7 @@ select.tinput option{background:#000;color:#fff;}
 <!-- ═══════════════ TICKET + NAME LOCK ═══════════════ -->
 <div class="screen scrollable" id="screen-ticket" style="align-items:center;">
   <div style="width:min(520px,94vw);">
-    <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:7px;color:var(--y);text-align:center;margin-bottom:14px;">◆ YOUR FUTURE TICKET IS READY</div>
+    <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:7px;color:var(--rg);text-align:center;margin-bottom:14px;">◆ YOUR FUTURE TICKET IS READY</div>
     <div class="tkt-panel">
       <div class="corner ctlx" style="border-top-color:var(--y);border-left-color:var(--y);"></div>
       <div class="corner ctrx" style="border-top-color:var(--y);border-right-color:var(--y);"></div>
@@ -502,12 +1035,12 @@ select.tinput option{background:#000;color:#fff;}
     <div class="order-box">
       <div class="step-lbl" style="margin-bottom:12px;">ORDER SUMMARY</div>
       <div class="order-row"><span>IPNOTEC VIP Membership</span><span>RS 1001</span></div>
-      <div class="order-row"><span>Future Identity</span><span id="pay-fname-display" style="color:var(--y);">—</span></div>
+      <div class="order-row"><span>Future Identity</span><span id="pay-fname-display" style="color:var(--rg);">—</span></div>
       <div class="order-row"><span>VIBGYOU Lock</span><span style="color:var(--g);">INCLUDED</span></div>
       <div class="order-row"><span>Launch Priority</span><span style="color:var(--g);">INCLUDED</span></div>
       <div class="order-row"><span>PINGG Access</span><span style="color:var(--b);">INCLUDED</span></div>
       <div style="border-top:1px solid rgba(255,255,255,.08);margin-top:10px;padding-top:10px;display:flex;justify-content:space-between;font-weight:700;font-size:.9rem;">
-        <span>TOTAL</span><span style="color:var(--y);">RS 1001</span>
+        <span>TOTAL</span><span style="color:var(--rg);">RS 1001</span>
       </div>
     </div>
     <button class="pay-btn" onclick="processPayment()">PAY RS 1001 →</button>
@@ -517,17 +1050,17 @@ select.tinput option{background:#000;color:#fff;}
 <!-- ═══════════════ PROCESSING ═══════════════ -->
 <div class="screen" id="screen-processing" style="background:#000;text-align:center;">
   <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:8px;color:rgba(255,255,255,.3);margin-bottom:28px;">PROCESSING TRANSACTION</div>
-  <div id="proc-frames" style="font-size:4.5rem;color:var(--y);text-shadow:0 0 40px var(--y);margin-bottom:22px;">◰</div>
-  <div class="proc-status" id="proc-status" style="font-family:'Orbitron',sans-serif;font-size:clamp(.7rem,2vw,.82rem);letter-spacing:3px;color:var(--y);text-shadow:0 0 10px var(--y);">INITIATING SECURE TRANSFER...</div>
+  <div id="proc-frames" style="font-size:4.5rem;color:var(--rg);text-shadow:0 0 30px var(--rg);margin-bottom:22px;">◰</div>
+  <div class="proc-status" id="proc-status" style="font-family:'Orbitron',sans-serif;font-size:clamp(.7rem,2vw,.82rem);letter-spacing:3px;color:var(--rg);text-shadow:0 0 10px var(--rg);">INITIATING SECURE TRANSFER...</div>
 </div>
 
 <!-- ═══════════════ REVEAL ═══════════════ -->
 <div class="screen scrollable" id="screen-reveal" style="align-items:center;">
   <div class="reveal-wrap" style="text-align:center;">
-    <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:6px;color:var(--g);margin-bottom:12px;">✓ PAYMENT CONFIRMED · IDENTITY SEALED</div>
+    <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:6px;color:var(--rg);margin-bottom:12px;">✓ PAYMENT CONFIRMED · IDENTITY SEALED</div>
     <div class="rev-ticket" id="reveal-ticket">TKT-XXXXXXXXXXXXXXX-X</div>
-    <div style="font-family:'Space Mono',monospace;font-size:clamp(.9rem,3vw,1.1rem);font-weight:700;color:var(--y);text-shadow:0 0 20px var(--y);letter-spacing:3px;margin-bottom:16px;" id="reveal-name">—</div>
-    <div class="rev-title">WELCOME TO<br><span style="color:var(--y);text-shadow:0 0 25px var(--y);">THE FUTURE</span></div>
+    <div style="font-family:'Space Mono',monospace;font-size:clamp(.9rem,3vw,1.1rem);font-weight:700;color:var(--rg);text-shadow:0 0 15px var(--rg);letter-spacing:3px;margin-bottom:16px;" id="reveal-name">—</div>
+    <div class="rev-title">WELCOME TO<br><span style="color:var(--rg);text-shadow:0 0 20px var(--rg);">THE FUTURE</span></div>
     <div class="dim" style="margin-bottom:18px;line-height:1.8;">Your VIP seat is reserved. Your identity is locked. Your node is live.</div>
     <div style="padding:20px;border:2px solid var(--b);background:rgba(0,200,255,.04);margin:16px 0;">
       <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:5px;color:var(--b);text-align:center;margin-bottom:10px;">◐ ENTER THE NETWORK NOW</div>
@@ -553,8 +1086,8 @@ select.tinput option{background:#000;color:#fff;}
         <div class="rev-idesc">Your persona and future name — permanently locked to your profile.</div>
       </div>
       <div class="rev-item">
-        <span class="rev-icon" style="color:var(--y);">◉</span>
-        <div class="rev-ititle" style="color:var(--y);">LAUNCH PRIORITY</div>
+        <span class="rev-icon" style="color:var(--rg);">◉</span>
+        <div class="rev-ititle" style="color:var(--rg);">LAUNCH PRIORITY</div>
         <div class="rev-idesc">First in line on JAN 10 2027 at 10:01 HRS. You go first. Always.</div>
       </div>
     </div>
@@ -569,7 +1102,7 @@ select.tinput option{background:#000;color:#fff;}
   <div style="position:relative;z-index:10;text-align:center;padding:20px;">
     <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:9px;color:rgba(255,255,255,.22);margin-bottom:24px;">TRANSMISSION COMPLETE</div>
     <div class="final-see" style="color:var(--accent);">SEE YOU</div>
-    <div class="final-in" style="color:var(--y);">IN THE</div>
+    <div class="final-in" style="color:var(--rg);">IN THE</div>
     <div class="final-future" style="color:#fff;">FUTURE</div>
     <div style="margin-top:26px;font-family:'Space Mono',monospace;font-size:.72rem;color:rgba(255,255,255,.22);letter-spacing:5px;">JAN 10 2027 · 10:01 HRS</div>
     <div style="margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
@@ -620,9 +1153,9 @@ const PERSONAS = [
   {k:'G', n:'GREEN',       c:'#39FF14'},
   {k:'Y', n:'YELLOW',      c:'#FFE600'},
   {k:'O', n:'ORANGE',      c:'#FF6200'},
-  {k:'U', n:'ULTRA',       c:'#FF00FF'},
-  {k:'GR',n:'GREY',        c:'#AAAAAA'},
-  {k:'W', n:'WHITE',       c:'#FFFFFF'},
+  {k:'R', n:'RED',         c:'#FF1744'},
+  {k:'N', n:'NOMAD',       c:'#AAAAAA'},
+  {k:'W', n:'POLICY',      c:'#FFFFFF'},
 ];
 
 // ════════════════════════════════════════════
@@ -664,7 +1197,7 @@ const LAND_CITIES = [
   {c:'CDG', t:'25%', l:'48%', col:'#FFE600'},
   {c:'DXB', t:'44%', l:'60%', col:'#FF6200'},
   {c:'BOM', t:'53%', l:'67%', col:'#6A0EFF'},
-  {c:'BLR', t:'58%', l:'68%', col:'#FF00FF'},
+  {c:'BLR', t:'58%', l:'68%', col:'#FF1744'},
   {c:'SIN', t:'63%', l:'80%', col:'#00C8FF'},
   {c:'HKG', t:'47%', l:'77%', col:'#39FF14'},
   {c:'NRT', t:'32%', l:'86%', col:'#BF00FF'},
@@ -672,11 +1205,11 @@ const LAND_CITIES = [
   {c:'GRU', t:'71%', l:'33%', col:'#FFE600'},
   {c:'JNB', t:'68%', l:'54%', col:'#FF6200'},
   {c:'ICN', t:'34%', l:'83%', col:'#FFFFFF'},
-  {c:'YYZ', t:'30%', l:'24%', col:'#FF00FF'},
+  {c:'YYZ', t:'30%', l:'24%', col:'#FF1744'},
 ];
 
 const PHRASES = ['FROM NOTHING','COMES EVERYTHING','STEP FORWARD','YOUR FUTURE','THE FUTURE IS NOW','BEYOND LIMITS'];
-const VIBGYOR  = ['#BF00FF','#6A0EFF','#00C8FF','#39FF14','#FFE600','#FF6200','#FF00FF','#AAAAAA','#FFFFFF'];
+const VIBGYOR  = ['#BF00FF','#6A0EFF','#00C8FF','#39FF14','#FFE600','#FF6200','#FF1744','#AAAAAA','#FFFFFF'];
 
 let ciIdx = 0;
 
@@ -690,7 +1223,7 @@ const NODE_USERS = [
   {name:'REX·Ω',   city:'LHR', color:'#FFE600', id:'IPN···5519'},
   {name:'LYRA·3',  city:'JFK', color:'#FF6200', id:'IPN···8803'},
   {name:'ORION',   city:'NRT', color:'#6A0EFF', id:'IPN···1144'},
-  {name:'VEGA·Q',  city:'SYD', color:'#FF00FF', id:'IPN···7721'},
+  {name:'VEGA·Q',  city:'SYD', color:'#FF1744', id:'IPN···7721'},
   {name:'ECHO·9',  city:'DEL', color:'#FFFFFF', id:'IPN···3358'},
   {name:'FLUX·M',  city:'LAX', color:'#AAAAAA', id:'IPN···6642'},
   {name:'PULSE',   city:'BLR', color:'#39FF14', id:'IPN···9901'},
@@ -821,10 +1354,17 @@ landingCycle();
     t.style.setProperty('--tc',p.c);
     t.innerHTML=`<span class="pltr" style="color:${p.c};text-shadow:0 0 15px ${p.c}">${p.k}</span><span class="pname" style="color:${p.c}">${p.n}</span>`;
     t.onclick=()=>{
-      document.querySelectorAll('.ptile').forEach(x=>{x.classList.remove('sel');x.style.boxShadow='none';x.style.borderColor=PERSONAS.find(pp=>pp.k===x.querySelector('.pltr').innerText||pp.n===x.querySelector('.pname').innerText)?.c+'55'||'rgba(255,255,255,.2)';});
+      document.querySelectorAll('.ptile').forEach(x=>{
+        x.classList.remove('sel');
+        x.style.boxShadow='none';
+        const xp=PERSONAS.find(pp=>pp.k===x.querySelector('.pltr').innerText||pp.n===x.querySelector('.pname').innerText);
+        x.style.borderColor=(xp?xp.c:'rgba(255,255,255,.2)')+'55';
+        x.style.background=(xp?xp.c+'12':'transparent');
+      });
       t.classList.add('sel');
       t.style.borderColor=p.c;
-      t.style.boxShadow=`0 0 22px ${p.c}70,inset 0 0 18px ${p.c}18`;
+      t.style.background=p.c+'38';
+      t.style.boxShadow=`0 0 28px ${p.c}80,inset 0 0 22px ${p.c}28`;
       S.persona=p; S.pColor=p.c;
     };
     pg.appendChild(t);
@@ -1118,7 +1658,7 @@ function showTicket(){
   document.getElementById('tkt-math').innerHTML=`
     <span>DOB ${dobStr} → ${dobRaw} → ROOT: ${dobRoot}</span><br>
     <span>PHONE ${S.phone} → ${phoneRaw} → +${S.iid} → ROOT: ${dobRoot}</span><br>
-    <span style="color:var(--y);">IID = ${S.iid} &nbsp;·&nbsp; ROOTS CONVERGE AT ${dobRoot}</span>
+    <span style="color:var(--rg);">IID = ${S.iid} &nbsp;·&nbsp; ROOTS CONVERGE AT ${dobRoot}</span>
   `;
 
   // Reset name lock UI
@@ -1156,10 +1696,17 @@ function triggerNameCheck(){
       lockBtn.disabled=true; lockBtn.style.opacity='.4'; lockBtn.style.cursor='not-allowed';
     } else {
       statusEl.className='avail-status available';
-      statusEl.textContent=`✓ AVAILABLE — "${name} [${S.cityCode}]" IS YOURS`;
+      const _pfx=getIPPrefix(S.persona?S.persona.k:null);
+      statusEl.textContent=`✓ AVAILABLE — ${_pfx}.${name}.${S.cityCode} IS YOURS`;
       lockBtn.disabled=false; lockBtn.style.opacity='1'; lockBtn.style.cursor='pointer';
     }
   },2000);
+}
+
+function getIPPrefix(personaKey){
+  if(!personaKey) return 'IP';
+  const map = {V:'VIP',I:'IPI',B:'IPB',G:'IPG',Y:'IPY',O:'IPO',R:'IPR',N:'IPN',W:'IPW'};
+  return map[personaKey] || 'IP';
 }
 
 function lockName(){
@@ -1170,7 +1717,8 @@ function lockName(){
   err.classList.remove('show');
 
   S.fname=name;
-  S.fullFutureName=`${name} [${S.cityCode}]`;
+  const _prefix=getIPPrefix(S.persona?S.persona.k:null);
+  S.fullFutureName=`${_prefix}.${name}.${S.cityCode}`;
 
   const lockBtn=document.getElementById('btn-lock-name');
   const locked=document.getElementById('locked-name');
@@ -1184,7 +1732,11 @@ function lockName(){
   statusEl.className='avail-status available';
   statusEl.textContent='✓ IDENTITY LOCKED';
 
-  locked.textContent=`◆ ${S.fullFutureName}`;
+  locked.textContent=S.fullFutureName;
+  locked.style.color=S.pColor;
+  locked.style.borderColor=S.pColor;
+  locked.style.background=S.pColor+'18';
+  locked.style.textShadow=`0 0 18px ${S.pColor}80`;
   locked.style.display='block';
   S.nameLocked=true;
 
@@ -1195,7 +1747,10 @@ function lockName(){
 // PAYMENT
 // ════════════════════════════════════════════
 function proceedToPayment(){
-  document.getElementById('pay-fname-display').textContent=S.fullFutureName;
+  const _pfd=document.getElementById('pay-fname-display');
+  _pfd.textContent=S.fullFutureName;
+  _pfd.style.color=S.pColor;
+  _pfd.style.textShadow=`0 0 12px ${S.pColor}80`;
   goTo('payment');
 }
 
@@ -1225,7 +1780,10 @@ function processPayment(){
       pEl.style.color='var(--g)';
       setTimeout(()=>{
         document.getElementById('reveal-ticket').textContent=S.ticketNumber;
-        document.getElementById('reveal-name').textContent='◆ '+S.fullFutureName;
+        const _rn=document.getElementById('reveal-name');
+        _rn.textContent=S.fullFutureName;
+        _rn.style.color=S.pColor;
+        _rn.style.textShadow=`0 0 20px ${S.pColor}90`;
         goTo('reveal');
       },700);
     }
@@ -1270,8 +1828,27 @@ function updateCountdown(){
   const s=Math.floor((diff%60000)/1000);
   el.innerText=`${d}D ${String(h).padStart(2,'0')}H ${String(m).padStart(2,'0')}M ${String(s).padStart(2,'0')}S`;
 }
-setInterval(updateCountdown,1000);
-updateCountdown();
+// ════════════════════════════════════════════
+// MODE TOGGLE — VIP ↔ CLASSIC
+// ════════════════════════════════════════════
+function toggleMode(){
+  const isClassic = document.body.classList.toggle('classic');
+  const icon  = document.getElementById('mt-icon');
+  const label = document.getElementById('mt-label');
+  if(isClassic){
+    icon.textContent  = '◆';
+    label.textContent = 'VIP MODE';
+    document.querySelectorAll('.hchar').forEach(ch=>{
+      ch.style.animationPlayState = 'paused';
+    });
+  } else {
+    icon.textContent  = '⬡';
+    label.textContent = 'CLASSIC';
+    document.querySelectorAll('.hchar').forEach(ch=>{
+      ch.style.animationPlayState = 'running';
+    });
+  }
+}
 </script>
 </body>
 </html>
