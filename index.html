@@ -1,1365 +1,1277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPNOTEC VIP | STEP INTO THE FUTURE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --v:#BF00FF; --i:#6A0EFF; --b:#00C8FF; --g:#39FF14;
-            --y:#FFE600; --o:#FF6200; --u:#FF00FF; --gr:#AAAAAA; --w:#FFFFFF;
-            --accent:#888888;
-            --bg:#000000;
-            --gold:#FFD700;
-        }
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; border-radius:0 !important; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>IPNOTEC VIP | STEP INTO THE FUTURE</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --v:#BF00FF; --i:#6A0EFF; --b:#00C8FF; --g:#39FF14;
+  --y:#FFE600; --o:#FF6200; --u:#FF00FF; --gr:#AAAAAA; --w:#FFFFFF;
+  --accent:#888888; --bg:#000;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;height:100%;}
+body,html{width:100%;height:100%;background:#000;color:#fff;font-family:'Space Mono',monospace;overflow:hidden;}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.1) 2px,rgba(0,0,0,0.1) 4px);pointer-events:none;z-index:10000;}
 
-        /* ===== GLOBAL 27% SHRINK ===== */
-        html { zoom: 0.73; }
+/* ─── HEADER ─── */
+.hdr{position:fixed;top:0;left:0;width:100%;height:54px;background:rgba(0,0,0,0.96);border-bottom:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:clamp(0.6rem,1.8vw,0.82rem);letter-spacing:clamp(3px,1vw,7px);z-index:5000;overflow:hidden;transition:border-color .6s;}
+.hdr::after{content:'';position:absolute;top:0;left:-80%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,200,255,.18),transparent);animation:hScan 3s linear infinite;}
+@keyframes hScan{to{left:160%;}}
+.hchar{display:inline-block;color:rgba(255,255,255,.22);animation:hpulse 4s ease-in-out infinite;}
+@keyframes hpulse{0%,100%{color:rgba(255,255,255,.22);}50%{color:#fff;text-shadow:0 0 12px #fff,0 0 25px var(--accent);}}
 
-        body, html {
-            width:100%; height:100%;
-            background:#000;
-            color:#fff;
-            font-family:'Space Mono', monospace;
-            overflow:hidden;
-        }
+/* ─── FOOTER ─── */
+footer{position:fixed;bottom:0;left:0;width:100%;height:64px;background:rgba(0,0,0,0.98);border-top:2px solid var(--accent);display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:0 18px;gap:8px;z-index:5000;transition:border-color .6s;}
+.ftr-logo{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(.85rem,3vw,1.05rem);letter-spacing:4px;color:var(--accent);text-shadow:0 0 18px var(--accent);transition:all .6s;white-space:nowrap;}
+.ftr-mid{text-align:center;font-family:'Orbitron',sans-serif;cursor:pointer;user-select:none;display:flex;flex-direction:column;align-items:center;gap:2px;}
+.ftr-launch-txt{font-size:clamp(.52rem,1.4vw,.68rem);letter-spacing:3px;color:rgba(255,255,255,.4);line-height:1;}
+.ftr-launch-txt strong{color:var(--accent);text-shadow:0 0 12px var(--accent);font-weight:900;transition:all .6s;}
+.ftr-date-reveal{font-size:.58rem;letter-spacing:2px;color:var(--y);text-shadow:0 0 10px var(--y);display:none;white-space:nowrap;}
+#countdown{font-size:clamp(.48rem,1.3vw,.6rem);letter-spacing:1px;color:var(--accent);text-shadow:0 0 8px var(--accent);font-weight:700;transition:color .6s;}
+.home-btn{font-family:'Space Mono',monospace;font-weight:700;color:var(--accent);border:2px solid var(--accent);padding:8px 12px;cursor:pointer;background:transparent;font-size:.85rem;transition:.2s;display:flex;align-items:center;gap:6px;white-space:nowrap;min-height:44px;}
+.home-btn:hover{background:var(--accent);color:#000;}
+.clock-face{display:inline-block;width:15px;height:15px;border:1.5px solid var(--accent);position:relative;vertical-align:middle;flex-shrink:0;transition:border-color .6s;}
+.clock-face::before{content:'';position:absolute;top:50%;left:50%;width:2px;height:2px;background:var(--accent);transform:translate(-50%,-50%);transition:background .6s;}
+.clock-hand{position:absolute;bottom:50%;left:50%;width:1.5px;height:42%;background:var(--accent);transform-origin:bottom center;margin-left:-.75px;box-shadow:0 0 3px var(--accent);transition:background .6s,box-shadow .6s;}
+.clock-cw .clock-hand{animation:handCW 2.4s linear infinite;}
+.clock-ccw .clock-hand{animation:handCCW 3s linear infinite;}
+@keyframes handCW{to{transform:rotate(360deg);}}
+@keyframes handCCW{to{transform:rotate(-360deg);}}
 
-        /* SCANLINES */
-        body::after {
-            content:'';
-            position:fixed; top:0; left:0; width:100%; height:100%;
-            background:repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.18) 2px, rgba(0,0,0,0.18) 4px);
-            pointer-events:none;
-            z-index:10000;
-        }
+/* ─── CONTENT WRAPPER ─── */
+#cw{position:absolute;top:54px;left:0;width:100%;height:calc(100% - 118px);overflow:hidden;}
 
-        /* ====== HEADER ====== */
-        .header-ribbon {
-            position:fixed; top:0; left:0; width:100%; height:46px;
-            background:rgba(0,0,0,0.92);
-            border-bottom:2px solid var(--accent);
-            display:flex; align-items:center; justify-content:center;
-            font-family:'Orbitron', sans-serif;
-            font-size:0.78rem;
-            letter-spacing:6px;
-            z-index:5000;
-            overflow:hidden;
-        }
-        .header-ribbon::after {
-            content:'';
-            position:absolute; top:0; left:-80%;
-            width:40%; height:100%;
-            background:linear-gradient(90deg, transparent, rgba(0,200,255,0.18), transparent);
-            animation:hScan 3s linear infinite;
-        }
-        @keyframes hScan { to { left:160%; } }
+/* ─── SCREENS ─── */
+.screen{position:absolute;top:0;left:0;width:100%;height:100%;display:none;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
+.screen.active{display:flex;}
+.screen.scrollable{overflow-y:auto;justify-content:flex-start;padding:24px 16px;}
 
-        .hchar {
-            display:inline-block;
-            color:rgba(255,255,255,0.25);
-            animation:hpulse 4s infinite ease-in-out;
-        }
-        @keyframes hpulse {
-            0%,100% { color:rgba(255,255,255,0.25); text-shadow:none; }
-            50% { color:#fff; text-shadow:0 0 12px #fff, 0 0 25px var(--accent); }
-        }
+/* ─── WORLD MAP ─── */
+.wmap{position:absolute;top:0;left:0;width:100%;height:100%;background:url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg') no-repeat center;background-size:contain;opacity:.07;filter:invert(1) sepia(1) saturate(2) hue-rotate(170deg);pointer-events:none;}
 
-        /* ====== FOOTER ====== */
-        footer {
-            position:fixed; bottom:0; left:0; width:100%; height:56px;
-            background:rgba(0,0,0,0.96);
-            border-top:2px solid var(--accent);
-            display:grid;
-            grid-template-columns: auto 1fr auto;
-            align-items:center;
-            padding:0 22px;
-            gap:12px;
-            z-index:5000;
-            transition: border-color 0.6s;
-        }
-        .footer-logo {
-            font-family:'Orbitron', sans-serif;
-            font-weight:900; font-size:1rem;
-            letter-spacing:5px;
-            color:var(--accent);
-            text-shadow:0 0 18px var(--accent);
-            transition: color 0.6s, text-shadow 0.6s;
-            white-space:nowrap;
-        }
-        /* ── CENTER: LAUNCH TOGGLE ── */
-        .footer-mid {
-            text-align:center;
-            font-family:'Orbitron', sans-serif;
-            cursor:pointer;
-            user-select:none;
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            gap:2px;
-        }
-        .ftr-launch-num {
-            font-size:0.68rem;
-            letter-spacing:6px;
-            color:rgba(255,255,255,0.45);
-            line-height:1;
-        }
-        .ftr-launch-num strong {
-            color:var(--accent);
-            text-shadow: 0 0 12px var(--accent);
-            font-weight:900;
-            letter-spacing:4px;
-            transition: color 0.6s, text-shadow 0.6s;
-        }
-        .ftr-date-reveal {
-            font-size:0.6rem; letter-spacing:3px;
-            color:var(--y); text-shadow:0 0 10px var(--y);
-            display:none;
-            white-space:nowrap;
-        }
-        #countdown {
-            font-size:0.6rem; letter-spacing:1px;
-            color:var(--accent); text-shadow:0 0 8px var(--accent);
-            font-weight:700;
-            transition: color 0.6s;
-        }
-        /* ── HOME BUTTON WITH ANIMATED CLOCK ZEROS ── */
-        .home-btn {
-            font-family:'Space Mono', monospace;
-            font-weight:700;
-            color:var(--accent);
-            border:2px solid var(--accent);
-            padding:6px 12px;
-            cursor:pointer;
-            background:transparent;
-            font-size:0.8rem;
-            transition:0.2s;
-            display:flex;
-            align-items:center;
-            gap:7px;
-            white-space:nowrap;
-        }
-        .home-btn:hover { background:var(--accent); color:#000; }
-        .home-btn:hover .clock-hand { background:#000; }
+/* ─── LANDING ─── */
+.city-node{position:absolute;display:flex;flex-direction:column;align-items:center;opacity:.1;transition:opacity .5s,transform .5s;}
+.city-node.active{opacity:1;transform:scale(1.25);}
+.city-dot{width:9px;height:9px;}
+.city-code{font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:2px;margin-top:4px;}
+.big-i{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(8rem,28vw,14rem);color:var(--accent);text-shadow:0 0 40px var(--accent),0 0 90px var(--accent),0 0 140px var(--accent);position:relative;z-index:10;animation:bigIGlow 2s ease-in-out infinite;}
+@keyframes bigIGlow{0%,100%{text-shadow:0 0 40px var(--accent),0 0 80px var(--accent);}50%{text-shadow:0 0 70px var(--accent),0 0 130px var(--accent),0 0 220px var(--accent);}}
+.floating-phrase{position:absolute;font-family:'Orbitron',sans-serif;font-size:clamp(.6rem,1.8vw,.95rem);font-weight:700;letter-spacing:6px;opacity:0;text-shadow:0 0 20px currentColor;z-index:8;animation:phraseAnim 3s ease-in-out forwards;pointer-events:none;}
+@keyframes phraseAnim{0%{opacity:0;transform:translateY(10px);}20%{opacity:.7;}80%{opacity:.7;}100%{opacity:0;transform:translateY(-10px);}}
+.landing-btns{position:absolute;bottom:28px;display:flex;gap:16px;z-index:20;flex-wrap:wrap;justify-content:center;width:100%;padding:0 20px;}
 
-        /* Clock face — inline SVG-style with CSS */
-        .clock-face {
-            display:inline-block;
-            width:14px; height:14px;
-            border:1.5px solid var(--accent);
-            position:relative;
-            vertical-align:middle;
-            flex-shrink:0;
-            transition:border-color 0.6s;
-        }
-        /* Center dot */
-        .clock-face::before {
-            content:'';
-            position:absolute;
-            top:50%; left:50%;
-            width:2px; height:2px;
-            background:var(--accent);
-            transform:translate(-50%,-50%);
-            transition:background 0.6s;
-        }
-        /* Clock hand */
-        .clock-hand {
-            position:absolute;
-            bottom:50%; left:50%;
-            width:1.5px; height:42%;
-            background:var(--accent);
-            transform-origin:bottom center;
-            margin-left:-0.75px;
-            box-shadow:0 0 3px var(--accent);
-            transition:background 0.6s, box-shadow 0.6s;
-        }
-        .clock-cw  .clock-hand { animation:handCW  2.4s linear infinite; }
-        .clock-ccw .clock-hand { animation:handCCW 3s linear infinite; }
-        @keyframes handCW  { from{transform:rotate(0deg)}   to{transform:rotate(360deg)}  }
-        @keyframes handCCW { from{transform:rotate(0deg)}   to{transform:rotate(-360deg)} }
+/* ─── FORM BOX ─── */
+.fbx{width:min(510px,94vw);border:2px solid var(--accent);padding:clamp(22px,5vw,40px) clamp(18px,5vw,40px);background:rgba(0,0,0,.9);box-shadow:0 0 50px rgba(0,200,255,.06),inset 0 0 30px rgba(0,200,255,.02);position:relative;max-height:100%;overflow-y:auto;transition:border-color .6s;}
+.fbx::before{content:'';position:absolute;top:-2px;left:14px;width:60px;height:3px;background:var(--accent);}
+.fbx::after{content:'';position:absolute;bottom:-2px;right:14px;width:60px;height:3px;background:var(--accent);}
+.corner{position:absolute;width:16px;height:16px;}
+.ctlx{top:-2px;left:-2px;border-top:3px solid var(--accent);border-left:3px solid var(--accent);}
+.ctrx{top:-2px;right:-2px;border-top:3px solid var(--accent);border-right:3px solid var(--accent);}
+.cblx{bottom:-2px;left:-2px;border-bottom:3px solid var(--accent);border-left:3px solid var(--accent);}
+.cbrx{bottom:-2px;right:-2px;border-bottom:3px solid var(--accent);border-right:3px solid var(--accent);}
 
-        /* ====== CONTENT WRAPPER ====== */
-        #cw {
-            position:absolute;
-            top:46px; left:0;
-            width:100%;
-            height:calc(100% - 102px);
-            overflow:hidden;
-        }
+.step-lbl{font-family:'Orbitron',sans-serif;font-size:clamp(.58rem,1.5vw,.65rem);letter-spacing:5px;color:var(--accent);opacity:.9;margin-bottom:8px;}
+.form-title{font-family:'Orbitron',sans-serif;font-size:clamp(1.25rem,4vw,1.65rem);font-weight:900;letter-spacing:2px;color:#fff;text-shadow:0 0 20px rgba(255,255,255,.15);margin-bottom:8px;line-height:1.2;}
+.form-sub{font-size:clamp(.78rem,2vw,.88rem);color:rgba(255,255,255,.42);margin-bottom:26px;letter-spacing:.5px;font-family:'Rajdhani',sans-serif;line-height:1.6;}
+.igrp{margin-bottom:20px;}
+.ilbl{display:block;font-size:clamp(.58rem,1.5vw,.62rem);letter-spacing:4px;color:rgba(255,255,255,.45);margin-bottom:8px;font-family:'Orbitron',sans-serif;}
+.tinput,select.tinput{width:100%;background:rgba(255,255,255,.025);border:1px solid rgba(0,200,255,.35);color:#fff;padding:14px 16px;font-family:'Space Mono',monospace;font-size:1rem;letter-spacing:1.5px;outline:none;transition:.2s;-webkit-appearance:none;appearance:none;}
+.tinput:focus,select.tinput:focus{border-color:var(--accent);box-shadow:0 0 18px rgba(0,200,255,.18);background:rgba(0,200,255,.03);}
+.tinput::placeholder{color:rgba(255,255,255,.2);font-size:.85rem;}
+select.tinput option{background:#000;color:#fff;}
 
-        /* ====== SCREENS ====== */
-        .screen {
-            position:absolute; top:0; left:0;
-            width:100%; height:100%;
-            display:none;
-            flex-direction:column;
-            align-items:center;
-            justify-content:center;
-            overflow:hidden;
-        }
-        .screen.active { display:flex; }
-        .screen.scrollable { overflow-y:auto; justify-content:flex-start; padding-top:20px; }
+/* OTP */
+.otp-row{display:flex;gap:10px;justify-content:center;margin:18px 0;}
+.otp-box{width:clamp(44px,13vw,56px);height:clamp(54px,16vw,66px);background:rgba(255,255,255,.02);border:2px solid rgba(0,200,255,.28);color:#fff;text-align:center;font-family:'Space Mono',monospace;font-size:clamp(1.2rem,4vw,1.5rem);font-weight:700;outline:none;transition:.2s;}
+.otp-box:focus{border-color:var(--accent);box-shadow:0 0 18px rgba(0,200,255,.3);background:rgba(0,200,255,.04);}
 
-        /* ====== WORLD MAP BG ====== */
-        .wmap {
-            position:absolute; top:0; left:0; width:100%; height:100%;
-            background:url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg') no-repeat center;
-            background-size:contain;
-            opacity:0.07;
-            filter:invert(1) sepia(1) saturate(2) hue-rotate(170deg);
-            pointer-events:none;
-        }
+/* BUTTONS */
+.btn-main{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border:2px solid var(--accent);background:rgba(0,200,255,.06);color:var(--accent);font-family:'Orbitron',sans-serif;font-size:clamp(.72rem,2vw,.82rem);font-weight:700;letter-spacing:3px;cursor:pointer;transition:.2s;text-shadow:0 0 8px var(--accent);box-shadow:0 0 14px rgba(0,200,255,.12);text-decoration:none;text-align:center;min-height:52px;}
+.btn-main:hover{background:var(--accent);color:#000;box-shadow:0 0 30px var(--accent);text-shadow:none;}
+.btn-full{width:100%;margin-top:10px;}
+.btn-vip{border-color:var(--y);color:var(--y);background:rgba(255,230,0,.05);text-shadow:0 0 8px var(--y);box-shadow:0 0 14px rgba(255,230,0,.1);}
+.btn-vip:hover{background:var(--y);color:#000;box-shadow:0 0 30px var(--y);}
+.btn-green{border-color:var(--g);color:var(--g);background:rgba(57,255,20,.05);text-shadow:0 0 8px var(--g);}
+.btn-green:hover{background:var(--g);color:#000;}
+.btn-blue{border-color:var(--b);color:var(--b);background:rgba(0,200,255,.06);text-shadow:0 0 8px var(--b);}
+.btn-blue:hover{background:var(--b);color:#000;}
 
-        /* ====== LANDING ====== */
-        #screen-landing { position:relative; }
+.msgbox{padding:11px 16px;font-size:clamp(.65rem,2vw,.72rem);letter-spacing:1.5px;margin-top:12px;display:none;font-family:'Orbitron',sans-serif;line-height:1.5;}
+.msgbox.err{border:1px solid var(--o);color:var(--o);background:rgba(255,98,0,.05);}
+.msgbox.suc{border:1px solid var(--g);color:var(--g);background:rgba(57,255,20,.05);}
+.msgbox.info{border:1px solid var(--b);color:var(--b);background:rgba(0,200,255,.05);}
+.msgbox.show{display:block;}
 
-        .city-node {
-            position:absolute;
-            display:flex; flex-direction:column; align-items:center;
-            opacity:0.08; transition:opacity 0.5s, transform 0.5s;
-        }
-        .city-node.active { opacity:1; transform:scale(1.15); }
-        .city-dot {
-            width:6px; height:6px;
-            background:var(--accent);
-            box-shadow:0 0 14px var(--accent), 0 0 28px var(--accent);
-        }
-        .city-code {
-            font-family:'Orbitron', sans-serif;
-            font-size:0.55rem; letter-spacing:2px;
-            margin-top:4px; color:#fff;
-        }
+.pdots{display:flex;gap:8px;justify-content:center;margin-bottom:20px;}
+.pdot{width:9px;height:4px;background:rgba(255,255,255,.15);transition:.3s;}
+.pdot.done{background:var(--accent);box-shadow:0 0 5px var(--accent);}
+.pdot.now{width:22px;background:#fff;}
 
-        .big-i {
-            font-family:'Space Mono', monospace;
-            font-weight:700;
-            font-size:min(14rem, 20vw);
-            color:var(--accent);
-            text-shadow:0 0 40px var(--accent), 0 0 90px var(--accent), 0 0 140px var(--accent);
-            transition:color 0.5s, text-shadow 0.5s;
-            position:relative; z-index:10;
-            animation:bigIGlow 2s ease-in-out infinite;
-        }
-        @keyframes bigIGlow {
-            0%,100%{ text-shadow:0 0 40px var(--accent), 0 0 80px var(--accent); }
-            50%{ text-shadow:0 0 70px var(--accent), 0 0 130px var(--accent), 0 0 220px var(--accent); }
-        }
+.dim{color:rgba(255,255,255,.35);font-size:clamp(.68rem,2vw,.75rem);letter-spacing:.5px;font-family:'Rajdhani',sans-serif;}
 
-        .floating-phrase {
-            position:absolute;
-            font-family:'Orbitron', sans-serif;
-            font-size:clamp(0.6rem, 1.2vw, 1rem);
-            font-weight:700;
-            letter-spacing:7px;
-            opacity:0;
-            text-shadow:0 0 20px currentColor;
-            z-index:8;
-            animation:phraseAnim 3s ease-in-out forwards;
-            pointer-events:none;
-        }
-        @keyframes phraseAnim {
-            0%{opacity:0;transform:translateY(10px)}
-            20%{opacity:0.7}
-            80%{opacity:0.7}
-            100%{opacity:0;transform:translateY(-10px)}
-        }
+/* ─── PATH CHOICE ─── */
+.path-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:min(580px,93vw);margin-top:18px;}
+@media(max-width:420px){.path-grid{grid-template-columns:1fr;}}
+.path-card{border:2px solid;padding:28px 18px;text-align:center;cursor:pointer;transition:.2s;background:rgba(0,0,0,.88);position:relative;overflow:hidden;}
+.path-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:2px;animation:pcScan 2.5s linear infinite;}
+@keyframes pcScan{to{left:100%;}}
+.path-card:hover{transform:translateY(-4px);}
+.path-card.fp{border-color:var(--g);}
+.path-card.fp::before{background:var(--g);}
+.path-card.vp{border-color:var(--y);}
+.path-card.vp::before{background:var(--y);}
+.path-icon{font-size:2.5rem;margin-bottom:12px;display:block;}
+.path-name{font-family:'Orbitron',sans-serif;font-size:clamp(.8rem,2.5vw,.95rem);font-weight:700;letter-spacing:4px;margin-bottom:10px;}
+.fp .path-name{color:var(--g);text-shadow:0 0 14px var(--g);}
+.vp .path-name{color:var(--y);text-shadow:0 0 14px var(--y);}
+.path-desc{font-size:clamp(.65rem,2vw,.72rem);color:rgba(255,255,255,.4);line-height:1.6;font-family:'Rajdhani',sans-serif;}
+.path-badge{display:inline-block;margin-top:12px;padding:4px 12px;font-family:'Orbitron',sans-serif;font-size:clamp(.5rem,1.5vw,.58rem);letter-spacing:3px;border:1px solid;}
+.fp .path-badge{color:var(--g);border-color:var(--g);}
+.vp .path-badge{color:var(--y);border-color:var(--y);}
 
-        .landing-btns {
-            position:absolute; bottom:22px;
-            display:flex; gap:16px; z-index:20; flex-wrap:wrap; justify-content:center;
-        }
+/* ─── FREE NODE ─── */
+#screen-free-node{background:#000;flex-direction:column;overflow-y:auto;justify-content:flex-start;}
+.node-header{flex-shrink:0;padding:18px 20px 14px;border-bottom:1px solid rgba(0,200,255,.18);background:rgba(0,0,0,.95);width:100%;position:sticky;top:0;z-index:10;}
+.node-status-row{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.node-pulse{width:10px;height:10px;background:var(--g);box-shadow:0 0 12px var(--g),0 0 24px var(--g);animation:npulse 1.5s ease-in-out infinite;flex-shrink:0;}
+@keyframes npulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+.node-title{font-family:'Orbitron',sans-serif;font-size:clamp(.72rem,2vw,.88rem);font-weight:700;letter-spacing:4px;color:var(--g);text-shadow:0 0 12px var(--g);}
+.node-big-count{display:flex;align-items:baseline;gap:8px;margin:6px 0 4px;}
+.node-num{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(2rem,7vw,2.8rem);color:var(--g);text-shadow:0 0 20px var(--g);}
+.node-num-lbl{font-family:'Orbitron',sans-serif;font-size:.62rem;letter-spacing:4px;color:rgba(0,200,255,.7);}
+.node-city-lbl{font-family:'Orbitron',sans-serif;font-size:clamp(.58rem,1.5vw,.65rem);letter-spacing:5px;color:rgba(255,255,255,.4);margin-top:2px;}
+.signal-row{display:flex;align-items:flex-end;gap:4px;margin-top:6px;}
+.sb2{width:5px;background:var(--g);animation:sig2 2s ease-in-out infinite;}
+.sb2:nth-child(1){height:7px;animation-delay:.0s;}
+.sb2:nth-child(2){height:11px;animation-delay:.1s;}
+.sb2:nth-child(3){height:15px;animation-delay:.2s;}
+.sb2:nth-child(4){height:19px;animation-delay:.3s;}
+.sb2:nth-child(5){height:23px;animation-delay:.4s;}
+@keyframes sig2{0%,100%{opacity:.3;}50%{opacity:1;}}
+.sig-lbl{font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:3px;color:var(--g);margin-left:6px;align-self:center;}
 
-        /* ====== FORM BOX ====== */
-        .fbx {
-            width:min(500px,93vw);
-            border:2px solid var(--accent);
-            padding:36px 40px;
-            background:rgba(0,0,0,0.85);
-            box-shadow:0 0 50px rgba(0,200,255,0.08), inset 0 0 30px rgba(0,200,255,0.03);
-            position:relative;
-        }
-        .fbx::before { content:''; position:absolute; top:-2px; left:16px; width:70px; height:3px; background:var(--accent); }
-        .fbx::after  { content:''; position:absolute; bottom:-2px; right:16px; width:70px; height:3px; background:var(--accent); }
+.node-grid-wrap{flex:1;padding:16px;width:100%;}
+.ng-lbl{font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:5px;color:rgba(255,255,255,.3);margin-bottom:12px;}
+.node-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;}
+.node-card{border:1px solid rgba(255,255,255,.08);padding:14px 12px;background:rgba(255,255,255,.012);position:relative;overflow:hidden;cursor:pointer;transition:.2s;}
+.node-card:hover{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.16);}
+.node-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.nc-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:.9rem;margin-bottom:8px;position:relative;flex-shrink:0;}
+.nc-avatar::after{content:'';position:absolute;bottom:0;right:0;width:9px;height:9px;border-radius:50%;background:var(--g);border:1.5px solid #000;box-shadow:0 0 6px var(--g);}
+.nc-name{font-family:'Space Mono',monospace;font-size:clamp(.72rem,2vw,.8rem);font-weight:700;letter-spacing:1px;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.nc-city{font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:3px;color:rgba(255,255,255,.4);margin-bottom:8px;}
+.nc-id{font-family:'Space Mono',monospace;font-size:.6rem;color:rgba(255,255,255,.22);letter-spacing:1px;margin-bottom:10px;filter:blur(2px);user-select:none;}
+.nc-btns{display:flex;gap:6px;}
+.nc-btn{flex:1;padding:7px 4px;border:1px solid;font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:1px;cursor:pointer;background:transparent;transition:.2s;text-align:center;}
+.nc-ping{border-color:rgba(0,200,255,.4);color:var(--b);}
+.nc-ping:hover,.nc-ping.pinged{background:rgba(0,200,255,.15);}
+.nc-connect{border-color:rgba(255,230,0,.4);color:var(--y);}
+.nc-connect:hover{background:rgba(255,230,0,.08);}
 
-        .corner { position:absolute; width:14px; height:14px; }
-        .ctlx { top:-2px; left:-2px; border-top:3px solid var(--accent); border-left:3px solid var(--accent); }
-        .ctrx { top:-2px; right:-2px; border-top:3px solid var(--accent); border-right:3px solid var(--accent); }
-        .cblx { bottom:-2px; left:-2px; border-bottom:3px solid var(--accent); border-left:3px solid var(--accent); }
-        .cbrx { bottom:-2px; right:-2px; border-bottom:3px solid var(--accent); border-right:3px solid var(--accent); }
+.node-cta{margin:0 16px 20px;padding:18px;border:1px solid rgba(255,230,0,.22);background:rgba(255,230,0,.025);text-align:center;}
+.node-cta-title{font-family:'Orbitron',sans-serif;font-size:clamp(.62rem,1.8vw,.72rem);letter-spacing:4px;color:var(--y);text-shadow:0 0 12px var(--y);margin-bottom:8px;}
+.node-cta-desc{font-size:clamp(.7rem,2vw,.78rem);color:rgba(255,255,255,.38);line-height:1.6;font-family:'Rajdhani',sans-serif;margin-bottom:14px;}
 
-        .step-lbl {
-            font-family:'Orbitron', sans-serif;
-            font-size:0.55rem; letter-spacing:6px;
-            color:var(--accent); opacity:0.8;
-            margin-bottom:6px;
-        }
-        .form-title {
-            font-family:'Orbitron', sans-serif;
-            font-size:clamp(1.1rem,3vw,1.5rem);
-            font-weight:900; letter-spacing:2px;
-            color:#fff;
-            text-shadow:0 0 20px rgba(255,255,255,0.2);
-            margin-bottom:6px;
-            line-height:1.2;
-        }
-        .form-sub {
-            font-size:0.72rem; color:rgba(255,255,255,0.38);
-            margin-bottom:26px; letter-spacing:1px;
-            font-family:'Rajdhani', sans-serif;
-            line-height:1.5;
-        }
+/* NODE MODAL */
+.node-modal{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:3000;display:none;align-items:center;justify-content:center;padding:20px;}
+.node-modal.show{display:flex;}
+.nm-box{width:100%;max-width:380px;border:2px solid var(--b);padding:28px 24px;background:rgba(0,0,0,.97);position:relative;}
+.nm-box::before{content:'';position:absolute;top:-2px;left:14px;width:50px;height:3px;background:var(--b);}
+.nm-status{padding:11px;font-family:'Orbitron',sans-serif;font-size:.68rem;letter-spacing:1.5px;margin:12px 0;border:1px solid;display:none;}
 
-        .igrp { margin-bottom:18px; }
-        .ilbl {
-            display:block;
-            font-size:0.55rem; letter-spacing:5px;
-            color:rgba(255,255,255,0.45);
-            margin-bottom:7px;
-            font-family:'Orbitron', sans-serif;
-        }
-        .tinput {
-            width:100%;
-            background:rgba(255,255,255,0.025);
-            border:1px solid rgba(0,200,255,0.35);
-            color:#fff;
-            padding:12px 14px;
-            font-family:'Space Mono', monospace;
-            font-size:0.95rem; letter-spacing:3px;
-            outline:none; transition:0.2s;
-        }
-        .tinput:focus {
-            border-color:var(--accent);
-            box-shadow:0 0 18px rgba(0,200,255,0.2);
-            background:rgba(0,200,255,0.04);
-        }
-        .tinput::placeholder { color:rgba(255,255,255,0.18); font-size:0.75rem; }
+/* ─── PERSONA GRID ─── */
+.persona-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0;}
+.ptile{padding:16px 8px;border:2px solid;cursor:pointer;text-align:center;transition:.2s;position:relative;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.ptile:hover{transform:scale(1.04);}
+.ptile.sel{box-shadow:0 0 24px var(--tc);}
+.pltr{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(1.5rem,5vw,2rem);display:block;margin-bottom:4px;}
+.pname{font-size:clamp(.46rem,1.4vw,.54rem);letter-spacing:2px;font-family:'Orbitron',sans-serif;opacity:.85;}
 
-        /* OTP */
-        .otp-row { display:flex; gap:10px; justify-content:center; margin:16px 0; }
-        .otp-box {
-            width:50px; height:58px;
-            background:rgba(255,255,255,0.02);
-            border:2px solid rgba(0,200,255,0.28);
-            color:#fff; text-align:center;
-            font-family:'Space Mono', monospace;
-            font-size:1.4rem; font-weight:700;
-            outline:none; transition:0.2s;
-        }
-        .otp-box:focus {
-            border-color:var(--accent);
-            box-shadow:0 0 18px rgba(0,200,255,0.3);
-            background:rgba(0,200,255,0.04);
-        }
+/* ─── JOURNEY ─── */
+#screen-journey{background:#000;position:relative;}
+.jw{position:relative;z-index:10;text-align:center;width:100%;padding:20px;}
+.jlbl{font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:8px;color:rgba(255,255,255,.3);margin-bottom:16px;}
+.jname{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(3rem,10vw,5rem);color:var(--accent);text-shadow:0 0 40px var(--accent);margin-bottom:8px;animation:jNamePulse 1.8s ease-in-out infinite;}
+@keyframes jNamePulse{0%,100%{text-shadow:0 0 30px var(--accent),0 0 60px var(--accent);}50%{text-shadow:0 0 70px var(--accent),0 0 140px var(--accent);}}
+.jcity{font-family:'Orbitron',sans-serif;font-size:clamp(.85rem,2.5vw,1.2rem);letter-spacing:5px;color:var(--y);text-shadow:0 0 18px var(--y);margin-bottom:22px;}
+.pcard{display:inline-flex;gap:24px;flex-wrap:wrap;justify-content:center;border:1px solid rgba(255,255,255,.08);padding:14px 24px;margin-bottom:22px;background:rgba(0,0,0,.6);}
+.pci{text-align:center;}
+.pck{font-size:.48rem;letter-spacing:4px;color:rgba(255,255,255,.35);font-family:'Orbitron',sans-serif;display:block;margin-bottom:3px;}
+.pcv{font-size:.82rem;font-weight:700;letter-spacing:2px;}
+.jpbar{width:min(380px,80vw);height:5px;background:rgba(255,255,255,.08);margin:0 auto 14px;}
+.jpfill{height:100%;background:var(--accent);box-shadow:0 0 10px var(--accent);width:0%;transition:width .08s linear;}
+.jstatus{font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:3px;color:rgba(255,255,255,.38);}
+.dstream{position:absolute;font-family:'Space Mono',monospace;font-size:.52rem;white-space:nowrap;animation:dfall 5s linear infinite;pointer-events:none;}
+@keyframes dfall{0%{transform:translateY(-20%);opacity:0;}10%{opacity:1;}90%{opacity:.8;}100%{transform:translateY(110vh);opacity:0;}}
 
-        /* BUTTONS */
-        .btn-main {
-            display:inline-block;
-            padding:12px 24px;
-            border:2px solid var(--accent);
-            background:rgba(0,200,255,0.06);
-            color:var(--accent);
-            font-family:'Orbitron', sans-serif;
-            font-size:0.72rem; font-weight:700;
-            letter-spacing:3px;
-            cursor:pointer;
-            transition:0.2s;
-            text-shadow:0 0 8px var(--accent);
-            box-shadow:0 0 14px rgba(0,200,255,0.15);
-            text-decoration:none;
-            text-align:center;
-        }
-        .btn-main:hover { background:var(--accent); color:#000; box-shadow:0 0 30px var(--accent); text-shadow:none; }
-        .btn-full { width:100%; padding:14px; font-size:0.72rem; margin-top:8px; }
-        .btn-vip { border-color:var(--y); color:var(--y); background:rgba(255,230,0,0.05); text-shadow:0 0 8px var(--y); box-shadow:0 0 14px rgba(255,230,0,0.12); }
-        .btn-vip:hover { background:var(--y); color:#000; box-shadow:0 0 30px var(--y); }
-        .btn-green { border-color:var(--g); color:var(--g); background:rgba(57,255,20,0.05); text-shadow:0 0 8px var(--g); }
-        .btn-green:hover { background:var(--g); color:#000; }
+/* ─── TICKET SCREEN ─── */
+#screen-ticket{background:#000;}
+.tkt-panel{width:min(520px,94vw);border:2px solid var(--y);padding:24px;background:rgba(255,230,0,.025);position:relative;text-align:center;margin-bottom:20px;}
+.tkt-panel::before{content:'';position:absolute;top:-2px;left:14px;width:50px;height:3px;background:var(--y);}
+.tkt-panel::after{content:'';position:absolute;bottom:-2px;right:14px;width:50px;height:3px;background:var(--y);}
+.tkt-lbl{font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:7px;color:rgba(255,230,0,.6);margin-bottom:12px;}
+.tkt-number{font-family:'Space Mono',monospace;font-size:clamp(.82rem,2.5vw,1.05rem);font-weight:700;color:var(--y);text-shadow:0 0 20px var(--y);letter-spacing:2px;margin-bottom:14px;word-break:break-all;}
+.tkt-math{font-family:'Space Mono',monospace;font-size:.62rem;color:rgba(255,255,255,.28);letter-spacing:1px;line-height:1.9;margin-top:10px;}
+.tkt-math span{color:rgba(255,230,0,.7);}
+.fname-box{width:min(520px,94vw);}
+.avail-status{padding:12px 16px;font-family:'Orbitron',sans-serif;font-size:.7rem;letter-spacing:1.5px;margin:10px 0;display:none;line-height:1.5;}
+.avail-status.checking{border:1px solid rgba(0,200,255,.4);color:var(--b);background:rgba(0,200,255,.04);display:block;}
+.avail-status.available{border:1px solid var(--g);color:var(--g);background:rgba(57,255,20,.04);display:block;}
+.avail-status.taken{border:1px solid var(--o);color:var(--o);background:rgba(255,98,0,.04);display:block;}
+.locked-name{padding:14px 18px;border:1px solid var(--g);color:var(--g);background:rgba(57,255,20,.04);font-family:'Space Mono',monospace;font-size:clamp(.9rem,2.5vw,1rem);letter-spacing:3px;text-align:center;margin-bottom:14px;display:none;}
 
-        /* MSG */
-        .msgbox {
-            padding:9px 14px;
-            font-size:0.65rem; letter-spacing:2px;
-            margin-top:10px; display:none;
-            font-family:'Orbitron', sans-serif;
-        }
-        .msgbox.err { border:1px solid var(--o); color:var(--o); background:rgba(255,98,0,0.05); }
-        .msgbox.suc { border:1px solid var(--g); color:var(--g); background:rgba(57,255,20,0.05); }
-        .msgbox.show { display:block; }
+/* ─── PAYMENT ─── */
+.pay-amount{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(2.5rem,10vw,3.5rem);color:var(--y);text-shadow:0 0 30px var(--y),0 0 60px var(--y);letter-spacing:4px;margin-bottom:8px;}
+.pay-label{font-family:'Orbitron',sans-serif;font-size:clamp(.72rem,2vw,.85rem);letter-spacing:6px;color:rgba(255,255,255,.5);margin-bottom:22px;}
+.pay-btn{padding:18px;background:var(--y);color:#000;border:none;font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(.85rem,3vw,1rem);letter-spacing:4px;cursor:pointer;box-shadow:0 0 30px rgba(255,230,0,.4);transition:.2s;animation:payPulse 2s ease-in-out infinite;width:100%;min-height:58px;}
+@keyframes payPulse{0%,100%{box-shadow:0 0 20px rgba(255,230,0,.35);}50%{box-shadow:0 0 60px rgba(255,230,0,.75),0 0 120px rgba(255,230,0,.25);}}
+.pay-btn:hover{transform:scale(1.02);}
+.order-box{border:1px solid rgba(255,255,255,.09);padding:18px;margin:18px 0;text-align:left;background:rgba(255,255,255,.012);}
+.order-row{display:flex;justify-content:space-between;font-size:clamp(.68rem,2vw,.76rem);margin-bottom:10px;font-family:'Space Mono',monospace;}
+.order-row span:first-child{color:rgba(255,255,255,.5);}
 
-        /* PROGRESS DOTS */
-        .pdots { display:flex; gap:7px; justify-content:center; margin-bottom:18px; }
-        .pdot { width:7px; height:3px; background:rgba(255,255,255,0.15); transition:0.3s; }
-        .pdot.done { background:var(--accent); box-shadow:0 0 5px var(--accent); }
-        .pdot.now { width:18px; background:#fff; }
+/* ─── REVEAL ─── */
+.reveal-wrap{width:min(580px,92vw);padding:10px 10px 30px;margin:0 auto;}
+.rev-ticket{font-family:'Space Mono',monospace;font-size:clamp(.65rem,2vw,.82rem);letter-spacing:2px;color:var(--y);border:1px solid rgba(255,230,0,.4);padding:12px 18px;display:inline-block;margin-bottom:18px;word-break:break-all;max-width:100%;text-align:center;}
+.rev-title{font-family:'Orbitron',sans-serif;font-size:clamp(1.5rem,5.5vw,2.3rem);font-weight:900;letter-spacing:3px;margin-bottom:12px;line-height:1.2;}
+.rev-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0;}
+@media(max-width:420px){.rev-grid{grid-template-columns:1fr;}}
+.rev-item{border:1px solid rgba(255,255,255,.09);padding:18px;background:rgba(255,255,255,.015);}
+.rev-icon{font-size:1.2rem;margin-bottom:8px;display:block;}
+.rev-ititle{font-family:'Orbitron',sans-serif;font-size:clamp(.54rem,1.5vw,.62rem);letter-spacing:3px;margin-bottom:6px;}
+.rev-idesc{font-size:clamp(.65rem,2vw,.72rem);color:rgba(255,255,255,.42);line-height:1.7;font-family:'Rajdhani',sans-serif;}
+.pingg-launch{display:flex;align-items:center;justify-content:center;gap:10px;padding:18px;background:rgba(0,200,255,.08);border:2px solid var(--b);font-family:'Orbitron',sans-serif;font-size:clamp(.8rem,2.5vw,.95rem);font-weight:700;letter-spacing:3px;color:var(--b);text-shadow:0 0 12px var(--b);text-decoration:none;text-align:center;transition:.2s;cursor:pointer;margin:16px 0;animation:pinggPulse 2s ease-in-out infinite;width:100%;}
+@keyframes pinggPulse{0%,100%{box-shadow:0 0 15px rgba(0,200,255,.2);}50%{box-shadow:0 0 40px rgba(0,200,255,.5);}}
+.pingg-launch:hover{background:var(--b);color:#000;text-shadow:none;}
 
-        /* TEXT DIM */
-        .dim { color:rgba(255,255,255,0.35); font-size:0.65rem; letter-spacing:1px; font-family:'Rajdhani',sans-serif; }
+/* ─── FINAL ─── */
+.final-see{font-family:'Orbitron',sans-serif;font-size:clamp(1.8rem,5.5vw,3rem);font-weight:900;letter-spacing:4px;animation:fglow 2.5s ease-in-out infinite;}
+.final-in{font-family:'Orbitron',sans-serif;font-size:clamp(2.2rem,6.5vw,3.8rem);font-weight:900;letter-spacing:4px;animation:fglow 2.5s ease-in-out infinite .2s;}
+.final-future{font-family:'Orbitron',sans-serif;font-size:clamp(2.8rem,8.5vw,5.5rem);font-weight:900;letter-spacing:4px;animation:fglow 2.5s ease-in-out infinite .4s;}
+@keyframes fglow{0%,100%{text-shadow:0 0 25px currentColor;}50%{text-shadow:0 0 70px currentColor,0 0 140px currentColor;}}
 
-        /* ====== PATH CHOICE ====== */
-        #screen-path { background:#000; }
-        .path-grid {
-            display:grid; grid-template-columns:1fr 1fr; gap:14px;
-            width:min(580px,93vw); margin-top:18px;
-        }
-        .path-card {
-            border:2px solid;
-            padding:28px 18px; text-align:center;
-            cursor:pointer; transition:0.2s;
-            background:rgba(0,0,0,0.8);
-            position:relative; overflow:hidden;
-        }
-        .path-card::before {
-            content:''; position:absolute;
-            top:0; left:-100%; width:100%; height:2px;
-            animation:pcScan 2.5s linear infinite;
-        }
-        @keyframes pcScan { to { left:100%; } }
-        .path-card:hover { transform:translateY(-4px); }
-        .path-card.fp { border-color:var(--g); }
-        .path-card.fp::before { background:var(--g); }
-        .path-card.vp { border-color:var(--y); }
-        .path-card.vp::before { background:var(--y); }
-        .path-icon { font-size:2.2rem; margin-bottom:10px; display:block; }
-        .path-name {
-            font-family:'Orbitron', sans-serif;
-            font-size:0.85rem; font-weight:700; letter-spacing:4px; margin-bottom:8px;
-        }
-        .fp .path-name { color:var(--g); text-shadow:0 0 14px var(--g); }
-        .vp .path-name { color:var(--y); text-shadow:0 0 14px var(--y); }
-        .path-desc { font-size:0.62rem; color:rgba(255,255,255,0.38); line-height:1.6; font-family:'Rajdhani',sans-serif; }
-        .path-badge {
-            display:inline-block; margin-top:10px;
-            padding:3px 10px;
-            font-family:'Orbitron', sans-serif; font-size:0.5rem; letter-spacing:3px;
-            border:1px solid;
-        }
-        .fp .path-badge { color:var(--g); border-color:var(--g); }
-        .vp .path-badge { color:var(--y); border-color:var(--y); }
-
-        /* ====== PERSONA GRID ====== */
-        .persona-grid {
-            display:grid; grid-template-columns:repeat(3,1fr); gap:9px;
-            margin:16px 0;
-        }
-        .ptile {
-            padding:14px 8px; border:2px solid;
-            cursor:pointer; text-align:center;
-            transition:0.2s; position:relative;
-        }
-        .ptile:hover { transform:scale(1.03); }
-        .ptile.sel { box-shadow:0 0 22px var(--tc); }
-        .pltr {
-            font-family:'Space Mono', monospace;
-            font-weight:700; font-size:1.7rem;
-            display:block; margin-bottom:3px;
-        }
-        .pname {
-            font-size:0.48rem; letter-spacing:2px;
-            font-family:'Orbitron', sans-serif; opacity:0.8;
-        }
-
-        /* ====== JOURNEY ====== */
-        #screen-journey { background:#000; position:relative; }
-        .jw { position:relative; z-index:10; text-align:center; width:100%; }
-        .jlbl {
-            font-family:'Orbitron', sans-serif;
-            font-size:0.55rem; letter-spacing:8px;
-            color:rgba(255,255,255,0.35); margin-bottom:16px;
-        }
-        .jname {
-            font-family:'Space Mono', monospace; font-weight:700;
-            font-size:min(4rem,10vw);
-            color:var(--accent); text-shadow:0 0 40px var(--accent);
-            margin-bottom:8px;
-            animation:jNamePulse 1.8s ease-in-out infinite;
-        }
-        @keyframes jNamePulse {
-            0%,100%{ text-shadow:0 0 30px var(--accent), 0 0 60px var(--accent); }
-            50%{ text-shadow:0 0 70px var(--accent), 0 0 140px var(--accent); }
-        }
-        .jcity {
-            font-family:'Orbitron', sans-serif;
-            font-size:clamp(0.8rem,2vw,1.2rem); letter-spacing:5px;
-            color:var(--y); text-shadow:0 0 18px var(--y);
-            margin-bottom:22px;
-        }
-        .pcard {
-            display:inline-flex; gap:24px; flex-wrap:wrap; justify-content:center;
-            border:1px solid rgba(255,255,255,0.08);
-            padding:14px 24px; margin-bottom:22px;
-            background:rgba(0,0,0,0.6);
-        }
-        .pci { text-align:center; }
-        .pck { font-size:0.48rem; letter-spacing:4px; color:rgba(255,255,255,0.35); font-family:'Orbitron',sans-serif; display:block; margin-bottom:3px; }
-        .pcv { font-size:0.8rem; font-weight:700; letter-spacing:2px; }
-
-        .jpbar { width:min(380px,75vw); height:4px; background:rgba(255,255,255,0.08); margin:0 auto 14px; }
-        .jpfill { height:100%; background:var(--accent); box-shadow:0 0 10px var(--accent); width:0%; transition:width 0.08s linear; }
-        .jstatus { font-family:'Orbitron',sans-serif; font-size:0.55rem; letter-spacing:4px; color:rgba(255,255,255,0.38); }
-
-        /* DATA STREAMS */
-        .dstream {
-            position:absolute;
-            font-family:'Space Mono', monospace; font-size:0.5rem;
-            white-space:nowrap;
-            animation:dfall 5s linear infinite;
-            pointer-events:none;
-        }
-        @keyframes dfall {
-            0%{ transform:translateY(-20%); opacity:0; }
-            10%{ opacity:1; }
-            90%{ opacity:0.8; }
-            100%{ transform:translateY(110vh); opacity:0; }
-        }
-
-        /* ====== PAYMENT ====== */
-        #screen-payment { background:#000; }
-        .pay-amount {
-            font-family:'Space Mono', monospace; font-weight:700;
-            font-size:min(3.5rem,10vw);
-            color:var(--y); text-shadow:0 0 30px var(--y), 0 0 60px var(--y);
-            letter-spacing:4px; margin-bottom:8px;
-        }
-        .pay-label {
-            font-family:'Orbitron', sans-serif;
-            font-size:0.8rem; letter-spacing:6px;
-            color:rgba(255,255,255,0.5); margin-bottom:24px;
-        }
-        .pay-btn {
-            padding:16px 44px;
-            background:var(--y); color:#000;
-            border:none;
-            font-family:'Orbitron', sans-serif;
-            font-weight:900; font-size:0.9rem; letter-spacing:4px;
-            cursor:pointer;
-            box-shadow:0 0 30px rgba(255,230,0,0.45);
-            transition:0.2s;
-            animation:payPulse 2s ease-in-out infinite;
-        }
-        @keyframes payPulse {
-            0%,100%{ box-shadow:0 0 20px rgba(255,230,0,0.4); }
-            50%{ box-shadow:0 0 60px rgba(255,230,0,0.8), 0 0 120px rgba(255,230,0,0.3); }
-        }
-        .pay-btn:hover { transform:scale(1.04); }
-
-        .order-box {
-            border:1px solid rgba(255,255,255,0.09);
-            padding:16px; margin:18px 0; text-align:left;
-            background:rgba(255,255,255,0.015);
-        }
-        .order-row {
-            display:flex; justify-content:space-between;
-            font-size:0.7rem; margin-bottom:8px;
-        }
-        .order-row span:first-child { color:rgba(255,255,255,0.5); }
-
-        /* ====== PROCESSING ====== */
-        #screen-processing { background:#000; text-align:center; }
-        .proc-spin {
-            font-size:3.5rem;
-            animation:spinCol 0.6s steps(4) infinite;
-            display:block; margin-bottom:20px;
-        }
-        @keyframes spinCol {
-            0%{ content:'◰'; }
-            25%{ content:'◳'; }
-            50%{ content:'◲'; }
-            75%{ content:'◱'; }
-        }
-        .proc-status {
-            font-family:'Orbitron', sans-serif;
-            font-size:0.7rem; letter-spacing:4px;
-            color:var(--y); text-shadow:0 0 10px var(--y);
-            margin-top:10px;
-        }
-
-        /* ====== REVEAL ====== */
-        #screen-reveal { background:#000; }
-        .reveal-wrap { width:min(580px,92vw); padding:10px 0 20px; margin:0 auto; }
-        .ticket-chip {
-            font-family:'Space Mono', monospace; font-size:0.65rem;
-            letter-spacing:5px; color:var(--accent);
-            border:1px solid rgba(0,200,255,0.3);
-            padding:9px 18px; display:inline-block; margin-bottom:16px;
-        }
-        .rev-title {
-            font-family:'Orbitron', sans-serif;
-            font-size:clamp(1.6rem,5vw,2.3rem); font-weight:900;
-            letter-spacing:3px; margin-bottom:10px; line-height:1.2;
-        }
-        .rev-grid {
-            display:grid; grid-template-columns:1fr 1fr; gap:10px;
-            margin:18px 0;
-        }
-        .rev-item {
-            border:1px solid rgba(255,255,255,0.09);
-            padding:16px; background:rgba(255,255,255,0.018);
-        }
-        .rev-icon { font-size:1.1rem; margin-bottom:7px; display:block; }
-        .rev-ititle { font-family:'Orbitron',sans-serif; font-size:0.55rem; letter-spacing:3px; margin-bottom:5px; }
-        .rev-idesc { font-size:0.65rem; color:rgba(255,255,255,0.45); line-height:1.6; font-family:'Rajdhani',sans-serif; }
-        .ipnotec-cta {
-            display:block; padding:14px 26px;
-            border:2px solid var(--accent); color:var(--accent);
-            font-family:'Orbitron',sans-serif; font-size:0.7rem;
-            letter-spacing:4px; text-decoration:none;
-            text-shadow:0 0 8px var(--accent);
-            box-shadow:0 0 20px rgba(0,200,255,0.18);
-            transition:0.2s; text-align:center;
-        }
-        .ipnotec-cta:hover { background:var(--accent); color:#000; text-shadow:none; }
-
-        /* ====== FINAL ====== */
-        #screen-final { background:#000; position:relative; overflow:hidden; }
-        .final-see { font-family:'Orbitron',sans-serif; font-size:clamp(2rem,5vw,3rem); font-weight:900; letter-spacing:4px; animation:fglow 2.5s ease-in-out infinite; }
-        .final-in  { font-family:'Orbitron',sans-serif; font-size:clamp(2.5rem,6vw,3.8rem); font-weight:900; letter-spacing:4px; animation:fglow 2.5s ease-in-out infinite 0.2s; }
-        .final-future { font-family:'Orbitron',sans-serif; font-size:clamp(3rem,8vw,5.5rem); font-weight:900; letter-spacing:4px; animation:fglow 2.5s ease-in-out infinite 0.4s; }
-        @keyframes fglow {
-            0%,100%{ text-shadow:0 0 25px currentColor; }
-            50%{ text-shadow:0 0 70px currentColor, 0 0 140px currentColor; }
-        }
-
-        /* ====== FREE INTERNET ====== */
-        #screen-free { background:#000; text-align:center; padding:20px; }
-
-        /* ====== SCROLLBAR ====== */
-        ::-webkit-scrollbar { width:3px; }
-        ::-webkit-scrollbar-track { background:#000; }
-        ::-webkit-scrollbar-thumb { background:var(--accent); }
-
-        /* ====== RESPONSIVE ====== */
-        @media(max-width:480px) {
-            .path-grid { grid-template-columns:1fr; }
-            .rev-grid { grid-template-columns:1fr; }
-            .fbx { padding:24px 20px; }
-        }
-    </style>
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:#000;}
+::-webkit-scrollbar-thumb{background:var(--accent);}
+</style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <div class="header-ribbon" id="hdr">STEP INTO THE FUTURE -></div>
+<!-- HEADER -->
+<div class="hdr" id="hdr">STEP INTO THE FUTURE -></div>
 
-    <!-- MAIN CONTENT -->
-    <div id="cw">
+<div id="cw">
 
-        <!-- ===== LANDING ===== -->
-        <div class="screen active" id="screen-landing">
-            <div class="wmap"></div>
-            <div id="map-nodes"></div>
-            <div id="word-layer"></div>
-            <div class="big-i" id="main-i">I</div>
-            <div class="landing-btns">
-                <button class="btn-main btn-green" onclick="startFlow('free')">FREE IPNOTEC INTERNET</button>
-                <button class="btn-main btn-vip" onclick="startFlow('vip')">◆ IPNOTEC VIP</button>
-            </div>
-        </div>
+<!-- ═══════════════ LANDING ═══════════════ -->
+<div class="screen active" id="screen-landing">
+  <div class="wmap"></div>
+  <div id="map-nodes"></div>
+  <div id="word-layer"></div>
+  <div class="big-i" id="main-i">I</div>
+  <div class="landing-btns">
+    <button class="btn-main btn-green" onclick="startFlow('free')">FREE IPNOTEC INTERNET</button>
+    <button class="btn-main btn-vip" onclick="startFlow('vip')">◆ IPNOTEC VIP</button>
+  </div>
+</div>
 
-        <!-- ===== PHONE ===== -->
-        <div class="screen" id="screen-phone">
-            <div class="fbx">
-                <div class="corner ctlx"></div><div class="corner ctrx"></div>
-                <div class="corner cblx"></div><div class="corner cbrx"></div>
-                <div class="pdots" id="ph-dots"></div>
-                <div class="step-lbl">STEP 01 · CONNECT</div>
-                <div class="form-title">ENTER YOUR<br>PHONE NUMBER</div>
-                <div class="form-sub">We'll send a 6-digit OTP to verify your identity</div>
-                <div class="igrp">
-                    <label class="ilbl">PHONE NUMBER</label>
-                    <input type="tel" class="tinput" id="phone-in" placeholder="+91 XXXXX XXXXX" maxlength="15">
-                </div>
-                <div class="msgbox err" id="phone-err">INVALID NUMBER. MINIMUM 10 DIGITS REQUIRED</div>
-                <button class="btn-main btn-full" onclick="sendOTP()">SEND OTP →</button>
-                <div class="dim" style="margin-top:14px;text-align:center">By continuing, you agree to IPNOTEC Terms of Service</div>
-            </div>
-        </div>
-
-        <!-- ===== OTP ===== -->
-        <div class="screen" id="screen-otp">
-            <div class="fbx">
-                <div class="corner ctlx"></div><div class="corner ctrx"></div>
-                <div class="corner cblx"></div><div class="corner cbrx"></div>
-                <div class="step-lbl">STEP 02 · AUTHENTICATE</div>
-                <div class="form-title">ENTER OTP</div>
-                <div class="form-sub" id="otp-sub">Code sent to your number</div>
-                <div class="otp-row">
-                    <input class="otp-box" maxlength="1" id="o0" type="text" inputmode="numeric" autocomplete="off">
-                    <input class="otp-box" maxlength="1" id="o1" type="text" inputmode="numeric" autocomplete="off">
-                    <input class="otp-box" maxlength="1" id="o2" type="text" inputmode="numeric" autocomplete="off">
-                    <input class="otp-box" maxlength="1" id="o3" type="text" inputmode="numeric" autocomplete="off">
-                    <input class="otp-box" maxlength="1" id="o4" type="text" inputmode="numeric" autocomplete="off">
-                    <input class="otp-box" maxlength="1" id="o5" type="text" inputmode="numeric" autocomplete="off">
-                </div>
-                <div class="msgbox err" id="otp-err">INCORRECT CODE. TRY AGAIN.</div>
-                <div class="msgbox suc" id="otp-suc">✓ IDENTITY VERIFIED</div>
-                <button class="btn-main btn-full" onclick="verifyOTP()">VERIFY →</button>
-                <div class="dim" style="margin-top:12px;text-align:center;cursor:pointer" onclick="sendOTP()">↺ Resend OTP</div>
-            </div>
-        </div>
-
-        <!-- ===== PATH CHOICE ===== -->
-        <div class="screen" id="screen-path" style="flex-direction:column;padding:20px;text-align:center">
-            <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:7px;color:rgba(255,255,255,0.4)">IDENTITY VERIFIED · CHOOSE YOUR PATH</div>
-            <div class="form-title" style="font-family:'Orbitron',sans-serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:900;letter-spacing:3px;text-align:center;margin-top:8px;margin-bottom:6px">WHICH FUTURE<br>CALLS TO YOU?</div>
-            <div class="dim" style="margin-bottom:4px">Select your access level to proceed</div>
-            <div class="path-grid">
-                <div class="path-card fp" onclick="takePath('free')">
-                    <span class="path-icon" style="color:var(--g)">◈</span>
-                    <div class="path-name">FREE INTERNET</div>
-                    <div class="path-desc">Connect to IPNOTEC's free internet service. No commitment. Access starts instantly.</div>
-                    <div class="path-badge">FREE · INSTANT ACCESS</div>
-                </div>
-                <div class="path-card vp" onclick="takePath('vip')">
-                    <span class="path-icon" style="color:var(--y)">◆</span>
-                    <div class="path-name">IPNOTEC VIP</div>
-                    <div class="path-desc">Create your future profile. Secure your place in history. First to step into the future.</div>
-                    <div class="path-badge">VIP · ₹ 1001</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ===== FREE INTERNET ===== -->
-        <div class="screen" id="screen-free">
-            <div style="width:min(480px,92vw);text-align:center">
-                <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:7px;color:var(--g);text-align:center;margin-bottom:14px">✓ FREE ACCESS GRANTED</div>
-                <div class="form-title" style="font-family:'Orbitron',sans-serif;font-size:clamp(1.5rem,5vw,2.2rem);font-weight:900;letter-spacing:3px;color:var(--g);text-shadow:0 0 30px var(--g);text-align:center;margin-bottom:12px">YOU ARE<br>CONNECTED</div>
-                <div class="dim" style="margin-bottom:28px;line-height:1.7">Welcome to IPNOTEC Free Internet.<br>Experience the future of connectivity — right now.</div>
-                <a href="https://isp-eureka.vercel.app" target="_blank" class="btn-main btn-green btn-full" style="display:block;text-decoration:none">LAUNCH FREE INTERNET →</a>
-                <div style="margin-top:24px;border:1px solid rgba(255,255,255,0.08);padding:20px;background:rgba(255,255,255,0.015)">
-                    <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:5px;color:var(--y);text-align:center;margin-bottom:8px">WANT THE FULL FUTURE?</div>
-                    <div class="dim" style="margin-bottom:14px;text-align:center">Upgrade to VIP. Create your future profile. Secure launch priority.</div>
-                    <button class="btn-main btn-vip btn-full" onclick="takePath('vip')">UPGRADE TO IPNOTEC VIP →</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ===== DOB ===== -->
-        <div class="screen" id="screen-dob">
-            <div class="fbx">
-                <div class="corner ctlx"></div><div class="corner ctrx"></div>
-                <div class="corner cblx"></div><div class="corner cbrx"></div>
-                <div class="pdots" id="dob-dots"></div>
-                <div class="step-lbl">VIP PROFILE · 1 OF 4</div>
-                <div class="form-title">DATE OF BIRTH</div>
-                <div class="form-sub">Your birthdate anchors your place on the future timeline</div>
-                <div class="igrp">
-                    <label class="ilbl">DATE OF BIRTH</label>
-                    <input type="date" class="tinput" id="dob-in" style="color-scheme:dark">
-                </div>
-                <div class="msgbox err" id="dob-err">PLEASE SELECT YOUR DATE OF BIRTH</div>
-                <button class="btn-main btn-full btn-vip" onclick="saveDOB()">CONTINUE →</button>
-            </div>
-        </div>
-
-        <!-- ===== PERSONA ===== -->
-        <div class="screen" id="screen-persona">
-            <div class="fbx" style="width:min(560px,94vw);padding:28px 32px">
-                <div class="corner ctlx"></div><div class="corner ctrx"></div>
-                <div class="corner cblx"></div><div class="corner cbrx"></div>
-                <div class="pdots" id="per-dots"></div>
-                <div class="step-lbl">VIP PROFILE · 2 OF 4</div>
-                <div class="form-title">VIBGYOU PERSONA</div>
-                <div class="form-sub">The wavelength that defines your future identity</div>
-                <div class="persona-grid" id="pgrid"></div>
-                <div class="msgbox err" id="per-err">SELECT YOUR VIBGYOU PERSONA</div>
-                <button class="btn-main btn-full btn-vip" onclick="savePersona()">CONTINUE →</button>
-            </div>
-        </div>
-
-        <!-- ===== FUTURE CITY ===== -->
-        <div class="screen" id="screen-city">
-            <div class="fbx">
-                <div class="corner ctlx"></div><div class="corner ctrx"></div>
-                <div class="corner cblx"></div><div class="corner cbrx"></div>
-                <div class="pdots" id="city-dots"></div>
-                <div class="step-lbl">VIP PROFILE · 3 OF 4</div>
-                <div class="form-title">YOUR FUTURE CITY</div>
-                <div class="form-sub">Where will you be on JAN 10 2027 at 10:01 HRS?</div>
-                <div class="igrp">
-                    <label class="ilbl">FUTURE CITY</label>
-                    <input type="text" class="tinput" id="city-in" placeholder="e.g. BOMBAY 2027" style="text-transform:uppercase">
-                </div>
-                <div class="msgbox err" id="city-err">ENTER YOUR FUTURE CITY</div>
-                <button class="btn-main btn-full btn-vip" onclick="saveCity()">CONTINUE →</button>
-            </div>
-        </div>
-
-        <!-- ===== FUTURE NAME ===== -->
-        <div class="screen" id="screen-fname">
-            <div class="fbx">
-                <div class="corner ctlx"></div><div class="corner ctrx"></div>
-                <div class="corner cblx"></div><div class="corner cbrx"></div>
-                <div class="pdots" id="name-dots"></div>
-                <div class="step-lbl">VIP PROFILE · 4 OF 4</div>
-                <div class="form-title">YOUR FUTURE NAME</div>
-                <div class="form-sub">The name you'll carry when the future arrives</div>
-                <div class="igrp">
-                    <label class="ilbl">FUTURE NAME</label>
-                    <input type="text" class="tinput" id="fname-in" placeholder="e.g. NOVA SEVEN" style="text-transform:uppercase">
-                </div>
-                <div class="msgbox err" id="fname-err">ENTER YOUR FUTURE NAME</div>
-                <button class="btn-main btn-full btn-vip" onclick="saveFutureName()">GENERATE PROFILE →</button>
-            </div>
-        </div>
-
-        <!-- ===== JOURNEY ===== -->
-        <div class="screen" id="screen-journey">
-            <div class="wmap" id="j-wmap"></div>
-            <div id="j-streams"></div>
-            <div id="j-nodes"></div>
-            <div class="jw">
-                <div class="jlbl">INITIALIZING YOUR FUTURE TIMELINE</div>
-                <div class="jname" id="j-name">—</div>
-                <div class="jcity" id="j-city">—</div>
-                <div class="pcard" id="j-pcard"></div>
-                <div class="jpbar"><div class="jpfill" id="j-pfill"></div></div>
-                <div class="jstatus" id="j-status">CONNECTING TO FUTURE GRID...</div>
-            </div>
-        </div>
-
-        <!-- ===== PAYMENT ===== -->
-        <div class="screen" id="screen-payment">
-            <div class="fbx" style="text-align:center">
-                <div class="corner ctlx"></div><div class="corner ctrx"></div>
-                <div class="corner cblx"></div><div class="corner cbrx"></div>
-                <div class="step-lbl" style="text-align:center">SECURE TRANSACTION · IPNOTEC VIP</div>
-                <div class="form-title" style="text-align:center">TICKET TO<br>THE FUTURE</div>
-                <div class="dim" style="text-align:center;margin-bottom:20px">One-time access. Lifetime priority. Be first.</div>
-                <div class="pay-amount">₹ 1001</div>
-                <div class="pay-label">BUY TICKET TO THE FUTURE</div>
-                <div class="order-box">
-                    <div class="step-lbl" style="margin-bottom:12px">ORDER SUMMARY</div>
-                    <div class="order-row"><span>IPNOTEC VIP Membership</span><span>₹ 1001</span></div>
-                    <div class="order-row"><span>Future Profile Creation</span><span style="color:var(--g)">INCLUDED</span></div>
-                    <div class="order-row"><span>VIBGYOU Identity Lock</span><span style="color:var(--g)">INCLUDED</span></div>
-                    <div class="order-row"><span>Launch Priority Access</span><span style="color:var(--g)">INCLUDED</span></div>
-                    <div style="border-top:1px solid rgba(255,255,255,0.08);margin-top:10px;padding-top:10px;display:flex;justify-content:space-between;font-weight:700;font-size:0.85rem">
-                        <span>TOTAL</span><span style="color:var(--y)">₹ 1001</span>
-                    </div>
-                </div>
-                <button class="pay-btn" onclick="processPayment()">PAY ₹1001 →</button>
-                <div class="dim" style="text-align:center;margin-top:14px;font-size:0.58rem">SIMULATED TRANSACTION · NO REAL MONEY CHARGED</div>
-            </div>
-        </div>
-
-        <!-- ===== PROCESSING ===== -->
-        <div class="screen" id="screen-processing" style="background:#000;text-align:center">
-            <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:8px;color:rgba(255,255,255,0.35);margin-bottom:28px">PROCESSING TRANSACTION</div>
-            <div id="proc-frames" style="font-size:4rem;color:var(--y);text-shadow:0 0 40px var(--y);margin-bottom:22px">◰</div>
-            <div class="proc-status" id="proc-status">INITIATING SECURE TRANSFER...</div>
-        </div>
-
-        <!-- ===== REVEAL ===== -->
-        <div class="screen scrollable" id="screen-reveal" style="align-items:center">
-            <div class="reveal-wrap" style="text-align:center">
-                <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:6px;color:var(--g);margin-bottom:10px">✓ PAYMENT CONFIRMED · TICKET SECURED</div>
-                <div class="ticket-chip" id="ticket-chip">TKT-XXXXXXXX</div>
-                <div class="rev-title">WELCOME TO<br><span style="color:var(--y);text-shadow:0 0 25px var(--y)">THE FUTURE</span></div>
-                <div class="dim" style="margin-bottom:18px;line-height:1.7">Your VIP seat is reserved. Here is what awaits you when IPNOTEC APP launches.</div>
-                <div class="rev-grid">
-                    <div class="rev-item">
-                        <span class="rev-icon" style="color:var(--b)">◈</span>
-                        <div class="rev-ititle" style="color:var(--b)">IPNOTEC PC</div>
-                        <div class="rev-idesc">Your personal future-ready computer interface. Access from anywhere in the world.</div>
-                    </div>
-                    <div class="rev-item">
-                        <span class="rev-icon" style="color:var(--g)">◆</span>
-                        <div class="rev-ititle" style="color:var(--g)">FREE INTERNET</div>
-                        <div class="rev-idesc">Unlimited IPNOTEC internet access bundled with your VIP membership. Zero cost.</div>
-                    </div>
-                    <div class="rev-item">
-                        <span class="rev-icon" style="color:var(--v)">▲</span>
-                        <div class="rev-ititle" style="color:var(--v)">VIBGYOU IDENTITY</div>
-                        <div class="rev-idesc">Your persona, future name &amp; city — permanently locked to your profile.</div>
-                    </div>
-                    <div class="rev-item">
-                        <span class="rev-icon" style="color:var(--y)">◉</span>
-                        <div class="rev-ititle" style="color:var(--y)">LAUNCH PRIORITY</div>
-                        <div class="rev-idesc">First in line on JAN 10 2027 at 10:01 HRS. You go first. Always.</div>
-                    </div>
-                </div>
-                <div style="border:1px solid rgba(0,200,255,0.18);padding:20px;margin:16px 0;background:rgba(0,200,255,0.025)">
-                    <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:5px;color:var(--accent);text-align:center;margin-bottom:12px">PREVIEW YOUR FUTURE — RIGHT NOW</div>
-                    <a href="https://i-pc.vercel.app" target="_blank" class="ipnotec-cta">EXPLORE IPNOTEC PC →</a>
-                    <div class="dim" style="margin-top:10px;text-align:center">This is what you'll get when the IPNOTEC APP goes live.</div>
-                </div>
-                <button class="btn-main btn-full btn-vip" style="padding:16px;font-size:0.78rem;letter-spacing:5px;margin-top:8px" onclick="goTo('final')">SEE YOU IN THE FUTURE →</button>
-            </div>
-        </div>
-
-        <!-- ===== FINAL ===== -->
-        <div class="screen" id="screen-final">
-            <div class="wmap" style="opacity:0.04"></div>
-            <div id="final-streams"></div>
-            <div style="position:relative;z-index:10;text-align:center;padding:20px">
-                <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:9px;color:rgba(255,255,255,0.25);margin-bottom:24px">TRANSMISSION COMPLETE</div>
-                <div class="final-see" style="color:var(--accent)">SEE YOU</div>
-                <div class="final-in" style="color:var(--y)">IN THE</div>
-                <div class="final-future" style="color:#fff">FUTURE</div>
-                <div style="margin-top:26px;font-family:'Space Mono',monospace;font-size:0.7rem;color:rgba(255,255,255,0.25);letter-spacing:5px">JAN 10 2027 · 10:01 HRS</div>
-                <div style="margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-                    <a href="https://i-pc.vercel.app" target="_blank" class="btn-main" style="font-size:0.65rem;text-decoration:none">IPNOTEC PC →</a>
-                    <button class="btn-main btn-green" style="font-size:0.65rem" onclick="goTo('landing')">← BACK TO HOME</button>
-                </div>
-            </div>
-        </div>
-
+<!-- ═══════════════ PHONE ═══════════════ -->
+<div class="screen" id="screen-phone">
+  <div class="fbx">
+    <div class="corner ctlx"></div><div class="corner ctrx"></div><div class="corner cblx"></div><div class="corner cbrx"></div>
+    <div class="pdots" id="ph-dots"></div>
+    <div class="step-lbl">STEP 01 · CONNECT</div>
+    <div class="form-title">ENTER PHONE<br>NUMBER</div>
+    <div class="form-sub">Include country code (e.g. 91XXXXXXXXXX for India). We'll send a 6-digit OTP.</div>
+    <div class="igrp">
+      <label class="ilbl">PHONE + COUNTRY CODE</label>
+      <input type="tel" class="tinput" id="phone-in" placeholder="91XXXXXXXXXX" maxlength="15" inputmode="numeric">
     </div>
+    <div class="msgbox err" id="phone-err">INVALID — MINIMUM 10 DIGITS REQUIRED</div>
+    <button class="btn-main btn-full" id="send-otp-btn" onclick="sendOTP()">SEND OTP →</button>
+    <div class="dim" style="margin-top:14px;text-align:center">By continuing you agree to IPNOTEC Terms of Service</div>
+  </div>
+</div>
 
-    <!-- FOOTER -->
-    <footer id="site-footer">
-        <div class="footer-logo">IPNOTEC</div>
-        <div class="footer-mid" onclick="toggleLaunchDate()" title="Click to reveal launch date">
-            <span class="ftr-launch-num" id="ftr-launch-txt">LAUNCH &nbsp;<strong>10</strong>&nbsp;&nbsp;<strong>01</strong></span>
-            <span class="ftr-date-reveal" id="ftr-date-reveal">JAN 10TH 2027 &nbsp;·&nbsp; 10:01 HRS IST</span>
-            <span id="countdown">—</span>
-        </div>
-        <button class="home-btn" onclick="goTo('landing')">
-            <span>|</span>
-            <span class="clock-face clock-cw"><span class="clock-hand"></span></span>
-            <span class="clock-face clock-ccw"><span class="clock-hand"></span></span>
-            <span>|</span>
-        </button>
-    </footer>
+<!-- ═══════════════ OTP ═══════════════ -->
+<div class="screen" id="screen-otp">
+  <div class="fbx">
+    <div class="corner ctlx"></div><div class="corner ctrx"></div><div class="corner cblx"></div><div class="corner cbrx"></div>
+    <div class="step-lbl">STEP 02 · AUTHENTICATE</div>
+    <div class="form-title">ENTER OTP</div>
+    <div class="form-sub" id="otp-sub">Code sent to your number</div>
+    <div class="otp-row">
+      <input class="otp-box" maxlength="1" id="o0" type="text" inputmode="numeric" autocomplete="off">
+      <input class="otp-box" maxlength="1" id="o1" type="text" inputmode="numeric" autocomplete="off">
+      <input class="otp-box" maxlength="1" id="o2" type="text" inputmode="numeric" autocomplete="off">
+      <input class="otp-box" maxlength="1" id="o3" type="text" inputmode="numeric" autocomplete="off">
+      <input class="otp-box" maxlength="1" id="o4" type="text" inputmode="numeric" autocomplete="off">
+      <input class="otp-box" maxlength="1" id="o5" type="text" inputmode="numeric" autocomplete="off">
+    </div>
+    <div class="msgbox err" id="otp-err">INCORRECT CODE — TRY AGAIN</div>
+    <div class="msgbox suc" id="otp-suc">✓ IDENTITY VERIFIED</div>
+    <button class="btn-main btn-full" onclick="verifyOTP()">VERIFY →</button>
+    <div class="dim" style="margin-top:12px;text-align:center;cursor:pointer" onclick="sendOTP()">↺ Resend OTP</div>
+  </div>
+</div>
 
-    <script>
-    // ===================== STATE =====================
-    const S = {
-        path:'vip', phone:'', genOTP:'',
-        dob:'', persona:null, city:'', fname:'',
-        pColor:'#888888'
+<!-- ═══════════════ PATH CHOICE ═══════════════ -->
+<div class="screen" id="screen-path" style="flex-direction:column;padding:20px;text-align:center;">
+  <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:7px;color:rgba(255,255,255,.4);text-align:center;">IDENTITY VERIFIED · CHOOSE YOUR PATH</div>
+  <div class="form-title" style="font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,4vw,1.9rem);font-weight:900;letter-spacing:3px;text-align:center;margin:8px 0 6px;">WHICH FUTURE<br>CALLS TO YOU?</div>
+  <div class="dim" style="margin-bottom:8px;">Select your access level</div>
+  <div class="path-grid">
+    <div class="path-card fp" onclick="takePath('free')">
+      <span class="path-icon" style="color:var(--g)">◈</span>
+      <div class="path-name">FREE INTERNET</div>
+      <div class="path-desc">Connect to IPNOTEC's free internet. Join the live node. No commitment.</div>
+      <div class="path-badge">FREE · INSTANT</div>
+    </div>
+    <div class="path-card vp" onclick="takePath('vip')">
+      <span class="path-icon" style="color:var(--y)">◆</span>
+      <div class="path-name">IPNOTEC VIP</div>
+      <div class="path-desc">Create your future profile. Lock your identity. First to step into the future.</div>
+      <div class="path-badge">VIP · RS 1001</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ FREE NODE ═══════════════ -->
+<div class="screen" id="screen-free-node">
+  <div class="node-header">
+    <div class="node-status-row">
+      <div class="node-pulse"></div>
+      <div class="node-title">NODE ACTIVE</div>
+    </div>
+    <div class="node-big-count">
+      <span class="node-num" id="node-count-num">47</span>
+      <span class="node-num-lbl">CONNECTIONS</span>
+    </div>
+    <div class="node-city-lbl" id="node-user-city">▸ YOUR LOCATION NODE</div>
+    <div class="signal-row">
+      <div class="sb2"></div><div class="sb2"></div><div class="sb2"></div><div class="sb2"></div><div class="sb2"></div>
+      <span class="sig-lbl">SIGNAL STRONG</span>
+    </div>
+  </div>
+  <div class="node-grid-wrap">
+    <div class="ng-lbl">◈ NODES ON THIS HOTSPOT — TAP TO CONNECT</div>
+    <div class="node-grid" id="node-grid"></div>
+  </div>
+  <div class="node-cta">
+    <div class="node-cta-title">◆ GET YOUR IPNOTEC ID</div>
+    <div class="node-cta-desc">To connect with any node worldwide, you need your unique IPNOTEC ID. VIP members get a permanent global identity.</div>
+    <button class="btn-main btn-vip" style="width:100%;font-size:.78rem;" onclick="takePath('vip')">UPGRADE TO IPNOTEC VIP →</button>
+  </div>
+</div>
+
+<!-- NODE CONNECT MODAL -->
+<div class="node-modal" id="node-modal">
+  <div class="nm-box">
+    <div class="corner ctlx"></div><div class="corner ctrx"></div><div class="corner cblx"></div><div class="corner cbrx"></div>
+    <div class="step-lbl" style="text-align:center;letter-spacing:6px;color:var(--b);margin-bottom:10px;">◈ CONNECT REQUEST</div>
+    <div style="text-align:center;margin-bottom:16px;">
+      <div id="nm-avatar" style="width:52px;height:52px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:1.2rem;"></div>
+      <div class="form-title" style="font-size:1.1rem;margin-bottom:4px;" id="nm-name">—</div>
+      <div class="dim">IPNOTEC ID: <span id="nm-id" style="color:var(--b);filter:blur(1.5px)">IPN···0000</span></div>
+    </div>
+    <div class="igrp">
+      <label class="ilbl">ENTER THEIR IPNOTEC ID TO CONNECT</label>
+      <input type="text" class="tinput" id="nm-input" placeholder="IPN-XXXXXX" style="text-transform:uppercase;">
+    </div>
+    <div class="nm-status" id="nm-status"></div>
+    <div style="display:flex;gap:10px;margin-bottom:16px;">
+      <button class="btn-main btn-blue" style="flex:1;font-size:.72rem;padding:12px 8px;" onclick="attemptConnect()">CONNECT →</button>
+      <button class="btn-main" style="flex:.6;font-size:.72rem;padding:12px 8px;border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.4);background:transparent;text-shadow:none;" onclick="closeNodeModal()">CANCEL</button>
+    </div>
+    <div style="border:1px solid rgba(255,230,0,.2);padding:14px;background:rgba(255,230,0,.02);text-align:center;">
+      <div class="dim" style="color:rgba(255,230,0,.7);font-size:.65rem;margin-bottom:8px;">NO IPNOTEC ID? GET VIP</div>
+      <button class="btn-main btn-vip" style="font-size:.68rem;padding:10px;width:100%;" onclick="closeNodeModal();takePath('vip')">UPGRADE TO VIP →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ DOB ═══════════════ -->
+<div class="screen" id="screen-dob">
+  <div class="fbx">
+    <div class="corner ctlx"></div><div class="corner ctrx"></div><div class="corner cblx"></div><div class="corner cbrx"></div>
+    <div class="pdots" id="dob-dots"></div>
+    <div class="step-lbl">VIP PROFILE · 1 OF 3</div>
+    <div class="form-title">DATE OF BIRTH</div>
+    <div class="form-sub">Your birthdate anchors your place on the future timeline and is used to compute your unique IID.</div>
+    <div class="igrp">
+      <label class="ilbl">DATE OF BIRTH</label>
+      <input type="date" class="tinput" id="dob-in" style="color-scheme:dark;">
+    </div>
+    <div class="msgbox err" id="dob-err">PLEASE SELECT YOUR DATE OF BIRTH</div>
+    <button class="btn-main btn-full btn-vip" onclick="saveDOB()">CONTINUE →</button>
+  </div>
+</div>
+
+<!-- ═══════════════ PERSONA ═══════════════ -->
+<div class="screen" id="screen-persona">
+  <div class="fbx" style="width:min(560px,95vw);">
+    <div class="corner ctlx"></div><div class="corner ctrx"></div><div class="corner cblx"></div><div class="corner cbrx"></div>
+    <div class="pdots" id="per-dots"></div>
+    <div class="step-lbl">VIP PROFILE · 2 OF 3</div>
+    <div class="form-title">VIBGYOU PERSONA</div>
+    <div class="form-sub">The wavelength that defines your future identity</div>
+    <div class="persona-grid" id="pgrid"></div>
+    <div class="msgbox err" id="per-err">SELECT YOUR VIBGYOU PERSONA</div>
+    <button class="btn-main btn-full btn-vip" onclick="savePersona()">CONTINUE →</button>
+  </div>
+</div>
+
+<!-- ═══════════════ FUTURE CITY ═══════════════ -->
+<div class="screen" id="screen-city">
+  <div class="fbx">
+    <div class="corner ctlx"></div><div class="corner ctrx"></div><div class="corner cblx"></div><div class="corner cbrx"></div>
+    <div class="pdots" id="city-dots"></div>
+    <div class="step-lbl">VIP PROFILE · 3 OF 3</div>
+    <div class="form-title">YOUR FUTURE CITY</div>
+    <div class="form-sub">Where will you be on JAN 10 2027 at 10:01 HRS? Select your future aviation hub.</div>
+    <div class="igrp">
+      <label class="ilbl">FUTURE CITY</label>
+      <input type="text" class="tinput" id="city-in" list="iata-list" placeholder="Type city name..." autocomplete="off">
+      <datalist id="iata-list"></datalist>
+    </div>
+    <div class="msgbox err" id="city-err">SELECT A VALID FUTURE CITY FROM THE LIST</div>
+    <button class="btn-main btn-full btn-vip" onclick="saveCity()">GENERATE TIMELINE →</button>
+  </div>
+</div>
+
+<!-- ═══════════════ JOURNEY ═══════════════ -->
+<div class="screen" id="screen-journey">
+  <div class="wmap" id="j-wmap"></div>
+  <div id="j-streams"></div>
+  <div id="j-nodes"></div>
+  <div class="jw">
+    <div class="jlbl">COMPUTING YOUR FUTURE IDENTITY</div>
+    <div class="jname" id="j-persona-letter">—</div>
+    <div class="jcity" id="j-city">—</div>
+    <div class="pcard" id="j-pcard"></div>
+    <div class="jpbar"><div class="jpfill" id="j-pfill"></div></div>
+    <div class="jstatus" id="j-status">INITIALISING...</div>
+  </div>
+</div>
+
+<!-- ═══════════════ TICKET + NAME LOCK ═══════════════ -->
+<div class="screen scrollable" id="screen-ticket" style="align-items:center;">
+  <div style="width:min(520px,94vw);">
+    <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:7px;color:var(--y);text-align:center;margin-bottom:14px;">◆ YOUR FUTURE TICKET IS READY</div>
+    <div class="tkt-panel">
+      <div class="corner ctlx" style="border-top-color:var(--y);border-left-color:var(--y);"></div>
+      <div class="corner ctrx" style="border-top-color:var(--y);border-right-color:var(--y);"></div>
+      <div class="corner cblx" style="border-bottom-color:var(--y);border-left-color:var(--y);"></div>
+      <div class="corner cbrx" style="border-bottom-color:var(--y);border-right-color:var(--y);"></div>
+      <div class="tkt-lbl">FUTURE TICKET NUMBER</div>
+      <div class="tkt-number" id="tkt-display">—</div>
+      <div class="tkt-math" id="tkt-math">—</div>
+    </div>
+    <div class="fname-box">
+      <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:5px;color:rgba(255,255,255,.5);margin-bottom:12px;">LOCK YOUR FUTURE NAME</div>
+      <div class="form-sub" style="font-size:.82rem;color:rgba(255,255,255,.42);line-height:1.6;font-family:'Rajdhani',sans-serif;margin-bottom:16px;">
+        Your future name must be unique. Once locked, it's yours — forever. Combined with your city code it becomes your IPNOTEC identity.
+      </div>
+      <div class="igrp">
+        <label class="ilbl">FUTURE NAME</label>
+        <input type="text" class="tinput" id="fname-in" placeholder="e.g. NOVA SEVEN" style="text-transform:uppercase;" oninput="triggerNameCheck()" autocomplete="off">
+      </div>
+      <div class="avail-status" id="avail-status">—</div>
+      <div class="locked-name" id="locked-name">—</div>
+      <div class="msgbox err" id="fname-err">ENTER AND LOCK YOUR FUTURE NAME FIRST</div>
+      <button class="btn-main btn-vip btn-full" id="btn-lock-name" onclick="lockName()" disabled style="opacity:.4;cursor:not-allowed;">CHECKING NAME...</button>
+      <div style="height:16px;"></div>
+      <button class="btn-main btn-full btn-vip" id="btn-proceed-pay" onclick="proceedToPayment()" style="display:none;">PROCEED TO PAYMENT →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ PAYMENT ═══════════════ -->
+<div class="screen" id="screen-payment">
+  <div class="fbx" style="text-align:center;">
+    <div class="corner ctlx"></div><div class="corner ctrx"></div><div class="corner cblx"></div><div class="corner cbrx"></div>
+    <div class="step-lbl" style="text-align:center;">SECURE TRANSACTION · IPNOTEC VIP</div>
+    <div class="form-title" style="text-align:center;">TICKET TO<br>THE FUTURE</div>
+    <div class="dim" style="text-align:center;margin-bottom:18px;">One-time access. Lifetime priority. Be first.</div>
+    <div class="pay-amount">RS 1001</div>
+    <div class="pay-label">BUY TICKET TO THE FUTURE</div>
+    <div class="order-box">
+      <div class="step-lbl" style="margin-bottom:12px;">ORDER SUMMARY</div>
+      <div class="order-row"><span>IPNOTEC VIP Membership</span><span>RS 1001</span></div>
+      <div class="order-row"><span>Future Identity</span><span id="pay-fname-display" style="color:var(--y);">—</span></div>
+      <div class="order-row"><span>VIBGYOU Lock</span><span style="color:var(--g);">INCLUDED</span></div>
+      <div class="order-row"><span>Launch Priority</span><span style="color:var(--g);">INCLUDED</span></div>
+      <div class="order-row"><span>PINGG Access</span><span style="color:var(--b);">INCLUDED</span></div>
+      <div style="border-top:1px solid rgba(255,255,255,.08);margin-top:10px;padding-top:10px;display:flex;justify-content:space-between;font-weight:700;font-size:.9rem;">
+        <span>TOTAL</span><span style="color:var(--y);">RS 1001</span>
+      </div>
+    </div>
+    <button class="pay-btn" onclick="processPayment()">PAY RS 1001 →</button>
+  </div>
+</div>
+
+<!-- ═══════════════ PROCESSING ═══════════════ -->
+<div class="screen" id="screen-processing" style="background:#000;text-align:center;">
+  <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:8px;color:rgba(255,255,255,.3);margin-bottom:28px;">PROCESSING TRANSACTION</div>
+  <div id="proc-frames" style="font-size:4.5rem;color:var(--y);text-shadow:0 0 40px var(--y);margin-bottom:22px;">◰</div>
+  <div class="proc-status" id="proc-status" style="font-family:'Orbitron',sans-serif;font-size:clamp(.7rem,2vw,.82rem);letter-spacing:3px;color:var(--y);text-shadow:0 0 10px var(--y);">INITIATING SECURE TRANSFER...</div>
+</div>
+
+<!-- ═══════════════ REVEAL ═══════════════ -->
+<div class="screen scrollable" id="screen-reveal" style="align-items:center;">
+  <div class="reveal-wrap" style="text-align:center;">
+    <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:6px;color:var(--g);margin-bottom:12px;">✓ PAYMENT CONFIRMED · IDENTITY SEALED</div>
+    <div class="rev-ticket" id="reveal-ticket">TKT-XXXXXXXXXXXXXXX-X</div>
+    <div style="font-family:'Space Mono',monospace;font-size:clamp(.9rem,3vw,1.1rem);font-weight:700;color:var(--y);text-shadow:0 0 20px var(--y);letter-spacing:3px;margin-bottom:16px;" id="reveal-name">—</div>
+    <div class="rev-title">WELCOME TO<br><span style="color:var(--y);text-shadow:0 0 25px var(--y);">THE FUTURE</span></div>
+    <div class="dim" style="margin-bottom:18px;line-height:1.8;">Your VIP seat is reserved. Your identity is locked. Your node is live.</div>
+    <div style="padding:20px;border:2px solid var(--b);background:rgba(0,200,255,.04);margin:16px 0;">
+      <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:5px;color:var(--b);text-align:center;margin-bottom:10px;">◐ ENTER THE NETWORK NOW</div>
+      <div class="dim" style="margin-bottom:14px;text-align:center;line-height:1.7;">Your PINGG session is ready. Connect to nodes worldwide using your new IPNOTEC ID.</div>
+      <a class="pingg-launch" href="https://pingg-tau.vercel.app" target="_blank" rel="noopener">
+        ◉ LAUNCH IPNOTEC PINGG →
+      </a>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-item">
+        <span class="rev-icon" style="color:var(--b);">◈</span>
+        <div class="rev-ititle" style="color:var(--b);">IPNOTEC PC</div>
+        <div class="rev-idesc">Your personal future-ready computer interface. Access from anywhere.</div>
+      </div>
+      <div class="rev-item">
+        <span class="rev-icon" style="color:var(--g);">◆</span>
+        <div class="rev-ititle" style="color:var(--g);">FREE INTERNET</div>
+        <div class="rev-idesc">Unlimited IPNOTEC internet bundled with VIP. Zero cost forever.</div>
+      </div>
+      <div class="rev-item">
+        <span class="rev-icon" style="color:var(--v);">▲</span>
+        <div class="rev-ititle" style="color:var(--v);">VIBGYOU IDENTITY</div>
+        <div class="rev-idesc">Your persona and future name — permanently locked to your profile.</div>
+      </div>
+      <div class="rev-item">
+        <span class="rev-icon" style="color:var(--y);">◉</span>
+        <div class="rev-ititle" style="color:var(--y);">LAUNCH PRIORITY</div>
+        <div class="rev-idesc">First in line on JAN 10 2027 at 10:01 HRS. You go first. Always.</div>
+      </div>
+    </div>
+    <button class="btn-main btn-vip btn-full" style="padding:16px;font-size:.82rem;letter-spacing:5px;margin-top:8px;" onclick="goTo('final')">SEE YOU IN THE FUTURE →</button>
+  </div>
+</div>
+
+<!-- ═══════════════ FINAL ═══════════════ -->
+<div class="screen" id="screen-final">
+  <div class="wmap" style="opacity:.04;"></div>
+  <div id="final-streams"></div>
+  <div style="position:relative;z-index:10;text-align:center;padding:20px;">
+    <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:9px;color:rgba(255,255,255,.22);margin-bottom:24px;">TRANSMISSION COMPLETE</div>
+    <div class="final-see" style="color:var(--accent);">SEE YOU</div>
+    <div class="final-in" style="color:var(--y);">IN THE</div>
+    <div class="final-future" style="color:#fff;">FUTURE</div>
+    <div style="margin-top:26px;font-family:'Space Mono',monospace;font-size:.72rem;color:rgba(255,255,255,.22);letter-spacing:5px;">JAN 10 2027 · 10:01 HRS</div>
+    <div style="margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://i-pc.vercel.app" target="_blank" class="btn-main" style="font-size:.68rem;text-decoration:none;">IPNOTEC PC →</a>
+      <a href="https://pingg-tau.vercel.app" target="_blank" class="btn-main btn-blue" style="font-size:.68rem;text-decoration:none;">PINGG →</a>
+      <button class="btn-main btn-green" style="font-size:.68rem;" onclick="goTo('landing')">← HOME</button>
+    </div>
+  </div>
+</div>
+
+</div><!-- /cw -->
+
+<!-- FOOTER -->
+<footer id="site-footer">
+  <div class="ftr-logo">IPNOTEC</div>
+  <div class="ftr-mid" onclick="toggleLaunchDate()" title="Click to reveal launch date">
+    <span class="ftr-launch-txt" id="ftr-launch-txt">LAUNCH &nbsp;<strong>10</strong>&nbsp;&nbsp;<strong>01</strong></span>
+    <span class="ftr-date-reveal" id="ftr-date-reveal">JAN 10TH 2027 &nbsp;·&nbsp; 10:01 HRS IST</span>
+    <span id="countdown">—</span>
+  </div>
+  <button class="home-btn" onclick="goTo('landing')">
+    <span>|</span>
+    <span class="clock-face clock-cw"><span class="clock-hand"></span></span>
+    <span class="clock-face clock-ccw"><span class="clock-hand"></span></span>
+    <span>|</span>
+  </button>
+</footer>
+
+<script>
+// ════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════
+const S = {
+  path:'vip', phone:'', genOTP:'',
+  dob:'', persona:null, city:'', cityCode:'',
+  fname:'', fullFutureName:'',
+  pColor:'#888888', iid:0, ticketNumber:'',
+  nameLocked: false
+};
+
+// ════════════════════════════════════════════
+// PERSONAS
+// ════════════════════════════════════════════
+const PERSONAS = [
+  {k:'V', n:'VIOLET',      c:'#BF00FF'},
+  {k:'I', n:'INDIGO',      c:'#6A0EFF'},
+  {k:'B', n:'BLUE',        c:'#00C8FF'},
+  {k:'G', n:'GREEN',       c:'#39FF14'},
+  {k:'Y', n:'YELLOW',      c:'#FFE600'},
+  {k:'O', n:'ORANGE',      c:'#FF6200'},
+  {k:'U', n:'ULTRA',       c:'#FF00FF'},
+  {k:'GR',n:'GREY',        c:'#AAAAAA'},
+  {k:'W', n:'WHITE',       c:'#FFFFFF'},
+];
+
+// ════════════════════════════════════════════
+// IATA CITIES
+// ════════════════════════════════════════════
+const IATA_CITIES = [
+  "Accra [ACC]","Addis Ababa [ADD]","Ahmedabad [AMD]","Amsterdam [AMS]",
+  "Athens [ATH]","Auckland [AKL]","Bali [DPS]","Bangkok [BKK]",
+  "Barcelona [BCN]","Beijing [PEK]","Bengaluru [BLR]","Berlin [BER]",
+  "Brussels [BRU]","Buenos Aires [EZE]","Cairo [CAI]","Cape Town [CPT]",
+  "Casablanca [CMN]","Chennai [MAA]","Chicago [ORD]","Colombo [CMB]",
+  "Copenhagen [CPH]","Dallas [DFW]","Dar es Salaam [DAR]","Delhi [DEL]",
+  "Dhaka [DAC]","Doha [DOH]","Dubai [DXB]","Dublin [DUB]",
+  "Edinburgh [EDI]","Frankfurt [FRA]","Geneva [GVA]","Goa [GOI]",
+  "Guangzhou [CAN]","Hanoi [HAN]","Helsinki [HEL]","Ho Chi Minh City [SGN]",
+  "Hong Kong [HKG]","Hyderabad [HYD]","Istanbul [IST]","Jakarta [CGK]",
+  "Jaipur [JAI]","Johannesburg [JNB]","Kampala [EBB]","Karachi [KHI]",
+  "Kathmandu [KTM]","Kigali [KGL]","Kolkata [CCU]","Kuala Lumpur [KUL]",
+  "Kuwait City [KWI]","Lagos [LOS]","Lahore [LHE]","Lisbon [LIS]",
+  "London [LHR]","Los Angeles [LAX]","Lusaka [LUN]","Madrid [MAD]",
+  "Male [MLE]","Manchester [MAN]","Manila [MNL]","Melbourne [MEL]",
+  "Mexico City [MEX]","Miami [MIA]","Milan [MXP]","Moscow [SVO]",
+  "Mumbai [BOM]","Muscat [MCT]","Nairobi [NBO]","New York [JFK]",
+  "Oslo [OSL]","Paris [CDG]","Prague [PRG]","Pune [PNQ]",
+  "Riyadh [RUH]","Rome [FCO]","San Francisco [SFO]","Sao Paulo [GRU]",
+  "Seoul [ICN]","Shanghai [PVG]","Singapore [SIN]","Stockholm [ARN]",
+  "Sydney [SYD]","Tel Aviv [TLV]","Tokyo [NRT]","Toronto [YYZ]",
+  "Vancouver [YVR]","Vienna [VIE]","Warsaw [WAW]","Yangon [RGN]",
+  "Zurich [ZRH]"
+];
+
+// ════════════════════════════════════════════
+// LANDING CITIES — VIBGYOR RANDOM COLORS
+// ════════════════════════════════════════════
+const LAND_CITIES = [
+  {c:'JFK', t:'34%', l:'20%', col:'#BF00FF'},
+  {c:'LAX', t:'42%', l:'11%', col:'#39FF14'},
+  {c:'LHR', t:'22%', l:'46%', col:'#00C8FF'},
+  {c:'CDG', t:'25%', l:'48%', col:'#FFE600'},
+  {c:'DXB', t:'44%', l:'60%', col:'#FF6200'},
+  {c:'BOM', t:'53%', l:'67%', col:'#6A0EFF'},
+  {c:'BLR', t:'58%', l:'68%', col:'#FF00FF'},
+  {c:'SIN', t:'63%', l:'80%', col:'#00C8FF'},
+  {c:'HKG', t:'47%', l:'77%', col:'#39FF14'},
+  {c:'NRT', t:'32%', l:'86%', col:'#BF00FF'},
+  {c:'SYD', t:'76%', l:'88%', col:'#AAAAAA'},
+  {c:'GRU', t:'71%', l:'33%', col:'#FFE600'},
+  {c:'JNB', t:'68%', l:'54%', col:'#FF6200'},
+  {c:'ICN', t:'34%', l:'83%', col:'#FFFFFF'},
+  {c:'YYZ', t:'30%', l:'24%', col:'#FF00FF'},
+];
+
+const PHRASES = ['FROM NOTHING','COMES EVERYTHING','STEP FORWARD','YOUR FUTURE','THE FUTURE IS NOW','BEYOND LIMITS'];
+const VIBGYOR  = ['#BF00FF','#6A0EFF','#00C8FF','#39FF14','#FFE600','#FF6200','#FF00FF','#AAAAAA','#FFFFFF'];
+
+let ciIdx = 0;
+
+// ════════════════════════════════════════════
+// NODE EMULATION DATA
+// ════════════════════════════════════════════
+const NODE_USERS = [
+  {name:'ZARA·V',  city:'BOM', color:'#BF00FF', id:'IPN···4821'},
+  {name:'KAI·X',   city:'SIN', color:'#00C8FF', id:'IPN···9034'},
+  {name:'NOVA·7',  city:'DXB', color:'#39FF14', id:'IPN···2267'},
+  {name:'REX·Ω',   city:'LHR', color:'#FFE600', id:'IPN···5519'},
+  {name:'LYRA·3',  city:'JFK', color:'#FF6200', id:'IPN···8803'},
+  {name:'ORION',   city:'NRT', color:'#6A0EFF', id:'IPN···1144'},
+  {name:'VEGA·Q',  city:'SYD', color:'#FF00FF', id:'IPN···7721'},
+  {name:'ECHO·9',  city:'DEL', color:'#FFFFFF', id:'IPN···3358'},
+  {name:'FLUX·M',  city:'LAX', color:'#AAAAAA', id:'IPN···6642'},
+  {name:'PULSE',   city:'BLR', color:'#39FF14', id:'IPN···9901'},
+  {name:'TITAN·2', city:'CDG', color:'#00C8FF', id:'IPN···4477'},
+  {name:'ASHA·K',  city:'HKG', color:'#FFE600', id:'IPN···8832'},
+  {name:'ZERO·1',  city:'ICN', color:'#BF00FF', id:'IPN···6619'},
+  {name:'STORM',   city:'FRA', color:'#FF6200', id:'IPN···3344'},
+  {name:'ARIA·X',  city:'GRU', color:'#6A0EFF', id:'IPN···8877'},
+];
+
+// ════════════════════════════════════════════
+// TAKEN NAMES
+// ════════════════════════════════════════════
+const TAKEN_NAMES = [
+  'NOVA SEVEN','ZERO ONE','CIPHER X','FLUX ALPHA','VEGA PRIME',
+  'ORION MAX','TITAN ZERO','ECHO NINE','PULSE THREE','STORM ONE',
+  'APEX FIVE','ZARA V','KAI X','LYRA THREE','REX OMEGA',
+  'NOVA X','ZERO X','CIPHER ZERO','FLUX X','VEGA X',
+  'ARIA SEVEN','NEXUS ONE','SPARK TWO','SIGNAL ZERO','STORM TWO'
+];
+
+// ════════════════════════════════════════════
+// NUMEROLOGY
+// ════════════════════════════════════════════
+function digitalRoot(num){
+  if(num===0) return 0;
+  while(num>=10){
+    num=String(num).split('').reduce((s,d)=>s+parseInt(d),0);
+  }
+  return num;
+}
+function sumDigits(str){
+  return str.replace(/\D/g,'').split('').reduce((s,d)=>s+parseInt(d),0);
+}
+function calcIID(dob, phone){
+  // dob: YYYY-MM-DD → convert to DDMMYYYY
+  const [y,m,d] = dob.split('-');
+  const dobStr = d + m + y;
+  const dobRoot = digitalRoot(sumDigits(dobStr));
+  const phoneSum = sumDigits(phone);
+  for(let x=0;x<=9;x++){
+    if(digitalRoot(phoneSum+x)===dobRoot) return x;
+  }
+  return 0;
+}
+
+// ════════════════════════════════════════════
+// ACCENT + STYLE
+// ════════════════════════════════════════════
+function setAccent(col){
+  document.documentElement.style.setProperty('--accent',col);
+}
+
+// ════════════════════════════════════════════
+// HEADER CHARS
+// ════════════════════════════════════════════
+(function(){
+  const h=document.getElementById('hdr');
+  const t=h.innerText; h.innerHTML='';
+  [...t].forEach((ch,i)=>{
+    const s=document.createElement('span');
+    s.className='hchar';
+    s.innerText=ch===' '?'\u00A0':ch;
+    s.style.animationDelay=`${i*.13}s`;
+    h.appendChild(s);
+  });
+})();
+
+// ════════════════════════════════════════════
+// BUILD LANDING NODES (VIBGYOR COLORS)
+// ════════════════════════════════════════════
+(function(){
+  const nc=document.getElementById('map-nodes');
+  LAND_CITIES.forEach((city,i)=>{
+    const d=document.createElement('div');
+    d.className='city-node'; d.id=`nd-${i}`;
+    d.style.top=city.t; d.style.left=city.l;
+    d.innerHTML=`<div class="city-dot" style="background:${city.col};box-shadow:0 0 14px ${city.col},0 0 28px ${city.col};"></div><span class="city-code" style="color:${city.col};">${city.c}</span>`;
+    nc.appendChild(d);
+  });
+})();
+
+// ════════════════════════════════════════════
+// BUILD IATA DATALIST
+// ════════════════════════════════════════════
+(function(){
+  const dl=document.getElementById('iata-list');
+  IATA_CITIES.forEach(c=>{
+    const o=document.createElement('option');
+    o.value=c; dl.appendChild(o);
+  });
+})();
+
+// ════════════════════════════════════════════
+// LANDING CYCLE
+// ════════════════════════════════════════════
+function landingCycle(){
+  // Random 4 nodes active
+  document.querySelectorAll('.city-node').forEach(n=>n.classList.remove('active'));
+  const used=new Set();
+  while(used.size<4){ used.add(Math.floor(Math.random()*LAND_CITIES.length)); }
+  used.forEach(idx=>{
+    const el=document.getElementById(`nd-${idx}`); if(el) el.classList.add('active');
+  });
+  // Floating phrase — random VIBGYOR color
+  const col=VIBGYOR[Math.floor(Math.random()*VIBGYOR.length)];
+  const wl=document.getElementById('word-layer'); wl.innerHTML='';
+  const w=document.createElement('div');
+  w.className='floating-phrase';
+  w.innerText=PHRASES[Math.floor(Math.random()*PHRASES.length)];
+  w.style.top=(Math.random()*55+12)+'%';
+  w.style.left=(Math.random()*50+8)+'%';
+  w.style.color=col; wl.appendChild(w);
+}
+setInterval(landingCycle,3000);
+landingCycle();
+
+// ════════════════════════════════════════════
+// BUILD PERSONA GRID
+// ════════════════════════════════════════════
+(function(){
+  const pg=document.getElementById('pgrid');
+  PERSONAS.forEach(p=>{
+    const t=document.createElement('div');
+    t.className='ptile';
+    t.style.borderColor=p.c+'55';
+    t.style.background=p.c+'12';
+    t.style.setProperty('--tc',p.c);
+    t.innerHTML=`<span class="pltr" style="color:${p.c};text-shadow:0 0 15px ${p.c}">${p.k}</span><span class="pname" style="color:${p.c}">${p.n}</span>`;
+    t.onclick=()=>{
+      document.querySelectorAll('.ptile').forEach(x=>{x.classList.remove('sel');x.style.boxShadow='none';x.style.borderColor=PERSONAS.find(pp=>pp.k===x.querySelector('.pltr').innerText||pp.n===x.querySelector('.pname').innerText)?.c+'55'||'rgba(255,255,255,.2)';});
+      t.classList.add('sel');
+      t.style.borderColor=p.c;
+      t.style.boxShadow=`0 0 22px ${p.c}70,inset 0 0 18px ${p.c}18`;
+      S.persona=p; S.pColor=p.c;
     };
+    pg.appendChild(t);
+  });
+})();
 
-    // ===================== COLOR MODE =====================
-    // Landing cycles through grey/white/black shades until persona chosen
-    const GREY_PALETTE = ['#888888','#aaaaaa','#bbbbbb','#777777','#999999','#cccccc','#666666','#dddddd','#eeeeee'];
-    let colorUnlocked = false;
+// ════════════════════════════════════════════
+// SCREEN NAVIGATION
+// ════════════════════════════════════════════
+function goTo(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  const el=document.getElementById(`screen-${id}`);
+  if(el){el.classList.add('active');}
+  if(id==='final') spawnFinalStreams();
+}
+function startFlow(path){
+  S.path=path;
+  makeDots('ph-dots',2,0);
+  goTo('phone');
+}
+function takePath(path){
+  S.path=path;
+  if(path==='free'){
+    buildFreeNode();
+    goTo('free-node');
+  } else {
+    makeDots('dob-dots',3,0);
+    goTo('dob');
+  }
+}
 
-    // ===================== PERSONAS =====================
-    const PERSONAS = [
-        { k:'V', n:'VIOLET',      c:'#BF00FF' },
-        { k:'I', n:'INDIGO',      c:'#6A0EFF' },
-        { k:'B', n:'BLUE',        c:'#00C8FF' },
-        { k:'G', n:'GREEN',       c:'#39FF14' },
-        { k:'Y', n:'YELLOW',      c:'#FFE600' },
-        { k:'O', n:'ORANGE',      c:'#FF6200' },
-        { k:'U', n:'ULTRAVIOLET', c:'#FF00FF' },
-        { k:'GR',n:'GREY',        c:'#AAAAAA' },
-        { k:'W', n:'WHITE',       c:'#FFFFFF' },
-    ];
+// ════════════════════════════════════════════
+// PROGRESS DOTS
+// ════════════════════════════════════════════
+function makeDots(id,total,current){
+  const c=document.getElementById(id); if(!c)return;
+  c.innerHTML='';
+  for(let i=0;i<total;i++){
+    const d=document.createElement('div');
+    d.className='pdot'+(i<current?' done':'')+(i===current?' now':'');
+    c.appendChild(d);
+  }
+}
 
-    // ===================== CITIES =====================
-    const CITIES = [
-        {c:'JFK',t:'34%',l:'22%'},{c:'LAX',t:'41%',l:'13%'},{c:'LHR',t:'24%',l:'49%'},
-        {c:'DXB',t:'44%',l:'62%'},{c:'BOM',t:'51%',l:'70%'},{c:'SIN',t:'60%',l:'83%'},
-        {c:'HND',t:'33%',l:'88%'},{c:'SYD',t:'78%',l:'90%'},{c:'GIG',t:'72%',l:'35%'}
-    ];
-    const COLORS  = ['#BF00FF','#6A0EFF','#00C8FF','#39FF14','#FFE600','#FF6200','#FF00FF','#AAAAAA','#FFFFFF'];
-    const PHRASES = ['FROM NOTHING','COMES EVERYTHING','STEP FORWARD','YOUR FUTURE','THE FUTURE IS NOW'];
-    let cIdx = 0, ciIdx = 0;
+// ════════════════════════════════════════════
+// OTP FLOW
+// ════════════════════════════════════════════
+function sendOTP(){
+  const raw=document.getElementById('phone-in').value.replace(/[\s\-\+]/g,'');
+  const err=document.getElementById('phone-err');
+  if(raw.length<10){err.classList.add('show');return;}
+  err.classList.remove('show');
+  S.phone=raw;
+  S.genOTP=Math.floor(100000+Math.random()*900000).toString();
+  document.getElementById('otp-sub').innerHTML=`Code sent to <strong>+${raw}</strong>&nbsp;&nbsp;<span style="color:#666;font-size:.7rem;">[DEMO: ${S.genOTP}]</span>`;
+  ['otp-err','otp-suc'].forEach(id=>document.getElementById(id).classList.remove('show'));
+  for(let i=0;i<6;i++){const b=document.getElementById(`o${i}`);if(b)b.value='';}
+  goTo('otp');
+  setTimeout(()=>{const f=document.getElementById('o0');if(f)f.focus();},220);
+}
 
-    // ===================== SET ACCENT =====================
-    function setAccent(col) {
-        document.documentElement.style.setProperty('--accent', col);
-    }
-
-    // ===================== ANIMATE HEADER =====================
-    (function() {
-        const h = document.getElementById('hdr');
-        const t = h.innerText;
-        h.innerHTML = '';
-        [...t].forEach((ch, i) => {
-            const s = document.createElement('span');
-            s.className = 'hchar';
-            s.innerText = ch === ' ' ? '\u00A0' : ch;
-            s.style.animationDelay = `${i * 0.14}s`;
-            h.appendChild(s);
-        });
-    })();
-
-    // ===================== BUILD MAP NODES =====================
-    const nodeContainer = document.getElementById('map-nodes');
-    CITIES.forEach((city, i) => {
-        const d = document.createElement('div');
-        d.className = 'city-node'; d.id = `nd-${i}`;
-        d.style.top = city.t; d.style.left = city.l;
-        d.innerHTML = `<div class="city-dot"></div><span class="city-code">${city.c}</span>`;
-        nodeContainer.appendChild(d);
+// OTP keyboard
+(function(){
+  for(let i=0;i<6;i++){
+    const b=document.getElementById(`o${i}`); if(!b)continue;
+    b.addEventListener('input',function(){
+      this.value=this.value.replace(/\D/g,'').slice(0,1);
+      if(this.value&&i<5){const n=document.getElementById(`o${i+1}`);if(n)n.focus();}
     });
-
-    // ===================== LANDING CYCLE =====================
-    function landingCycle() {
-        // Use grey shades until color is unlocked
-        const palette = colorUnlocked ? COLORS : GREY_PALETTE;
-        const col = palette[cIdx % palette.length];
-        setAccent(col);
-        const mi = document.getElementById('main-i');
-        mi.style.color = col;
-        mi.style.textShadow = `0 0 40px ${col}, 0 0 90px ${col}, 0 0 150px ${col}`;
-        document.querySelectorAll('.city-dot').forEach(d => {
-            d.style.background = col;
-            d.style.boxShadow  = `0 0 14px ${col}, 0 0 28px ${col}`;
-        });
-        // Floating phrase
-        const wl = document.getElementById('word-layer');
-        wl.innerHTML = '';
-        const w = document.createElement('div');
-        w.className = 'floating-phrase';
-        w.innerText = PHRASES[Math.floor(Math.random() * PHRASES.length)];
-        w.style.top   = (Math.random() * 60 + 12) + '%';
-        w.style.left  = (Math.random() * 55 + 8)  + '%';
-        w.style.color = col;
-        wl.appendChild(w);
-        // City nodes pulse
-        document.querySelectorAll('.city-node').forEach(n => n.classList.remove('active'));
-        for (let k = 0; k < 4; k++) {
-            const el = document.getElementById(`nd-${(ciIdx + k) % CITIES.length}`);
-            if (el) el.classList.add('active');
-        }
-        ciIdx = (ciIdx + 1) % CITIES.length;
-        cIdx  = (cIdx  + 1) % palette.length;
-    }
-    setInterval(landingCycle, 3000);
-    landingCycle();
-
-    // ===================== BUILD PERSONA GRID =====================
-    const pg = document.getElementById('pgrid');
-    PERSONAS.forEach((p) => {
-        const t = document.createElement('div');
-        t.className = 'ptile';
-        t.style.borderColor = p.c + '55';
-        t.style.background  = p.c + '12';
-        t.style.setProperty('--tc', p.c);
-        t.innerHTML = `<span class="pltr" style="color:${p.c};text-shadow:0 0 15px ${p.c}">${p.k}</span><span class="pname" style="color:${p.c}">${p.n}</span>`;
-        t.onclick = () => {
-            document.querySelectorAll('.ptile').forEach(x => { x.classList.remove('sel'); x.style.boxShadow='none'; });
-            t.classList.add('sel');
-            t.style.borderColor = p.c;
-            t.style.boxShadow   = `0 0 22px ${p.c}70, inset 0 0 18px ${p.c}18`;
-            S.persona = p; S.pColor = p.c;
-        };
-        pg.appendChild(t);
+    b.addEventListener('keydown',function(e){
+      if(e.key==='Backspace'&&!this.value&&i>0){
+        const p=document.getElementById(`o${i-1}`);if(p){p.value='';p.focus();}
+      }
     });
+  }
+  const b0=document.getElementById('o0');
+  if(b0){
+    b0.addEventListener('paste',function(e){
+      e.preventDefault();
+      const pasted=(e.clipboardData||window.clipboardData).getData('text').replace(/\D/g,'');
+      for(let j=0;j<6&&j<pasted.length;j++){const box=document.getElementById(`o${j}`);if(box)box.value=pasted[j];}
+      const last=document.getElementById(`o${Math.min(pasted.length-1,5)}`);if(last)last.focus();
+    });
+  }
+})();
 
-    // ===================== SCREEN NAVIGATION =====================
-    function goTo(id) {
-        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-        const el = document.getElementById(`screen-${id}`);
-        if (el) el.classList.add('active');
-        if (id === 'landing') landingCycle();
-        if (id === 'final')   spawnFinalStreams();
+function verifyOTP(){
+  const entered=Array.from({length:6},(_,i)=>{const b=document.getElementById(`o${i}`);return b?b.value:'';}).join('');
+  const err=document.getElementById('otp-err'), suc=document.getElementById('otp-suc');
+  if(entered.length<6){err.classList.add('show');return;}
+  if(entered!==S.genOTP){err.classList.add('show');suc.classList.remove('show');return;}
+  err.classList.remove('show'); suc.classList.add('show');
+  setTimeout(()=>{
+    if(S.path==='free'){buildFreeNode();goTo('free-node');}
+    else if(S.path==='vip'){makeDots('dob-dots',3,0);goTo('dob');}
+    else{goTo('path');}
+  },900);
+}
+
+// ════════════════════════════════════════════
+// FREE NODE EMULATION
+// ════════════════════════════════════════════
+let nodeCountVal=47;
+function buildFreeNode(){
+  const grid=document.getElementById('node-grid');
+  grid.innerHTML='';
+  NODE_USERS.forEach((u,idx)=>{
+    const initials=u.name.charAt(0);
+    const textColor=(u.color==='#FFFFFF'||u.color==='#FFE600')?'#000':'#fff';
+    const card=document.createElement('div');
+    card.className='node-card';
+    card.style.borderColor=u.color+'30';
+    card.innerHTML=`
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div class="nc-avatar" style="background:${u.color}22;border:2px solid ${u.color}55;color:${u.color};">
+          <span>${initials}</span>
+        </div>
+        <div>
+          <div class="nc-name" style="color:${u.color};text-shadow:0 0 10px ${u.color}60;">${u.name}</div>
+          <div class="nc-city">${u.city}</div>
+        </div>
+      </div>
+      <div class="nc-id" title="IPNOTEC ID hidden — VIP required">${u.id}</div>
+      <div class="nc-btns">
+        <button class="nc-btn nc-ping" id="ping-btn-${idx}" onclick="pingNode(${idx})">PING</button>
+        <button class="nc-btn nc-connect" onclick="openConnectModal(${idx})">CONNECT</button>
+      </div>`;
+    card.style.setProperty('--nc', u.color);
+    card.querySelector('.node-card::before');
+    // Border top
+    const topBar=document.createElement('div');
+    topBar.style.cssText=`position:absolute;top:0;left:0;right:0;height:2px;background:${u.color};opacity:.6;`;
+    card.appendChild(topBar);
+    grid.appendChild(card);
+  });
+  // Live count animation
+  setInterval(()=>{
+    nodeCountVal+=Math.random()>.5?1:-1;
+    nodeCountVal=Math.max(40,Math.min(64,nodeCountVal));
+    const el=document.getElementById('node-count-num');
+    if(el) el.textContent=Math.round(nodeCountVal);
+  },3200);
+}
+
+function pingNode(idx){
+  const btn=document.getElementById(`ping-btn-${idx}`);
+  if(!btn||btn.disabled) return;
+  btn.textContent='PINGING...'; btn.classList.add('pinged'); btn.disabled=true;
+  setTimeout(()=>{
+    btn.textContent='PONG ✓';
+    setTimeout(()=>{btn.textContent='PING';btn.classList.remove('pinged');btn.disabled=false;},2200);
+  },1100);
+}
+
+let currentNode=null;
+function openConnectModal(idx){
+  currentNode=NODE_USERS[idx];
+  const textColor=(currentNode.color==='#FFFFFF'||currentNode.color==='#FFE600')?'#000':'#fff';
+  document.getElementById('nm-avatar').style.cssText=`width:52px;height:52px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:1.2rem;background:${currentNode.color}22;border:2px solid ${currentNode.color};color:${currentNode.color};`;
+  document.getElementById('nm-avatar').textContent=currentNode.name.charAt(0);
+  document.getElementById('nm-name').textContent=currentNode.name+' · '+currentNode.city;
+  document.getElementById('nm-id').textContent=currentNode.id;
+  document.getElementById('nm-input').value='';
+  const st=document.getElementById('nm-status');
+  st.style.display='none'; st.textContent='';
+  document.getElementById('node-modal').classList.add('show');
+}
+function closeNodeModal(){document.getElementById('node-modal').classList.remove('show');}
+function attemptConnect(){
+  const st=document.getElementById('nm-status');
+  st.style.display='block';
+  st.style.borderColor='rgba(0,200,255,.4)'; st.style.color='var(--b)';
+  st.textContent='◈ VERIFYING IPNOTEC ID...';
+  setTimeout(()=>{
+    st.style.borderColor='rgba(255,98,0,.4)'; st.style.color='var(--o)';
+    st.textContent='⊘ IPNOTEC VIP REQUIRED — GET YOUR ID TO CONNECT GLOBALLY';
+  },1600);
+}
+
+// ════════════════════════════════════════════
+// VIP PROFILE FLOW
+// ════════════════════════════════════════════
+function saveDOB(){
+  const v=document.getElementById('dob-in').value;
+  const err=document.getElementById('dob-err');
+  if(!v){err.classList.add('show');return;}
+  err.classList.remove('show');
+  S.dob=v;
+  makeDots('per-dots',3,1);
+  goTo('persona');
+}
+function savePersona(){
+  const err=document.getElementById('per-err');
+  if(!S.persona){err.classList.add('show');return;}
+  err.classList.remove('show');
+  setAccent(S.pColor);
+  makeDots('city-dots',3,2);
+  goTo('city');
+}
+function saveCity(){
+  const v=document.getElementById('city-in').value.trim();
+  const err=document.getElementById('city-err');
+  const valid=IATA_CITIES.some(c=>c.toLowerCase()===v.toLowerCase());
+  if(!v||!valid){err.classList.add('show');return;}
+  err.classList.remove('show');
+  S.city=v.toUpperCase();
+  const match=v.match(/\[([A-Z]{3})\]/i);
+  S.cityCode=match?match[1].toUpperCase():v.substring(0,3).toUpperCase();
+  startJourney();
+}
+
+// ════════════════════════════════════════════
+// JOURNEY ANIMATION
+// ════════════════════════════════════════════
+function startJourney(){
+  goTo('journey');
+  const col=S.pColor;
+
+  const jn=document.getElementById('j-persona-letter');
+  jn.innerText=S.persona.k;
+  jn.style.color=col;
+  jn.style.textShadow=`0 0 40px ${col},0 0 80px ${col}`;
+
+  const jc=document.getElementById('j-city');
+  jc.innerText='► '+S.cityCode+' · '+S.persona.n;
+  jc.style.color=col;
+  jc.style.textShadow=`0 0 18px ${col}`;
+
+  document.getElementById('j-pcard').innerHTML=`
+    <div class="pci"><span class="pck">DOB</span><span class="pcv" style="color:${col};">${S.dob}</span></div>
+    <div class="pci"><span class="pck">PERSONA</span><span class="pcv" style="color:${col};">${S.persona.k} · ${S.persona.n}</span></div>
+    <div class="pci"><span class="pck">CITY</span><span class="pcv" style="color:#fff;">${S.cityCode}</span></div>
+  `;
+
+  // Streams
+  const jst=document.getElementById('j-streams'); jst.innerHTML='';
+  const words=['01001101','IPNOTEC','10110010',S.persona.n,S.cityCode,'11000101','VIP//FUTURE','01110110','10010011','∞','2027','→'];
+  for(let i=0;i<18;i++){
+    const s=document.createElement('div'); s.className='dstream';
+    s.style.left=(Math.random()*96)+'%';
+    s.style.animationDelay=(Math.random()*5)+'s';
+    s.style.animationDuration=(3+Math.random()*4)+'s';
+    s.style.color=col+'35';
+    s.innerText=words[i%words.length];
+    jst.appendChild(s);
+  }
+
+  const statuses=[
+    'COMPUTING IDENTITY MATRIX...',
+    'ENCODING DATE OF BIRTH...',
+    `LINKING ${S.persona.n} PERSONA...`,
+    'MAPPING FUTURE CITY: '+S.cityCode+'...',
+    'SUMMING DOB DIGITS...',
+    'COMPUTING PHONE SIGNATURE...',
+    'CALCULATING UNIQUE IID...',
+    'GENERATING FUTURE TICKET...',
+    'TICKET READY — LOCK YOUR NAME ✓'
+  ];
+
+  let prog=0, si=0;
+  const pf=document.getElementById('j-pfill'), ps=document.getElementById('j-status');
+  pf.style.background=col; pf.style.boxShadow=`0 0 10px ${col}`;
+
+  const iv=setInterval(()=>{
+    prog+=1.0;
+    pf.style.width=Math.min(prog,100)+'%';
+    if(si<statuses.length&&prog>si*12){ps.innerText=statuses[si];si++;}
+    if(prog>=100){
+      clearInterval(iv);
+      setTimeout(()=>showTicket(),700);
     }
+  },50);
+}
 
-    function startFlow(path) {
-        S.path = path;
-        makeDots('ph-dots', 2, 0);
-        goTo('phone');
+// ════════════════════════════════════════════
+// TICKET SCREEN
+// ════════════════════════════════════════════
+function showTicket(){
+  // Compute IID
+  S.iid=calcIID(S.dob, S.phone);
+  S.ticketNumber=`TKT-${S.phone}-${S.iid}`;
+
+  // Ticket math display
+  const [y,m,d]=S.dob.split('-');
+  const dobStr=d+m+y;
+  const dobRaw=sumDigits(dobStr);
+  const dobRoot=digitalRoot(dobRaw);
+  const phoneRaw=sumDigits(S.phone);
+
+  document.getElementById('tkt-display').textContent=S.ticketNumber;
+  document.getElementById('tkt-math').innerHTML=`
+    <span>DOB ${dobStr} → ${dobRaw} → ROOT: ${dobRoot}</span><br>
+    <span>PHONE ${S.phone} → ${phoneRaw} → +${S.iid} → ROOT: ${dobRoot}</span><br>
+    <span style="color:var(--y);">IID = ${S.iid} &nbsp;·&nbsp; ROOTS CONVERGE AT ${dobRoot}</span>
+  `;
+
+  // Reset name lock UI
+  document.getElementById('fname-in').value='';
+  document.getElementById('avail-status').className='avail-status';
+  document.getElementById('locked-name').style.display='none';
+  document.getElementById('fname-err').classList.remove('show');
+  document.getElementById('btn-lock-name').disabled=true;
+  document.getElementById('btn-lock-name').style.opacity='.4';
+  document.getElementById('btn-lock-name').style.cursor='not-allowed';
+  document.getElementById('btn-lock-name').textContent='LOCK THIS IDENTITY';
+  document.getElementById('btn-proceed-pay').style.display='none';
+  S.nameLocked=false;
+
+  goTo('ticket');
+}
+
+let nameCheckTimer;
+function triggerNameCheck(){
+  const name=document.getElementById('fname-in').value.trim().toUpperCase();
+  const statusEl=document.getElementById('avail-status');
+  const lockBtn=document.getElementById('btn-lock-name');
+
+  lockBtn.disabled=true; lockBtn.style.opacity='.4'; lockBtn.style.cursor='not-allowed';
+  if(!name||name.length<2){statusEl.className='avail-status';return;}
+
+  statusEl.className='avail-status checking';
+  statusEl.textContent='◈ CHECKING AVAILABILITY...';
+
+  clearTimeout(nameCheckTimer);
+  nameCheckTimer=setTimeout(()=>{
+    if(TAKEN_NAMES.includes(name)){
+      statusEl.className='avail-status taken';
+      statusEl.textContent='✗ TAKEN — THIS NAME IS ALREADY REGISTERED';
+      lockBtn.disabled=true; lockBtn.style.opacity='.4'; lockBtn.style.cursor='not-allowed';
+    } else {
+      statusEl.className='avail-status available';
+      statusEl.textContent=`✓ AVAILABLE — "${name} [${S.cityCode}]" IS YOURS`;
+      lockBtn.disabled=false; lockBtn.style.opacity='1'; lockBtn.style.cursor='pointer';
     }
+  },2000);
+}
 
-    function takePath(path) {
-        S.path = path;
-        if (path === 'free') { goTo('free'); return; }
-        makeDots('dob-dots', 4, 0);
-        goTo('dob');
+function lockName(){
+  if(S.nameLocked) return;
+  const name=document.getElementById('fname-in').value.trim().toUpperCase();
+  const err=document.getElementById('fname-err');
+  if(!name){err.classList.add('show');return;}
+  err.classList.remove('show');
+
+  S.fname=name;
+  S.fullFutureName=`${name} [${S.cityCode}]`;
+
+  const lockBtn=document.getElementById('btn-lock-name');
+  const locked=document.getElementById('locked-name');
+  const statusEl=document.getElementById('avail-status');
+  const inp=document.getElementById('fname-in');
+
+  lockBtn.style.display='none';
+  inp.disabled=true;
+  inp.style.opacity='.5';
+
+  statusEl.className='avail-status available';
+  statusEl.textContent='✓ IDENTITY LOCKED';
+
+  locked.textContent=`◆ ${S.fullFutureName}`;
+  locked.style.display='block';
+  S.nameLocked=true;
+
+  document.getElementById('btn-proceed-pay').style.display='flex';
+}
+
+// ════════════════════════════════════════════
+// PAYMENT
+// ════════════════════════════════════════════
+function proceedToPayment(){
+  document.getElementById('pay-fname-display').textContent=S.fullFutureName;
+  goTo('payment');
+}
+
+function processPayment(){
+  goTo('processing');
+  const frames=['◰','◳','◲','◱'];
+  let fi=0;
+  const fEl=document.getElementById('proc-frames');
+  const frameIv=setInterval(()=>{fEl.innerText=frames[fi++%4];},150);
+  const statuses=[
+    'INITIATING SECURE TRANSFER...',
+    'VERIFYING IDENTITY...',
+    'PROCESSING RS 1001...',
+    'SEALING FUTURE NAME...',
+    'ENCRYPTING TICKET...',
+    'ACTIVATING PINGG ACCESS...',
+    '✓ CONFIRMED'
+  ];
+  let pi=0;
+  const pEl=document.getElementById('proc-status');
+  const pIv=setInterval(()=>{
+    pEl.innerText=statuses[pi];
+    if(pi===statuses.length-1){
+      clearInterval(pIv); clearInterval(frameIv);
+      fEl.innerText='◆';
+      fEl.style.color='var(--g)'; fEl.style.textShadow='0 0 40px var(--g)';
+      pEl.style.color='var(--g)';
+      setTimeout(()=>{
+        document.getElementById('reveal-ticket').textContent=S.ticketNumber;
+        document.getElementById('reveal-name').textContent='◆ '+S.fullFutureName;
+        goTo('reveal');
+      },700);
     }
+    pi++;
+  },650);
+}
 
-    // ===================== PROGRESS DOTS =====================
-    function makeDots(id, total, current) {
-        const c = document.getElementById(id);
-        if (!c) return;
-        c.innerHTML = '';
-        for (let i = 0; i < total; i++) {
-            const d = document.createElement('div');
-            d.className = 'pdot' + (i < current ? ' done' : '') + (i === current ? ' now' : '');
-            c.appendChild(d);
-        }
-    }
+// ════════════════════════════════════════════
+// FINAL STREAMS
+// ════════════════════════════════════════════
+function spawnFinalStreams(){
+  const el=document.getElementById('final-streams'); el.innerHTML='';
+  for(let i=0;i<22;i++){
+    const s=document.createElement('div'); s.className='dstream';
+    s.style.left=(Math.random()*96)+'%';
+    s.style.animationDelay=(Math.random()*6)+'s';
+    s.style.animationDuration=(4+Math.random()*6)+'s';
+    s.style.color=VIBGYOR[i%VIBGYOR.length]+'28';
+    s.innerText=['01','10','1001','IPNOTEC','→','∞','2027','10:01'][i%8];
+    el.appendChild(s);
+  }
+}
 
-    // ===================== OTP FLOW =====================
-    function sendOTP() {
-        const raw = document.getElementById('phone-in').value.replace(/[\s\-]/g,'');
-        const err = document.getElementById('phone-err');
-        if (raw.replace('+','').length < 10) { err.classList.add('show'); return; }
-        err.classList.remove('show');
-        S.phone   = raw;
-        S.genOTP  = Math.floor(100000 + Math.random() * 900000).toString();
-        // Show hint inline (demo mode)
-        document.getElementById('otp-sub').innerHTML =
-            `Code sent to <strong>${raw}</strong>&nbsp;&nbsp;<span style="color:#999;font-size:0.65rem;font-family:'Space Mono',monospace">[DEMO: ${S.genOTP}]</span>`;
-        document.getElementById('otp-err').classList.remove('show');
-        document.getElementById('otp-suc').classList.remove('show');
-        // Clear boxes
-        for (let i = 0; i < 6; i++) {
-            const b = document.getElementById(`o${i}`);
-            if (b) b.value = '';
-        }
-        goTo('otp');
-        setTimeout(() => { const f = document.getElementById('o0'); if (f) f.focus(); }, 220);
-    }
+// ════════════════════════════════════════════
+// FOOTER
+// ════════════════════════════════════════════
+let _dateShowing=false;
+function toggleLaunchDate(){
+  _dateShowing=!_dateShowing;
+  document.getElementById('ftr-launch-txt').style.display=_dateShowing?'none':'';
+  document.getElementById('ftr-date-reveal').style.display=_dateShowing?'block':'none';
+}
 
-    // OTP auto-advance — clean rebuild on each page load
-    (function setupOTP() {
-        for (let i = 0; i < 6; i++) {
-            const b = document.getElementById(`o${i}`);
-            if (!b) continue;
-            b.addEventListener('input', function() {
-                // Strip non-digits, keep only first
-                this.value = this.value.replace(/\D/g, '').slice(0, 1);
-                if (this.value && i < 5) {
-                    const nxt = document.getElementById(`o${i + 1}`);
-                    if (nxt) nxt.focus();
-                }
-            });
-            b.addEventListener('keydown', function(e) {
-                if (e.key === 'Backspace' && !this.value && i > 0) {
-                    const prev = document.getElementById(`o${i - 1}`);
-                    if (prev) { prev.value = ''; prev.focus(); }
-                }
-            });
-        }
-        // Paste support on first box
-        const b0 = document.getElementById('o0');
-        if (b0) {
-            b0.addEventListener('paste', function(e) {
-                e.preventDefault();
-                const pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g,'');
-                for (let j = 0; j < 6 && j < pasted.length; j++) {
-                    const box = document.getElementById(`o${j}`);
-                    if (box) box.value = pasted[j];
-                }
-                const lastIdx = Math.min(pasted.length - 1, 5);
-                const last = document.getElementById(`o${lastIdx}`);
-                if (last) last.focus();
-            });
-        }
-    })();
-
-    function verifyOTP() {
-        const entered = Array.from({length:6}, (_, i) => {
-            const b = document.getElementById(`o${i}`); return b ? b.value : '';
-        }).join('');
-        const err = document.getElementById('otp-err');
-        const suc = document.getElementById('otp-suc');
-        if (entered.length < 6) { err.classList.add('show'); return; }
-        if (entered !== S.genOTP) { err.classList.add('show'); suc.classList.remove('show'); return; }
-        err.classList.remove('show'); suc.classList.add('show');
-        setTimeout(() => {
-            if      (S.path === 'free') goTo('free');
-            else if (S.path === 'vip')  { makeDots('dob-dots', 4, 0); goTo('dob'); }
-            else    goTo('path');
-        }, 900);
-    }
-
-    // ===================== VIP PROFILE =====================
-    function saveDOB() {
-        const v   = document.getElementById('dob-in').value;
-        const err = document.getElementById('dob-err');
-        if (!v) { err.classList.add('show'); return; }
-        err.classList.remove('show');
-        S.dob = v;
-        makeDots('per-dots', 4, 1);
-        goTo('persona');
-    }
-
-    function savePersona() {
-        const err = document.getElementById('per-err');
-        if (!S.persona) { err.classList.add('show'); return; }
-        err.classList.remove('show');
-
-        // ════ UNLOCK COLOR — from this screen forward, the world has color ════
-        colorUnlocked = true;
-        cIdx = 0; // restart landing palette index for when user returns home
-        setAccent(S.pColor);
-
-        makeDots('city-dots', 4, 2);
-        goTo('city');
-    }
-
-    function saveCity() {
-        const v   = document.getElementById('city-in').value.trim();
-        const err = document.getElementById('city-err');
-        if (!v) { err.classList.add('show'); return; }
-        err.classList.remove('show');
-        S.city = v.toUpperCase();
-        makeDots('name-dots', 4, 3);
-        goTo('fname');
-    }
-
-    function saveFutureName() {
-        const v   = document.getElementById('fname-in').value.trim();
-        const err = document.getElementById('fname-err');
-        if (!v) { err.classList.add('show'); return; }
-        err.classList.remove('show');
-        S.fname = v.toUpperCase();
-        startJourney();
-    }
-
-    // ===================== JOURNEY =====================
-    function startJourney() {
-        goTo('journey');
-        const col = S.pColor;
-
-        const jn = document.getElementById('j-name');
-        jn.innerText   = S.fname;
-        jn.style.color = col;
-        jn.style.textShadow = `0 0 40px ${col}, 0 0 80px ${col}`;
-
-        const jc = document.getElementById('j-city');
-        jc.innerText   = '► ' + S.city;
-        jc.style.color = col;
-        jc.style.textShadow = `0 0 18px ${col}`;
-
-        document.getElementById('j-pcard').innerHTML = `
-            <div class="pci"><span class="pck">DOB</span><span class="pcv" style="color:${col}">${S.dob}</span></div>
-            <div class="pci"><span class="pck">PERSONA</span><span class="pcv" style="color:${col}">${S.persona.k} · ${S.persona.n}</span></div>
-            <div class="pci"><span class="pck">CITY</span><span class="pcv" style="color:#fff">${S.city}</span></div>
-        `;
-
-        // Data streams
-        const jst = document.getElementById('j-streams');
-        jst.innerHTML = '';
-        const words = ['01001101','IPNOTEC','10110010',S.fname,S.city,'11000101','VIP//FUTURE','01110110','10010011','∞','2027','→'];
-        for (let i = 0; i < 18; i++) {
-            const s = document.createElement('div');
-            s.className = 'dstream';
-            s.style.left            = (Math.random() * 96) + '%';
-            s.style.animationDelay  = (Math.random() * 5)  + 's';
-            s.style.animationDuration = (3 + Math.random() * 4) + 's';
-            s.style.color = col + '35';
-            s.innerText   = words[i % words.length];
-            jst.appendChild(s);
-        }
-
-        // City nodes
-        const jnodes = document.getElementById('j-nodes');
-        jnodes.innerHTML = '';
-        CITIES.forEach((city, i) => {
-            const d = document.createElement('div');
-            d.className = 'city-node'; d.id = `jnd-${i}`;
-            d.style.top = city.t; d.style.left = city.l; d.style.opacity = '0';
-            d.innerHTML = `<div class="city-dot" style="background:${col};box-shadow:0 0 12px ${col}"></div><span class="city-code">${city.c}</span>`;
-            jnodes.appendChild(d);
-        });
-
-        // Progress bar
-        const statuses = [
-            'CONNECTING TO FUTURE GRID...',
-            'ENCODING IDENTITY...',
-            'MAPPING FUTURE CITY...',
-            `CALIBRATING ${S.persona.n} PERSONA...`,
-            'ACTIVATING VIP NODES...',
-            'LINKING TIMELINE...',
-            'INITIALIZING IPNOTEC CORE...',
-            'PROFILE LOCKED. PREPARING PAYMENT →'
-        ];
-        let prog = 0, si = 0;
-        const pf = document.getElementById('j-pfill');
-        const ps = document.getElementById('j-status');
-        pf.style.background = col;
-        pf.style.boxShadow  = `0 0 10px ${col}`;
-
-        const iv = setInterval(() => {
-            prog += 1.1;
-            pf.style.width = Math.min(prog, 100) + '%';
-            if (si < statuses.length && prog > si * 13) { ps.innerText = statuses[si]; si++; }
-            const jnEls = jnodes.children;
-            for (let k = 0; k < jnEls.length; k++) {
-                if (prog > k * 12) jnEls[k].style.opacity = '1';
-            }
-            if (prog >= 100) {
-                clearInterval(iv);
-                setTimeout(() => goTo('payment'), 700);
-            }
-        }, 50);
-    }
-
-    // ===================== PAYMENT =====================
-    function processPayment() {
-        goTo('processing');
-        const frames   = ['◰','◳','◲','◱'];
-        let fi = 0;
-        const fEl      = document.getElementById('proc-frames');
-        const frameIv  = setInterval(() => { fEl.innerText = frames[fi++ % 4]; }, 150);
-        const statuses = [
-            'INITIATING SECURE TRANSFER...',
-            'VERIFYING IDENTITY...',
-            'CONNECTING TO PAYMENT NODE...',
-            'PROCESSING ₹1001...',
-            'ENCRYPTING TICKET...',
-            '✓ CONFIRMED'
-        ];
-        let pi = 0;
-        const pEl = document.getElementById('proc-status');
-        const pIv = setInterval(() => {
-            pEl.innerText = statuses[pi];
-            if (pi === statuses.length - 1) {
-                clearInterval(pIv); clearInterval(frameIv);
-                fEl.innerText     = '◆';
-                fEl.style.color   = 'var(--g)';
-                fEl.style.textShadow = '0 0 40px var(--g)';
-                pEl.style.color   = 'var(--g)';
-                setTimeout(() => {
-                    document.getElementById('ticket-chip').innerText =
-                        'TKT-' + Math.random().toString(36).toUpperCase().slice(2,10);
-                    goTo('reveal');
-                }, 700);
-            }
-            pi++;
-        }, 650);
-    }
-
-    // ===================== FINAL STREAMS =====================
-    function spawnFinalStreams() {
-        const el = document.getElementById('final-streams');
-        el.innerHTML = '';
-        for (let i = 0; i < 22; i++) {
-            const s = document.createElement('div');
-            s.className = 'dstream';
-            s.style.left            = (Math.random() * 96) + '%';
-            s.style.animationDelay  = (Math.random() * 6)  + 's';
-            s.style.animationDuration = (4 + Math.random() * 6) + 's';
-            s.style.color = COLORS[i % COLORS.length] + '25';
-            s.innerText   = ['01','10','1001','IPNOTEC','→','∞','2027','10:01'][i % 8];
-            el.appendChild(s);
-        }
-    }
-
-    // ===================== FOOTER: LAUNCH DATE TOGGLE =====================
-    let _dateShowing = false;
-    function toggleLaunchDate() {
-        _dateShowing = !_dateShowing;
-        const txt  = document.getElementById('ftr-launch-txt');
-        const date = document.getElementById('ftr-date-reveal');
-        if (_dateShowing) {
-            txt.style.display  = 'none';
-            date.style.display = 'block';
-        } else {
-            txt.style.display  = '';
-            date.style.display = 'none';
-        }
-    }
-
-    // ===================== COUNTDOWN =====================
-    function updateCountdown() {
-        const launch = new Date('2027-01-10T10:01:00+05:30').getTime();
-        const diff   = launch - Date.now();
-        const el     = document.getElementById('countdown');
-        if (!el) return;
-        if (diff <= 0) {
-            el.innerText   = 'LAUNCHING NOW ◆';
-            el.style.color = 'var(--g)';
-            return;
-        }
-        const d = Math.floor(diff / 86400000);
-        const h = Math.floor((diff % 86400000) / 3600000);
-        const m = Math.floor((diff % 3600000)  / 60000);
-        const s = Math.floor((diff % 60000)    / 1000);
-        el.innerText = `${d}D ${String(h).padStart(2,'0')}H ${String(m).padStart(2,'0')}M ${String(s).padStart(2,'0')}S`;
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    </script>
+function updateCountdown(){
+  const launch=new Date('2027-01-10T10:01:00+05:30').getTime();
+  const diff=launch-Date.now();
+  const el=document.getElementById('countdown'); if(!el)return;
+  if(diff<=0){el.innerText='LAUNCHING NOW ◆';el.style.color='var(--g)';return;}
+  const d=Math.floor(diff/86400000);
+  const h=Math.floor((diff%86400000)/3600000);
+  const m=Math.floor((diff%3600000)/60000);
+  const s=Math.floor((diff%60000)/1000);
+  el.innerText=`${d}D ${String(h).padStart(2,'0')}H ${String(m).padStart(2,'0')}M ${String(s).padStart(2,'0')}S`;
+}
+setInterval(updateCountdown,1000);
+updateCountdown();
+</script>
 </body>
 </html>
