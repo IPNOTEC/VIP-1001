@@ -8,32 +8,32 @@
 <title>IPNOTEC VIP | STEP INTO THE FUTURE</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --v:#BF00FF; --i:#6A0EFF; --b:#00C8FF; --g:#39FF14;
-  --y:#FFE600; --o:#FF6200; --r:#FF1744; --n:#AAAAAA; --w:#FFFFFF; --rg:#C9907A;
-  --accent:#888888; --bg:#000;
+:root{
+  --v:#BF00FF;--i:#6A0EFF;--b:#00C8FF;--g:#39FF14;
+  --y:#FFE600;--o:#FF6200;--r:#FF1744;--n:#AAAAAA;--w:#FFFFFF;--rg:#C9907A;
+  --accent:#888888;--bg:#000;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{font-size:16px;height:100%;}
 body,html{width:100%;height:100%;background:#000;color:#fff;font-family:'Space Mono',monospace;overflow:hidden;}
-body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.1) 2px,rgba(0,0,0,0.1) 4px);pointer-events:none;z-index:10000;}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.1) 2px,rgba(0,0,0,.1) 4px);pointer-events:none;z-index:10000;}
 
 /* ─── HEADER ─── */
-.hdr{position:fixed;top:0;left:0;width:100%;height:54px;background:rgba(0,0,0,0.96);border-bottom:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:clamp(0.6rem,1.8vw,0.82rem);letter-spacing:clamp(3px,1vw,7px);z-index:5000;overflow:hidden;transition:border-color .6s;}
+.hdr{position:fixed;top:0;left:0;width:100%;height:54px;background:rgba(0,0,0,.96);border-bottom:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:clamp(.6rem,1.8vw,.82rem);letter-spacing:clamp(3px,1vw,7px);z-index:5000;overflow:hidden;transition:border-color .6s;}
 .hdr::after{content:'';position:absolute;top:0;left:-80%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,200,255,.18),transparent);animation:hScan 3s linear infinite;}
 @keyframes hScan{to{left:160%;}}
 .hchar{display:inline-block;color:rgba(255,255,255,.22);animation:hpulse 4s ease-in-out infinite;}
 @keyframes hpulse{0%,100%{color:rgba(255,255,255,.22);}50%{color:#fff;text-shadow:0 0 12px #fff,0 0 25px var(--accent);}}
 
 /* ─── FOOTER ─── */
-footer{position:fixed;bottom:0;left:0;width:100%;height:64px;background:rgba(0,0,0,0.98);border-top:2px solid var(--accent);display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:0 18px;gap:8px;z-index:5000;transition:border-color .6s;}
+footer{position:fixed;bottom:0;left:0;width:100%;height:64px;background:rgba(0,0,0,.98);border-top:2px solid var(--accent);display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:0 18px;gap:8px;z-index:5000;transition:border-color .6s;}
 .ftr-logo{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(.85rem,3vw,1.05rem);letter-spacing:4px;color:var(--accent);text-shadow:0 0 18px var(--accent);transition:all .6s;white-space:nowrap;}
 .ftr-mid{text-align:center;font-family:'Orbitron',sans-serif;cursor:pointer;user-select:none;display:flex;flex-direction:column;align-items:center;gap:2px;}
 .ftr-launch-txt{font-size:clamp(.52rem,1.4vw,.68rem);letter-spacing:3px;color:rgba(255,255,255,.4);line-height:1;}
 .ftr-launch-txt strong{color:var(--rg);text-shadow:0 0 10px var(--rg);font-weight:900;transition:all .6s;}
 .ftr-date-reveal{font-size:.58rem;letter-spacing:2px;color:var(--y);text-shadow:0 0 10px var(--y);display:none;white-space:nowrap;}
 #countdown{font-size:clamp(.48rem,1.3vw,.6rem);letter-spacing:1px;color:var(--accent);text-shadow:0 0 8px var(--accent);font-weight:700;transition:color .6s;}
-.home-btn{font-family:'Space Mono',monospace;font-weight:700;color:var(--accent);border:2px solid var(--accent);padding:8px 12px;cursor:pointer;background:transparent;font-size:.85rem;transition:.2s;display:flex;align-items:center;gap:6px;white-space:nowrap;min-height:44px;}
+.home-btn{font-family:'Space Mono',monospace;font-weight:700;color:var(--accent);border:2px solid var(--accent);padding:8px 12px;cursor:pointer;background:transparent;font-size:.85rem;transition:.2s;display:flex;align-items:center;gap:6px;white-space:nowrap;min-height:44px;border-radius:0;}
 .home-btn:hover{background:var(--accent);color:#000;}
 .clock-face{display:inline-block;width:15px;height:15px;border:1.5px solid var(--accent);position:relative;vertical-align:middle;flex-shrink:0;transition:border-color .6s;}
 .clock-face::before{content:'';position:absolute;top:50%;left:50%;width:2px;height:2px;background:var(--accent);transform:translate(-50%,-50%);transition:background .6s;}
@@ -66,32 +66,32 @@ footer{position:fixed;bottom:0;left:0;width:100%;height:64px;background:rgba(0,0
 .landing-btns{position:absolute;bottom:28px;display:flex;gap:16px;z-index:20;flex-wrap:wrap;justify-content:center;width:100%;padding:0 20px;}
 
 /* ─── FORM BOX ─── */
-.fbx{width:min(510px,94vw);border:2px solid var(--accent);padding:clamp(22px,5vw,40px) clamp(18px,5vw,40px);background:rgba(0,0,0,.9);box-shadow:0 0 50px rgba(0,200,255,.06),inset 0 0 30px rgba(0,200,255,.02);position:relative;max-height:100%;overflow-y:auto;transition:border-color .6s;}
-.fbx::before{content:'';position:absolute;top:-2px;left:14px;width:60px;height:3px;background:var(--accent);}
-.fbx::after{content:'';position:absolute;bottom:-2px;right:14px;width:60px;height:3px;background:var(--accent);}
-.corner{position:absolute;width:16px;height:16px;}
+.fbx{width:min(510px,94vw);border:2px solid var(--accent);padding:clamp(22px,5vw,40px) clamp(18px,5vw,40px);background:rgba(0,0,0,.9);box-shadow:0 0 50px rgba(0,200,255,.06),inset 0 0 30px rgba(0,200,255,.02);position:relative;max-height:100%;overflow-y:auto;transition:border-color .5s,box-shadow .5s;}
+.fbx::before{content:'';position:absolute;top:-2px;left:14px;width:60px;height:3px;background:var(--accent);transition:background .5s;}
+.fbx::after{content:'';position:absolute;bottom:-2px;right:14px;width:60px;height:3px;background:var(--accent);transition:background .5s;}
+.corner{position:absolute;width:16px;height:16px;transition:border-color .5s;}
 .ctlx{top:-2px;left:-2px;border-top:3px solid var(--accent);border-left:3px solid var(--accent);}
 .ctrx{top:-2px;right:-2px;border-top:3px solid var(--accent);border-right:3px solid var(--accent);}
 .cblx{bottom:-2px;left:-2px;border-bottom:3px solid var(--accent);border-left:3px solid var(--accent);}
 .cbrx{bottom:-2px;right:-2px;border-bottom:3px solid var(--accent);border-right:3px solid var(--accent);}
 
-.step-lbl{font-family:'Orbitron',sans-serif;font-size:clamp(.58rem,1.5vw,.65rem);letter-spacing:5px;color:var(--accent);opacity:.9;margin-bottom:8px;}
-.form-title{font-family:'Orbitron',sans-serif;font-size:clamp(1.25rem,4vw,1.65rem);font-weight:900;letter-spacing:2px;color:#fff;text-shadow:0 0 20px rgba(255,255,255,.15);margin-bottom:8px;line-height:1.2;}
+.step-lbl{font-family:'Orbitron',sans-serif;font-size:clamp(.58rem,1.5vw,.65rem);letter-spacing:5px;color:var(--accent);opacity:.9;margin-bottom:8px;transition:color .5s;}
+.form-title{font-family:'Orbitron',sans-serif;font-size:clamp(1.25rem,4vw,1.65rem);font-weight:900;letter-spacing:2px;color:#fff;text-shadow:0 0 20px rgba(255,255,255,.15);margin-bottom:8px;line-height:1.2;transition:text-shadow .5s;}
 .form-sub{font-size:clamp(.78rem,2vw,.88rem);color:rgba(255,255,255,.42);margin-bottom:26px;letter-spacing:.5px;font-family:'Rajdhani',sans-serif;line-height:1.6;}
 .igrp{margin-bottom:20px;}
 .ilbl{display:block;font-size:clamp(.58rem,1.5vw,.62rem);letter-spacing:4px;color:rgba(255,255,255,.45);margin-bottom:8px;font-family:'Orbitron',sans-serif;}
-.tinput,select.tinput{width:100%;background:rgba(255,255,255,.025);border:1px solid rgba(0,200,255,.35);color:#fff;padding:14px 16px;font-family:'Space Mono',monospace;font-size:1rem;letter-spacing:1.5px;outline:none;transition:.2s;-webkit-appearance:none;appearance:none;}
+.tinput,select.tinput{width:100%;background:rgba(255,255,255,.025);border:1px solid rgba(0,200,255,.35);color:#fff;padding:14px 16px;font-family:'Space Mono',monospace;font-size:1rem;letter-spacing:1.5px;outline:none;transition:.2s;-webkit-appearance:none;appearance:none;border-radius:0;}
 .tinput:focus,select.tinput:focus{border-color:var(--accent);box-shadow:0 0 18px rgba(0,200,255,.18);background:rgba(0,200,255,.03);}
 .tinput::placeholder{color:rgba(255,255,255,.2);font-size:.85rem;}
 select.tinput option{background:#000;color:#fff;}
 
 /* OTP */
 .otp-row{display:flex;gap:10px;justify-content:center;margin:18px 0;}
-.otp-box{width:clamp(44px,13vw,56px);height:clamp(54px,16vw,66px);background:rgba(255,255,255,.02);border:2px solid rgba(0,200,255,.28);color:#fff;text-align:center;font-family:'Space Mono',monospace;font-size:clamp(1.2rem,4vw,1.5rem);font-weight:700;outline:none;transition:.2s;}
+.otp-box{width:clamp(44px,13vw,56px);height:clamp(54px,16vw,66px);background:rgba(255,255,255,.02);border:2px solid rgba(0,200,255,.28);color:#fff;text-align:center;font-family:'Space Mono',monospace;font-size:clamp(1.2rem,4vw,1.5rem);font-weight:700;outline:none;transition:.2s;border-radius:0;}
 .otp-box:focus{border-color:var(--accent);box-shadow:0 0 18px rgba(0,200,255,.3);background:rgba(0,200,255,.04);}
 
 /* BUTTONS */
-.btn-main{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border:2px solid var(--accent);background:rgba(0,200,255,.06);color:var(--accent);font-family:'Orbitron',sans-serif;font-size:clamp(.72rem,2vw,.82rem);font-weight:700;letter-spacing:3px;cursor:pointer;transition:.2s;text-shadow:0 0 8px var(--accent);box-shadow:0 0 14px rgba(0,200,255,.12);text-decoration:none;text-align:center;min-height:52px;}
+.btn-main{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border:2px solid var(--accent);background:rgba(0,200,255,.06);color:var(--accent);font-family:'Orbitron',sans-serif;font-size:clamp(.72rem,2vw,.82rem);font-weight:700;letter-spacing:3px;cursor:pointer;transition:.2s;text-shadow:0 0 8px var(--accent);box-shadow:0 0 14px rgba(0,200,255,.12);text-decoration:none;text-align:center;min-height:52px;border-radius:0;}
 .btn-main:hover{background:var(--accent);color:#000;box-shadow:0 0 30px var(--accent);text-shadow:none;}
 .btn-full{width:100%;margin-top:10px;}
 .btn-vip{border-color:var(--rg);color:var(--rg);background:rgba(201,144,122,.06);text-shadow:0 0 8px var(--rg);box-shadow:0 0 14px rgba(201,144,122,.12);}
@@ -100,11 +100,14 @@ select.tinput option{background:#000;color:#fff;}
 .btn-green:hover{background:var(--g);color:#000;}
 .btn-blue{border-color:var(--b);color:var(--b);background:rgba(0,200,255,.06);text-shadow:0 0 8px var(--b);}
 .btn-blue:hover{background:var(--b);color:#000;}
+.btn-yellow{border-color:var(--y);color:#000;background:var(--y);text-shadow:none;box-shadow:0 0 20px rgba(255,230,0,.3);}
+.btn-yellow:hover{box-shadow:0 0 40px rgba(255,230,0,.5);background:#fff200;}
 
 .msgbox{padding:11px 16px;font-size:clamp(.65rem,2vw,.72rem);letter-spacing:1.5px;margin-top:12px;display:none;font-family:'Orbitron',sans-serif;line-height:1.5;}
 .msgbox.err{border:1px solid var(--o);color:var(--o);background:rgba(255,98,0,.05);}
 .msgbox.suc{border:1px solid var(--g);color:var(--g);background:rgba(57,255,20,.05);}
 .msgbox.info{border:1px solid var(--b);color:var(--b);background:rgba(0,200,255,.05);}
+.msgbox.warn{border:1px solid var(--y);color:var(--y);background:rgba(255,230,0,.05);}
 .msgbox.show{display:block;}
 
 .pdots{display:flex;gap:8px;justify-content:center;margin-bottom:20px;}
@@ -117,7 +120,7 @@ select.tinput option{background:#000;color:#fff;}
 /* ─── PATH CHOICE ─── */
 .path-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:min(580px,93vw);margin-top:18px;}
 @media(max-width:420px){.path-grid{grid-template-columns:1fr;}}
-.path-card{border:2px solid;padding:28px 18px;text-align:center;cursor:pointer;transition:.2s;background:rgba(0,0,0,.88);position:relative;overflow:hidden;}
+.path-card{border:2px solid;padding:28px 18px;text-align:center;cursor:pointer;transition:.2s;background:rgba(0,0,0,.88);position:relative;overflow:hidden;border-radius:0;}
 .path-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:2px;animation:pcScan 2.5s linear infinite;}
 @keyframes pcScan{to{left:100%;}}
 .path-card:hover{transform:translateY(-4px);}
@@ -154,25 +157,23 @@ select.tinput option{background:#000;color:#fff;}
 .sb2:nth-child(5){height:23px;animation-delay:.4s;}
 @keyframes sig2{0%,100%{opacity:.3;}50%{opacity:1;}}
 .sig-lbl{font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:3px;color:var(--g);margin-left:6px;align-self:center;}
-
 .node-grid-wrap{flex:1;padding:16px;width:100%;}
 .ng-lbl{font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:5px;color:rgba(255,255,255,.3);margin-bottom:12px;}
 .node-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;}
 .node-card{border:1px solid rgba(255,255,255,.08);padding:14px 12px;background:rgba(255,255,255,.012);position:relative;overflow:hidden;cursor:pointer;transition:.2s;}
 .node-card:hover{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.16);}
 .node-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
-.nc-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:.9rem;margin-bottom:8px;position:relative;flex-shrink:0;}
-.nc-avatar::after{content:'';position:absolute;bottom:0;right:0;width:9px;height:9px;border-radius:50%;background:var(--g);border:1.5px solid #000;box-shadow:0 0 6px var(--g);}
+.nc-avatar{width:38px;height:38px;border-radius:0;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:.9rem;margin-bottom:8px;position:relative;flex-shrink:0;}
+.nc-avatar::after{content:'';position:absolute;bottom:0;right:0;width:9px;height:9px;background:var(--g);border:1.5px solid #000;box-shadow:0 0 6px var(--g);}
 .nc-name{font-family:'Space Mono',monospace;font-size:clamp(.72rem,2vw,.8rem);font-weight:700;letter-spacing:1px;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .nc-city{font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:3px;color:rgba(255,255,255,.4);margin-bottom:8px;}
 .nc-id{font-family:'Space Mono',monospace;font-size:.6rem;color:rgba(255,255,255,.22);letter-spacing:1px;margin-bottom:10px;filter:blur(2px);user-select:none;}
 .nc-btns{display:flex;gap:6px;}
-.nc-btn{flex:1;padding:7px 4px;border:1px solid;font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:1px;cursor:pointer;background:transparent;transition:.2s;text-align:center;}
+.nc-btn{flex:1;padding:7px 4px;border:1px solid;font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:1px;cursor:pointer;background:transparent;transition:.2s;text-align:center;border-radius:0;}
 .nc-ping{border-color:rgba(0,200,255,.4);color:var(--b);}
 .nc-ping:hover,.nc-ping.pinged{background:rgba(0,200,255,.15);}
 .nc-connect{border-color:rgba(255,230,0,.4);color:var(--y);}
 .nc-connect:hover{background:rgba(255,230,0,.08);}
-
 .node-cta{margin:0 16px 20px;padding:18px;border:1px solid rgba(201,144,122,.25);background:rgba(201,144,122,.03);text-align:center;}
 .node-cta-title{font-family:'Orbitron',sans-serif;font-size:clamp(.62rem,1.8vw,.72rem);letter-spacing:4px;color:var(--rg);text-shadow:0 0 12px var(--y);margin-bottom:8px;}
 .node-cta-desc{font-size:clamp(.7rem,2vw,.78rem);color:rgba(255,255,255,.38);line-height:1.6;font-family:'Rajdhani',sans-serif;margin-bottom:14px;}
@@ -186,11 +187,58 @@ select.tinput option{background:#000;color:#fff;}
 
 /* ─── PERSONA GRID ─── */
 .persona-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0;}
-.ptile{padding:16px 8px;border:2px solid;cursor:pointer;text-align:center;transition:.2s;position:relative;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.ptile{padding:16px 8px;border:2px solid;cursor:pointer;text-align:center;transition:all .25s;position:relative;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:0;}
 .ptile:hover{transform:scale(1.04);}
 .ptile.sel{box-shadow:0 0 24px var(--tc);}
 .pltr{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(1.5rem,5vw,2rem);display:block;margin-bottom:4px;}
 .pname{font-size:clamp(.46rem,1.4vw,.54rem);letter-spacing:2px;font-family:'Orbitron',sans-serif;opacity:.85;}
+/* LOCKED TILE (youth) */
+.ptile.locked{opacity:.2;cursor:not-allowed;position:relative;}
+.ptile.locked:hover{transform:none;}
+.ptile.locked .lock-sq{position:absolute;top:4px;right:4px;width:14px;height:14px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:8px;}
+.ptile.locked .age-tag{position:absolute;bottom:3px;font-size:7px;letter-spacing:1px;font-family:'Orbitron',sans-serif;color:rgba(255,255,255,.3);}
+
+/* PERSONA COLOR FRAME */
+.fbx.persona-colored{box-shadow:0 0 50px var(--pc-glow),inset 0 0 30px var(--pc-inner);}
+
+/* PERSONA DESCRIPTION PANEL */
+.pinfo-panel{display:none;border-left:3px solid var(--accent);padding:14px 16px;background:rgba(255,255,255,.02);margin:12px 0;transition:all .3s;}
+.pinfo-panel.show{display:block;}
+.pinfo-title{font-family:'Orbitron',sans-serif;font-size:.62rem;letter-spacing:3px;margin-bottom:6px;}
+.pinfo-def{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.7;font-family:'Rajdhani',sans-serif;margin-bottom:8px;}
+.pinfo-examples{font-size:.75rem;color:rgba(255,255,255,.32);line-height:1.8;font-family:'Rajdhani',sans-serif;}
+.pinfo-examples strong{color:var(--accent);}
+
+/* YOUTH PROTOCOL */
+.youth-banner{padding:12px 16px;border:2px solid rgba(255,230,0,.45);background:rgba(255,230,0,.04);margin-bottom:14px;position:relative;overflow:hidden;display:none;}
+.youth-banner.show{display:block;}
+.youth-banner::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,230,0,.06),transparent);animation:ybscan 3s linear infinite;}
+@keyframes ybscan{to{left:160%;}}
+.yb-title{font-family:'Orbitron',sans-serif;font-size:.65rem;letter-spacing:3px;color:#FFE600;font-weight:700;margin-bottom:5px;}
+.yb-body{font-size:.8rem;color:rgba(255,230,0,.65);line-height:1.7;font-family:'Rajdhani',sans-serif;}
+.youth-caution{display:none;padding:10px 14px;border:1px solid rgba(255,98,0,.3);background:rgba(255,98,0,.03);margin-bottom:12px;}
+.youth-caution.show{display:flex;gap:10px;align-items:flex-start;}
+.yc-icon{color:#FF6200;font-size:16px;flex-shrink:0;}
+.yc-text{font-size:.75rem;color:rgba(255,150,50,.8);line-height:1.7;font-family:'Rajdhani',sans-serif;}
+.youth-peek-btn{width:100%;padding:9px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:2px;cursor:pointer;background:transparent;transition:.2s;margin-bottom:10px;border-radius:0;text-align:center;}
+.youth-peek-btn:hover{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.5);}
+.youth-peek-box{display:none;border:1px solid rgba(255,255,255,.07);padding:14px;margin-bottom:14px;background:rgba(255,255,255,.01);}
+.youth-peek-box.show{display:block;}
+.peek-lbl{font-family:'Orbitron',sans-serif;font-size:.55rem;letter-spacing:4px;color:rgba(255,255,255,.25);margin-bottom:10px;}
+.peek-item{display:flex;gap:10px;padding:8px;border:1px solid rgba(255,255,255,.04);margin-bottom:6px;opacity:.45;}
+.pi-letter{font-size:18px;font-weight:700;font-family:'Space Mono',monospace;flex-shrink:0;width:24px;}
+.pi-info{flex:1;}
+.pi-name{font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:2px;margin-bottom:3px;}
+.pi-def{font-size:.72rem;color:rgba(255,255,255,.4);line-height:1.6;font-family:'Rajdhani',sans-serif;}
+.pi-lock-date{font-size:.62rem;color:rgba(255,255,255,.22);font-family:'Orbitron',sans-serif;margin-top:4px;letter-spacing:1px;}
+.reminder-box{display:none;border:1px solid rgba(0,200,255,.25);padding:14px;background:rgba(0,200,255,.02);margin-bottom:14px;}
+.reminder-box.show{display:block;}
+.rb-title{font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:3px;color:#00C8FF;margin-bottom:6px;}
+.rb-sub{font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.6;font-family:'Rajdhani',sans-serif;margin-bottom:10px;}
+.rb-date-display{padding:10px 14px;border:1px solid rgba(0,200,255,.2);background:rgba(0,200,255,.03);font-family:'Space Mono',monospace;font-size:.75rem;color:#00C8FF;letter-spacing:2px;text-align:center;margin-bottom:10px;}
+.rb-set-btn{width:100%;padding:11px;border:1px solid rgba(0,200,255,.35);color:#00C8FF;font-family:'Orbitron',sans-serif;font-size:.62rem;letter-spacing:2px;cursor:pointer;background:transparent;transition:.2s;border-radius:0;}
+.rb-set-btn:hover,.rb-set-btn.set{background:rgba(0,200,255,.08);}
+.rb-set-btn.set{border-color:rgba(57,255,20,.4);color:#39FF14;}
 
 /* ─── JOURNEY ─── */
 #screen-journey{background:#000;position:relative;}
@@ -209,7 +257,7 @@ select.tinput option{background:#000;color:#fff;}
 .dstream{position:absolute;font-family:'Space Mono',monospace;font-size:.52rem;white-space:nowrap;animation:dfall 5s linear infinite;pointer-events:none;}
 @keyframes dfall{0%{transform:translateY(-20%);opacity:0;}10%{opacity:1;}90%{opacity:.8;}100%{transform:translateY(110vh);opacity:0;}}
 
-/* ─── TICKET SCREEN ─── */
+/* ─── TICKET ─── */
 #screen-ticket{background:#000;}
 .tkt-panel{width:min(520px,94vw);border:2px solid var(--rg);padding:24px;background:rgba(201,144,122,.025);position:relative;text-align:center;margin-bottom:20px;}
 .tkt-panel::before{content:'';position:absolute;top:-2px;left:14px;width:50px;height:3px;background:var(--y);}
@@ -228,7 +276,7 @@ select.tinput option{background:#000;color:#fff;}
 /* ─── PAYMENT ─── */
 .pay-amount{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(2.5rem,10vw,3.5rem);color:var(--rg);text-shadow:0 0 20px var(--rg),0 0 40px var(--rg);letter-spacing:4px;margin-bottom:8px;}
 .pay-label{font-family:'Orbitron',sans-serif;font-size:clamp(.72rem,2vw,.85rem);letter-spacing:6px;color:rgba(255,255,255,.5);margin-bottom:22px;}
-.pay-btn{padding:18px;background:var(--rg);color:#fff;border:none;font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(.85rem,3vw,1rem);letter-spacing:4px;cursor:pointer;box-shadow:0 0 30px rgba(201,144,122,.4);transition:.2s;animation:payPulse 2s ease-in-out infinite;width:100%;min-height:58px;}
+.pay-btn{padding:18px;background:var(--rg);color:#fff;border:none;font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(.85rem,3vw,1rem);letter-spacing:4px;cursor:pointer;box-shadow:0 0 30px rgba(201,144,122,.4);transition:.2s;animation:payPulse 2s ease-in-out infinite;width:100%;min-height:58px;border-radius:0;}
 @keyframes payPulse{0%,100%{box-shadow:0 0 20px rgba(201,144,122,.35);}50%{box-shadow:0 0 50px rgba(201,144,122,.65),0 0 100px rgba(201,144,122,.2);}}
 .pay-btn:hover{transform:scale(1.02);}
 .order-box{border:1px solid rgba(255,255,255,.09);padding:18px;margin:18px 0;text-align:left;background:rgba(255,255,255,.012);}
@@ -248,6 +296,8 @@ select.tinput option{background:#000;color:#fff;}
 .pingg-launch{display:flex;align-items:center;justify-content:center;gap:10px;padding:18px;background:rgba(0,200,255,.08);border:2px solid var(--b);font-family:'Orbitron',sans-serif;font-size:clamp(.8rem,2.5vw,.95rem);font-weight:700;letter-spacing:3px;color:var(--b);text-shadow:0 0 12px var(--b);text-decoration:none;text-align:center;transition:.2s;cursor:pointer;margin:16px 0;animation:pinggPulse 2s ease-in-out infinite;width:100%;}
 @keyframes pinggPulse{0%,100%{box-shadow:0 0 15px rgba(0,200,255,.2);}50%{box-shadow:0 0 40px rgba(0,200,255,.5);}}
 .pingg-launch:hover{background:var(--b);color:#000;text-shadow:none;}
+.f11-launch-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:18px;background:rgba(255,230,0,.06);border:2px solid var(--y);font-family:'Orbitron',sans-serif;font-size:clamp(.8rem,2.5vw,.95rem);font-weight:700;letter-spacing:3px;color:#000;background:var(--y);text-decoration:none;text-align:center;transition:.2s;cursor:pointer;margin:8px 0;width:100%;box-shadow:0 0 20px rgba(255,230,0,.25);border-radius:0;}
+.f11-launch-btn:hover{background:#fff200;box-shadow:0 0 40px rgba(255,230,0,.45);}
 
 /* ─── FINAL ─── */
 .final-see{font-family:'Orbitron',sans-serif;font-size:clamp(1.8rem,5.5vw,3rem);font-weight:900;letter-spacing:4px;animation:fglow 2.5s ease-in-out infinite;}
@@ -255,543 +305,297 @@ select.tinput option{background:#000;color:#fff;}
 .final-future{font-family:'Orbitron',sans-serif;font-size:clamp(2.8rem,8.5vw,5.5rem);font-weight:900;letter-spacing:4px;animation:fglow 2.5s ease-in-out infinite .4s;}
 @keyframes fglow{0%,100%{text-shadow:0 0 25px currentColor;}50%{text-shadow:0 0 70px currentColor,0 0 140px currentColor;}}
 
-::-webkit-scrollbar{width:3px;}
-::-webkit-scrollbar-track{background:#000;}
-::-webkit-scrollbar-thumb{background:var(--accent);}
-
-/* ─── MODE TOGGLE BUTTON — DISCREET BOTTOM-RIGHT ─── */
-#mode-toggle{
-  position:fixed;
-  bottom:72px;
-  right:10px;
-  z-index:6000;
-  display:flex;align-items:center;gap:5px;
-  padding:5px 10px 5px 8px;
-  background:rgba(0,0,0,0.65);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:6px;
-  color:rgba(255,255,255,.32);
-  font-family:'Space Mono',monospace;
-  font-size:.48rem;font-weight:700;letter-spacing:2px;
-  cursor:pointer;
-  transition:all .2s ease;
-  white-space:nowrap;
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-}
-#mode-toggle:hover{
-  color:rgba(255,255,255,.75);
-  border-color:rgba(255,255,255,.28);
-  background:rgba(0,0,0,0.85);
-}
+/* ─── MODE TOGGLE ─── */
+#mode-toggle{position:fixed;bottom:72px;right:10px;z-index:6000;display:flex;align-items:center;gap:5px;padding:5px 10px 5px 8px;background:rgba(0,0,0,0.65);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.32);font-family:'Space Mono',monospace;font-size:.48rem;font-weight:700;letter-spacing:2px;cursor:pointer;transition:all .2s ease;white-space:nowrap;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:0;}
+#mode-toggle:hover{color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.28);background:rgba(0,0,0,0.85);}
 #mt-icon{font-size:.72rem;line-height:1;opacity:.7;}
 
-/* ══════════════════════════════════════════════════════════
-   CLASSIC MODE — WARM AUTHORITY
-   Nardo Grey · Amber accent · Outfit + Nunito Sans
-══════════════════════════════════════════════════════════ */
+/* ════════════════════════════════════════════════
+   F11 CHAT SCREEN — SAMPLE B (WhatsApp/Telegram)
+════════════════════════════════════════════════ */
+#screen-f11{background:#f0f2f5;flex-direction:column;justify-content:flex-start;overflow:hidden;}
+.f11-wrap{display:flex;flex-direction:column;width:100%;height:100%;}
+
+/* F11 Header */
+.f11-hdr{background:#fff;padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #e5e8ea;flex-shrink:0;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+.f11-back{width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:#555;font-size:18px;cursor:pointer;flex-shrink:0;background:#f5f5f5;border:1px solid #e5e5e5;}
+.f11-sq{width:38px;height:38px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;border:2px solid;}
+.f11-info{flex:1;}
+.f11-name{font-size:14px;font-weight:700;color:#111;letter-spacing:.2px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+.f11-sub{font-size:11px;color:#888;margin-top:1px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+.f11-hdr-btns{display:flex;gap:6px;align-items:center;}
+.f11-icon-btn{width:32px;height:32px;background:#f5f5f5;border:1px solid #e0e0e0;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#666;font-size:14px;transition:.15s;}
+.f11-icon-btn:hover{background:#ebebeb;color:#333;}
+.i2-chip{padding:6px 12px;background:#f0f7f0;border:1px solid #c0d8c0;color:#2a6a2a;font-size:11px;font-weight:700;cursor:pointer;transition:.15s;white-space:nowrap;font-family:-apple-system,sans-serif;letter-spacing:.5px;}
+.i2-chip:hover{background:#e0f0e0;}
+
+/* IPNOTEC MODE notice bar */
+.f11-imode-bar{display:none;padding:5px 14px;background:#e8f0fa;border-bottom:1px solid #c0d0e8;font-size:10px;color:#3a6aaa;font-family:-apple-system,sans-serif;flex-shrink:0;}
+.f11-imode-bar.show{display:block;}
+
+/* Member strip */
+.f11-mbr-strip{background:#fff;padding:8px 14px;border-bottom:1px solid #ebebeb;overflow-x:auto;display:flex;gap:0;flex-shrink:0;}
+.f11-mbr{display:flex;flex-direction:column;align-items:center;gap:3px;margin-right:10px;cursor:pointer;flex-shrink:0;}
+.f11-mbr-sq{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:2px solid;position:relative;flex-shrink:0;transition:all .3s;}
+.f11-mbr-sq.confirmed::after{content:'';position:absolute;bottom:-3px;right:-3px;width:8px;height:8px;background:#22c55e;border:1.5px solid #fff;}
+.f11-mbr-lbl{font-size:9px;color:#aaa;max-width:34px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:-apple-system,sans-serif;}
+
+/* All confirmed banner */
+.f11-confirm-banner{display:none;padding:6px 14px;background:#f0faf0;border-bottom:1px solid #b8ddb8;font-size:10px;color:#2a7a2a;font-family:-apple-system,sans-serif;text-align:center;flex-shrink:0;font-weight:600;}
+.f11-confirm-banner.show{display:block;}
+
+/* Chat body */
+.f11-body{flex:1;overflow-y:auto;padding:12px;background:#e9edef;display:flex;flex-direction:column;gap:6px;transition:background .4s;}
+.f11-body.imode{background:#0d0d0d;}
+.f11-body::-webkit-scrollbar{width:3px;}
+.f11-body::-webkit-scrollbar-thumb{background:#ccc;}
+.f11-body.imode::-webkit-scrollbar-thumb{background:#333;}
+
+/* Date separator */
+.f11-sep{display:flex;align-items:center;justify-content:center;margin:4px 0;}
+.f11-sep-lbl{background:#d5d5d5;color:#666;font-size:10px;padding:3px 12px;font-family:-apple-system,sans-serif;}
+.f11-body.imode .f11-sep-lbl{background:#1e1e1e;color:#555;}
+
+/* Messages */
+.f11-msg{display:flex;gap:6px;max-width:82%;}
+.f11-msg.me{align-self:flex-end;flex-direction:row-reverse;}
+.f11-msg.them{align-self:flex-start;}
+.f11-av{width:28px;height:28px;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1.5px solid;align-self:flex-end;font-family:'Space Mono',monospace;}
+.f11-msg-inner{display:flex;flex-direction:column;gap:1px;}
+.f11-msg-name{font-size:11px;font-weight:700;margin-bottom:2px;padding-left:2px;font-family:-apple-system,sans-serif;}
+.f11-msg.me .f11-msg-name{text-align:right;padding-right:2px;padding-left:0;}
+.f11-bubble{padding:8px 12px;font-size:13px;line-height:1.55;max-width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;transition:all .3s;}
+.f11-msg.them .f11-bubble{background:#fff;color:#111;border-radius:0 8px 8px 8px;box-shadow:0 1px 2px rgba(0,0,0,.08);}
+.f11-msg.me .f11-bubble{background:#d9fdd3;color:#111;border-radius:8px 8px 0 8px;box-shadow:0 1px 2px rgba(0,0,0,.08);}
+/* IMODE bubbles */
+.f11-body.imode .f11-msg.them .f11-bubble{background:#1a1a1a;color:var(--msg-pc,#ccc);border-radius:0 8px 8px 8px;box-shadow:none;border-left:2px solid var(--msg-pc,#555);}
+.f11-body.imode .f11-msg.me .f11-bubble{background:#1a1a1a;color:var(--msg-pc,#ccc);border-radius:8px 8px 0 8px;box-shadow:none;border-right:2px solid var(--msg-pc,#555);}
+.f11-body.imode .f11-msg-name{color:#fff !important;}
+.f11-msg-meta{display:flex;align-items:center;gap:4px;margin-top:2px;padding:0 2px;}
+.f11-msg.me .f11-msg-meta{justify-content:flex-end;}
+.f11-msg-time{font-size:10px;color:#aaa;font-family:-apple-system,sans-serif;}
+.f11-body.imode .f11-msg-time{color:#444;}
+.f11-tick{font-size:11px;color:#53bdeb;}
+/* Confirmed message */
+.f11-confirm-msg{font-size:10px;letter-spacing:1.5px;font-family:'Orbitron',sans-serif;padding:5px 12px;border:1px solid;display:inline-block;margin-top:2px;}
+/* System message */
+.f11-sys{text-align:center;font-size:10px;color:#888;font-family:-apple-system,sans-serif;padding:5px;margin:2px 0;}
+.f11-body.imode .f11-sys{color:#444;}
+
+/* Final Go banner */
+.final-go-bar{display:none;padding:10px 14px;background:#f0fdf0;border-top:2px solid rgba(57,255,20,.4);flex-shrink:0;transition:background .4s;}
+.final-go-bar.show{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.final-go-bar.imode{background:#0a1a0a;}
+.fg-lbl{font-size:10px;color:#2a7a2a;font-family:-apple-system,sans-serif;font-weight:600;flex:1;}
+.final-go-bar.imode .fg-lbl{color:#39FF14;}
+.fg-btn{padding:8px 18px;background:#25D366;color:#fff;border:none;font-size:11px;font-weight:700;cursor:pointer;transition:.2s;font-family:-apple-system,sans-serif;letter-spacing:.5px;border-radius:0;}
+.fg-btn:hover{background:#1aa850;}
+.final-go-bar.imode .fg-btn{background:#39FF14;color:#000;}
+.final-go-bar.imode .fg-btn:hover{background:#55ff33;}
+
+/* Input bar */
+.f11-input-bar{display:flex;gap:8px;padding:10px 12px;background:#fff;border-top:1px solid #e5e5e5;flex-shrink:0;align-items:center;transition:background .4s,border-color .4s;}
+.f11-input-bar.imode{background:#0a0a0a;border-top-color:#1a1a1a;}
+.imode-btn{height:38px;padding:0 11px;background:#f0f0f0;border:1px solid #ddd;color:#666;font-size:9px;font-weight:700;cursor:pointer;transition:all .2s;white-space:nowrap;flex-shrink:0;letter-spacing:.5px;font-family:-apple-system,sans-serif;border-radius:0;}
+.imode-btn:hover{background:#e5e5e5;}
+.imode-btn.on{background:#1a2a3a;border-color:#2a4a6a;color:#5a9ade;}
+.f11-inp-wrap{flex:1;background:#f0f0f0;border:1px solid #ddd;display:flex;align-items:center;padding:0 12px;height:38px;transition:background .3s,border-color .3s;}
+.f11-input-bar.imode .f11-inp-wrap{background:#1a1a1a;border-color:#2a2a2a;}
+.f11-inp-wrap input{flex:1;background:transparent;border:none;outline:none;font-size:13px;color:#111;font-family:-apple-system,sans-serif;}
+.f11-input-bar.imode .f11-inp-wrap input{color:#e0e0e0;}
+.f11-inp-wrap input::placeholder{color:#bbb;}
+.f11-input-bar.imode .f11-inp-wrap input::placeholder{color:#444;}
+.f11-send{width:38px;height:38px;background:#128c7e;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:16px;transition:.15s;flex-shrink:0;border-radius:0;}
+.f11-send:hover{background:#0f7a6d;}
+.f11-confirm-btn{height:38px;padding:0 12px;background:#f5f5f5;border:1px solid #ddd;color:#666;font-size:10px;font-weight:700;cursor:pointer;transition:.2s;white-space:nowrap;flex-shrink:0;font-family:-apple-system,sans-serif;border-radius:0;letter-spacing:.3px;}
+.f11-confirm-btn:hover{border-color:#22c55e;color:#22c55e;}
+.f11-confirm-btn.done{border-color:#22c55e;color:#22c55e;background:#f0faf0;}
+.f11-input-bar.imode .f11-confirm-btn{background:#111;border-color:#222;color:#555;}
+.f11-input-bar.imode .f11-confirm-btn.done{border-color:#39FF14;color:#39FF14;background:#0a1a0a;}
+
+/* ════════════════════════════════════════════
+   I2 INTELLIGENCE DASHBOARD SCREEN
+════════════════════════════════════════════ */
+#screen-i2{background:#000;flex-direction:column;justify-content:flex-start;overflow-y:auto;}
+.i2-wrap{width:100%;display:flex;flex-direction:column;}
+
+/* I2 Top */
+.i2-top{background:#000;border-bottom:2px solid rgba(0,200,255,.35);padding:14px 16px;flex-shrink:0;}
+.i2-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+.i2-logo{font-family:'Orbitron',sans-serif;font-size:18px;font-weight:900;color:#00C8FF;text-shadow:0 0 24px rgba(0,200,255,.6);letter-spacing:5px;}
+.i2-logo-sub{font-family:'Orbitron',sans-serif;font-size:.6rem;color:rgba(0,200,255,.45);letter-spacing:3px;}
+.i2-trigger-tag{margin-left:auto;padding:4px 12px;border:1px solid rgba(0,200,255,.3);font-family:'Orbitron',sans-serif;font-size:.55rem;letter-spacing:2px;color:rgba(0,200,255,.6);}
+.i2-meta{font-size:.7rem;color:rgba(255,255,255,.2);letter-spacing:1.5px;font-family:'Space Mono',monospace;display:flex;gap:16px;flex-wrap:wrap;margin-top:4px;}
+.i2-meta span{color:rgba(0,200,255,.5);}
+.i2-action-row{display:flex;gap:8px;margin-top:12px;}
+.i2-action-btn{padding:8px 14px;border:1px solid;font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:2px;cursor:pointer;background:transparent;transition:.2s;border-radius:0;}
+.i2-dl-btn{border-color:rgba(57,255,20,.4);color:#39FF14;}
+.i2-dl-btn:hover{background:rgba(57,255,20,.08);}
+.i2-sh-btn{border-color:rgba(0,200,255,.4);color:#00C8FF;}
+.i2-sh-btn:hover{background:rgba(0,200,255,.08);}
+.i2-back-btn{border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.35);}
+.i2-back-btn:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.6);}
+.i2-copied{font-family:'Orbitron',sans-serif;font-size:.55rem;letter-spacing:2px;color:#39FF14;display:none;padding:8px 0;align-items:center;}
+.i2-copied.show{display:flex;}
+
+/* Stat cards */
+.i2-stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:12px 16px;flex-shrink:0;}
+@media(max-width:480px){.i2-stat-row{grid-template-columns:repeat(2,1fr);}}
+.i2-stat{border:1px solid rgba(255,255,255,.07);padding:14px 12px;background:rgba(255,255,255,.02);}
+.i2-stat-val{font-family:'Space Mono',monospace;font-size:24px;font-weight:700;letter-spacing:1px;margin-bottom:4px;}
+.i2-stat-lbl{font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:2px;color:rgba(255,255,255,.3);}
+
+/* Section */
+.i2-sec{padding:0 16px 16px;}
+.i2-sec-hdr{font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:4px;color:rgba(255,255,255,.25);padding:12px 0 8px;border-top:1px solid rgba(255,255,255,.06);margin-bottom:8px;}
+
+/* Wave chart */
+.wave-row{display:grid;grid-template-columns:90px 1fr 30px;align-items:center;gap:8px;margin-bottom:7px;}
+.wave-lbl{font-family:'Space Mono',monospace;font-size:.65rem;white-space:nowrap;}
+.wave-track{height:10px;background:rgba(255,255,255,.04);}
+.wave-fill{height:100%;transition:width 1.2s ease;}
+.wave-num{font-size:.65rem;color:rgba(255,255,255,.4);font-family:'Space Mono',monospace;text-align:right;}
+
+/* Discussion points */
+.i2-pt{display:flex;gap:10px;padding:10px 12px;border-left:3px solid;margin-bottom:6px;background:rgba(255,255,255,.012);}
+.i2-pt-k{font-family:'Space Mono',monospace;font-size:.65rem;font-weight:700;flex-shrink:0;padding-top:1px;width:16px;}
+.i2-pt-text{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.7;font-family:'Rajdhani',sans-serif;}
+
+/* Decisions */
+.i2-dec-list{border:1px solid rgba(0,200,255,.15);padding:14px;background:rgba(0,200,255,.015);}
+.i2-dec-row{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;}
+.i2-dec-n{font-family:'Space Mono',monospace;font-size:.7rem;color:rgba(0,200,255,.6);flex-shrink:0;}
+.i2-dec-text{font-size:.78rem;color:rgba(255,255,255,.55);line-height:1.7;font-family:'Rajdhani',sans-serif;}
+
+/* Action items */
+.i2-act-wrap{border:1px solid rgba(255,255,255,.06);}
+.i2-act-hdr{display:grid;grid-template-columns:100px 1fr 70px;gap:8px;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.08);}
+.i2-act-h{font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:2px;color:rgba(255,255,255,.25);}
+.i2-act-row{display:grid;grid-template-columns:100px 1fr 70px;gap:8px;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.04);}
+.i2-act-own{font-family:'Space Mono',monospace;font-size:.65rem;font-weight:700;}
+.i2-act-task{font-size:.72rem;color:rgba(255,255,255,.5);font-family:'Rajdhani',sans-serif;line-height:1.5;}
+.i2-act-due{font-family:'Space Mono',monospace;font-size:.6rem;color:rgba(255,230,0,.7);text-align:right;}
+
+/* Tags */
+.i2-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.i2-tag{padding:4px 10px;border:1px solid;font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:1px;}
+
+/* ════════════════════════════
+   CLASSIC MODE OVERRIDES
+════════════════════════════ */
 :root{
-  --cl-bg:#38393B;
-  --cl-surface:#2A2B2D;
-  --cl-card:#2A2B2D;
-  --cl-border:rgba(255,255,255,0.08);
-  --cl-amber:#FBBF24;
-  --cl-amber-dim:rgba(251,191,36,0.12);
-  --cl-amber-border:rgba(251,191,36,0.35);
-  --cl-green:#4ADE80;
-  --cl-red:#F87171;
-  --cl-text:#F1F0EE;
-  --cl-muted:rgba(241,240,238,0.48);
-  --cl-radius:8px;
-  --cl-r-sm:6px;
-  --cl-r-btn:6px;
+  --cl-bg:#38393B;--cl-surface:#2A2B2D;--cl-card:#2A2B2D;
+  --cl-border:rgba(255,255,255,0.08);--cl-amber:#FBBF24;
+  --cl-amber-dim:rgba(251,191,36,0.12);--cl-amber-border:rgba(251,191,36,0.35);
+  --cl-green:#4ADE80;--cl-red:#F87171;--cl-text:#F1F0EE;
+  --cl-muted:rgba(241,240,238,0.48);--cl-radius:8px;--cl-r-sm:6px;--cl-r-btn:6px;
 }
-
-/* ── BASE ── */
-body.classic{
-  font-family:'Nunito Sans',sans-serif;
-  background:var(--cl-bg);
-}
-body.classic::after{display:none;} /* kill scanlines */
+body.classic{font-family:'Nunito Sans',sans-serif;background:var(--cl-bg);}
+body.classic::after{display:none;}
 body.classic ::-webkit-scrollbar-track{background:var(--cl-bg);}
-body.classic ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:4px;}
-
-/* ── FLOATING TOGGLE IN CLASSIC ── */
-body.classic #mode-toggle{
-  font-family:'Outfit',sans-serif;font-weight:600;
-  font-size:.48rem;letter-spacing:1.5px;
-  background:rgba(251,191,36,0.1);
-  border:1px solid var(--cl-amber-border);
-  color:var(--cl-amber);
-  box-shadow:none;
-}
-body.classic #mode-toggle:hover{
-  background:rgba(251,191,36,0.2);
-  color:var(--cl-amber);
-  border-color:var(--cl-amber);
-}
-
-/* ── HEADER ── */
-body.classic .hdr{
-  background:var(--cl-surface);
-  border-bottom:1px solid var(--cl-border);
-  font-family:'Outfit',sans-serif;font-weight:500;
-  font-size:.82rem;letter-spacing:2px;
-}
+body.classic ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);}
+body.classic #mode-toggle{font-family:'Outfit',sans-serif;font-weight:600;font-size:.48rem;letter-spacing:1.5px;background:rgba(251,191,36,0.1);border:1px solid var(--cl-amber-border);color:var(--cl-amber);}
+body.classic #mode-toggle:hover{background:rgba(251,191,36,0.2);color:var(--cl-amber);border-color:var(--cl-amber);}
+body.classic .hdr{background:var(--cl-surface);border-bottom:1px solid var(--cl-border);font-family:'Outfit',sans-serif;font-weight:500;font-size:.82rem;letter-spacing:2px;}
 body.classic .hdr::after{display:none;}
 body.classic .hchar{animation:none;color:rgba(241,240,238,.55);}
-
-/* ── FOOTER ── */
-body.classic footer{
-  background:var(--cl-surface);
-  border-top:1px solid var(--cl-border);
-}
-body.classic .ftr-logo{
-  font-family:'Outfit',sans-serif;font-weight:700;
-  color:var(--cl-text);text-shadow:none;letter-spacing:2px;
-}
+body.classic footer{background:var(--cl-surface);border-top:1px solid var(--cl-border);}
+body.classic .ftr-logo{font-family:'Outfit',sans-serif;font-weight:700;color:var(--cl-text);text-shadow:none;letter-spacing:2px;}
 body.classic .ftr-launch-txt{font-family:'Outfit',sans-serif;}
 body.classic .ftr-launch-txt strong{color:var(--cl-amber);text-shadow:none;}
-body.classic #countdown{
-  color:var(--cl-muted);
-  font-family:'Outfit',monospace;
-  font-size:.55rem;text-shadow:none;
-}
-body.classic .home-btn{
-  font-family:'Outfit',sans-serif;
-  border-radius:var(--cl-r-btn);
-  border-color:var(--cl-border);
-  color:var(--cl-muted);
-}
+body.classic #countdown{color:var(--cl-muted);font-family:'Outfit',monospace;font-size:.55rem;text-shadow:none;}
+body.classic .home-btn{font-family:'Outfit',sans-serif;border-color:var(--cl-border);color:var(--cl-muted);}
 body.classic .home-btn:hover{background:rgba(255,255,255,.06);color:var(--cl-text);}
-body.classic .clock-face{border-color:var(--cl-muted);}
-body.classic .clock-face::before{background:var(--cl-muted);}
-body.classic .clock-hand{background:var(--cl-muted);box-shadow:none;}
-
-/* ── WORLD MAP ── */
-body.classic .wmap{opacity:.03;filter:none;}
-
-/* ── FORM BOX — warm frosted card ── */
-body.classic .fbx{
-  background:var(--cl-card);
-  border:1px solid var(--cl-border);
-  border-radius:var(--cl-radius);
-  box-shadow:0 8px 32px rgba(0,0,0,0.35);
-  backdrop-filter:none;
-}
-body.classic .fbx::before,
-body.classic .fbx::after{display:none;}
+body.classic .fbx{background:var(--cl-card);border:1px solid var(--cl-border);border-radius:var(--cl-radius);box-shadow:0 8px 32px rgba(0,0,0,.35);}
+body.classic .fbx::before,body.classic .fbx::after{display:none;}
 body.classic .corner{display:none;}
-
-/* ── STEP LABEL ── */
-body.classic .step-lbl{
-  font-family:'Outfit',sans-serif;font-weight:500;
-  font-size:.65rem;letter-spacing:2px;
-  color:var(--cl-amber);opacity:1;
-  text-shadow:none;
-}
-
-/* ── FORM TITLE ── */
-body.classic .form-title{
-  font-family:'Outfit',sans-serif;font-weight:700;
-  color:var(--cl-text);text-shadow:none;letter-spacing:.3px;
-}
-
-/* ── FORM SUB ── */
-body.classic .form-sub{
-  font-family:'Nunito Sans',sans-serif;
-  color:var(--cl-muted);line-height:1.7;
-}
-
-/* ── INPUT LABEL ── */
-body.classic .ilbl{
-  font-family:'Outfit',sans-serif;font-weight:500;
-  letter-spacing:.5px;font-size:.68rem;
-  color:var(--cl-muted);
-}
-
-/* ── INPUTS ── */
-body.classic .tinput,
-body.classic select.tinput{
-  background:rgba(255,255,255,0.05);
-  border:1px solid var(--cl-border);
-  border-radius:var(--cl-r-sm);
-  color:var(--cl-text);
-  font-family:'Nunito Sans',sans-serif;
-  font-size:.95rem;letter-spacing:.2px;
-}
-body.classic .tinput:focus,
-body.classic select.tinput:focus{
-  border-color:var(--cl-amber-border);
-  box-shadow:0 0 0 3px rgba(251,191,36,.1);
-  background:rgba(251,191,36,0.03);
-  outline:none;
-}
-body.classic .tinput::placeholder{color:rgba(241,240,238,.22);}
-body.classic select.tinput option{background:var(--cl-surface);color:var(--cl-text);}
-
-/* ── OTP BOXES ── */
-body.classic .otp-box{
-  background:rgba(255,255,255,0.05);
-  border:1px solid var(--cl-border);
-  border-radius:var(--cl-r-sm);
-  color:var(--cl-text);
-  font-family:'Outfit',sans-serif;font-weight:700;
-}
-body.classic .otp-box:focus{
-  border-color:var(--cl-amber-border);
-  box-shadow:0 0 0 3px rgba(251,191,36,.1);
-}
-
-/* ── BUTTONS ── */
-body.classic .btn-main{
-  font-family:'Outfit',sans-serif;font-weight:600;
-  letter-spacing:.5px;
-  border-radius:var(--cl-r-btn);
-  border:1px solid var(--cl-amber-border);
-  color:var(--cl-amber);
-  background:var(--cl-amber-dim);
-  text-shadow:none;box-shadow:none;
-  transition:.2s;
-}
-body.classic .btn-main:hover{
-  background:var(--cl-amber);
-  color:#1a1a1a;
-  box-shadow:0 4px 16px rgba(251,191,36,.3);
-}
-body.classic .btn-vip{
-  border-color:var(--cl-amber-border);
-  color:var(--cl-amber);
-  background:var(--cl-amber-dim);
-}
+body.classic .step-lbl{font-family:'Outfit',sans-serif;font-weight:500;font-size:.65rem;letter-spacing:2px;color:var(--cl-amber);opacity:1;text-shadow:none;}
+body.classic .form-title{font-family:'Outfit',sans-serif;font-weight:700;color:var(--cl-text);text-shadow:none;letter-spacing:.3px;}
+body.classic .form-sub{font-family:'Nunito Sans',sans-serif;color:var(--cl-muted);line-height:1.7;}
+body.classic .ilbl{font-family:'Outfit',sans-serif;font-weight:500;letter-spacing:.5px;font-size:.68rem;color:var(--cl-muted);}
+body.classic .tinput,body.classic select.tinput{background:rgba(255,255,255,0.05);border:1px solid var(--cl-border);border-radius:var(--cl-r-sm);color:var(--cl-text);font-family:'Nunito Sans',sans-serif;font-size:.95rem;letter-spacing:.2px;}
+body.classic .tinput:focus,body.classic select.tinput:focus{border-color:var(--cl-amber-border);box-shadow:0 0 0 3px rgba(251,191,36,.1);background:rgba(251,191,36,0.03);outline:none;}
+body.classic .otp-box{background:rgba(255,255,255,0.05);border:1px solid var(--cl-border);border-radius:var(--cl-r-sm);color:var(--cl-text);font-family:'Outfit',sans-serif;font-weight:700;}
+body.classic .btn-main{font-family:'Outfit',sans-serif;font-weight:600;letter-spacing:.5px;border-radius:var(--cl-r-btn);border:1px solid var(--cl-amber-border);color:var(--cl-amber);background:var(--cl-amber-dim);text-shadow:none;box-shadow:none;transition:.2s;}
+body.classic .btn-main:hover{background:var(--cl-amber);color:#1a1a1a;box-shadow:0 4px 16px rgba(251,191,36,.3);}
+body.classic .btn-vip{border-color:var(--cl-amber-border);color:var(--cl-amber);background:var(--cl-amber-dim);}
 body.classic .btn-vip:hover{background:var(--cl-amber);color:#1a1a1a;box-shadow:0 4px 16px rgba(251,191,36,.3);}
-body.classic .btn-green{
-  border-color:rgba(74,222,128,.35);
-  color:var(--cl-green);
-  background:rgba(74,222,128,.08);
-}
-body.classic .btn-green:hover{background:var(--cl-green);color:#1a1a1a;box-shadow:0 4px 16px rgba(74,222,128,.25);}
-body.classic .btn-blue{
-  border-color:var(--cl-amber-border);
-  color:var(--cl-amber);
-  background:var(--cl-amber-dim);
-}
-body.classic .btn-blue:hover{background:var(--cl-amber);color:#1a1a1a;}
-
-/* ── MESSAGE BOXES ── */
-body.classic .msgbox.err{
-  border:1px solid rgba(248,113,113,.3);color:var(--cl-red);
-  background:rgba(248,113,113,.07);
-  font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);
-}
-body.classic .msgbox.suc{
-  border:1px solid rgba(74,222,128,.3);color:var(--cl-green);
-  background:rgba(74,222,128,.07);
-  font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);
-}
-body.classic .msgbox.info{
-  border:1px solid var(--cl-amber-border);color:var(--cl-amber);
-  background:var(--cl-amber-dim);
-  font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);
-}
-
-/* ── PROGRESS DOTS ── */
+body.classic .msgbox.err{border:1px solid rgba(248,113,113,.3);color:var(--cl-red);background:rgba(248,113,113,.07);font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);}
+body.classic .msgbox.suc{border:1px solid rgba(74,222,128,.3);color:var(--cl-green);background:rgba(74,222,128,.07);font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);}
+body.classic .msgbox.info{border:1px solid var(--cl-amber-border);color:var(--cl-amber);background:var(--cl-amber-dim);font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);}
 body.classic .pdot{border-radius:4px;background:rgba(255,255,255,.12);}
 body.classic .pdot.done{background:var(--cl-amber);box-shadow:none;}
 body.classic .pdot.now{background:var(--cl-text);}
-
-/* ── DIM TEXT ── */
-body.classic .dim{font-family:'Nunito Sans',sans-serif;color:var(--cl-muted);}
-
-/* ── LANDING SCREEN ── */
-body.classic .big-i{
-  color:var(--cl-amber);
-  text-shadow:none;
-  animation:none;opacity:.9;
-}
-body.classic .floating-phrase{
-  font-family:'Outfit',sans-serif;
-  letter-spacing:2px;text-shadow:none;
-}
-body.classic .city-code{font-family:'Outfit',monospace;}
-
-/* ── PATH CHOICE ── */
-body.classic .path-card{
-  border-radius:var(--cl-radius);
-  background:var(--cl-card);
-  border-width:1px;
-}
+body.classic .screen{background:var(--cl-bg);}
+body.classic .big-i{color:var(--cl-amber);text-shadow:none;animation:none;opacity:.9;}
+body.classic .path-card{border-radius:var(--cl-radius);background:var(--cl-card);border-width:1px;}
 body.classic .path-card::before{display:none;}
-body.classic .path-card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 8px 24px rgba(0,0,0,.35);
-}
-body.classic .path-name{
-  font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.5px;
-}
+body.classic .path-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.35);}
+body.classic .path-name{font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.5px;}
 body.classic .path-desc{font-family:'Nunito Sans',sans-serif;}
-body.classic .path-badge{
-  font-family:'Outfit',sans-serif;font-weight:600;
-  border-radius:20px;font-size:.58rem;letter-spacing:.5px;
-}
+body.classic .path-badge{font-family:'Outfit',sans-serif;font-weight:600;border-radius:20px;font-size:.58rem;letter-spacing:.5px;}
 body.classic .fp{border-color:rgba(74,222,128,.3);}
 body.classic .fp .path-name{color:var(--cl-green);text-shadow:none;}
 body.classic .fp .path-badge{color:var(--cl-green);border-color:rgba(74,222,128,.35);}
 body.classic .vp{border-color:var(--cl-amber-border);}
 body.classic .vp .path-name{color:var(--cl-amber);text-shadow:none;}
 body.classic .vp .path-badge{color:var(--cl-amber);border-color:var(--cl-amber-border);}
-body.classic #screen-path .step-lbl,
-body.classic #screen-path .form-title{font-family:'Outfit',sans-serif;}
-
-/* ── PERSONA GRID ── */
 body.classic .ptile{border-radius:var(--cl-radius);border-width:1px;}
-body.classic .ptile:hover{transform:scale(1.03);box-shadow:0 6px 20px rgba(0,0,0,.4);}
 body.classic .pltr{text-shadow:none !important;}
 body.classic .pname{font-family:'Outfit',sans-serif;letter-spacing:.3px;}
-
-/* ══════════════════════════════════════════
-   FREE NODE — WhatsApp chat list style
-══════════════════════════════════════════ */
 body.classic #screen-free-node{background:var(--cl-bg);}
-body.classic .node-header{
-  background:var(--cl-surface);
-  border-bottom:1px solid var(--cl-border);
-}
-body.classic .node-title{
-  font-family:'Outfit',sans-serif;font-weight:600;
-  color:var(--cl-green);letter-spacing:.5px;text-shadow:none;
-}
-body.classic .node-pulse{box-shadow:none;}
-body.classic .node-num{
-  font-family:'Outfit',sans-serif;font-weight:700;
-  text-shadow:none;color:var(--cl-amber);
-}
-body.classic .node-num-lbl{
-  font-family:'Outfit',sans-serif;
-  color:var(--cl-muted);letter-spacing:1px;
-}
-body.classic .node-city-lbl{font-family:'Outfit',sans-serif;color:var(--cl-muted);}
-body.classic .sb2{background:var(--cl-green);}
-body.classic .sig-lbl{font-family:'Outfit',sans-serif;color:var(--cl-green);text-shadow:none;}
-body.classic .ng-lbl{
-  font-family:'Outfit',sans-serif;font-weight:500;
-  color:var(--cl-muted);letter-spacing:.5px;font-size:.68rem;
-}
-
-/* Chat list layout */
-body.classic .node-grid{
-  display:flex;flex-direction:column;gap:0;
-  background:transparent;
-}
-body.classic .node-card{
-  border:none !important;border-radius:0 !important;
-  background:transparent;
-  padding:12px 16px;
-  display:flex;align-items:flex-start;gap:12px;
-  transition:background .15s;
-}
+body.classic .node-header{background:var(--cl-surface);border-bottom:1px solid var(--cl-border);}
+body.classic .node-title{font-family:'Outfit',sans-serif;font-weight:600;color:var(--cl-green);letter-spacing:.5px;text-shadow:none;}
+body.classic .node-num{font-family:'Outfit',sans-serif;font-weight:700;text-shadow:none;color:var(--cl-amber);}
+body.classic .node-num-lbl,.body.classic .node-city-lbl{font-family:'Outfit',sans-serif;color:var(--cl-muted);}
+body.classic .ng-lbl{font-family:'Outfit',sans-serif;font-weight:500;color:var(--cl-muted);letter-spacing:.5px;font-size:.68rem;}
+body.classic .node-grid{display:flex;flex-direction:column;gap:0;background:transparent;}
+body.classic .node-card{border:none !important;background:transparent;padding:12px 16px;display:flex;align-items:flex-start;gap:12px;transition:background .15s;}
 body.classic .node-card:hover{background:rgba(255,255,255,.04);}
-body.classic .node-card + .node-card{border-top:1px solid rgba(255,255,255,.05) !important;}
-body.classic .node-card > div[style*="position:absolute"]{display:none !important;}
-body.classic .nc-avatar{
-  width:40px !important;height:40px !important;min-width:40px !important;
-  border-radius:50% !important;border-width:1.5px !important;
-}
-body.classic .nc-name{
-  font-family:'Outfit',sans-serif;font-weight:700;
-  font-size:.88rem;letter-spacing:.1px;
-  text-shadow:none !important;line-height:1.2;
-}
-body.classic .nc-name::after{
-  content:' · Node';
-  font-weight:400;font-size:.7rem;
-  color:var(--cl-muted);
-  font-family:'Nunito Sans',sans-serif;
-}
-body.classic .nc-city{
-  font-family:'Nunito Sans',sans-serif;
-  font-size:.7rem;color:var(--cl-muted);
-  letter-spacing:.3px;margin-top:2px;
-}
-body.classic .nc-id{
-  font-family:'Outfit',monospace;
-  font-size:.62rem;color:var(--cl-muted);
-  filter:blur(1.5px);margin-top:3px;margin-bottom:6px;
-}
-body.classic .nc-btn{
-  font-family:'Outfit',sans-serif;font-weight:600;
-  font-size:.6rem;letter-spacing:.3px;
-  border-radius:20px;padding:5px 14px;
-}
-body.classic .nc-ping{
-  border-color:rgba(251,191,36,.4);color:var(--cl-amber);
-}
-body.classic .nc-ping:hover,.nc-ping.pinged{background:rgba(251,191,36,.12);}
-body.classic .nc-connect{
-  border-color:rgba(74,222,128,.35);color:var(--cl-green);
-}
-body.classic .nc-connect:hover{background:rgba(74,222,128,.1);}
-
-/* Node CTA */
-body.classic .node-cta{
-  margin:0 12px 16px;
-  border-radius:var(--cl-radius);
-  border:1px solid var(--cl-amber-border);
-  background:var(--cl-amber-dim);
-}
-body.classic .node-cta-title{
-  font-family:'Outfit',sans-serif;font-weight:700;
-  color:var(--cl-amber);text-shadow:none;letter-spacing:.5px;
-}
-body.classic .node-cta-desc{font-family:'Nunito Sans',sans-serif;color:var(--cl-muted);}
-
-/* Node Modal */
-body.classic .nm-box{
-  border-radius:var(--cl-radius);
-  border:1px solid var(--cl-border);
-  background:var(--cl-surface);
-  box-shadow:0 20px 60px rgba(0,0,0,.55);
-}
+body.classic .node-card+.node-card{border-top:1px solid rgba(255,255,255,.05) !important;}
+body.classic .nc-avatar{width:40px !important;height:40px !important;border-width:1.5px !important;}
+body.classic .nc-name{font-family:'Outfit',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.1px;text-shadow:none !important;}
+body.classic .nc-city{font-family:'Nunito Sans',sans-serif;font-size:.7rem;color:var(--cl-muted);letter-spacing:.3px;margin-top:2px;}
+body.classic .nc-btn{font-family:'Outfit',sans-serif;font-weight:600;font-size:.6rem;letter-spacing:.3px;border-radius:20px;padding:5px 14px;}
+body.classic .nc-ping{border-color:rgba(251,191,36,.4);color:var(--cl-amber);}
+body.classic .nc-connect{border-color:rgba(74,222,128,.35);color:var(--cl-green);}
+body.classic .node-cta{margin:0 12px 16px;border-radius:var(--cl-radius);border:1px solid var(--cl-amber-border);background:var(--cl-amber-dim);}
+body.classic .node-cta-title{font-family:'Outfit',sans-serif;font-weight:700;color:var(--cl-amber);text-shadow:none;letter-spacing:.5px;}
+body.classic .nm-box{border-radius:var(--cl-radius);border:1px solid var(--cl-border);background:var(--cl-surface);box-shadow:0 20px 60px rgba(0,0,0,.55);}
 body.classic .nm-box::before{display:none;}
-body.classic .nm-status{
-  font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);
-}
-
-/* ── JOURNEY SCREEN ── */
 body.classic #screen-journey{background:var(--cl-bg);}
-body.classic .jlbl{
-  font-family:'Outfit',sans-serif;font-weight:500;letter-spacing:1px;
-}
-body.classic .jname{
-  font-family:'Outfit',sans-serif;font-weight:800;
-  text-shadow:none;animation:none;
-}
-body.classic .jcity{
-  font-family:'Outfit',sans-serif;font-weight:600;
-  letter-spacing:1px;text-shadow:none;
-}
-body.classic .pcard{
-  border:1px solid var(--cl-border);
-  border-radius:var(--cl-r-sm);
-  background:rgba(255,255,255,.04);
-}
-body.classic .pck{font-family:'Outfit',sans-serif;letter-spacing:.5px;}
-body.classic .pcv{font-family:'Outfit',monospace;font-weight:600;}
+body.classic .jname{font-family:'Outfit',sans-serif;font-weight:800;text-shadow:none;animation:none;}
+body.classic .jcity{font-family:'Outfit',sans-serif;font-weight:600;letter-spacing:1px;text-shadow:none;}
+body.classic .pcard{border:1px solid var(--cl-border);border-radius:var(--cl-r-sm);background:rgba(255,255,255,.04);}
 body.classic .jpfill{border-radius:3px;background:var(--cl-amber) !important;box-shadow:none !important;}
 body.classic .jpbar{border-radius:3px;background:rgba(255,255,255,.08);}
-body.classic .jstatus{font-family:'Outfit',sans-serif;letter-spacing:.5px;}
-body.classic .dstream{opacity:.3;font-family:'Outfit',monospace;}
-
-/* ── TICKET SCREEN ── */
-body.classic .tkt-panel{
-  border:1px solid var(--cl-amber-border);
-  border-radius:var(--cl-radius);
-  background:var(--cl-amber-dim);
-}
-body.classic .tkt-panel::before,
-body.classic .tkt-panel::after{display:none;}
-body.classic .tkt-lbl{
-  font-family:'Outfit',sans-serif;font-weight:500;
-  color:var(--cl-amber);letter-spacing:1px;
-}
-body.classic .tkt-number{
-  font-family:'Outfit',monospace;font-weight:700;
-  text-shadow:none;color:var(--cl-amber);
-}
-body.classic .tkt-math{
-  font-family:'Outfit',monospace;font-size:.65rem;line-height:1.8;
-}
-body.classic .avail-status{
-  font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);
-}
-body.classic .locked-name{
-  font-family:'Outfit',monospace;border-radius:var(--cl-r-sm);
-}
-
-/* ── PAYMENT SCREEN ── */
-body.classic #screen-payment{background:var(--cl-bg);}
-body.classic .pay-amount{
-  font-family:'Outfit',sans-serif;font-weight:800;
-  text-shadow:none;color:var(--cl-amber);
-}
-body.classic .pay-label{
-  font-family:'Outfit',sans-serif;letter-spacing:1px;color:var(--cl-muted);
-}
-body.classic .pay-btn{
-  border-radius:var(--cl-r-btn);
-  font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:1px;
-  background:var(--cl-amber);color:#1a1a1a;
-  box-shadow:0 4px 16px rgba(251,191,36,.3);
-  animation:none;border:none;
-}
-body.classic .pay-btn:hover{box-shadow:0 6px 24px rgba(251,191,36,.45);}
-body.classic .order-box{
-  border:1px solid var(--cl-border);
-  border-radius:var(--cl-r-sm);
-  background:rgba(255,255,255,.03);
-}
+body.classic .tkt-panel{border:1px solid var(--cl-amber-border);border-radius:var(--cl-radius);background:var(--cl-amber-dim);}
+body.classic .tkt-panel::before,body.classic .tkt-panel::after{display:none;}
+body.classic .tkt-number{font-family:'Outfit',monospace;font-weight:700;text-shadow:none;color:var(--cl-amber);}
+body.classic .pay-amount{font-family:'Outfit',sans-serif;font-weight:800;text-shadow:none;color:var(--cl-amber);}
+body.classic .pay-btn{border-radius:var(--cl-r-btn);font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:1px;background:var(--cl-amber);color:#1a1a1a;box-shadow:0 4px 16px rgba(251,191,36,.3);animation:none;border:none;}
+body.classic .order-box{border:1px solid var(--cl-border);border-radius:var(--cl-r-sm);background:rgba(255,255,255,.03);}
 body.classic .order-row{font-family:'Nunito Sans',sans-serif;}
-
-/* ── PROCESSING ── */
-body.classic #screen-processing{background:var(--cl-bg);}
-body.classic #proc-frames{text-shadow:none;color:var(--cl-amber) !important;}
-body.classic #proc-status{
-  font-family:'Outfit',sans-serif;letter-spacing:2px;
-  color:var(--cl-amber) !important;text-shadow:none !important;
-}
-
-/* ── REVEAL SCREEN ── */
-body.classic .rev-ticket{
-  font-family:'Outfit',monospace;font-weight:700;
-  border:1px solid var(--cl-amber-border);
-  border-radius:var(--cl-r-sm);
-  color:var(--cl-amber);
-}
-body.classic .rev-title{
-  font-family:'Outfit',sans-serif;font-weight:800;
-}
-body.classic .rev-item{
-  border:1px solid var(--cl-border);
-  border-radius:var(--cl-r-sm);
-  background:rgba(255,255,255,.03);
-}
-body.classic .rev-ititle{
-  font-family:'Outfit',sans-serif;font-weight:600;letter-spacing:.3px;
-}
-body.classic .rev-idesc{font-family:'Nunito Sans',sans-serif;}
-body.classic .pingg-launch{
-  border-radius:var(--cl-r-btn);
-  animation:none;
-  font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.5px;
-  border:1px solid var(--cl-amber-border);
-  color:var(--cl-amber);background:var(--cl-amber-dim);
-  text-shadow:none;box-shadow:none;
-}
-body.classic .pingg-launch:hover{
-  background:var(--cl-amber);color:#1a1a1a;
-  box-shadow:0 4px 16px rgba(251,191,36,.3);
-}
-
-/* ── FINAL SCREEN ── */
 body.classic #screen-final{background:var(--cl-bg);}
-body.classic .final-see,
-body.classic .final-in,
-body.classic .final-future{
-  font-family:'Outfit',sans-serif;font-weight:800;
-  animation:none;text-shadow:none;
-}
-body.classic .final-see{color:var(--cl-amber);}
-body.classic .final-in{color:var(--cl-muted);}
-body.classic .final-future{color:var(--cl-text);}
+body.classic .final-see{font-family:'Outfit',sans-serif;font-weight:800;animation:none;text-shadow:none;color:var(--cl-amber);}
+body.classic .final-in{font-family:'Outfit',sans-serif;font-weight:800;animation:none;text-shadow:none;color:var(--cl-muted);}
+body.classic .final-future{font-family:'Outfit',sans-serif;font-weight:800;animation:none;text-shadow:none;color:var(--cl-text);}
+body.classic .rev-item{border:1px solid var(--cl-border);border-radius:var(--cl-r-sm);background:rgba(255,255,255,.03);}
+body.classic .rev-title{font-family:'Outfit',sans-serif;font-weight:800;}
+body.classic .pingg-launch{border-radius:var(--cl-r-btn);animation:none;font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.5px;border:1px solid var(--cl-amber-border);color:var(--cl-amber);background:var(--cl-amber-dim);text-shadow:none;box-shadow:none;}
+body.classic .pingg-launch:hover{background:var(--cl-amber);color:#1a1a1a;box-shadow:0 4px 16px rgba(251,191,36,.3);}
+body.classic #screen-processing{background:var(--cl-bg);}
 
-/* General screen bg */
-body.classic .screen{background:var(--cl-bg);}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:#000;}
+::-webkit-scrollbar-thumb{background:var(--accent);}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ─── HEADER ─── -->
 <div class="hdr" id="hdr">STEP INTO THE FUTURE -></div>
+
 <!-- FLOATING MODE TOGGLE -->
 <button id="mode-toggle" onclick="toggleMode()" title="Switch UI Mode">
   <span id="mt-icon">⬡</span>
@@ -800,7 +604,7 @@ body.classic .screen{background:var(--cl-bg);}
 
 <div id="cw">
 
-<!-- ═══════════════ LANDING ═══════════════ -->
+<!-- ═══════════════════════ LANDING ═══════════════════════ -->
 <div class="screen active" id="screen-landing">
   <div class="wmap"></div>
   <div id="map-nodes"></div>
@@ -812,25 +616,25 @@ body.classic .screen{background:var(--cl-bg);}
   </div>
 </div>
 
-<!-- ═══════════════ PHONE ═══════════════ -->
+<!-- ═══════════════════════ PHONE ═══════════════════════ -->
 <div class="screen" id="screen-phone">
   <div class="fbx">
     <div class="corner ctlx"></div><div class="corner ctrx"></div><div class="corner cblx"></div><div class="corner cbrx"></div>
     <div class="pdots" id="ph-dots"></div>
     <div class="step-lbl">STEP 01 · CONNECT</div>
-    <div class="form-title">ENTER PHONE<br>NUMBER</div>
+    <div class="form-title">ENTER PHONE NUMBER</div>
     <div class="form-sub">Include country code (e.g. 91XXXXXXXXXX for India). We'll send a 6-digit OTP.</div>
     <div class="igrp">
       <label class="ilbl">PHONE + COUNTRY CODE</label>
       <input type="tel" class="tinput" id="phone-in" placeholder="91XXXXXXXXXX" maxlength="15" inputmode="numeric">
     </div>
     <div class="msgbox err" id="phone-err">INVALID — MINIMUM 10 DIGITS REQUIRED</div>
-    <button class="btn-main btn-full" id="send-otp-btn" onclick="sendOTP()">SEND OTP →</button>
+    <button class="btn-main btn-full" onclick="sendOTP()">SEND OTP →</button>
     <div class="dim" style="margin-top:14px;text-align:center">By continuing you agree to IPNOTEC Terms of Service</div>
   </div>
 </div>
 
-<!-- ═══════════════ OTP ═══════════════ -->
+<!-- ═══════════════════════ OTP ═══════════════════════ -->
 <div class="screen" id="screen-otp">
   <div class="fbx">
     <div class="corner ctlx"></div><div class="corner ctrx"></div><div class="corner cblx"></div><div class="corner cbrx"></div>
@@ -852,10 +656,10 @@ body.classic .screen{background:var(--cl-bg);}
   </div>
 </div>
 
-<!-- ═══════════════ PATH CHOICE ═══════════════ -->
+<!-- ═══════════════════════ PATH CHOICE ═══════════════════════ -->
 <div class="screen" id="screen-path" style="flex-direction:column;padding:20px;text-align:center;">
   <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:7px;color:rgba(255,255,255,.4);text-align:center;">IDENTITY VERIFIED · CHOOSE YOUR PATH</div>
-  <div class="form-title" style="font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,4vw,1.9rem);font-weight:900;letter-spacing:3px;text-align:center;margin:8px 0 6px;">WHICH FUTURE<br>CALLS TO YOU?</div>
+  <div class="form-title" style="font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,4vw,1.9rem);font-weight:900;letter-spacing:3px;text-align:center;margin:8px 0 6px;">WHICH FUTURE CALLS TO YOU?</div>
   <div class="dim" style="margin-bottom:8px;">Select your access level</div>
   <div class="path-grid">
     <div class="path-card fp" onclick="takePath('free')">
@@ -873,7 +677,7 @@ body.classic .screen{background:var(--cl-bg);}
   </div>
 </div>
 
-<!-- ═══════════════ FREE NODE ═══════════════ -->
+<!-- ═══════════════════════ FREE NODE ═══════════════════════ -->
 <div class="screen" id="screen-free-node">
   <div class="node-header">
     <div class="node-status-row">
@@ -907,7 +711,7 @@ body.classic .screen{background:var(--cl-bg);}
     <div class="corner ctlx"></div><div class="corner ctrx"></div><div class="corner cblx"></div><div class="corner cbrx"></div>
     <div class="step-lbl" style="text-align:center;letter-spacing:6px;color:var(--b);margin-bottom:10px;">◈ CONNECT REQUEST</div>
     <div style="text-align:center;margin-bottom:16px;">
-      <div id="nm-avatar" style="width:52px;height:52px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:1.2rem;"></div>
+      <div id="nm-avatar" style="width:52px;height:52px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:1.2rem;border:2px solid;"></div>
       <div class="form-title" style="font-size:1.1rem;margin-bottom:4px;" id="nm-name">—</div>
       <div class="dim">IPNOTEC ID: <span id="nm-id" style="color:var(--b);filter:blur(1.5px)">IPN···0000</span></div>
     </div>
@@ -927,38 +731,82 @@ body.classic .screen{background:var(--cl-bg);}
   </div>
 </div>
 
-<!-- ═══════════════ DOB ═══════════════ -->
+<!-- ═══════════════════════ DOB ═══════════════════════ -->
 <div class="screen" id="screen-dob">
   <div class="fbx">
     <div class="corner ctlx"></div><div class="corner ctrx"></div><div class="corner cblx"></div><div class="corner cbrx"></div>
     <div class="pdots" id="dob-dots"></div>
     <div class="step-lbl">VIP PROFILE · 1 OF 3</div>
     <div class="form-title">DATE OF BIRTH</div>
-    <div class="form-sub">Your birthdate anchors your place on the future timeline and is used to compute your unique IID.</div>
+    <div class="form-sub">Your birthdate anchors your place on the future timeline and is used to compute your unique IID. It also determines your VIBGYOU wavelength eligibility.</div>
     <div class="igrp">
       <label class="ilbl">DATE OF BIRTH</label>
       <input type="date" class="tinput" id="dob-in" style="color-scheme:dark;">
     </div>
     <div class="msgbox err" id="dob-err">PLEASE SELECT YOUR DATE OF BIRTH</div>
+    <div class="msgbox warn show" id="dob-age-notice" style="display:none;">— VERIFYING AGE —</div>
     <button class="btn-main btn-full btn-vip" onclick="saveDOB()">CONTINUE →</button>
   </div>
 </div>
 
-<!-- ═══════════════ PERSONA ═══════════════ -->
+<!-- ═══════════════════════ PERSONA ═══════════════════════ -->
 <div class="screen" id="screen-persona">
-  <div class="fbx" style="width:min(560px,95vw);">
-    <div class="corner ctlx"></div><div class="corner ctrx"></div><div class="corner cblx"></div><div class="corner cbrx"></div>
+  <div class="fbx" id="persona-fbx" style="width:min(560px,95vw);">
+    <div class="corner ctlx" id="per-c1"></div><div class="corner ctrx" id="per-c2"></div>
+    <div class="corner cblx" id="per-c3"></div><div class="corner cbrx" id="per-c4"></div>
     <div class="pdots" id="per-dots"></div>
-    <div class="step-lbl">VIP PROFILE · 2 OF 3</div>
-    <div class="form-title">VIBGYOU PERSONA</div>
-    <div class="form-sub">The wavelength that defines your future identity</div>
+    <div class="step-lbl" id="per-step-lbl">VIP PROFILE · 2 OF 3</div>
+    <div class="form-title" id="per-title">VIBGYOU PERSONA</div>
+    <div class="form-sub" id="per-sub">The wavelength that defines your future identity</div>
+
+    <!-- YOUTH BANNER -->
+    <div class="youth-banner" id="youth-banner">
+      <div class="yb-title">◉ YELLOW WAVELENGTH — YOUTH PROTOCOL ACTIVE</div>
+      <div class="yb-body" id="youth-banner-body">Your age places you in the YELLOW node — the fastest-growing IPNOTEC wavelength. Other wavelengths unlock on your 23rd birthday. You can read about them below.</div>
+    </div>
+
+    <!-- CAUTION -->
+    <div class="youth-caution" id="youth-caution">
+      <div class="yc-icon">⚠</div>
+      <div class="yc-text"><strong style="color:#FF6200;display:block;margin-bottom:2px;">YOUTH GROUP — COMMUNITY STANDARDS APPLY</strong>All YELLOW node interactions are moderated. F11 groups with YELLOW members follow age-appropriate content standards. Certain node types are restricted until age 23.</div>
+    </div>
+
     <div class="persona-grid" id="pgrid"></div>
+
+    <!-- PERSONA INFO PANEL -->
+    <div class="pinfo-panel" id="pinfo-panel">
+      <div class="pinfo-title" id="pinfo-title">—</div>
+      <div class="pinfo-def" id="pinfo-def">—</div>
+      <div class="pinfo-examples" id="pinfo-examples">—</div>
+    </div>
+
+    <!-- PERMANENT DECISION WARNING -->
+    <div class="msgbox warn" id="per-perm-warn" style="display:none;margin-bottom:12px;">
+      <strong style="display:block;margin-bottom:3px;">⚠ PERMANENT DECISION</strong>
+      This persona is cryptographically locked to your IPNOTEC ID on payment. It cannot be changed, transferred, or deleted. Choose your wavelength carefully.
+    </div>
+
+    <!-- YOUTH PEEK -->
+    <button class="youth-peek-btn" id="youth-peek-btn" onclick="toggleYouthPeek()" style="display:none;">▾ EXPLORE OTHER WAVELENGTHS — READ ONLY (AGE 23+)</button>
+    <div class="youth-peek-box" id="youth-peek-box">
+      <div class="peek-lbl">◈ OTHER WAVELENGTHS — UNLOCKS ON YOUR 23rd BIRTHDAY</div>
+      <div id="peek-items-list"></div>
+    </div>
+
+    <!-- REMINDER BOX -->
+    <div class="reminder-box" id="reminder-box">
+      <div class="rb-title">◉ SET YOUR WAVELENGTH UPGRADE REMINDER</div>
+      <div class="rb-sub">On your 23rd birthday, IPNOTEC will notify you to upgrade your wavelength. Your Yellow identity stays — you can add or migrate. One-time opportunity.</div>
+      <div class="rb-date-display" id="rb-date-txt">—</div>
+      <button class="rb-set-btn" id="rb-set-btn" onclick="setReminder()">SET WAVELENGTH UNLOCK REMINDER →</button>
+    </div>
+
     <div class="msgbox err" id="per-err">SELECT YOUR VIBGYOU PERSONA</div>
-    <button class="btn-main btn-full btn-vip" onclick="savePersona()">CONTINUE →</button>
+    <button class="btn-main btn-full btn-vip" id="per-continue-btn" onclick="savePersona()">CONTINUE →</button>
   </div>
 </div>
 
-<!-- ═══════════════ FUTURE CITY ═══════════════ -->
+<!-- ═══════════════════════ FUTURE CITY ═══════════════════════ -->
 <div class="screen" id="screen-city">
   <div class="fbx">
     <div class="corner ctlx"></div><div class="corner ctrx"></div><div class="corner cblx"></div><div class="corner cbrx"></div>
@@ -976,7 +824,7 @@ body.classic .screen{background:var(--cl-bg);}
   </div>
 </div>
 
-<!-- ═══════════════ JOURNEY ═══════════════ -->
+<!-- ═══════════════════════ JOURNEY ═══════════════════════ -->
 <div class="screen" id="screen-journey">
   <div class="wmap" id="j-wmap"></div>
   <div id="j-streams"></div>
@@ -991,7 +839,7 @@ body.classic .screen{background:var(--cl-bg);}
   </div>
 </div>
 
-<!-- ═══════════════ TICKET + NAME LOCK ═══════════════ -->
+<!-- ═══════════════════════ TICKET + NAME LOCK ═══════════════════════ -->
 <div class="screen scrollable" id="screen-ticket" style="align-items:center;">
   <div style="width:min(520px,94vw);">
     <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:7px;color:var(--rg);text-align:center;margin-bottom:14px;">◆ YOUR FUTURE TICKET IS READY</div>
@@ -1006,9 +854,7 @@ body.classic .screen{background:var(--cl-bg);}
     </div>
     <div class="fname-box">
       <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:5px;color:rgba(255,255,255,.5);margin-bottom:12px;">LOCK YOUR FUTURE NAME</div>
-      <div class="form-sub" style="font-size:.82rem;color:rgba(255,255,255,.42);line-height:1.6;font-family:'Rajdhani',sans-serif;margin-bottom:16px;">
-        Your future name must be unique. Once locked, it's yours — forever. Combined with your city code it becomes your IPNOTEC identity.
-      </div>
+      <div class="form-sub" style="font-size:.82rem;color:rgba(255,255,255,.42);line-height:1.6;font-family:'Rajdhani',sans-serif;margin-bottom:16px;">Your future name must be unique. Once locked, it's yours — forever. Combined with your city code it becomes your IPNOTEC identity.</div>
       <div class="igrp">
         <label class="ilbl">FUTURE NAME</label>
         <input type="text" class="tinput" id="fname-in" placeholder="e.g. NOVA SEVEN" style="text-transform:uppercase;" oninput="triggerNameCheck()" autocomplete="off">
@@ -1023,12 +869,12 @@ body.classic .screen{background:var(--cl-bg);}
   </div>
 </div>
 
-<!-- ═══════════════ PAYMENT ═══════════════ -->
+<!-- ═══════════════════════ PAYMENT ═══════════════════════ -->
 <div class="screen" id="screen-payment">
   <div class="fbx" style="text-align:center;">
     <div class="corner ctlx"></div><div class="corner ctrx"></div><div class="corner cblx"></div><div class="corner cbrx"></div>
     <div class="step-lbl" style="text-align:center;">SECURE TRANSACTION · IPNOTEC VIP</div>
-    <div class="form-title" style="text-align:center;">TICKET TO<br>THE FUTURE</div>
+    <div class="form-title" style="text-align:center;">TICKET TO THE FUTURE</div>
     <div class="dim" style="text-align:center;margin-bottom:18px;">One-time access. Lifetime priority. Be first.</div>
     <div class="pay-amount">RS 1001</div>
     <div class="pay-label">BUY TICKET TO THE FUTURE</div>
@@ -1039,6 +885,7 @@ body.classic .screen{background:var(--cl-bg);}
       <div class="order-row"><span>VIBGYOU Lock</span><span style="color:var(--g);">INCLUDED</span></div>
       <div class="order-row"><span>Launch Priority</span><span style="color:var(--g);">INCLUDED</span></div>
       <div class="order-row"><span>PINGG Access</span><span style="color:var(--b);">INCLUDED</span></div>
+      <div class="order-row"><span>F11 Access</span><span style="color:var(--y);">INCLUDED</span></div>
       <div style="border-top:1px solid rgba(255,255,255,.08);margin-top:10px;padding-top:10px;display:flex;justify-content:space-between;font-weight:700;font-size:.9rem;">
         <span>TOTAL</span><span style="color:var(--rg);">RS 1001</span>
       </div>
@@ -1047,14 +894,14 @@ body.classic .screen{background:var(--cl-bg);}
   </div>
 </div>
 
-<!-- ═══════════════ PROCESSING ═══════════════ -->
+<!-- ═══════════════════════ PROCESSING ═══════════════════════ -->
 <div class="screen" id="screen-processing" style="background:#000;text-align:center;">
   <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:8px;color:rgba(255,255,255,.3);margin-bottom:28px;">PROCESSING TRANSACTION</div>
   <div id="proc-frames" style="font-size:4.5rem;color:var(--rg);text-shadow:0 0 30px var(--rg);margin-bottom:22px;">◰</div>
-  <div class="proc-status" id="proc-status" style="font-family:'Orbitron',sans-serif;font-size:clamp(.7rem,2vw,.82rem);letter-spacing:3px;color:var(--rg);text-shadow:0 0 10px var(--rg);">INITIATING SECURE TRANSFER...</div>
+  <div id="proc-status" style="font-family:'Orbitron',sans-serif;font-size:clamp(.7rem,2vw,.82rem);letter-spacing:3px;color:var(--rg);text-shadow:0 0 10px var(--rg);">INITIATING SECURE TRANSFER...</div>
 </div>
 
-<!-- ═══════════════ REVEAL ═══════════════ -->
+<!-- ═══════════════════════ REVEAL ═══════════════════════ -->
 <div class="screen scrollable" id="screen-reveal" style="align-items:center;">
   <div class="reveal-wrap" style="text-align:center;">
     <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:6px;color:var(--rg);margin-bottom:12px;">✓ PAYMENT CONFIRMED · IDENTITY SEALED</div>
@@ -1062,40 +909,26 @@ body.classic .screen{background:var(--cl-bg);}
     <div style="font-family:'Space Mono',monospace;font-size:clamp(.9rem,3vw,1.1rem);font-weight:700;color:var(--rg);text-shadow:0 0 15px var(--rg);letter-spacing:3px;margin-bottom:16px;" id="reveal-name">—</div>
     <div class="rev-title">WELCOME TO<br><span style="color:var(--rg);text-shadow:0 0 20px var(--rg);">THE FUTURE</span></div>
     <div class="dim" style="margin-bottom:18px;line-height:1.8;">Your VIP seat is reserved. Your identity is locked. Your node is live.</div>
-    <div style="padding:20px;border:2px solid var(--b);background:rgba(0,200,255,.04);margin:16px 0;">
+    <!-- F11 BUTTON -->
+    <button class="f11-launch-btn" onclick="goTo('f11');playSound('confirm')">
+      ◆ MY F11 — ENTER YOUR FUTURE 11 GROUP
+    </button>
+    <div style="padding:20px;border:2px solid var(--b);background:rgba(0,200,255,.04);margin:12px 0;">
       <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:5px;color:var(--b);text-align:center;margin-bottom:10px;">◐ ENTER THE NETWORK NOW</div>
       <div class="dim" style="margin-bottom:14px;text-align:center;line-height:1.7;">Your PINGG session is ready. Connect to nodes worldwide using your new IPNOTEC ID.</div>
-      <a class="pingg-launch" href="https://pingg-tau.vercel.app" target="_blank" rel="noopener">
-        ◉ LAUNCH IPNOTEC PINGG →
-      </a>
+      <a class="pingg-launch" href="https://pingg-tau.vercel.app" target="_blank" rel="noopener">◉ LAUNCH IPNOTEC PINGG →</a>
     </div>
     <div class="rev-grid">
-      <div class="rev-item">
-        <span class="rev-icon" style="color:var(--b);">◈</span>
-        <div class="rev-ititle" style="color:var(--b);">IPNOTEC PC</div>
-        <div class="rev-idesc">Your personal future-ready computer interface. Access from anywhere.</div>
-      </div>
-      <div class="rev-item">
-        <span class="rev-icon" style="color:var(--g);">◆</span>
-        <div class="rev-ititle" style="color:var(--g);">FREE INTERNET</div>
-        <div class="rev-idesc">Unlimited IPNOTEC internet bundled with VIP. Zero cost forever.</div>
-      </div>
-      <div class="rev-item">
-        <span class="rev-icon" style="color:var(--v);">▲</span>
-        <div class="rev-ititle" style="color:var(--v);">VIBGYOU IDENTITY</div>
-        <div class="rev-idesc">Your persona and future name — permanently locked to your profile.</div>
-      </div>
-      <div class="rev-item">
-        <span class="rev-icon" style="color:var(--rg);">◉</span>
-        <div class="rev-ititle" style="color:var(--rg);">LAUNCH PRIORITY</div>
-        <div class="rev-idesc">First in line on JAN 10 2027 at 10:01 HRS. You go first. Always.</div>
-      </div>
+      <div class="rev-item"><span class="rev-icon" style="color:var(--b);">◈</span><div class="rev-ititle" style="color:var(--b);">IPNOTEC PC</div><div class="rev-idesc">Your personal future-ready computer interface. Access from anywhere.</div></div>
+      <div class="rev-item"><span class="rev-icon" style="color:var(--g);">◆</span><div class="rev-ititle" style="color:var(--g);">FREE INTERNET</div><div class="rev-idesc">Unlimited IPNOTEC internet bundled with VIP. Zero cost forever.</div></div>
+      <div class="rev-item"><span class="rev-icon" style="color:var(--v);">▲</span><div class="rev-ititle" style="color:var(--v);">VIBGYOU IDENTITY</div><div class="rev-idesc">Your persona and future name — permanently locked to your profile.</div></div>
+      <div class="rev-item"><span class="rev-icon" style="color:var(--rg);">◉</span><div class="rev-ititle" style="color:var(--rg);">LAUNCH PRIORITY</div><div class="rev-idesc">First in line on JAN 10 2027 at 10:01 HRS. You go first. Always.</div></div>
     </div>
     <button class="btn-main btn-vip btn-full" style="padding:16px;font-size:.82rem;letter-spacing:5px;margin-top:8px;" onclick="goTo('final')">SEE YOU IN THE FUTURE →</button>
   </div>
 </div>
 
-<!-- ═══════════════ FINAL ═══════════════ -->
+<!-- ═══════════════════════ FINAL ═══════════════════════ -->
 <div class="screen" id="screen-final">
   <div class="wmap" style="opacity:.04;"></div>
   <div id="final-streams"></div>
@@ -1105,7 +938,8 @@ body.classic .screen{background:var(--cl-bg);}
     <div class="final-in" style="color:var(--rg);">IN THE</div>
     <div class="final-future" style="color:#fff;">FUTURE</div>
     <div style="margin-top:26px;font-family:'Space Mono',monospace;font-size:.72rem;color:rgba(255,255,255,.22);letter-spacing:5px;">JAN 10 2027 · 10:01 HRS</div>
-    <div style="margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+    <div style="margin-top:28px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <button class="f11-launch-btn" style="font-size:.72rem;padding:12px 20px;width:auto;" onclick="goTo('f11');playSound('confirm')">MY F11 →</button>
       <a href="https://i-pc.vercel.app" target="_blank" class="btn-main" style="font-size:.68rem;text-decoration:none;">IPNOTEC PC →</a>
       <a href="https://pingg-tau.vercel.app" target="_blank" class="btn-main btn-blue" style="font-size:.68rem;text-decoration:none;">PINGG →</a>
       <button class="btn-main btn-green" style="font-size:.68rem;" onclick="goTo('landing')">← HOME</button>
@@ -1113,9 +947,128 @@ body.classic .screen{background:var(--cl-bg);}
   </div>
 </div>
 
+<!-- ═══════════════════════ F11 CHAT ═══════════════════════ -->
+<div class="screen" id="screen-f11">
+  <div class="f11-wrap">
+    <!-- HEADER -->
+    <div class="f11-hdr" id="f11-hdr">
+      <div class="f11-back" onclick="goTo('reveal')" title="Back">‹</div>
+      <div class="f11-sq" id="f11-owner-sq" style="border-color:#BF00FF;color:#BF00FF;">F11</div>
+      <div class="f11-info">
+        <div class="f11-name" id="f11-group-name">My F11 — NOVA·V·BLR</div>
+        <div class="f11-sub" id="f11-group-sub">11 members · <span id="f11-conf-ct">0/11</span> confirmed</div>
+      </div>
+      <div class="f11-hdr-btns">
+        <div class="f11-icon-btn" title="Search">⌕</div>
+        <div class="i2-chip" onclick="openI2()" id="i2-chip-btn">I2 ▸</div>
+      </div>
+    </div>
+
+    <!-- IMODE BAR -->
+    <div class="f11-imode-bar" id="f11-imode-bar">◉ IPNOTEC Mode active · names in white · text in wavelength color</div>
+
+    <!-- MEMBER STRIP -->
+    <div class="f11-mbr-strip" id="f11-mbr-strip"></div>
+
+    <!-- CONFIRM BANNER -->
+    <div class="f11-confirm-banner" id="f11-conf-banner">✓ All 11 members confirmed · Owner can trigger Final Go</div>
+
+    <!-- CHAT BODY -->
+    <div class="f11-body" id="f11-body">
+      <div class="f11-sep"><div class="f11-sep-lbl">Today</div></div>
+    </div>
+
+    <!-- FINAL GO BAR -->
+    <div class="final-go-bar" id="final-go-bar">
+      <div class="fg-lbl">All confirmed · You are the owner · Ready to close</div>
+      <button class="fg-btn" onclick="triggerFinalGo()">FINAL GO →</button>
+    </div>
+
+    <!-- INPUT BAR -->
+    <div class="f11-input-bar" id="f11-input-bar">
+      <button class="imode-btn" id="f11-imode-btn" onclick="toggleF11IMode()">IPNOTEC MODE</button>
+      <div class="f11-inp-wrap">
+        <input id="f11-inp" placeholder="Message F11..." />
+      </div>
+      <button class="f11-confirm-btn" id="f11-confirm-btn" onclick="confirmMe()">DONE ✓</button>
+      <button class="f11-send" onclick="sendF11Msg()">➤</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ I2 DASHBOARD ═══════════════════════ -->
+<div class="screen scrollable" id="screen-i2" style="padding:0;">
+  <div class="i2-wrap">
+    <!-- TOP -->
+    <div class="i2-top">
+      <div class="i2-logo-row">
+        <div class="i2-logo">I2</div>
+        <div class="i2-logo-sub">IPNOTEC INTELLIGENCE</div>
+        <div class="i2-trigger-tag">TRIGGERED BY OWNER</div>
+      </div>
+      <div class="i2-meta">
+        <div>GROUP <span id="i2-group-name">—</span></div>
+        <div>SESSION <span id="i2-session-dt">—</span></div>
+        <div>MEMBERS <span>11/11 CONFIRMED</span></div>
+      </div>
+      <div class="i2-action-row">
+        <button class="i2-action-btn i2-dl-btn" onclick="downloadI2()">DOWNLOAD ↓</button>
+        <button class="i2-action-btn i2-sh-btn" onclick="shareI2()">SHARE / COPY ◈</button>
+        <button class="i2-action-btn i2-back-btn" onclick="goTo('f11')">← BACK TO F11</button>
+        <div class="i2-copied" id="i2-copied">✓ COPIED TO CLIPBOARD</div>
+      </div>
+    </div>
+
+    <!-- STAT CARDS -->
+    <div class="i2-stat-row">
+      <div class="i2-stat"><div class="i2-stat-val" style="color:#00C8FF">11</div><div class="i2-stat-lbl">CONFIRMED</div></div>
+      <div class="i2-stat"><div class="i2-stat-val" style="color:#39FF14" id="i2-msg-count">47</div><div class="i2-stat-lbl">MESSAGES</div></div>
+      <div class="i2-stat"><div class="i2-stat-val" style="color:#FFE600">6</div><div class="i2-stat-lbl">DECISIONS</div></div>
+      <div class="i2-stat"><div class="i2-stat-val" style="color:#BF00FF">9</div><div class="i2-stat-lbl">ACTIONS</div></div>
+    </div>
+
+    <!-- WAVELENGTH ACTIVITY -->
+    <div class="i2-sec">
+      <div class="i2-sec-hdr">◈ WAVELENGTH ACTIVITY INDEX</div>
+      <div id="i2-wave-chart"></div>
+    </div>
+
+    <!-- DISCUSSION SUMMARY -->
+    <div class="i2-sec">
+      <div class="i2-sec-hdr">◈ DISCUSSION SUMMARY</div>
+      <div id="i2-disc"></div>
+    </div>
+
+    <!-- DECISIONS -->
+    <div class="i2-sec">
+      <div class="i2-sec-hdr">◈ CONFIRMED DECISIONS</div>
+      <div class="i2-dec-list" id="i2-decs"></div>
+    </div>
+
+    <!-- ACTION ITEMS -->
+    <div class="i2-sec">
+      <div class="i2-sec-hdr">◈ ACTION ITEMS</div>
+      <div class="i2-act-wrap">
+        <div class="i2-act-hdr">
+          <div class="i2-act-h">OWNER</div>
+          <div class="i2-act-h">ACTION</div>
+          <div class="i2-act-h" style="text-align:right">DUE</div>
+        </div>
+        <div id="i2-actions"></div>
+      </div>
+    </div>
+
+    <!-- KEYWORD TAGS -->
+    <div class="i2-sec" style="padding-bottom:24px;">
+      <div class="i2-sec-hdr">◈ KEY TOPICS DETECTED</div>
+      <div class="i2-tags" id="i2-tags"></div>
+    </div>
+  </div>
+</div>
+
 </div><!-- /cw -->
 
-<!-- FOOTER -->
+<!-- ─── FOOTER ─── -->
 <footer id="site-footer">
   <div class="ftr-logo">IPNOTEC</div>
   <div class="ftr-mid" onclick="toggleLaunchDate()" title="Click to reveal launch date">
@@ -1132,36 +1085,55 @@ body.classic .screen{background:var(--cl-bg);}
 </footer>
 
 <script>
-// ════════════════════════════════════════════
-// STATE
-// ════════════════════════════════════════════
-const S = {
-  path:'vip', phone:'', genOTP:'',
-  dob:'', persona:null, city:'', cityCode:'',
-  fname:'', fullFutureName:'',
-  pColor:'#888888', iid:0, ticketNumber:'',
-  nameLocked: false
+/* ══════════════════════════════════════════
+   STATE
+══════════════════════════════════════════ */
+const S={
+  path:'vip',phone:'',genOTP:'',
+  dob:'',persona:null,city:'',cityCode:'',
+  fname:'',fullFutureName:'',
+  pColor:'#888888',iid:0,ticketNumber:'',
+  nameLocked:false,
+  isYouth:false,age:0,turn23Date:'',reminderSet:false
 };
 
-// ════════════════════════════════════════════
-// PERSONAS
-// ════════════════════════════════════════════
-const PERSONAS = [
-  {k:'V', n:'VIOLET',      c:'#BF00FF'},
-  {k:'I', n:'INDIGO',      c:'#6A0EFF'},
-  {k:'B', n:'BLUE',        c:'#00C8FF'},
-  {k:'G', n:'GREEN',       c:'#39FF14'},
-  {k:'Y', n:'YELLOW',      c:'#FFE600'},
-  {k:'O', n:'ORANGE',      c:'#FF6200'},
-  {k:'R', n:'RED',         c:'#FF1744'},
-  {k:'N', n:'NOMAD',       c:'#AAAAAA'},
-  {k:'W', n:'POLICY',      c:'#FFFFFF'},
+/* ══════════════════════════════════════════
+   PERSONAS
+══════════════════════════════════════════ */
+const PERSONAS=[
+  {k:'V',n:'VIOLET',c:'#BF00FF',
+   def:'Visionaries & Venture Capitalists shaping the future through innovation, capital and strategic vision.',
+   ex:'· VC funding bold startups &nbsp;· Serial entrepreneurs with exits &nbsp;· Smart city visionaries'},
+  {k:'I',n:'INDIGO',c:'#6A0EFF',
+   def:'Builders of technology-driven ecosystems — IT architects, engineers & industrial leaders.',
+   ex:'· AI enterprise architects &nbsp;· IoT startup founders &nbsp;· Industrial automation leaders'},
+  {k:'B',n:'BLUE',c:'#00C8FF',
+   def:'Creative strategists shaping identity, visibility and influence — branding & marketing world.',
+   ex:'· Brand consultants &nbsp;· Digital marketers &nbsp;· Creative directors'},
+  {k:'G',n:'GREEN',c:'#39FF14',
+   def:'Champions of sustainability, clean energy & electric mobility.',
+   ex:'· EV charging startup founders &nbsp;· Carbon-neutral NGO leaders &nbsp;· Green tech entrepreneurs'},
+  {k:'Y',n:'YELLOW',c:'#FFE600',
+   def:'Bright youth leaders under 23 — innovating at the earliest stage of their careers. The fastest-growing IPNOTEC node.',
+   ex:'· Student founders &nbsp;· Teen robotics innovators &nbsp;· Youth e-commerce entrepreneurs'},
+  {k:'O',n:'ORANGE',c:'#FF6200',
+   def:'Keepers of Bharat\'s wisdom, heritage & philosophy — Oracles of culture.',
+   ex:'· Vedic scholars digitising knowledge &nbsp;· Cultural entrepreneurs &nbsp;· Heritage craft revivalists'},
+  {k:'R',n:'RED',c:'#FF1744',
+   def:'Drivers of urban development, lifestyle spaces & leisure — builders and recreationists.',
+   ex:'· Sustainable housing developers &nbsp;· Eco-resort founders &nbsp;· Luxury fitness entrepreneurs'},
+  {k:'N',n:'NOMAD',c:'#AAAAAA',
+   def:'Dynamic multi-talented professionals with hybrid careers — freelancers and generalists.',
+   ex:'· Digital nomads &nbsp;· Multi-disciplinary artists &nbsp;· Multi-industry consultants'},
+  {k:'W',n:'POLICY',c:'#FFFFFF',
+   def:'Guardians of governance, social structure & public well-being — policymakers & health professionals.',
+   ex:'· Policy advisors &nbsp;· Healthcare AI innovators &nbsp;· Public health administrators'},
 ];
 
-// ════════════════════════════════════════════
-// IATA CITIES
-// ════════════════════════════════════════════
-const IATA_CITIES = [
+/* ══════════════════════════════════════════
+   IATA CITIES
+══════════════════════════════════════════ */
+const IATA_CITIES=[
   "Accra [ACC]","Addis Ababa [ADD]","Ahmedabad [AMD]","Amsterdam [AMS]",
   "Athens [ATH]","Auckland [AKL]","Bali [DPS]","Bangkok [BKK]",
   "Barcelona [BCN]","Beijing [PEK]","Bengaluru [BLR]","Berlin [BER]",
@@ -1187,221 +1159,329 @@ const IATA_CITIES = [
   "Zurich [ZRH]"
 ];
 
-// ════════════════════════════════════════════
-// LANDING CITIES — VIBGYOR RANDOM COLORS
-// ════════════════════════════════════════════
-const LAND_CITIES = [
-  {c:'JFK', t:'34%', l:'20%', col:'#BF00FF'},
-  {c:'LAX', t:'42%', l:'11%', col:'#39FF14'},
-  {c:'LHR', t:'22%', l:'46%', col:'#00C8FF'},
-  {c:'CDG', t:'25%', l:'48%', col:'#FFE600'},
-  {c:'DXB', t:'44%', l:'60%', col:'#FF6200'},
-  {c:'BOM', t:'53%', l:'67%', col:'#6A0EFF'},
-  {c:'BLR', t:'58%', l:'68%', col:'#FF1744'},
-  {c:'SIN', t:'63%', l:'80%', col:'#00C8FF'},
-  {c:'HKG', t:'47%', l:'77%', col:'#39FF14'},
-  {c:'NRT', t:'32%', l:'86%', col:'#BF00FF'},
-  {c:'SYD', t:'76%', l:'88%', col:'#AAAAAA'},
-  {c:'GRU', t:'71%', l:'33%', col:'#FFE600'},
-  {c:'JNB', t:'68%', l:'54%', col:'#FF6200'},
-  {c:'ICN', t:'34%', l:'83%', col:'#FFFFFF'},
-  {c:'YYZ', t:'30%', l:'24%', col:'#FF1744'},
+const LAND_CITIES=[
+  {c:'JFK',t:'34%',l:'20%',col:'#BF00FF'},{c:'LAX',t:'42%',l:'11%',col:'#39FF14'},
+  {c:'LHR',t:'22%',l:'46%',col:'#00C8FF'},{c:'CDG',t:'25%',l:'48%',col:'#FFE600'},
+  {c:'DXB',t:'44%',l:'60%',col:'#FF6200'},{c:'BOM',t:'53%',l:'67%',col:'#6A0EFF'},
+  {c:'BLR',t:'58%',l:'68%',col:'#FF1744'},{c:'SIN',t:'63%',l:'80%',col:'#00C8FF'},
+  {c:'HKG',t:'47%',l:'77%',col:'#39FF14'},{c:'NRT',t:'32%',l:'86%',col:'#BF00FF'},
+  {c:'SYD',t:'76%',l:'88%',col:'#AAAAAA'},{c:'GRU',t:'71%',l:'33%',col:'#FFE600'},
+  {c:'JNB',t:'68%',l:'54%',col:'#FF6200'},{c:'ICN',t:'34%',l:'83%',col:'#FFFFFF'},
+  {c:'YYZ',t:'30%',l:'24%',col:'#FF1744'},
 ];
+const PHRASES=['FROM NOTHING','COMES EVERYTHING','STEP FORWARD','YOUR FUTURE','THE FUTURE IS NOW','BEYOND LIMITS'];
+const VIBGYOR=['#BF00FF','#6A0EFF','#00C8FF','#39FF14','#FFE600','#FF6200','#FF1744','#AAAAAA','#FFFFFF'];
 
-const PHRASES = ['FROM NOTHING','COMES EVERYTHING','STEP FORWARD','YOUR FUTURE','THE FUTURE IS NOW','BEYOND LIMITS'];
-const VIBGYOR  = ['#BF00FF','#6A0EFF','#00C8FF','#39FF14','#FFE600','#FF6200','#FF1744','#AAAAAA','#FFFFFF'];
-
-let ciIdx = 0;
-
-// ════════════════════════════════════════════
-// NODE EMULATION DATA
-// ════════════════════════════════════════════
-const NODE_USERS = [
-  {name:'ZARA·V',  city:'BOM', color:'#BF00FF', id:'IPN···4821'},
-  {name:'KAI·X',   city:'SIN', color:'#00C8FF', id:'IPN···9034'},
-  {name:'NOVA·7',  city:'DXB', color:'#39FF14', id:'IPN···2267'},
-  {name:'REX·Ω',   city:'LHR', color:'#FFE600', id:'IPN···5519'},
-  {name:'LYRA·3',  city:'JFK', color:'#FF6200', id:'IPN···8803'},
-  {name:'ORION',   city:'NRT', color:'#6A0EFF', id:'IPN···1144'},
-  {name:'VEGA·Q',  city:'SYD', color:'#FF1744', id:'IPN···7721'},
-  {name:'ECHO·9',  city:'DEL', color:'#FFFFFF', id:'IPN···3358'},
-  {name:'FLUX·M',  city:'LAX', color:'#AAAAAA', id:'IPN···6642'},
-  {name:'PULSE',   city:'BLR', color:'#39FF14', id:'IPN···9901'},
-  {name:'TITAN·2', city:'CDG', color:'#00C8FF', id:'IPN···4477'},
-  {name:'ASHA·K',  city:'HKG', color:'#FFE600', id:'IPN···8832'},
-  {name:'ZERO·1',  city:'ICN', color:'#BF00FF', id:'IPN···6619'},
-  {name:'STORM',   city:'FRA', color:'#FF6200', id:'IPN···3344'},
-  {name:'ARIA·X',  city:'GRU', color:'#6A0EFF', id:'IPN···8877'},
-];
-
-// ════════════════════════════════════════════
-// TAKEN NAMES
-// ════════════════════════════════════════════
-const TAKEN_NAMES = [
-  'NOVA SEVEN','ZERO ONE','CIPHER X','FLUX ALPHA','VEGA PRIME',
-  'ORION MAX','TITAN ZERO','ECHO NINE','PULSE THREE','STORM ONE',
-  'APEX FIVE','ZARA V','KAI X','LYRA THREE','REX OMEGA',
-  'NOVA X','ZERO X','CIPHER ZERO','FLUX X','VEGA X',
-  'ARIA SEVEN','NEXUS ONE','SPARK TWO','SIGNAL ZERO','STORM TWO'
-];
-
-// ════════════════════════════════════════════
-// NUMEROLOGY
-// ════════════════════════════════════════════
-function digitalRoot(num){
-  if(num===0) return 0;
-  while(num>=10){
-    num=String(num).split('').reduce((s,d)=>s+parseInt(d),0);
-  }
-  return num;
+/* ══════════════════════════════════════════
+   SOUND ENGINE (Web Audio API)
+══════════════════════════════════════════ */
+function playSound(type){
+  try{
+    const ctx=new(window.AudioContext||window.webkitAudioContext)();
+    const mk=(freq,t,dur,wave,vol)=>{
+      const o=ctx.createOscillator(),g=ctx.createGain();
+      o.connect(g);g.connect(ctx.destination);
+      o.type=wave||'sine';o.frequency.value=freq;
+      g.gain.setValueAtTime(0,t);
+      g.gain.linearRampToValueAtTime(vol||.1,t+.015);
+      g.gain.exponentialRampToValueAtTime(.001,t+dur);
+      o.start(t);o.stop(t+dur+.05);
+    };
+    if(type==='ping'){
+      // Futuristic ascending arpeggio — addictive
+      [523,659,784,1047].forEach((f,i)=>mk(f,ctx.currentTime+i*.09,.22,'sine',.11));
+    } else if(type==='receive'){
+      // Soft two-note incoming chime
+      mk(440,ctx.currentTime,.28,'sine',.09);
+      mk(554,ctx.currentTime+.12,.22,'sine',.09);
+    } else if(type==='lock'){
+      // Satisfying descending lock
+      const o=ctx.createOscillator(),g=ctx.createGain();
+      o.connect(g);g.connect(ctx.destination);o.type='square';
+      o.frequency.setValueAtTime(880,ctx.currentTime);
+      o.frequency.exponentialRampToValueAtTime(220,ctx.currentTime+.18);
+      g.gain.setValueAtTime(.07,ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.32);
+      o.start(ctx.currentTime);o.stop(ctx.currentTime+.38);
+    } else if(type==='i2'){
+      // Deep resonant I2 activation
+      [110,165,220,330].forEach((f,i)=>mk(f,ctx.currentTime+i*.04,.9,'sine',.055));
+    } else if(type==='confirm'){
+      // Positive 5-note cascade
+      [523,659,784,1047,1319].forEach((f,i)=>mk(f,ctx.currentTime+i*.06,.24,'sine',.09));
+    } else if(type==='finalgo'){
+      // Big triumphant chord
+      [261,329,392,523,659,784].forEach((f,i)=>mk(f,ctx.currentTime+i*.03,.8,'sine',.07));
+    } else if(type==='send'){
+      // Short crisp send
+      mk(1200,ctx.currentTime,.12,'sine',.06);
+      mk(800,ctx.currentTime+.06,.1,'sine',.04);
+    } else if(type==='node'){
+      // Sci-fi blip
+      const o=ctx.createOscillator(),g=ctx.createGain();
+      o.connect(g);g.connect(ctx.destination);o.type='sine';
+      o.frequency.setValueAtTime(1760,ctx.currentTime);
+      o.frequency.exponentialRampToValueAtTime(880,ctx.currentTime+.1);
+      g.gain.setValueAtTime(.08,ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.18);
+      o.start(ctx.currentTime);o.stop(ctx.currentTime+.22);
+    }
+  }catch(e){}
 }
-function sumDigits(str){
-  return str.replace(/\D/g,'').split('').reduce((s,d)=>s+parseInt(d),0);
-}
-function calcIID(dob, phone){
-  // dob: YYYY-MM-DD → convert to DDMMYYYY
-  const [y,m,d] = dob.split('-');
-  const dobStr = d + m + y;
-  const dobRoot = digitalRoot(sumDigits(dobStr));
-  const phoneSum = sumDigits(phone);
-  for(let x=0;x<=9;x++){
-    if(digitalRoot(phoneSum+x)===dobRoot) return x;
-  }
+
+/* ══════════════════════════════════════════
+   NODE EMULATION DATA
+══════════════════════════════════════════ */
+const NODE_USERS=[
+  {name:'ZARA·V',city:'BOM',color:'#BF00FF',id:'IPN···4821'},
+  {name:'KAI·X',city:'SIN',color:'#00C8FF',id:'IPN···9034'},
+  {name:'NOVA·7',city:'DXB',color:'#39FF14',id:'IPN···2267'},
+  {name:'REX·Ω',city:'LHR',color:'#FFE600',id:'IPN···5519'},
+  {name:'LYRA·3',city:'JFK',color:'#FF6200',id:'IPN···8803'},
+  {name:'ORION',city:'NRT',color:'#6A0EFF',id:'IPN···1144'},
+  {name:'VEGA·Q',city:'SYD',color:'#FF1744',id:'IPN···7721'},
+  {name:'ECHO·9',city:'DEL',color:'#FFFFFF',id:'IPN···3358'},
+  {name:'FLUX·M',city:'LAX',color:'#AAAAAA',id:'IPN···6642'},
+  {name:'PULSE',city:'BLR',color:'#39FF14',id:'IPN···9901'},
+  {name:'TITAN·2',city:'CDG',color:'#00C8FF',id:'IPN···4477'},
+  {name:'ASHA·K',city:'HKG',color:'#FFE600',id:'IPN···8832'},
+  {name:'ZERO·1',city:'ICN',color:'#BF00FF',id:'IPN···6619'},
+  {name:'STORM',city:'FRA',color:'#FF6200',id:'IPN···3344'},
+  {name:'ARIA·X',city:'GRU',color:'#6A0EFF',id:'IPN···8877'},
+];
+const TAKEN_NAMES=['NOVA SEVEN','ZERO ONE','CIPHER X','FLUX ALPHA','VEGA PRIME','ORION MAX','TITAN ZERO','ECHO NINE','PULSE THREE','STORM ONE','APEX FIVE','ZARA V','KAI X','LYRA THREE','REX OMEGA','NOVA X','ZERO X','CIPHER ZERO','FLUX X','VEGA X','ARIA SEVEN','NEXUS ONE','SPARK TWO','SIGNAL ZERO','STORM TWO'];
+
+/* ══════════════════════════════════════════
+   F11 MEMBERS & CHAT DATA
+══════════════════════════════════════════ */
+const F11_MBRS=[
+  {id:'NOVA',full:'NOVA·V·BLR',k:'V',owner:true},
+  {id:'KAI',full:'KAI·I·SIN',k:'I'},
+  {id:'ARIA',full:'ARIA·B·LHR',k:'B'},
+  {id:'FLUX',full:'FLUX·G·DEL',k:'G'},
+  {id:'SPARK',full:'SPARK·Y·BOM',k:'Y'},
+  {id:'OM',full:'OM·O·VNS',k:'O'},
+  {id:'TITAN',full:'TITAN·R·DXB',k:'R'},
+  {id:'ECHO',full:'ECHO·N·LAX',k:'N'},
+  {id:'LEX',full:'LEX·W·DEL',k:'W'},
+  {id:'ZARA',full:'ZARA·V·MUM',k:'V'},
+  {id:'REX',full:'REX·I·HYD',k:'I'},
+];
+const PC={V:'#BF00FF',I:'#6A0EFF',B:'#00C8FF',G:'#39FF14',Y:'#FFE600',O:'#FF6200',R:'#FF1744',N:'#AAAAAA',W:'#DDDDDD'};
+const F11_SEED=[
+  {f:0,t:'F11 is live. All wavelengths present. Locking IPNOTEC launch strategy for Jan 10 2027.',ts:'10:01'},
+  {f:1,t:'IoT layer ready. QNX auth for SmartWatch on track. Proto demo by 25 Mar.',ts:'10:03'},
+  {f:2,t:'6 metro airport guerrilla branding drops 90 days pre-launch. BLR BOM DEL HYD MAA CCU.',ts:'10:05'},
+  {f:3,t:'EV charging tie-up as CLUBICLES co-location revenue stream — massive Green node differentiator.',ts:'10:07'},
+  {f:4,t:'50 campus ambassador network ready. Yellow nodes grow fastest peer-to-peer.',ts:'10:08'},
+  {f:5,t:'Bharat cultural identity layer — our answer to why IPNOTEC differs from every Western network.',ts:'10:10'},
+  {f:6,t:'CLUBICLES and Red node leads co-own physical launch hubs in real estate hotspots.',ts:'10:12'},
+  {f:7,t:'Nomad borderless identity anchors the phoneless paperless keyless narrative perfectly.',ts:'10:13'},
+  {f:8,t:'Policy layer critical for enterprise adoption. 3 state govt innovation offices ready.',ts:'10:14'},
+];
+
+let f11IModeOn=false;
+let f11Confirmed=new Set();
+let f11MeConfirmed=false;
+let f11FinalGoDone=false;
+let f11MsgCount=F11_SEED.length;
+
+/* ══════════════════════════════════════════
+   NUMEROLOGY
+══════════════════════════════════════════ */
+function digitalRoot(n){if(n===0)return 0;while(n>=10){n=String(n).split('').reduce((s,d)=>s+parseInt(d),0);}return n;}
+function sumDigits(s){return s.replace(/\D/g,'').split('').reduce((a,d)=>a+parseInt(d),0);}
+function calcIID(dob,phone){
+  const[y,m,d]=dob.split('-');
+  const dobStr=d+m+y;
+  const dobRoot=digitalRoot(sumDigits(dobStr));
+  const phoneSum=sumDigits(phone);
+  for(let x=0;x<=9;x++){if(digitalRoot(phoneSum+x)===dobRoot)return x;}
   return 0;
 }
 
-// ════════════════════════════════════════════
-// ACCENT + STYLE
-// ════════════════════════════════════════════
-function setAccent(col){
-  document.documentElement.style.setProperty('--accent',col);
-}
+/* ══════════════════════════════════════════
+   HELPERS
+══════════════════════════════════════════ */
+function setAccent(col){document.documentElement.style.setProperty('--accent',col);}
+function hexToRgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return`rgba(${r},${g},${b},${a})`;}
 
-// ════════════════════════════════════════════
-// HEADER CHARS
-// ════════════════════════════════════════════
+/* ══════════════════════════════════════════
+   HEADER CHARS
+══════════════════════════════════════════ */
 (function(){
   const h=document.getElementById('hdr');
-  const t=h.innerText; h.innerHTML='';
+  const t=h.innerText;h.innerHTML='';
   [...t].forEach((ch,i)=>{
     const s=document.createElement('span');
-    s.className='hchar';
-    s.innerText=ch===' '?'\u00A0':ch;
+    s.className='hchar';s.innerText=ch===' '?'\u00A0':ch;
     s.style.animationDelay=`${i*.13}s`;
     h.appendChild(s);
   });
 })();
 
-// ════════════════════════════════════════════
-// BUILD LANDING NODES (VIBGYOR COLORS)
-// ════════════════════════════════════════════
+/* ══════════════════════════════════════════
+   BUILD LANDING
+══════════════════════════════════════════ */
 (function(){
   const nc=document.getElementById('map-nodes');
   LAND_CITIES.forEach((city,i)=>{
     const d=document.createElement('div');
-    d.className='city-node'; d.id=`nd-${i}`;
-    d.style.top=city.t; d.style.left=city.l;
+    d.className='city-node';d.id=`nd-${i}`;
+    d.style.top=city.t;d.style.left=city.l;
     d.innerHTML=`<div class="city-dot" style="background:${city.col};box-shadow:0 0 14px ${city.col},0 0 28px ${city.col};"></div><span class="city-code" style="color:${city.col};">${city.c}</span>`;
     nc.appendChild(d);
   });
-})();
-
-// ════════════════════════════════════════════
-// BUILD IATA DATALIST
-// ════════════════════════════════════════════
-(function(){
   const dl=document.getElementById('iata-list');
-  IATA_CITIES.forEach(c=>{
-    const o=document.createElement('option');
-    o.value=c; dl.appendChild(o);
-  });
+  IATA_CITIES.forEach(c=>{const o=document.createElement('option');o.value=c;dl.appendChild(o);});
 })();
 
-// ════════════════════════════════════════════
-// LANDING CYCLE
-// ════════════════════════════════════════════
 function landingCycle(){
-  // Random 4 nodes active
   document.querySelectorAll('.city-node').forEach(n=>n.classList.remove('active'));
   const used=new Set();
-  while(used.size<4){ used.add(Math.floor(Math.random()*LAND_CITIES.length)); }
-  used.forEach(idx=>{
-    const el=document.getElementById(`nd-${idx}`); if(el) el.classList.add('active');
-  });
-  // Floating phrase — random VIBGYOR color
+  while(used.size<4){used.add(Math.floor(Math.random()*LAND_CITIES.length));}
+  used.forEach(idx=>{const el=document.getElementById(`nd-${idx}`);if(el)el.classList.add('active');});
   const col=VIBGYOR[Math.floor(Math.random()*VIBGYOR.length)];
-  const wl=document.getElementById('word-layer'); wl.innerHTML='';
+  const wl=document.getElementById('word-layer');wl.innerHTML='';
   const w=document.createElement('div');
   w.className='floating-phrase';
   w.innerText=PHRASES[Math.floor(Math.random()*PHRASES.length)];
-  w.style.top=(Math.random()*55+12)+'%';
-  w.style.left=(Math.random()*50+8)+'%';
-  w.style.color=col; wl.appendChild(w);
+  w.style.top=(Math.random()*55+12)+'%';w.style.left=(Math.random()*50+8)+'%';
+  w.style.color=col;wl.appendChild(w);
 }
-setInterval(landingCycle,3000);
-landingCycle();
+setInterval(landingCycle,3000);landingCycle();
 
-// ════════════════════════════════════════════
-// BUILD PERSONA GRID
-// ════════════════════════════════════════════
-(function(){
+/* ══════════════════════════════════════════
+   PERSONA GRID (with Youth Protocol)
+══════════════════════════════════════════ */
+function buildPersonaGrid(){
   const pg=document.getElementById('pgrid');
+  pg.innerHTML='';
   PERSONAS.forEach(p=>{
     const t=document.createElement('div');
-    t.className='ptile';
-    t.style.borderColor=p.c+'55';
-    t.style.background=p.c+'12';
+    const isYellow=p.k==='Y';
+    const locked=S.isYouth&&!isYellow;
+    t.className='ptile'+(locked?' locked':'');
+    t.style.borderColor=locked?p.c+'28':p.c+'66';
+    t.style.background=locked?p.c+'08':p.c+'14';
     t.style.setProperty('--tc',p.c);
-    t.innerHTML=`<span class="pltr" style="color:${p.c};text-shadow:0 0 15px ${p.c}">${p.k}</span><span class="pname" style="color:${p.c}">${p.n}</span>`;
-    t.onclick=()=>{
-      document.querySelectorAll('.ptile').forEach(x=>{
-        x.classList.remove('sel');
-        x.style.boxShadow='none';
-        const xp=PERSONAS.find(pp=>pp.k===x.querySelector('.pltr').innerText||pp.n===x.querySelector('.pname').innerText);
-        x.style.borderColor=(xp?xp.c:'rgba(255,255,255,.2)')+'55';
-        x.style.background=(xp?xp.c+'12':'transparent');
-      });
-      t.classList.add('sel');
-      t.style.borderColor=p.c;
-      t.style.background=p.c+'38';
-      t.style.boxShadow=`0 0 28px ${p.c}80,inset 0 0 22px ${p.c}28`;
-      S.persona=p; S.pColor=p.c;
-    };
+    t.innerHTML=`<span class="pltr" style="color:${p.c};text-shadow:${locked?'none':'0 0 14px '+p.c+'80'}">${p.k}</span><span class="pname" style="color:${p.c};opacity:${locked?.3:.85}">${p.n}</span>${locked?`<div class="lock-sq">▪</div><div class="age-tag">23+</div>`:''}`;
+    if(!locked){
+      t.onclick=()=>{
+        document.querySelectorAll('.ptile:not(.locked)').forEach(x=>{
+          x.classList.remove('sel');
+          const xp=PERSONAS.find(pp=>pp.k===x.querySelector('.pltr').textContent);
+          if(xp){x.style.borderColor=xp.c+'55';x.style.background=xp.c+'14';}
+        });
+        t.classList.add('sel');
+        t.style.borderColor=p.c;
+        t.style.background=p.c+'35';
+        t.style.boxShadow=`0 0 28px ${p.c}80,inset 0 0 20px ${p.c}20`;
+        S.persona=p;S.pColor=p.c;
+        applyPersonaColorFrame(p);
+        showPersonaInfo(p);
+        document.getElementById('per-perm-warn').style.display='block';
+        playSound('lock');
+      };
+    } else {
+      t.onclick=()=>{
+        const pb=document.getElementById('youth-peek-box');
+        pb.classList.add('show');
+        document.getElementById('youth-peek-btn').textContent='▴ EXPLORE OTHER WAVELENGTHS — READ ONLY (AGE 23+)';
+        buildPeekItems();
+      };
+    }
     pg.appendChild(t);
   });
-})();
 
-// ════════════════════════════════════════════
-// SCREEN NAVIGATION
-// ════════════════════════════════════════════
+  // If youth: pre-select Yellow
+  if(S.isYouth){
+    const yTile=pg.querySelector('.ptile:not(.locked)');
+    if(yTile){setTimeout(()=>yTile.click(),200);}
+  }
+}
+
+function applyPersonaColorFrame(p){
+  const fbx=document.getElementById('persona-fbx');
+  fbx.style.borderColor=p.c;
+  fbx.style.boxShadow=`0 0 50px ${hexToRgba(p.c,.12)},inset 0 0 30px ${hexToRgba(p.c,.04)}`;
+  fbx.style.setProperty('--pc-glow',hexToRgba(p.c,.12));
+  fbx.style.setProperty('--pc-inner',hexToRgba(p.c,.04));
+  ['per-c1','per-c2','per-c3','per-c4'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){el.style.borderColor=p.c;}
+  });
+  fbx.querySelector('::before');
+  const stepLbl=document.getElementById('per-step-lbl');
+  if(stepLbl)stepLbl.style.color=p.c;
+  const formTitle=document.getElementById('per-title');
+  if(formTitle){formTitle.style.textShadow=`0 0 20px ${hexToRgba(p.c,.3)}`;}
+  document.getElementById('per-continue-btn').style.borderColor=p.c;
+  document.getElementById('per-continue-btn').style.color=p.c;
+  document.getElementById('per-continue-btn').style.textShadow=`0 0 8px ${hexToRgba(p.c,.6)}`;
+}
+
+function showPersonaInfo(p){
+  const panel=document.getElementById('pinfo-panel');
+  document.getElementById('pinfo-title').textContent=`${p.k} · ${p.n}`;
+  document.getElementById('pinfo-title').style.color=p.c;
+  document.getElementById('pinfo-def').textContent=p.def;
+  document.getElementById('pinfo-examples').innerHTML=p.ex;
+  document.getElementById('pinfo-panel').style.borderLeftColor=p.c;
+  panel.classList.add('show');
+}
+
+function buildPeekItems(){
+  const list=document.getElementById('peek-items-list');
+  if(list.children.length>0)return;
+  PERSONAS.filter(p=>p.k!=='Y').forEach(p=>{
+    const d=document.createElement('div');d.className='peek-item';
+    d.innerHTML=`<div class="pi-letter" style="color:${p.c}">${p.k}</div><div class="pi-info"><div class="pi-name" style="color:${p.c}">${p.n}</div><div class="pi-def">${p.def}</div><div class="pi-lock-date">UNLOCKS · ${S.turn23Date||'YOUR 23RD BIRTHDAY'}</div></div>`;
+    list.appendChild(d);
+  });
+}
+
+function toggleYouthPeek(){
+  const pb=document.getElementById('youth-peek-box');
+  const btn=document.getElementById('youth-peek-btn');
+  const show=pb.classList.toggle('show');
+  btn.textContent=show?'▴ EXPLORE OTHER WAVELENGTHS — READ ONLY (AGE 23+)':'▾ EXPLORE OTHER WAVELENGTHS — READ ONLY (AGE 23+)';
+  if(show)buildPeekItems();
+}
+
+function setReminder(){
+  if(S.reminderSet)return;
+  S.reminderSet=true;
+  const btn=document.getElementById('rb-set-btn');
+  btn.textContent=`✓ REMINDER SET · ${S.turn23Date}`;
+  btn.classList.add('set');
+  playSound('confirm');
+}
+
+/* ══════════════════════════════════════════
+   SCREEN NAVIGATION
+══════════════════════════════════════════ */
 function goTo(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   const el=document.getElementById(`screen-${id}`);
   if(el){el.classList.add('active');}
-  if(id==='final') spawnFinalStreams();
+  if(id==='final')spawnFinalStreams();
+  if(id==='f11')initF11();
 }
 function startFlow(path){
-  S.path=path;
-  makeDots('ph-dots',2,0);
-  goTo('phone');
+  S.path=path;makeDots('ph-dots',2,0);goTo('phone');
 }
 function takePath(path){
   S.path=path;
-  if(path==='free'){
-    buildFreeNode();
-    goTo('free-node');
-  } else {
-    makeDots('dob-dots',3,0);
-    goTo('dob');
-  }
+  if(path==='free'){buildFreeNode();goTo('free-node');}
+  else{makeDots('dob-dots',3,0);goTo('dob');}
 }
 
-// ════════════════════════════════════════════
-// PROGRESS DOTS
-// ════════════════════════════════════════════
+/* ══════════════════════════════════════════
+   PROGRESS DOTS
+══════════════════════════════════════════ */
 function makeDots(id,total,current){
-  const c=document.getElementById(id); if(!c)return;
-  c.innerHTML='';
+  const c=document.getElementById(id);if(!c)return;c.innerHTML='';
   for(let i=0;i<total;i++){
     const d=document.createElement('div');
     d.className='pdot'+(i<current?' done':'')+(i===current?' now':'');
@@ -1409,9 +1489,9 @@ function makeDots(id,total,current){
   }
 }
 
-// ════════════════════════════════════════════
-// OTP FLOW
-// ════════════════════════════════════════════
+/* ══════════════════════════════════════════
+   OTP FLOW
+══════════════════════════════════════════ */
 function sendOTP(){
   const raw=document.getElementById('phone-in').value.replace(/[\s\-\+]/g,'');
   const err=document.getElementById('phone-err');
@@ -1425,38 +1505,33 @@ function sendOTP(){
   goTo('otp');
   setTimeout(()=>{const f=document.getElementById('o0');if(f)f.focus();},220);
 }
-
-// OTP keyboard
 (function(){
   for(let i=0;i<6;i++){
-    const b=document.getElementById(`o${i}`); if(!b)continue;
+    const b=document.getElementById(`o${i}`);if(!b)continue;
     b.addEventListener('input',function(){
       this.value=this.value.replace(/\D/g,'').slice(0,1);
       if(this.value&&i<5){const n=document.getElementById(`o${i+1}`);if(n)n.focus();}
     });
     b.addEventListener('keydown',function(e){
-      if(e.key==='Backspace'&&!this.value&&i>0){
-        const p=document.getElementById(`o${i-1}`);if(p){p.value='';p.focus();}
-      }
+      if(e.key==='Backspace'&&!this.value&&i>0){const p=document.getElementById(`o${i-1}`);if(p){p.value='';p.focus();}}
     });
   }
   const b0=document.getElementById('o0');
-  if(b0){
-    b0.addEventListener('paste',function(e){
-      e.preventDefault();
-      const pasted=(e.clipboardData||window.clipboardData).getData('text').replace(/\D/g,'');
-      for(let j=0;j<6&&j<pasted.length;j++){const box=document.getElementById(`o${j}`);if(box)box.value=pasted[j];}
-      const last=document.getElementById(`o${Math.min(pasted.length-1,5)}`);if(last)last.focus();
-    });
-  }
+  if(b0){b0.addEventListener('paste',function(e){
+    e.preventDefault();
+    const pasted=(e.clipboardData||window.clipboardData).getData('text').replace(/\D/g,'');
+    for(let j=0;j<6&&j<pasted.length;j++){const box=document.getElementById(`o${j}`);if(box)box.value=pasted[j];}
+    const last=document.getElementById(`o${Math.min(pasted.length-1,5)}`);if(last)last.focus();
+  });}
 })();
 
 function verifyOTP(){
   const entered=Array.from({length:6},(_,i)=>{const b=document.getElementById(`o${i}`);return b?b.value:'';}).join('');
-  const err=document.getElementById('otp-err'), suc=document.getElementById('otp-suc');
+  const err=document.getElementById('otp-err'),suc=document.getElementById('otp-suc');
   if(entered.length<6){err.classList.add('show');return;}
   if(entered!==S.genOTP){err.classList.add('show');suc.classList.remove('show');return;}
-  err.classList.remove('show'); suc.classList.add('show');
+  err.classList.remove('show');suc.classList.add('show');
+  playSound('confirm');
   setTimeout(()=>{
     if(S.path==='free'){buildFreeNode();goTo('free-node');}
     else if(S.path==='vip'){makeDots('dob-dots',3,0);goTo('dob');}
@@ -1464,98 +1539,123 @@ function verifyOTP(){
   },900);
 }
 
-// ════════════════════════════════════════════
-// FREE NODE EMULATION
-// ════════════════════════════════════════════
+/* ══════════════════════════════════════════
+   FREE NODE EMULATION
+══════════════════════════════════════════ */
 let nodeCountVal=47;
 function buildFreeNode(){
   const grid=document.getElementById('node-grid');
   grid.innerHTML='';
   NODE_USERS.forEach((u,idx)=>{
-    const initials=u.name.charAt(0);
-    const textColor=(u.color==='#FFFFFF'||u.color==='#FFE600')?'#000':'#fff';
-    const card=document.createElement('div');
-    card.className='node-card';
+    const card=document.createElement('div');card.className='node-card';
     card.style.borderColor=u.color+'30';
     card.innerHTML=`
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-        <div class="nc-avatar" style="background:${u.color}22;border:2px solid ${u.color}55;color:${u.color};">
-          <span>${initials}</span>
-        </div>
-        <div>
-          <div class="nc-name" style="color:${u.color};text-shadow:0 0 10px ${u.color}60;">${u.name}</div>
-          <div class="nc-city">${u.city}</div>
-        </div>
+        <div class="nc-avatar" style="background:${u.color}22;border:2px solid ${u.color}55;color:${u.color};">${u.name.charAt(0)}</div>
+        <div><div class="nc-name" style="color:${u.color};text-shadow:0 0 10px ${u.color}60;">${u.name}</div><div class="nc-city">${u.city}</div></div>
       </div>
-      <div class="nc-id" title="IPNOTEC ID hidden — VIP required">${u.id}</div>
+      <div class="nc-id">${u.id}</div>
       <div class="nc-btns">
         <button class="nc-btn nc-ping" id="ping-btn-${idx}" onclick="pingNode(${idx})">PING</button>
         <button class="nc-btn nc-connect" onclick="openConnectModal(${idx})">CONNECT</button>
       </div>`;
-    card.style.setProperty('--nc', u.color);
-    card.querySelector('.node-card::before');
-    // Border top
     const topBar=document.createElement('div');
     topBar.style.cssText=`position:absolute;top:0;left:0;right:0;height:2px;background:${u.color};opacity:.6;`;
-    card.appendChild(topBar);
-    grid.appendChild(card);
+    card.appendChild(topBar);grid.appendChild(card);
   });
-  // Live count animation
   setInterval(()=>{
-    nodeCountVal+=Math.random()>.5?1:-1;
-    nodeCountVal=Math.max(40,Math.min(64,nodeCountVal));
-    const el=document.getElementById('node-count-num');
-    if(el) el.textContent=Math.round(nodeCountVal);
+    nodeCountVal+=Math.random()>.5?1:-1;nodeCountVal=Math.max(40,Math.min(64,nodeCountVal));
+    const el=document.getElementById('node-count-num');if(el)el.textContent=Math.round(nodeCountVal);
   },3200);
 }
-
 function pingNode(idx){
   const btn=document.getElementById(`ping-btn-${idx}`);
-  if(!btn||btn.disabled) return;
-  btn.textContent='PINGING...'; btn.classList.add('pinged'); btn.disabled=true;
+  if(!btn||btn.disabled)return;
+  btn.textContent='PINGING...';btn.classList.add('pinged');btn.disabled=true;
+  playSound('node');
   setTimeout(()=>{
     btn.textContent='PONG ✓';
     setTimeout(()=>{btn.textContent='PING';btn.classList.remove('pinged');btn.disabled=false;},2200);
   },1100);
 }
-
 let currentNode=null;
 function openConnectModal(idx){
   currentNode=NODE_USERS[idx];
-  const textColor=(currentNode.color==='#FFFFFF'||currentNode.color==='#FFE600')?'#000':'#fff';
-  document.getElementById('nm-avatar').style.cssText=`width:52px;height:52px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:1.2rem;background:${currentNode.color}22;border:2px solid ${currentNode.color};color:${currentNode.color};`;
-  document.getElementById('nm-avatar').textContent=currentNode.name.charAt(0);
+  const av=document.getElementById('nm-avatar');
+  av.style.background=currentNode.color+'22';av.style.borderColor=currentNode.color;av.style.color=currentNode.color;
+  av.textContent=currentNode.name.charAt(0);
   document.getElementById('nm-name').textContent=currentNode.name+' · '+currentNode.city;
   document.getElementById('nm-id').textContent=currentNode.id;
   document.getElementById('nm-input').value='';
-  const st=document.getElementById('nm-status');
-  st.style.display='none'; st.textContent='';
+  const st=document.getElementById('nm-status');st.style.display='none';st.textContent='';
   document.getElementById('node-modal').classList.add('show');
 }
 function closeNodeModal(){document.getElementById('node-modal').classList.remove('show');}
 function attemptConnect(){
-  const st=document.getElementById('nm-status');
-  st.style.display='block';
-  st.style.borderColor='rgba(0,200,255,.4)'; st.style.color='var(--b)';
-  st.textContent='◈ VERIFYING IPNOTEC ID...';
+  const st=document.getElementById('nm-status');st.style.display='block';
+  st.style.borderColor='rgba(0,200,255,.4)';st.style.color='var(--b)';st.textContent='◈ VERIFYING IPNOTEC ID...';
   setTimeout(()=>{
-    st.style.borderColor='rgba(255,98,0,.4)'; st.style.color='var(--o)';
+    st.style.borderColor='rgba(255,98,0,.4)';st.style.color='var(--o)';
     st.textContent='⊘ IPNOTEC VIP REQUIRED — GET YOUR ID TO CONNECT GLOBALLY';
   },1600);
 }
 
-// ════════════════════════════════════════════
-// VIP PROFILE FLOW
-// ════════════════════════════════════════════
+/* ══════════════════════════════════════════
+   VIP PROFILE — DOB (with AGE CHECK)
+══════════════════════════════════════════ */
 function saveDOB(){
   const v=document.getElementById('dob-in').value;
   const err=document.getElementById('dob-err');
   if(!v){err.classList.add('show');return;}
   err.classList.remove('show');
   S.dob=v;
+  // Age calculation
+  const dob=new Date(v);const today=new Date();
+  let age=today.getFullYear()-dob.getFullYear();
+  const md=today.getMonth()-dob.getMonth();
+  if(md<0||(md===0&&today.getDate()<dob.getDate()))age--;
+  S.age=age;
+  S.isYouth=age<23;
+  // 23rd birthday
+  const t23=new Date(dob);t23.setFullYear(dob.getFullYear()+23);
+  S.turn23Date=t23.toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});
+
+  if(S.isYouth){
+    S.persona=PERSONAS.find(p=>p.k==='Y');
+    S.pColor='#FFE600';
+    setAccent('#FFE600');
+  }
   makeDots('per-dots',3,1);
+  setupPersonaScreen();
   goTo('persona');
 }
+
+function setupPersonaScreen(){
+  if(S.isYouth){
+    document.getElementById('per-step-lbl').textContent='VIP PROFILE · 2 OF 3 · YOUTH PROTOCOL';
+    document.getElementById('per-title').style.color='#FFE600';
+    document.getElementById('per-title').style.textShadow='0 0 20px rgba(255,230,0,.4)';
+    document.getElementById('per-sub').textContent='The wavelength that defines your future identity';
+    // Youth banner
+    document.getElementById('youth-banner').classList.add('show');
+    document.getElementById('youth-banner-body').innerHTML=`Your age (<strong style="color:#FFE600">${S.age} years</strong>) places you in the <strong style="color:#FFE600">YELLOW node</strong> — the fastest-growing IPNOTEC wavelength. Other wavelengths unlock on your 23rd birthday. You can read about them below.`;
+    document.getElementById('youth-caution').classList.add('show');
+    document.getElementById('youth-peek-btn').style.display='block';
+    document.getElementById('reminder-box').classList.add('show');
+    document.getElementById('rb-date-txt').textContent=S.turn23Date+' · WAVELENGTH UNLOCK DAY';
+    document.getElementById('persona-fbx').style.borderColor='#FFE600';
+    ['per-c1','per-c2','per-c3','per-c4'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.borderColor='#FFE600';});
+    document.getElementById('per-continue-btn').style.borderColor='#FFE600';
+    document.getElementById('per-continue-btn').style.color='#FFE600';
+  } else {
+    document.getElementById('youth-banner').classList.remove('show');
+    document.getElementById('youth-caution').classList.remove('show');
+    document.getElementById('youth-peek-btn').style.display='none';
+    document.getElementById('reminder-box').classList.remove('show');
+  }
+  buildPersonaGrid();
+}
+
 function savePersona(){
   const err=document.getElementById('per-err');
   if(!S.persona){err.classList.add('show');return;}
@@ -1564,6 +1664,7 @@ function savePersona(){
   makeDots('city-dots',3,2);
   goTo('city');
 }
+
 function saveCity(){
   const v=document.getElementById('city-in').value.trim();
   const err=document.getElementById('city-err');
@@ -1576,92 +1677,54 @@ function saveCity(){
   startJourney();
 }
 
-// ════════════════════════════════════════════
-// JOURNEY ANIMATION
-// ════════════════════════════════════════════
+/* ══════════════════════════════════════════
+   JOURNEY
+══════════════════════════════════════════ */
 function startJourney(){
   goTo('journey');
   const col=S.pColor;
-
   const jn=document.getElementById('j-persona-letter');
-  jn.innerText=S.persona.k;
-  jn.style.color=col;
-  jn.style.textShadow=`0 0 40px ${col},0 0 80px ${col}`;
-
+  jn.innerText=S.persona.k;jn.style.color=col;jn.style.textShadow=`0 0 40px ${col},0 0 80px ${col}`;
   const jc=document.getElementById('j-city');
-  jc.innerText='► '+S.cityCode+' · '+S.persona.n;
-  jc.style.color=col;
-  jc.style.textShadow=`0 0 18px ${col}`;
-
+  jc.innerText='► '+S.cityCode+' · '+S.persona.n;jc.style.color=col;jc.style.textShadow=`0 0 18px ${col}`;
   document.getElementById('j-pcard').innerHTML=`
     <div class="pci"><span class="pck">DOB</span><span class="pcv" style="color:${col};">${S.dob}</span></div>
     <div class="pci"><span class="pck">PERSONA</span><span class="pcv" style="color:${col};">${S.persona.k} · ${S.persona.n}</span></div>
     <div class="pci"><span class="pck">CITY</span><span class="pcv" style="color:#fff;">${S.cityCode}</span></div>
   `;
-
-  // Streams
-  const jst=document.getElementById('j-streams'); jst.innerHTML='';
+  const jst=document.getElementById('j-streams');jst.innerHTML='';
   const words=['01001101','IPNOTEC','10110010',S.persona.n,S.cityCode,'11000101','VIP//FUTURE','01110110','10010011','∞','2027','→'];
   for(let i=0;i<18;i++){
-    const s=document.createElement('div'); s.className='dstream';
-    s.style.left=(Math.random()*96)+'%';
-    s.style.animationDelay=(Math.random()*5)+'s';
-    s.style.animationDuration=(3+Math.random()*4)+'s';
-    s.style.color=col+'35';
-    s.innerText=words[i%words.length];
-    jst.appendChild(s);
+    const s=document.createElement('div');s.className='dstream';
+    s.style.left=(Math.random()*96)+'%';s.style.animationDelay=(Math.random()*5)+'s';
+    s.style.animationDuration=(3+Math.random()*4)+'s';s.style.color=col+'35';
+    s.innerText=words[i%words.length];jst.appendChild(s);
   }
-
-  const statuses=[
-    'COMPUTING IDENTITY MATRIX...',
-    'ENCODING DATE OF BIRTH...',
-    `LINKING ${S.persona.n} PERSONA...`,
-    'MAPPING FUTURE CITY: '+S.cityCode+'...',
-    'SUMMING DOB DIGITS...',
-    'COMPUTING PHONE SIGNATURE...',
-    'CALCULATING UNIQUE IID...',
-    'GENERATING FUTURE TICKET...',
-    'TICKET READY — LOCK YOUR NAME ✓'
-  ];
-
-  let prog=0, si=0;
-  const pf=document.getElementById('j-pfill'), ps=document.getElementById('j-status');
-  pf.style.background=col; pf.style.boxShadow=`0 0 10px ${col}`;
-
+  const statuses=['COMPUTING IDENTITY MATRIX...','ENCODING DATE OF BIRTH...',`LINKING ${S.persona.n} PERSONA...`,'MAPPING FUTURE CITY: '+S.cityCode+'...','SUMMING DOB DIGITS...','COMPUTING PHONE SIGNATURE...','CALCULATING UNIQUE IID...','GENERATING FUTURE TICKET...','TICKET READY — LOCK YOUR NAME ✓'];
+  let prog=0,si=0;
+  const pf=document.getElementById('j-pfill'),ps=document.getElementById('j-status');
+  pf.style.background=col;pf.style.boxShadow=`0 0 10px ${col}`;
   const iv=setInterval(()=>{
-    prog+=1.0;
-    pf.style.width=Math.min(prog,100)+'%';
+    prog+=1.0;pf.style.width=Math.min(prog,100)+'%';
     if(si<statuses.length&&prog>si*12){ps.innerText=statuses[si];si++;}
-    if(prog>=100){
-      clearInterval(iv);
-      setTimeout(()=>showTicket(),700);
-    }
+    if(prog>=100){clearInterval(iv);setTimeout(()=>showTicket(),700);}
   },50);
 }
 
-// ════════════════════════════════════════════
-// TICKET SCREEN
-// ════════════════════════════════════════════
+/* ══════════════════════════════════════════
+   TICKET
+══════════════════════════════════════════ */
 function showTicket(){
-  // Compute IID
-  S.iid=calcIID(S.dob, S.phone);
+  S.iid=calcIID(S.dob,S.phone);
   S.ticketNumber=`TKT-${S.phone}-${S.iid}`;
-
-  // Ticket math display
-  const [y,m,d]=S.dob.split('-');
+  const[y,m,d]=S.dob.split('-');
   const dobStr=d+m+y;
-  const dobRaw=sumDigits(dobStr);
-  const dobRoot=digitalRoot(dobRaw);
-  const phoneRaw=sumDigits(S.phone);
-
+  const dobRaw=sumDigits(dobStr);const dobRoot=digitalRoot(dobRaw);const phoneRaw=sumDigits(S.phone);
   document.getElementById('tkt-display').textContent=S.ticketNumber;
   document.getElementById('tkt-math').innerHTML=`
     <span>DOB ${dobStr} → ${dobRaw} → ROOT: ${dobRoot}</span><br>
     <span>PHONE ${S.phone} → ${phoneRaw} → +${S.iid} → ROOT: ${dobRoot}</span><br>
-    <span style="color:var(--rg);">IID = ${S.iid} &nbsp;·&nbsp; ROOTS CONVERGE AT ${dobRoot}</span>
-  `;
-
-  // Reset name lock UI
+    <span style="color:var(--rg);">IID = ${S.iid} &nbsp;·&nbsp; ROOTS CONVERGE AT ${dobRoot}</span>`;
   document.getElementById('fname-in').value='';
   document.getElementById('avail-status').className='avail-status';
   document.getElementById('locked-name').style.display='none';
@@ -1672,7 +1735,7 @@ function showTicket(){
   document.getElementById('btn-lock-name').textContent='LOCK THIS IDENTITY';
   document.getElementById('btn-proceed-pay').style.display='none';
   S.nameLocked=false;
-
+  playSound('ping');
   goTo('ticket');
 }
 
@@ -1681,109 +1744,71 @@ function triggerNameCheck(){
   const name=document.getElementById('fname-in').value.trim().toUpperCase();
   const statusEl=document.getElementById('avail-status');
   const lockBtn=document.getElementById('btn-lock-name');
-
-  lockBtn.disabled=true; lockBtn.style.opacity='.4'; lockBtn.style.cursor='not-allowed';
+  lockBtn.disabled=true;lockBtn.style.opacity='.4';lockBtn.style.cursor='not-allowed';
   if(!name||name.length<2){statusEl.className='avail-status';return;}
-
-  statusEl.className='avail-status checking';
-  statusEl.textContent='◈ CHECKING AVAILABILITY...';
-
+  statusEl.className='avail-status checking';statusEl.textContent='◈ CHECKING AVAILABILITY...';
   clearTimeout(nameCheckTimer);
   nameCheckTimer=setTimeout(()=>{
     if(TAKEN_NAMES.includes(name)){
-      statusEl.className='avail-status taken';
-      statusEl.textContent='✗ TAKEN — THIS NAME IS ALREADY REGISTERED';
-      lockBtn.disabled=true; lockBtn.style.opacity='.4'; lockBtn.style.cursor='not-allowed';
+      statusEl.className='avail-status taken';statusEl.textContent='✗ TAKEN — THIS NAME IS ALREADY REGISTERED';
+      lockBtn.disabled=true;lockBtn.style.opacity='.4';lockBtn.style.cursor='not-allowed';
     } else {
       statusEl.className='avail-status available';
       const _pfx=getIPPrefix(S.persona?S.persona.k:null);
       statusEl.textContent=`✓ AVAILABLE — ${_pfx}.${name}.${S.cityCode} IS YOURS`;
-      lockBtn.disabled=false; lockBtn.style.opacity='1'; lockBtn.style.cursor='pointer';
+      lockBtn.disabled=false;lockBtn.style.opacity='1';lockBtn.style.cursor='pointer';
     }
   },2000);
 }
-
-function getIPPrefix(personaKey){
-  if(!personaKey) return 'IP';
-  const map = {V:'VIP',I:'IPI',B:'IPB',G:'IPG',Y:'IPY',O:'IPO',R:'IPR',N:'IPN',W:'IPW'};
-  return map[personaKey] || 'IP';
-}
-
+function getIPPrefix(k){if(!k)return 'IP';const m={V:'VIP',I:'IPI',B:'IPB',G:'IPG',Y:'IPY',O:'IPO',R:'IPR',N:'IPN',W:'IPW'};return m[k]||'IP';}
 function lockName(){
-  if(S.nameLocked) return;
+  if(S.nameLocked)return;
   const name=document.getElementById('fname-in').value.trim().toUpperCase();
   const err=document.getElementById('fname-err');
   if(!name){err.classList.add('show');return;}
   err.classList.remove('show');
-
   S.fname=name;
   const _prefix=getIPPrefix(S.persona?S.persona.k:null);
   S.fullFutureName=`${_prefix}.${name}.${S.cityCode}`;
-
-  const lockBtn=document.getElementById('btn-lock-name');
+  document.getElementById('btn-lock-name').style.display='none';
+  document.getElementById('fname-in').disabled=true;
+  document.getElementById('fname-in').style.opacity='.5';
+  document.getElementById('avail-status').className='avail-status available';
+  document.getElementById('avail-status').textContent='✓ IDENTITY LOCKED';
   const locked=document.getElementById('locked-name');
-  const statusEl=document.getElementById('avail-status');
-  const inp=document.getElementById('fname-in');
-
-  lockBtn.style.display='none';
-  inp.disabled=true;
-  inp.style.opacity='.5';
-
-  statusEl.className='avail-status available';
-  statusEl.textContent='✓ IDENTITY LOCKED';
-
-  locked.textContent=S.fullFutureName;
-  locked.style.color=S.pColor;
-  locked.style.borderColor=S.pColor;
-  locked.style.background=S.pColor+'18';
-  locked.style.textShadow=`0 0 18px ${S.pColor}80`;
-  locked.style.display='block';
+  locked.textContent=S.fullFutureName;locked.style.color=S.pColor;locked.style.borderColor=S.pColor;
+  locked.style.background=S.pColor+'18';locked.style.textShadow=`0 0 18px ${S.pColor}80`;locked.style.display='block';
   S.nameLocked=true;
-
   document.getElementById('btn-proceed-pay').style.display='flex';
+  playSound('lock');
 }
 
-// ════════════════════════════════════════════
-// PAYMENT
-// ════════════════════════════════════════════
+/* ══════════════════════════════════════════
+   PAYMENT
+══════════════════════════════════════════ */
 function proceedToPayment(){
   const _pfd=document.getElementById('pay-fname-display');
-  _pfd.textContent=S.fullFutureName;
-  _pfd.style.color=S.pColor;
-  _pfd.style.textShadow=`0 0 12px ${S.pColor}80`;
+  _pfd.textContent=S.fullFutureName;_pfd.style.color=S.pColor;_pfd.style.textShadow=`0 0 12px ${S.pColor}80`;
   goTo('payment');
 }
-
 function processPayment(){
   goTo('processing');
-  const frames=['◰','◳','◲','◱'];
-  let fi=0;
+  const frames=['◰','◳','◲','◱'];let fi=0;
   const fEl=document.getElementById('proc-frames');
   const frameIv=setInterval(()=>{fEl.innerText=frames[fi++%4];},150);
-  const statuses=[
-    'INITIATING SECURE TRANSFER...',
-    'VERIFYING IDENTITY...',
-    'PROCESSING RS 1001...',
-    'SEALING FUTURE NAME...',
-    'ENCRYPTING TICKET...',
-    'ACTIVATING PINGG ACCESS...',
-    '✓ CONFIRMED'
-  ];
-  let pi=0;
-  const pEl=document.getElementById('proc-status');
+  const statuses=['INITIATING SECURE TRANSFER...','VERIFYING IDENTITY...','PROCESSING RS 1001...','SEALING FUTURE NAME...','ENCRYPTING TICKET...','ACTIVATING PINGG ACCESS...','ACTIVATING F11 ACCESS...','✓ CONFIRMED'];
+  let pi=0;const pEl=document.getElementById('proc-status');
   const pIv=setInterval(()=>{
     pEl.innerText=statuses[pi];
     if(pi===statuses.length-1){
-      clearInterval(pIv); clearInterval(frameIv);
-      fEl.innerText='◆';
-      fEl.style.color='var(--g)'; fEl.style.textShadow='0 0 40px var(--g)';
+      clearInterval(pIv);clearInterval(frameIv);
+      fEl.innerText='◆';fEl.style.color='var(--g)';fEl.style.textShadow='0 0 40px var(--g)';
       pEl.style.color='var(--g)';
+      playSound('finalgo');
       setTimeout(()=>{
         document.getElementById('reveal-ticket').textContent=S.ticketNumber;
         const _rn=document.getElementById('reveal-name');
-        _rn.textContent=S.fullFutureName;
-        _rn.style.color=S.pColor;
-        _rn.style.textShadow=`0 0 20px ${S.pColor}90`;
+        _rn.textContent=S.fullFutureName;_rn.style.color=S.pColor;_rn.style.textShadow=`0 0 20px ${S.pColor}90`;
         goTo('reveal');
       },700);
     }
@@ -1791,61 +1816,432 @@ function processPayment(){
   },650);
 }
 
-// ════════════════════════════════════════════
-// FINAL STREAMS
-// ════════════════════════════════════════════
+/* ══════════════════════════════════════════
+   FINAL STREAMS
+══════════════════════════════════════════ */
 function spawnFinalStreams(){
-  const el=document.getElementById('final-streams'); el.innerHTML='';
+  const el=document.getElementById('final-streams');el.innerHTML='';
   for(let i=0;i<22;i++){
-    const s=document.createElement('div'); s.className='dstream';
-    s.style.left=(Math.random()*96)+'%';
-    s.style.animationDelay=(Math.random()*6)+'s';
-    s.style.animationDuration=(4+Math.random()*6)+'s';
-    s.style.color=VIBGYOR[i%VIBGYOR.length]+'28';
-    s.innerText=['01','10','1001','IPNOTEC','→','∞','2027','10:01'][i%8];
-    el.appendChild(s);
+    const s=document.createElement('div');s.className='dstream';
+    s.style.left=(Math.random()*96)+'%';s.style.animationDelay=(Math.random()*6)+'s';
+    s.style.animationDuration=(4+Math.random()*6)+'s';s.style.color=VIBGYOR[i%VIBGYOR.length]+'28';
+    s.innerText=['01','10','1001','IPNOTEC','→','∞','2027','10:01'][i%8];el.appendChild(s);
   }
 }
 
-// ════════════════════════════════════════════
-// FOOTER
-// ════════════════════════════════════════════
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
 let _dateShowing=false;
 function toggleLaunchDate(){
   _dateShowing=!_dateShowing;
   document.getElementById('ftr-launch-txt').style.display=_dateShowing?'none':'';
   document.getElementById('ftr-date-reveal').style.display=_dateShowing?'block':'none';
 }
-
 function updateCountdown(){
   const launch=new Date('2027-01-10T10:01:00+05:30').getTime();
   const diff=launch-Date.now();
-  const el=document.getElementById('countdown'); if(!el)return;
+  const el=document.getElementById('countdown');if(!el)return;
   if(diff<=0){el.innerText='LAUNCHING NOW ◆';el.style.color='var(--g)';return;}
   const d=Math.floor(diff/86400000);
   const h=Math.floor((diff%86400000)/3600000);
   const m=Math.floor((diff%3600000)/60000);
-  const s=Math.floor((diff%60000)/1000);
-  el.innerText=`${d}D ${String(h).padStart(2,'0')}H ${String(m).padStart(2,'0')}M ${String(s).padStart(2,'0')}S`;
+  const sec=Math.floor((diff%60000)/1000);
+  el.innerText=`${d}D ${String(h).padStart(2,'0')}H ${String(m).padStart(2,'0')}M ${String(sec).padStart(2,'0')}S`;
 }
-// ════════════════════════════════════════════
-// MODE TOGGLE — VIP ↔ CLASSIC
-// ════════════════════════════════════════════
+setInterval(updateCountdown,1000);updateCountdown();
+
+/* ══════════════════════════════════════════
+   CLASSIC / VIP MODE TOGGLE
+══════════════════════════════════════════ */
 function toggleMode(){
-  const isClassic = document.body.classList.toggle('classic');
-  const icon  = document.getElementById('mt-icon');
-  const label = document.getElementById('mt-label');
-  if(isClassic){
-    icon.textContent  = '◆';
-    label.textContent = 'VIP MODE';
-    document.querySelectorAll('.hchar').forEach(ch=>{
-      ch.style.animationPlayState = 'paused';
-    });
+  const isClassic=document.body.classList.toggle('classic');
+  const icon=document.getElementById('mt-icon'),label=document.getElementById('mt-label');
+  if(isClassic){icon.textContent='◆';label.textContent='VIP MODE';
+    document.querySelectorAll('.hchar').forEach(ch=>{ch.style.animationPlayState='paused';});
+  } else {icon.textContent='⬡';label.textContent='CLASSIC';
+    document.querySelectorAll('.hchar').forEach(ch=>{ch.style.animationPlayState='running';});
+  }
+}
+
+/* ══════════════════════════════════════════
+   F11 CHAT — INIT & RENDER
+══════════════════════════════════════════ */
+let f11Inited=false;
+function initF11(){
+  if(f11Inited)return;
+  f11Inited=true;
+
+  // Set owner sq color
+  const ownerColor=S.pColor||'#BF00FF';
+  const ownerSq=document.getElementById('f11-owner-sq');
+  ownerSq.style.borderColor=ownerColor;ownerSq.style.color=ownerColor;
+
+  // Group name
+  const pkey=S.persona?S.persona.k:'V';
+  const pcc=S.cityCode||'BLR';
+  const fname=S.fname||'NOVA';
+  document.getElementById('f11-group-name').textContent=`My F11 — ${fname}·${pkey}·${pcc}`;
+  document.getElementById('i2-group-name').textContent=`${fname}·${pkey}·${pcc} F11`;
+
+  const now=new Date();
+  document.getElementById('i2-session-dt').textContent=now.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})+' · '+now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+
+  // Build member strip
+  const strip=document.getElementById('f11-mbr-strip');strip.innerHTML='';
+  F11_MBRS.forEach((m,i)=>{
+    const c=PC[m.k];
+    const d=document.createElement('div');d.className='f11-mbr';d.id=`f11-mbr-${i}`;
+    d.innerHTML=`<div class="f11-mbr-sq" id="f11-msq-${i}" style="background:${c}20;border-color:${c}66;color:${c};">${m.k}</div><div class="f11-mbr-lbl" style="color:${c}99;">${m.id}</div>`;
+    strip.appendChild(d);
+  });
+
+  // Build seed messages
+  const body=document.getElementById('f11-body');
+  F11_SEED.forEach(msg=>{addF11Msg(msg.f,msg.t,msg.ts);});
+}
+
+function addF11Msg(fromIdx,text,ts,isConfirm){
+  const body=document.getElementById('f11-body');
+  const m=F11_MBRS[fromIdx];const c=PC[m.k];const isMe=m.owner||fromIdx===0;
+
+  if(isConfirm){
+    const div=document.createElement('div');
+    div.className='f11-msg '+(isMe?'me':'them');div.dataset.pc=c;div.dataset.me=isMe?'1':'0';
+    div.innerHTML=`<div class="f11-av" style="background:${c}20;border-color:${c}55;color:${c};">${m.k}</div>
+      <div class="f11-msg-inner">
+        <div class="f11-msg-name" style="color:${f11IModeOn?'#fff':c};">${m.full}</div>
+        <div class="f11-confirm-msg" style="border-color:${c}55;color:${c};">✓ CONFIRMED — SAID MY PIECE</div>
+        <div class="f11-msg-meta"><span class="f11-msg-time">${ts}</span></div>
+      </div>`;
+    body.appendChild(div);
   } else {
-    icon.textContent  = '⬡';
-    label.textContent = 'CLASSIC';
-    document.querySelectorAll('.hchar').forEach(ch=>{
-      ch.style.animationPlayState = 'running';
+    const div=document.createElement('div');
+    div.className='f11-msg '+(isMe?'me':'them');
+    div.style.setProperty('--msg-pc',c);
+    div.dataset.pc=c;div.dataset.me=isMe?'1':'0';
+
+    const nameColor=f11IModeOn?'#fff':c;
+    const bubBg=f11IModeOn?'#1a1a1a':(isMe?'#d9fdd3':'#fff');
+    const textColor=f11IModeOn?c:(isMe?'#111':'#111');
+    const borderSide=isMe?'right':'left';
+    const borderStyle=f11IModeOn?`border-${borderSide}:2px solid ${c};`:'';
+
+    div.innerHTML=`<div class="f11-av" style="background:${c}20;border-color:${c}55;color:${c};">${m.k}</div>
+      <div class="f11-msg-inner">
+        <div class="f11-msg-name" style="color:${nameColor};">${m.full}${m.owner?' · OWNER':''}</div>
+        <div class="f11-bubble" style="background:${bubBg};color:${textColor};${borderStyle}">${text}</div>
+        <div class="f11-msg-meta">
+          <span class="f11-msg-time">${ts}</span>
+          ${isMe?'<span class="f11-tick">✓✓</span>':''}
+        </div>
+      </div>`;
+    body.appendChild(div);
+    f11MsgCount++;
+  }
+  body.scrollTop=body.scrollHeight;
+}
+
+function addF11Sys(text){
+  const body=document.getElementById('f11-body');
+  const div=document.createElement('div');div.className='f11-sys';div.textContent=text;
+  body.appendChild(div);body.scrollTop=body.scrollHeight;
+}
+
+function sendF11Msg(){
+  const inp=document.getElementById('f11-inp');
+  const v=inp.value.trim();if(!v)return;
+  const now=new Date();const ts=now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');
+  addF11Msg(0,v,ts);inp.value='';
+  playSound('send');
+}
+document.getElementById('f11-inp').addEventListener('keydown',e=>{if(e.key==='Enter')sendF11Msg();});
+
+function confirmMe(){
+  const btn=document.getElementById('f11-confirm-btn');
+  if(f11MeConfirmed)return;
+  f11MeConfirmed=true;
+  btn.textContent='CONFIRMED ✓';btn.classList.add('done');
+  f11Confirmed.add(0);
+  document.getElementById('f11-msq-0').classList.add('confirmed');
+  const now=new Date();const ts=now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');
+  addF11Msg(0,null,ts,true);
+  updateConfCount();
+  playSound('lock');
+
+  // Simulate others confirming
+  let delay=1000;
+  [1,2,3,4,5,6,7,8,9,10].forEach(idx=>{
+    setTimeout(()=>{
+      f11Confirmed.add(idx);
+      const sq=document.getElementById(`f11-msq-${idx}`);if(sq)sq.classList.add('confirmed');
+      const now2=new Date();const ts2=now2.getHours()+':'+String(now2.getMinutes()).padStart(2,'0');
+      addF11Msg(idx,null,ts2,true);
+      updateConfCount();
+      playSound('receive');
+      if(f11Confirmed.size===11)allConfirmed();
+    },delay);
+    delay+=600;
+  });
+}
+
+function updateConfCount(){
+  document.getElementById('f11-conf-ct').textContent=f11Confirmed.size+'/11';
+  document.getElementById('i2-msg-count').textContent=f11MsgCount;
+}
+
+function allConfirmed(){
+  document.getElementById('f11-conf-banner').classList.add('show');
+  const fgBar=document.getElementById('final-go-bar');
+  fgBar.classList.add('show');
+  if(f11IModeOn)fgBar.classList.add('imode');
+  addF11Sys('◉ ALL 11 CONFIRMED · OWNER CAN NOW TRIGGER FINAL GO');
+  document.getElementById('i2-chip-btn').style.background='#f0fff0';
+  document.getElementById('i2-chip-btn').style.borderColor='#88cc88';
+  playSound('confirm');
+}
+
+function triggerFinalGo(){
+  if(f11FinalGoDone)return;
+  f11FinalGoDone=true;
+  document.getElementById('final-go-bar').classList.remove('show');
+  addF11Sys('◉ FINAL GO TRIGGERED · I2 INTELLIGENCE GENERATING SUMMARY...');
+  playSound('i2');
+  setTimeout(()=>openI2(),600);
+}
+
+/* ══════════════════════════════════════════
+   F11 IPNOTEC MODE
+══════════════════════════════════════════ */
+function toggleF11IMode(){
+  f11IModeOn=!f11IModeOn;
+  const btn=document.getElementById('f11-imode-btn');
+  const bar=document.getElementById('f11-imode-bar');
+  const ib=document.getElementById('f11-input-bar');
+  const body=document.getElementById('f11-body');
+  const fgBar=document.getElementById('final-go-bar');
+
+  btn.classList.toggle('on',f11IModeOn);
+  bar.classList.toggle('show',f11IModeOn);
+  ib.classList.toggle('imode',f11IModeOn);
+  body.classList.toggle('imode',f11IModeOn);
+  if(fgBar.classList.contains('show'))fgBar.classList.toggle('imode',f11IModeOn);
+
+  // Tinted background with owner persona color
+  const ownerColor=S.pColor||'#BF00FF';
+  if(f11IModeOn){
+    body.style.background=`linear-gradient(135deg, ${hexToRgba(ownerColor,.07)} 0%, #0d0d0d 60%)`;
+  } else {
+    body.style.background='';
+  }
+
+  // Update all existing messages
+  document.querySelectorAll('#f11-body .f11-msg').forEach(row=>{
+    const c=row.dataset.pc;if(!c)return;
+    const isMe=row.dataset.me==='1';
+    const nameEl=row.querySelector('.f11-msg-name');
+    const bubEl=row.querySelector('.f11-bubble');
+    if(!bubEl)return;
+    if(f11IModeOn){
+      if(nameEl)nameEl.style.color='#fff';
+      bubEl.style.background='#1a1a1a';
+      bubEl.style.color=c;
+      bubEl.style.boxShadow='none';
+      if(isMe){bubEl.style.borderRight=`2px solid ${c}`;bubEl.style.borderLeft='none';}
+      else{bubEl.style.borderLeft=`2px solid ${c}`;bubEl.style.borderRight='none';}
+    } else {
+      if(nameEl)nameEl.style.color=c;
+      bubEl.style.background=isMe?'#d9fdd3':'#fff';
+      bubEl.style.color='#111';
+      bubEl.style.boxShadow='0 1px 2px rgba(0,0,0,.08)';
+      bubEl.style.borderLeft='none';bubEl.style.borderRight='none';
+    }
+  });
+}
+
+/* ══════════════════════════════════════════
+   I2 DASHBOARD
+══════════════════════════════════════════ */
+let i2Built=false;
+function openI2(){
+  if(!i2Built){buildI2Dashboard();i2Built=true;}
+  playSound('i2');
+  goTo('i2');
+}
+
+function buildI2Dashboard(){
+  // Wavelength activity
+  const wdata=[
+    {k:'V',n:'VIOLET',col:'#BF00FF',msgs:12,pct:76},
+    {k:'I',n:'INDIGO',col:'#6A0EFF',msgs:9,pct:58},
+    {k:'B',n:'BLUE',col:'#00C8FF',msgs:8,pct:50},
+    {k:'G',n:'GREEN',col:'#39FF14',msgs:6,pct:38},
+    {k:'Y',n:'YELLOW',col:'#FFE600',msgs:4,pct:25},
+    {k:'O',n:'ORANGE',col:'#FF6200',msgs:3,pct:19},
+    {k:'R',n:'RED',col:'#FF1744',msgs:2,pct:13},
+    {k:'N',n:'NOMAD',col:'#AAAAAA',msgs:2,pct:13},
+    {k:'W',n:'POLICY',col:'#DDDDDD',msgs:1,pct:8},
+  ];
+  const wc=document.getElementById('i2-wave-chart');wc.innerHTML='';
+  wdata.forEach(w=>{
+    const r=document.createElement('div');r.className='wave-row';
+    r.innerHTML=`<div class="wave-lbl" style="color:${w.col}">${w.k} · ${w.n}</div><div class="wave-track"><div class="wave-fill" style="width:0%;background:${w.col};" data-w="${w.pct}"></div></div><div class="wave-num">${w.msgs}</div>`;
+    wc.appendChild(r);
+  });
+  setTimeout(()=>document.querySelectorAll('.wave-fill').forEach(f=>{f.style.width=f.dataset.w+'%';}),300);
+
+  // Discussion
+  const dpts=[
+    {k:'V',col:'#BF00FF',text:'NOVA proposed IPNOTEC Tier-1 city launch sequence — BLR, BOM, DEL, HYD, MAA — followed by Tier-2 expansion by Q2 2027.'},
+    {k:'I',col:'#6A0EFF',text:'KAI confirmed IoT layer operational. QNX SmartWatch military-grade auth integration on track for Jan 2027 launch window.'},
+    {k:'B',col:'#00C8FF',text:'ARIA recommended guerrilla branding at 6 metro airports 90 days pre-launch. Full brand brief due 28 Mar.'},
+    {k:'G',col:'#39FF14',text:'FLUX identified EV charging co-location as CLUBICLES revenue stream, aligning Green node with physical infrastructure.'},
+    {k:'Y',col:'#FFE600',text:'SPARK proposed 50-campus ambassador network. Yellow node grows fastest via peer-to-peer activation under age 23.'},
+    {k:'O',col:'#FF6200',text:'OM positioned Bharat cultural identity as core differentiator from Western networks — philosophical depth as a network moat.'},
+  ];
+  const dp=document.getElementById('i2-disc');dp.innerHTML='';
+  dpts.forEach(p=>{
+    const d=document.createElement('div');d.className='i2-pt';d.style.borderLeftColor=p.col;
+    d.innerHTML=`<div class="i2-pt-k" style="color:${p.col}">${p.k}</div><div class="i2-pt-text">${p.text}</div>`;
+    dp.appendChild(d);
+  });
+
+  // Decisions
+  const decs=['Launch cities locked: BLR · BOM · DEL · HYD · MAA','SmartWatch QNX auth goes to beta — March 2027','CLUBICLES pilot: 3 cities, 6 coworking spaces, co-owned by Red + Green nodes','F11 groups become primary IPNOTEC network cell structure','College ambassador network: 50 campuses (Yellow node lead)','Bharat cultural heritage nodes integrated into IPNOTEC identity layer'];
+  const dl=document.getElementById('i2-decs');dl.innerHTML='';
+  decs.forEach((d,i)=>{
+    const r=document.createElement('div');r.className='i2-dec-row';
+    r.innerHTML=`<div class="i2-dec-n">0${i+1} ›</div><div class="i2-dec-text">${d}</div>`;
+    dl.appendChild(r);
+  });
+
+  // Actions
+  const acts=[
+    {o:'NOVA·V',col:'#BF00FF',a:'Share launch deck with all F11',due:'20 MAR'},
+    {o:'KAI·I',col:'#6A0EFF',a:'Deliver QNX proto demo link',due:'25 MAR'},
+    {o:'ARIA·B',col:'#00C8FF',a:'Submit brand brief & airport plan',due:'28 MAR'},
+    {o:'FLUX·G',col:'#39FF14',a:'Confirm EV charging partner MOU',due:'01 APR'},
+    {o:'SPARK·Y',col:'#FFE600',a:'Map 50 campus ambassador leads',due:'01 APR'},
+    {o:'OM·O',col:'#FF6200',a:'Draft cultural heritage layer spec',due:'05 APR'},
+    {o:'TITAN·R',col:'#FF1744',a:'Identify CLUBICLES pilot locations',due:'05 APR'},
+    {o:'LEX·W',col:'#DDDDDD',a:'Connect 3 state govt innovation offices',due:'10 APR'},
+    {o:'NOVA·V',col:'#BF00FF',a:'Schedule F11 next session post-deck',due:'22 MAR'},
+  ];
+  const al=document.getElementById('i2-actions');al.innerHTML='';
+  acts.forEach(a=>{
+    const r=document.createElement('div');r.className='i2-act-row';
+    r.innerHTML=`<div class="i2-act-own" style="color:${a.col}">${a.o}</div><div class="i2-act-task">${a.a}</div><div class="i2-act-due">${a.due}</div>`;
+    al.appendChild(r);
+  });
+
+  // Tags
+  const tags=[
+    {t:'LAUNCH 2027',c:'#00C8FF'},{t:'QNX AUTH',c:'#6A0EFF'},{t:'SMARTWATCH',c:'#BF00FF'},
+    {t:'CLUBICLES',c:'#FF6200'},{t:'EV CHARGING',c:'#39FF14'},{t:'BHARAT',c:'#FF6200'},
+    {t:'TIER-1 CITIES',c:'#FFE600'},{t:'F11 NETWORK',c:'#BF00FF'},{t:'IOT LAYER',c:'#6A0EFF'},
+    {t:'BRANDING',c:'#00C8FF'},{t:'CAMPUS NET',c:'#FFE600'},{t:'POLICY',c:'#DDDDDD'},
+    {t:'PINGG',c:'#00C8FF'},{t:'IPNOTEC ID',c:'#39FF14'},{t:'NOMAD NODES',c:'#AAAAAA'},
+  ];
+  const wt=document.getElementById('i2-tags');wt.innerHTML='';
+  tags.forEach(t=>{
+    const s=document.createElement('span');s.className='i2-tag';
+    s.style.borderColor=t.c+'55';s.style.color=t.c;s.textContent=t.t;
+    wt.appendChild(s);
+  });
+}
+
+function generateI2Text(){
+  const grp=document.getElementById('i2-group-name').textContent;
+  const dt=document.getElementById('i2-session-dt').textContent;
+  return `IPNOTEC I2 INTELLIGENCE SUMMARY
+${'='.repeat(50)}
+Group: ${grp}
+Session: ${dt}
+Triggered by: Owner
+Members: 11/11 Confirmed
+Messages: ${f11MsgCount}
+Decisions: 6
+Action Items: 9
+
+WAVELENGTH ACTIVITY
+${'-'.repeat(40)}
+V VIOLET   12 messages (76%)
+I INDIGO    9 messages (58%)
+B BLUE      8 messages (50%)
+G GREEN     6 messages (38%)
+Y YELLOW    4 messages (25%)
+O ORANGE    3 messages (19%)
+R RED       2 messages (13%)
+N NOMAD     2 messages (13%)
+W POLICY    1 messages  (8%)
+
+DISCUSSION SUMMARY
+${'-'.repeat(40)}
+[V] NOVA proposed Tier-1 city launch sequence: BLR, BOM, DEL, HYD, MAA.
+[I] KAI confirmed IoT layer operational. QNX SmartWatch auth on track.
+[B] ARIA recommended 6 metro airport branding drops 90 days pre-launch.
+[G] FLUX identified EV charging co-location as CLUBICLES revenue stream.
+[Y] SPARK proposed 50-campus ambassador network for Yellow node growth.
+[O] OM positioned Bharat cultural identity as core network differentiator.
+
+CONFIRMED DECISIONS
+${'-'.repeat(40)}
+01. Launch cities locked: BLR, BOM, DEL, HYD, MAA
+02. SmartWatch QNX auth goes to beta — March 2027
+03. CLUBICLES pilot: 3 cities, 6 coworking spaces
+04. F11 groups become primary IPNOTEC network cells
+05. College ambassador network: 50 campuses (Yellow lead)
+06. Bharat cultural heritage nodes integrated into identity layer
+
+ACTION ITEMS
+${'-'.repeat(40)}
+NOVA·V    | Share launch deck with all F11            | 20 MAR
+KAI·I     | Deliver QNX proto demo link               | 25 MAR
+ARIA·B    | Submit brand brief & airport plan         | 28 MAR
+FLUX·G    | Confirm EV charging partner MOU           | 01 APR
+SPARK·Y   | Map 50 campus ambassador leads            | 01 APR
+OM·O      | Draft cultural heritage layer spec        | 05 APR
+TITAN·R   | Identify CLUBICLES pilot locations        | 05 APR
+LEX·W     | Connect 3 state govt innovation offices   | 10 APR
+NOVA·V    | Schedule F11 next session post-deck       | 22 MAR
+
+KEY TOPICS
+${'-'.repeat(40)}
+LAUNCH 2027 · QNX AUTH · SMARTWATCH · CLUBICLES · EV CHARGING · BHARAT
+TIER-1 CITIES · F11 NETWORK · IOT LAYER · BRANDING · CAMPUS NET · POLICY
+PINGG · IPNOTEC ID · NOMAD NODES
+
+${'-'.repeat(50)}
+Generated by IPNOTEC I2 INTELLIGENCE
+JAN 10 2027 · 10:01 HRS · STEP INTO THE FUTURE`;
+}
+
+function downloadI2(){
+  const text=generateI2Text();
+  const blob=new Blob([text],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;
+  a.download=`IPNOTEC_I2_Summary_${new Date().toISOString().slice(0,10)}.txt`;
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  playSound('confirm');
+}
+
+function shareI2(){
+  const text=generateI2Text();
+  const copied=document.getElementById('i2-copied');
+  if(navigator.share){
+    navigator.share({title:'IPNOTEC I2 Intelligence Summary',text:text}).catch(()=>{});
+  } else {
+    navigator.clipboard.writeText(text).then(()=>{
+      copied.classList.add('show');
+      setTimeout(()=>copied.classList.remove('show'),3000);
+      playSound('lock');
+    }).catch(()=>{
+      const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();
+      document.execCommand('copy');document.body.removeChild(ta);
+      copied.classList.add('show');setTimeout(()=>copied.classList.remove('show'),3000);
+      playSound('lock');
     });
   }
 }
