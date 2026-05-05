@@ -53,12 +53,13 @@ footer{position:fixed;bottom:0;left:0;width:100%;height:64px;background:rgba(0,0
 
 /* ─── WORLD MAP ─── */
 .wmap{position:absolute;top:0;left:0;width:100%;height:100%;background:url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg') no-repeat center;background-size:contain;opacity:.07;filter:invert(1) sepia(1) saturate(2) hue-rotate(170deg);pointer-events:none;}
+#map-nodes{position:absolute;pointer-events:none;}
 
 /* ─── LANDING ─── */
 .city-node{position:absolute;display:flex;flex-direction:column;align-items:center;opacity:.1;transition:opacity .5s,transform .5s;}
 .city-node.active{opacity:1;transform:scale(1.25);}
-.city-dot{width:9px;height:9px;}
-.city-code{font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:2px;margin-top:4px;}
+.city-dot{width:6px;height:6px;}
+.city-code{font-family:'Orbitron',sans-serif;font-size:.42rem;letter-spacing:1.5px;margin-top:3px;}
 .big-i{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(8rem,28vw,14rem);color:var(--accent);text-shadow:0 0 40px var(--accent),0 0 90px var(--accent),0 0 140px var(--accent);position:relative;z-index:10;animation:bigIGlow 2s ease-in-out infinite;}
 @keyframes bigIGlow{0%,100%{text-shadow:0 0 40px var(--accent),0 0 80px var(--accent);}50%{text-shadow:0 0 70px var(--accent),0 0 130px var(--accent),0 0 220px var(--accent);}}
 .floating-phrase{position:absolute;font-family:'Orbitron',sans-serif;font-size:clamp(.6rem,1.8vw,.95rem);font-weight:700;letter-spacing:6px;opacity:0;text-shadow:0 0 20px currentColor;z-index:8;animation:phraseAnim 3s ease-in-out forwards;pointer-events:none;}
@@ -306,9 +307,10 @@ select.tinput option{background:#000;color:#fff;}
 @keyframes fglow{0%,100%{text-shadow:0 0 25px currentColor;}50%{text-shadow:0 0 70px currentColor,0 0 140px currentColor;}}
 
 /* ─── MODE TOGGLE ─── */
-#mode-toggle{position:fixed;bottom:72px;right:10px;z-index:6000;display:flex;align-items:center;gap:5px;padding:5px 10px 5px 8px;background:rgba(0,0,0,0.65);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.32);font-family:'Space Mono',monospace;font-size:.48rem;font-weight:700;letter-spacing:2px;cursor:pointer;transition:all .2s ease;white-space:nowrap;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:0;}
-#mode-toggle:hover{color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.28);background:rgba(0,0,0,0.85);}
-#mt-icon{font-size:.72rem;line-height:1;opacity:.7;}
+#mode-toggle{display:flex;align-items:center;gap:5px;padding:6px 11px;background:transparent;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);font-family:'Space Mono',monospace;font-size:.44rem;font-weight:700;letter-spacing:1.5px;cursor:pointer;transition:all .2s;white-space:nowrap;border-radius:0;flex-shrink:0;min-height:36px;}
+#mode-toggle:hover{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04);}
+footer{grid-template-columns:auto 1fr auto auto;}
+#mt-icon{font-size:.76rem;line-height:1;}
 
 /* ════════════════════════════════════════════════
    F11 CHAT SCREEN — SAMPLE B (WhatsApp/Telegram)
@@ -586,6 +588,108 @@ body.classic .pingg-launch{border-radius:var(--cl-r-btn);animation:none;font-fam
 body.classic .pingg-launch:hover{background:var(--cl-amber);color:#1a1a1a;box-shadow:0 4px 16px rgba(251,191,36,.3);}
 body.classic #screen-processing{background:var(--cl-bg);}
 
+/* ─── BUSINESS PROFILE (REVEAL SCREEN) ─── */
+.biz-section{border:1px solid rgba(255,230,0,.15);background:rgba(255,230,0,.015);padding:14px 18px 18px;margin-bottom:16px;}
+.biz-section-hdr{font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:6px;color:rgba(255,230,0,.5);text-align:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,230,0,.08);}
+.biz-row{margin-bottom:12px;}
+.biz-label{font-family:'Orbitron',sans-serif;font-size:.48rem;letter-spacing:3px;color:rgba(255,255,255,.3);margin-bottom:5px;}
+.biz-select,.biz-input{width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);color:#fff;padding:10px 12px;font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:1px;outline:none;border-radius:0;appearance:none;-webkit-appearance:none;box-sizing:border-box;}
+.biz-select:focus,.biz-input:focus{border-color:rgba(255,230,0,.4);background:rgba(255,230,0,.02);}
+.biz-select option{background:#0a0a0a;color:#fff;}
+.biz-input::placeholder{color:rgba(255,255,255,.18);font-size:.68rem;}
+.biz-gst-row{display:flex;gap:8px;align-items:flex-end;}
+.biz-gst-row .biz-input{flex:1;}
+.biz-verify-btn{padding:10px 14px;border:1px solid rgba(255,230,0,.4);color:rgba(255,230,0,.7);font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:2px;background:transparent;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:.2s;border-radius:0;}
+.biz-verify-btn:hover{border-color:var(--y);color:var(--y);}
+.biz-verify-btn.verified{border-color:var(--g);color:var(--g);pointer-events:none;}
+.biz-status{font-family:'Orbitron',sans-serif;font-size:.48rem;letter-spacing:2px;padding:8px 12px;margin-top:8px;display:none;}
+.biz-status.ok{display:block;color:var(--g);border:1px solid rgba(57,255,20,.25);background:rgba(57,255,20,.03);}
+.biz-status.err{display:block;color:var(--o);border:1px solid rgba(255,98,0,.25);background:rgba(255,98,0,.03);}
+.biz-color-q{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.06);}
+.biz-color-q-lbl{font-family:'Orbitron',sans-serif;font-size:.48rem;letter-spacing:3px;margin-bottom:5px;}
+.biz-skip{width:100%;background:transparent;border:1px dashed rgba(255,255,255,.1);color:rgba(255,255,255,.25);font-family:'Orbitron',sans-serif;font-size:.48rem;letter-spacing:3px;padding:10px;cursor:pointer;margin-top:10px;transition:.2s;border-radius:0;}
+.biz-skip:hover{border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.4);}
+.biz-done-badge{display:none;padding:10px 14px;border:1px solid rgba(57,255,20,.3);color:var(--g);font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:3px;text-align:center;margin-top:4px;background:rgba(57,255,20,.03);}
+.biz-done-badge.show{display:block;}
+/* ─── VERIFIED TAG ON NODE CARDS ─── */
+.nc-entity{display:inline-block;font-family:'Orbitron',sans-serif;font-size:.4rem;letter-spacing:1.5px;color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.1);padding:1px 5px;margin-left:4px;vertical-align:middle;}
+.nc-biz-toggle{font-family:'Orbitron',sans-serif;font-size:.44rem;letter-spacing:2px;color:rgba(57,255,20,.45);border-top:1px solid rgba(57,255,20,.1);margin-top:8px;padding-top:7px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:.2s;}
+.nc-biz-toggle:hover{color:rgba(57,255,20,.8);}
+.nc-biz-body{display:none;padding:10px 0 4px;border-top:1px solid rgba(57,255,20,.08);margin-top:6px;}
+.nc-biz-badge{display:inline-block;font-family:'Orbitron',sans-serif;font-size:.42rem;letter-spacing:2px;color:var(--g);border:1px solid rgba(57,255,20,.35);padding:2px 7px;margin-bottom:8px;background:rgba(57,255,20,.04);}
+.nc-biz-focus{font-family:'Rajdhani',sans-serif;font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.5;margin-bottom:6px;}
+.nc-biz-link{display:block;font-family:'Space Mono',monospace;font-size:.58rem;color:var(--b);text-decoration:none;border:1px solid rgba(0,200,255,.25);padding:4px 8px;margin-top:4px;transition:.2s;}
+.nc-biz-link:hover{background:rgba(0,200,255,.06);border-color:rgba(0,200,255,.5);}
+/* ─── F11 INVITE HUB ─── */
+#screen-f11-invite{background:#000;flex-direction:column;overflow-y:auto;justify-content:flex-start;}
+.f11inv-wrap{width:min(540px,96vw);margin:0 auto;padding:20px 16px 40px;}
+.f11inv-hdr{text-align:center;padding:16px 0 20px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:20px;}
+.f11inv-title{font-family:'Orbitron',sans-serif;font-size:clamp(1rem,3vw,1.3rem);font-weight:900;letter-spacing:3px;color:#fff;margin-bottom:6px;}
+.f11inv-sub{font-size:.75rem;color:rgba(255,255,255,.35);font-family:'Rajdhani',sans-serif;line-height:1.7;}
+.f11inv-you{display:flex;align-items:center;gap:14px;padding:14px 18px;border:2px solid;margin-bottom:20px;background:rgba(255,255,255,.015);}
+.f11inv-you-sq{width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:1.5rem;border:2px solid;flex-shrink:0;}
+.f11inv-you-info{flex:1;}
+.f11inv-you-lbl{font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:4px;color:rgba(255,255,255,.35);margin-bottom:3px;}
+.f11inv-you-name{font-family:'Space Mono',monospace;font-size:.88rem;font-weight:700;letter-spacing:2px;}
+.f11inv-progress{padding:14px 18px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.01);margin-bottom:20px;}
+.f11inv-prog-lbl{font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:4px;color:rgba(255,255,255,.3);margin-bottom:8px;}
+.f11inv-prog-bar{height:6px;background:rgba(255,255,255,.06);margin-bottom:8px;position:relative;}
+.f11inv-prog-fill{height:100%;background:var(--g);box-shadow:0 0 10px var(--g);width:0%;transition:width .6s ease;}
+.f11inv-prog-nums{display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:.62rem;}
+.f11inv-prog-sent{color:var(--g);}
+.f11inv-prog-goal{color:rgba(255,255,255,.25);}
+.f11inv-slots-lbl{font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:5px;color:rgba(255,255,255,.25);margin-bottom:12px;}
+.f11inv-slot{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:10px;padding:12px 14px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.012);margin-bottom:8px;transition:.2s;}
+.f11inv-slot.sent{border-color:rgba(57,255,20,.25);background:rgba(57,255,20,.025);}
+.f11inv-slot.accepted{border-color:rgba(57,255,20,.5);background:rgba(57,255,20,.05);}
+.f11inv-slot-color{width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:.85rem;border:2px solid;flex-shrink:0;}
+.f11inv-slot-info{flex:1;}
+.f11inv-slot-name{font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:2px;margin-bottom:4px;}
+.f11inv-slot-type{font-size:.62rem;color:rgba(255,255,255,.3);font-family:'Rajdhani',sans-serif;margin-bottom:6px;}
+.f11inv-slot-input{width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.12);color:#fff;padding:7px 10px;font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:1px;outline:none;border-radius:0;display:block;}
+.f11inv-slot-input:focus{border-color:rgba(0,200,255,.4);background:rgba(0,200,255,.02);}
+.f11inv-slot-input::placeholder{color:rgba(255,255,255,.18);font-size:.68rem;}
+.f11inv-slot.sent .f11inv-slot-input,.f11inv-slot.accepted .f11inv-slot-input{display:none;}
+.f11inv-slot-status{font-family:'Orbitron',sans-serif;font-size:.48rem;letter-spacing:2px;display:none;}
+.f11inv-slot.sent .f11inv-slot-status,.f11inv-slot.accepted .f11inv-slot-status{display:block;}
+.f11inv-slot.sent .f11inv-slot-status{color:var(--b);}
+.f11inv-slot.accepted .f11inv-slot-status{color:var(--g);}
+.f11inv-slot-sent-phone{font-family:'Space Mono',monospace;font-size:.65rem;color:rgba(255,255,255,.4);margin-top:3px;display:none;}
+.f11inv-slot.sent .f11inv-slot-sent-phone,.f11inv-slot.accepted .f11inv-slot-sent-phone{display:block;}
+.f11inv-send-btn{padding:8px 12px;border:1px solid;font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:1.5px;cursor:pointer;background:transparent;transition:.2s;white-space:nowrap;border-radius:0;flex-shrink:0;}
+.f11inv-send-btn:hover{opacity:.75;}
+.f11inv-slot.sent .f11inv-send-btn,.f11inv-slot.accepted .f11inv-send-btn{display:none;}
+.f11inv-open-btn{display:none;width:100%;padding:16px;margin-top:22px;font-family:'Orbitron',sans-serif;font-size:clamp(.78rem,2.5vw,.92rem);font-weight:900;letter-spacing:3px;cursor:pointer;border:2px solid var(--y);background:var(--y);color:#000;box-shadow:0 0 24px rgba(255,230,0,.3);transition:.2s;border-radius:0;}
+.f11inv-open-btn.show{display:block;}
+.f11inv-open-btn:hover{background:#fff200;box-shadow:0 0 44px rgba(255,230,0,.5);}
+.f11inv-hint{text-align:center;padding:14px;font-size:.68rem;color:rgba(255,255,255,.22);line-height:1.8;font-family:'Rajdhani',sans-serif;border:1px dashed rgba(255,255,255,.06);margin-top:14px;}
+
+/* ─── 1-ON-1 CHAT MODAL ─── */
+#chat-modal{position:fixed;inset:0;z-index:9000;display:none;flex-direction:column;background:#000;}
+#chat-modal.show{display:flex;}
+.chat-hdr{height:56px;border-bottom:2px solid;display:flex;align-items:center;gap:12px;padding:0 16px;flex-shrink:0;background:rgba(0,0,0,.95);}
+.chat-av{width:38px;height:38px;border:2px solid;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:1rem;flex-shrink:0;}
+.chat-hdr-info{flex:1;}
+.chat-hdr-name{font-family:'Orbitron',sans-serif;font-size:.72rem;letter-spacing:2px;font-weight:700;}
+.chat-hdr-status{font-family:'Space Mono',monospace;font-size:.55rem;color:var(--g);margin-top:2px;}
+.chat-close{padding:8px 12px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.4);font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:2px;background:transparent;cursor:pointer;border-radius:0;}
+.chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;}
+.chat-msg{max-width:78%;padding:10px 14px;font-family:'Rajdhani',sans-serif;font-size:.88rem;line-height:1.6;position:relative;}
+.chat-msg.them{background:rgba(255,255,255,.05);border-left:2px solid;align-self:flex-start;}
+.chat-msg.me{background:rgba(0,200,255,.07);border-right:2px solid rgba(0,200,255,.4);align-self:flex-end;text-align:right;}
+.chat-msg-from{font-family:'Orbitron',sans-serif;font-size:.44rem;letter-spacing:2px;margin-bottom:4px;opacity:.6;}
+.chat-msg-time{font-family:'Space Mono',monospace;font-size:.5rem;opacity:.3;margin-top:3px;}
+.chat-typing{font-family:'Space Mono',monospace;font-size:.6rem;color:rgba(255,255,255,.3);padding:4px 16px;display:none;align-items:center;gap:6px;}
+.chat-typing.show{display:flex;}
+.ct-dot{width:5px;height:5px;background:rgba(255,255,255,.3);border-radius:50%;animation:ctbounce .8s ease-in-out infinite;}
+.ct-dot:nth-child(2){animation-delay:.15s;}
+.ct-dot:nth-child(3){animation-delay:.3s;}
+@keyframes ctbounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+.chat-input-row{display:flex;gap:8px;padding:12px 16px;border-top:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.9);}
+.chat-input{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:#fff;padding:10px 14px;font-family:'Rajdhani',sans-serif;font-size:.88rem;outline:none;border-radius:0;}
+.chat-input:focus{border-color:rgba(0,200,255,.35);}
+.chat-send-btn{padding:10px 16px;border:1px solid rgba(0,200,255,.4);color:var(--b);font-family:'Orbitron',sans-serif;font-size:.55rem;letter-spacing:2px;background:transparent;cursor:pointer;border-radius:0;white-space:nowrap;}
+.chat-send-btn:hover{background:rgba(0,200,255,.08);}
 ::-webkit-scrollbar{width:3px;}
 ::-webkit-scrollbar-track{background:#000;}
 ::-webkit-scrollbar-thumb{background:var(--accent);}
@@ -596,12 +700,6 @@ body.classic #screen-processing{background:var(--cl-bg);}
 <!-- ─── HEADER ─── -->
 <div class="hdr" id="hdr">STEP INTO THE FUTURE -></div>
 
-<!-- FLOATING MODE TOGGLE -->
-<button id="mode-toggle" onclick="toggleMode()" title="Switch UI Mode">
-  <span id="mt-icon">⬡</span>
-  <span id="mt-label">CLASSIC</span>
-</button>
-
 <div id="cw">
 
 <!-- ═══════════════════════ LANDING ═══════════════════════ -->
@@ -611,7 +709,7 @@ body.classic #screen-processing{background:var(--cl-bg);}
   <div id="word-layer"></div>
   <div class="big-i" id="main-i">I</div>
   <div class="landing-btns">
-    <button class="btn-main btn-green" onclick="startFlow('free')">FREE IPNOTEC INTERNET</button>
+    <button class="btn-main btn-green" onclick="goTo('free-node');buildFreeNode();playSound('node')">CONNECT WITH V[IP] MEMBERS</button>
     <button class="btn-main btn-vip" onclick="startFlow('vip')">◆ IPNOTEC VIP</button>
   </div>
 </div>
@@ -623,12 +721,30 @@ body.classic #screen-processing{background:var(--cl-bg);}
     <div class="pdots" id="ph-dots"></div>
     <div class="step-lbl">STEP 01 · CONNECT</div>
     <div class="form-title">ENTER PHONE NUMBER</div>
-    <div class="form-sub">Include country code (e.g. 91XXXXXXXXXX for India). We'll send a 6-digit OTP.</div>
+    <div class="form-sub">Select your country code, then enter your number. An OTP will be sent via SMS.</div>
     <div class="igrp">
-      <label class="ilbl">PHONE + COUNTRY CODE</label>
-      <input type="tel" class="tinput" id="phone-in" placeholder="91XXXXXXXXXX" maxlength="15" inputmode="numeric">
+      <label class="ilbl">COUNTRY CODE + NUMBER</label>
+      <div style="display:flex;gap:8px;">
+        <select class="tinput" id="phone-cc" style="width:120px;flex-shrink:0;padding:0 8px;font-size:.72rem;">
+          <option value="91">+91 🇮🇳 IN</option>
+          <option value="1">+1 🇺🇸 US</option>
+          <option value="44">+44 🇬🇧 UK</option>
+          <option value="971">+971 🇦🇪 UAE</option>
+          <option value="65">+65 🇸🇬 SG</option>
+          <option value="61">+61 🇦🇺 AU</option>
+          <option value="81">+81 🇯🇵 JP</option>
+          <option value="49">+49 🇩🇪 DE</option>
+          <option value="33">+33 🇫🇷 FR</option>
+          <option value="86">+86 🇨🇳 CN</option>
+          <option value="55">+55 🇧🇷 BR</option>
+          <option value="27">+27 🇿🇦 ZA</option>
+          <option value="234">+234 🇳🇬 NG</option>
+          <option value="254">+254 🇰🇪 KE</option>
+        </select>
+        <input type="tel" class="tinput" id="phone-in" placeholder="9876543210" maxlength="12" inputmode="numeric" style="flex:1;">
+      </div>
     </div>
-    <div class="msgbox err" id="phone-err">INVALID — MINIMUM 10 DIGITS REQUIRED</div>
+    <div class="msgbox err" id="phone-err">INVALID — MINIMUM 8 DIGITS REQUIRED</div>
     <button class="btn-main btn-full" onclick="sendOTP()">SEND OTP →</button>
     <div class="dim" style="margin-top:14px;text-align:center">By continuing you agree to IPNOTEC Terms of Service</div>
   </div>
@@ -664,9 +780,9 @@ body.classic #screen-processing{background:var(--cl-bg);}
   <div class="path-grid">
     <div class="path-card fp" onclick="takePath('free')">
       <span class="path-icon" style="color:var(--g)">◈</span>
-      <div class="path-name">FREE INTERNET</div>
-      <div class="path-desc">Connect to IPNOTEC's free internet. Join the live node. No commitment.</div>
-      <div class="path-badge">FREE · INSTANT</div>
+      <div class="path-name">CONNECT V[IP]</div>
+      <div class="path-desc">Discover live V[IP] members on this node. PING &amp; connect. No commitment.</div>
+      <div class="path-badge">LIVE · INSTANT</div>
     </div>
     <div class="path-card vp" onclick="takePath('vip')">
       <span class="path-icon" style="color:var(--rg)">◆</span>
@@ -682,11 +798,11 @@ body.classic #screen-processing{background:var(--cl-bg);}
   <div class="node-header">
     <div class="node-status-row">
       <div class="node-pulse"></div>
-      <div class="node-title">NODE ACTIVE</div>
+      <div class="node-title">V[IP] MEMBER NETWORK</div>
     </div>
     <div class="node-big-count">
       <span class="node-num" id="node-count-num">47</span>
-      <span class="node-num-lbl">CONNECTIONS</span>
+      <span class="node-num-lbl">MEMBERS LIVE</span>
     </div>
     <div class="node-city-lbl" id="node-user-city">▸ YOUR LOCATION NODE</div>
     <div class="signal-row">
@@ -695,13 +811,13 @@ body.classic #screen-processing{background:var(--cl-bg);}
     </div>
   </div>
   <div class="node-grid-wrap">
-    <div class="ng-lbl">◈ NODES ON THIS HOTSPOT — TAP TO CONNECT</div>
+    <div class="ng-lbl">◈ V[IP] MEMBERS ON THIS NODE — TAP TO CONNECT</div>
     <div class="node-grid" id="node-grid"></div>
   </div>
   <div class="node-cta">
-    <div class="node-cta-title">◆ GET YOUR IPNOTEC ID</div>
-    <div class="node-cta-desc">To connect with any node worldwide, you need your unique IPNOTEC ID. VIP members get a permanent global identity.</div>
-    <button class="btn-main btn-vip" style="width:100%;font-size:.78rem;" onclick="takePath('vip')">UPGRADE TO IPNOTEC VIP →</button>
+    <div class="node-cta-title">◆ UNLOCK YOUR IPNOTEC ID</div>
+    <div class="node-cta-desc">To connect with any V[IP] member worldwide, you need your unique IPNOTEC ID. VIP members get a permanent global identity &amp; My F11 group access.</div>
+    <button class="btn-main btn-vip" style="width:100%;font-size:.78rem;" onclick="takePath('vip')">BECOME IPNOTEC VIP → RS 1,001</button>
   </div>
 </div>
 
@@ -908,19 +1024,92 @@ body.classic #screen-processing{background:var(--cl-bg);}
     <div class="rev-ticket" id="reveal-ticket">TKT-XXXXXXXXXXXXXXX-X</div>
     <div style="font-family:'Space Mono',monospace;font-size:clamp(.9rem,3vw,1.1rem);font-weight:700;color:var(--rg);text-shadow:0 0 15px var(--rg);letter-spacing:3px;margin-bottom:16px;" id="reveal-name">—</div>
     <div class="rev-title">WELCOME TO<br><span style="color:var(--rg);text-shadow:0 0 20px var(--rg);">THE FUTURE</span></div>
-    <div class="dim" style="margin-bottom:18px;line-height:1.8;">Your VIP seat is reserved. Your identity is locked. Your node is live.</div>
-    <!-- F11 BUTTON -->
-    <button class="f11-launch-btn" onclick="goTo('f11');playSound('confirm')">
-      ◆ MY F11 — ENTER YOUR FUTURE 11 GROUP
-    </button>
-    <div style="padding:20px;border:2px solid var(--b);background:rgba(0,200,255,.04);margin:12px 0;">
-      <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:5px;color:var(--b);text-align:center;margin-bottom:10px;">◐ ENTER THE NETWORK NOW</div>
-      <div class="dim" style="margin-bottom:14px;text-align:center;line-height:1.7;">Your PINGG session is ready. Connect to nodes worldwide using your new IPNOTEC ID.</div>
-      <a class="pingg-launch" href="https://pingg-tau.vercel.app" target="_blank" rel="noopener">◉ LAUNCH IPNOTEC PINGG →</a>
+    <div class="dim" style="margin-bottom:22px;line-height:1.8;">Your VIP seat is reserved. Your identity is locked. Your node is live.</div>
+
+    <!-- ── LIVE NOW ── -->
+    <div style="border:1px solid rgba(57,255,20,.25);padding:4px 14px 6px;margin-bottom:6px;">
+      <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:6px;color:var(--g);text-align:center;margin:10px 0 12px;">◉ AVAILABLE NOW</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+        <button class="btn-main btn-green" style="font-size:.68rem;padding:14px 8px;flex-direction:column;gap:4px;" onclick="goTo('free-node');buildFreeNode();playSound('node')">
+          ◈ CONNECT<br><span style="font-size:.52rem;opacity:.7;font-weight:400;">V[IP] MEMBERS</span>
+        </button>
+        <button class="f11-launch-btn" style="font-size:.68rem;padding:14px 8px;flex-direction:column;gap:4px;margin:0;" onclick="goTo('f11-invite');playSound('confirm')">
+          ◆ MY F11<br><span style="font-size:.52rem;opacity:.7;font-weight:400;">BUILD YOUR 11</span>
+        </button>
+      </div>
     </div>
+
+    <!-- ── COMING NEXT ── -->
+    <div style="border:1px solid rgba(255,255,255,.08);padding:4px 14px 14px;margin-bottom:16px;background:rgba(255,255,255,.01);">
+      <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:6px;color:rgba(255,255,255,.3);text-align:center;margin:10px 0 12px;">◌ COMING NEXT · JAN 10 2027 · 10:01 HRS</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+        <div style="border:1px solid rgba(0,200,255,.2);padding:14px 8px;text-align:center;opacity:.65;position:relative;">
+          <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#000;padding:0 6px;font-family:'Orbitron',sans-serif;font-size:.44rem;letter-spacing:2px;color:rgba(0,200,255,.6);white-space:nowrap;">EMULATION</div>
+          <div style="font-size:1.4rem;margin-bottom:6px;color:var(--b);">◉</div>
+          <div style="font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:2px;color:var(--b);margin-bottom:4px;">PINGG</div>
+          <div style="font-size:.6rem;color:rgba(255,255,255,.3);font-family:'Rajdhani',sans-serif;margin-bottom:10px;">Verified identity messaging</div>
+          <a href="https://pingg-tau.vercel.app" target="_blank" rel="noopener" style="font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:2px;color:var(--b);border:1px solid rgba(0,200,255,.35);padding:5px 8px;text-decoration:none;display:block;">PREVIEW →</a>
+        </div>
+        <div style="border:1px solid rgba(106,14,255,.2);padding:14px 8px;text-align:center;opacity:.65;position:relative;">
+          <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#000;padding:0 6px;font-family:'Orbitron',sans-serif;font-size:.44rem;letter-spacing:2px;color:rgba(106,14,255,.6);white-space:nowrap;">EMULATION</div>
+          <div style="font-size:1.4rem;margin-bottom:6px;color:var(--i);">▣</div>
+          <div style="font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:2px;color:var(--i);margin-bottom:4px;">IPNOTEC PC</div>
+          <div style="font-size:.6rem;color:rgba(255,255,255,.3);font-family:'Rajdhani',sans-serif;margin-bottom:10px;">Personal future computer</div>
+          <a href="https://i-pc.vercel.app" target="_blank" rel="noopener" style="font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:2px;color:var(--i);border:1px solid rgba(106,14,255,.35);padding:5px 8px;text-decoration:none;display:block;">PREVIEW →</a>
+        </div>
+        <div style="border:1px solid rgba(201,144,122,.2);padding:14px 8px;text-align:center;opacity:.65;position:relative;">
+          <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#000;padding:0 6px;font-family:'Orbitron',sans-serif;font-size:.44rem;letter-spacing:2px;color:rgba(201,144,122,.6);white-space:nowrap;">FULL LAUNCH</div>
+          <div style="font-size:1.4rem;margin-bottom:6px;color:var(--rg);">✦</div>
+          <div style="font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:2px;color:var(--rg);margin-bottom:4px;">IPNOTEC APP</div>
+          <div style="font-size:.6rem;color:rgba(255,255,255,.3);font-family:'Rajdhani',sans-serif;margin-bottom:10px;">Full platform · Jan 10 2027</div>
+          <div style="font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:1px;color:rgba(201,144,122,.4);border:1px solid rgba(201,144,122,.18);padding:5px 8px;">10:01 HRS IST</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BUSINESS IDENTITY (optional, post-payment) ── -->
+    <div class="biz-section" id="biz-section">
+      <div class="biz-section-hdr">◈ COMPLETE YOUR BUSINESS IDENTITY — OPTIONAL</div>
+
+      <div class="biz-row">
+        <div class="biz-label">ENTITY TYPE</div>
+        <select class="biz-select" id="biz-entity">
+          <option value="" disabled selected>SELECT ENTITY TYPE</option>
+          <option value="SOLE PROP">Sole Proprietor / Freelancer</option>
+          <option value="PVT LTD">Pvt Ltd / OPC</option>
+          <option value="PUBLIC">Public Ltd / Listed</option>
+          <option value="LLP">Partnership / LLP</option>
+          <option value="NGO">NGO / Trust / Section 8</option>
+          <option value="FOREIGN">Foreign Entity in India</option>
+        </select>
+      </div>
+
+      <div class="biz-row">
+        <div class="biz-label">GSTIN — INDIA (15-CHAR · OPTIONAL · UNLOCKS ✓ VERIFIED BADGE)</div>
+        <div class="biz-gst-row">
+          <input class="biz-input" id="biz-gst" placeholder="22AAAAA0000A1Z5" maxlength="15" style="text-transform:uppercase;" oninput="this.value=this.value.toUpperCase()">
+          <button class="biz-verify-btn" id="biz-verify-btn" onclick="verifyGST()">VERIFY →</button>
+        </div>
+        <div class="biz-status" id="biz-gst-status"></div>
+      </div>
+
+      <div class="biz-color-q" id="biz-color-q">
+        <div class="biz-label biz-color-q-lbl" id="biz-color-q-lbl">YOUR FOCUS AREA</div>
+        <input class="biz-input" id="biz-color-q-input" placeholder="—">
+      </div>
+
+      <div class="biz-row" style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.06);">
+        <div class="biz-label">WEBSITE / PORTFOLIO URL (OPTIONAL)</div>
+        <input class="biz-input" id="biz-website" placeholder="yourcompany.com" type="url" inputmode="url" autocomplete="url">
+      </div>
+
+      <button class="biz-skip" onclick="saveBizAndClose()">SAVE &amp; CONTINUE →</button>
+      <div class="biz-done-badge" id="biz-done-badge">✓ BUSINESS IDENTITY LOCKED</div>
+    </div>
+
     <div class="rev-grid">
-      <div class="rev-item"><span class="rev-icon" style="color:var(--b);">◈</span><div class="rev-ititle" style="color:var(--b);">IPNOTEC PC</div><div class="rev-idesc">Your personal future-ready computer interface. Access from anywhere.</div></div>
-      <div class="rev-item"><span class="rev-icon" style="color:var(--g);">◆</span><div class="rev-ititle" style="color:var(--g);">FREE INTERNET</div><div class="rev-idesc">Unlimited IPNOTEC internet bundled with VIP. Zero cost forever.</div></div>
+      <div class="rev-item"><span class="rev-icon" style="color:var(--i);">▣</span><div class="rev-ititle" style="color:var(--i);">IPNOTEC PC</div><div class="rev-idesc">Your personal future-ready computer interface. Launching Jan 10 2027.</div></div>
+      <div class="rev-item"><span class="rev-icon" style="color:var(--b);">◉</span><div class="rev-ititle" style="color:var(--b);">PINGG ACCESS</div><div class="rev-idesc">Verified identity messaging. Preview available now. Full launch Jan 2027.</div></div>
       <div class="rev-item"><span class="rev-icon" style="color:var(--v);">▲</span><div class="rev-ititle" style="color:var(--v);">VIBGYOU IDENTITY</div><div class="rev-idesc">Your persona and future name — permanently locked to your profile.</div></div>
       <div class="rev-item"><span class="rev-icon" style="color:var(--rg);">◉</span><div class="rev-ititle" style="color:var(--rg);">LAUNCH PRIORITY</div><div class="rev-idesc">First in line on JAN 10 2027 at 10:01 HRS. You go first. Always.</div></div>
     </div>
@@ -932,18 +1121,146 @@ body.classic #screen-processing{background:var(--cl-bg);}
 <div class="screen" id="screen-final">
   <div class="wmap" style="opacity:.04;"></div>
   <div id="final-streams"></div>
-  <div style="position:relative;z-index:10;text-align:center;padding:20px;">
+  <div style="position:relative;z-index:10;text-align:center;padding:20px;width:100%;max-width:520px;margin:0 auto;">
     <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:9px;color:rgba(255,255,255,.22);margin-bottom:24px;">TRANSMISSION COMPLETE</div>
     <div class="final-see" style="color:var(--accent);">SEE YOU</div>
     <div class="final-in" style="color:var(--rg);">IN THE</div>
     <div class="final-future" style="color:#fff;">FUTURE</div>
     <div style="margin-top:26px;font-family:'Space Mono',monospace;font-size:.72rem;color:rgba(255,255,255,.22);letter-spacing:5px;">JAN 10 2027 · 10:01 HRS</div>
-    <div style="margin-top:28px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-      <button class="f11-launch-btn" style="font-size:.72rem;padding:12px 20px;width:auto;" onclick="goTo('f11');playSound('confirm')">MY F11 →</button>
-      <a href="https://i-pc.vercel.app" target="_blank" class="btn-main" style="font-size:.68rem;text-decoration:none;">IPNOTEC PC →</a>
-      <a href="https://pingg-tau.vercel.app" target="_blank" class="btn-main btn-blue" style="font-size:.68rem;text-decoration:none;">PINGG →</a>
-      <button class="btn-main btn-green" style="font-size:.68rem;" onclick="goTo('landing')">← HOME</button>
+
+    <!-- LIVE NOW -->
+    <div style="margin-top:28px;padding:14px;border:1px solid rgba(57,255,20,.2);background:rgba(57,255,20,.02);">
+      <div style="font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:5px;color:rgba(57,255,20,.5);margin-bottom:12px;">◉ AVAILABLE NOW</div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <button class="f11-launch-btn" style="font-size:.68rem;padding:12px 18px;width:auto;margin:0;" onclick="goTo('f11-invite');playSound('confirm')">◆ MY F11 →</button>
+        <button class="btn-main btn-green" style="font-size:.68rem;" onclick="goTo('free-node');buildFreeNode();playSound('node')">◈ CONNECT V[IP] →</button>
+      </div>
     </div>
+
+    <!-- COMING NEXT -->
+    <div style="margin-top:12px;padding:14px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.01);">
+      <div style="font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:5px;color:rgba(255,255,255,.2);margin-bottom:12px;">◌ COMING NEXT · 10 JAN 2027</div>
+      <div style="display:flex;flex-direction:column;gap:6px;" id="coming-accordions">
+
+        <div style="border:1px solid rgba(0,200,255,.18);overflow:hidden;">
+          <div onclick="toggleAccordion('acc-pingg',this)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;cursor:pointer;background:rgba(0,200,255,.03);">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="color:var(--b);font-size:1rem;">◉</span>
+              <div>
+                <div style="font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:2px;color:var(--b);">IPNOTEC PINGG</div>
+                <div style="font-family:'Rajdhani',sans-serif;font-size:.6rem;color:rgba(255,255,255,.25);margin-top:2px;">Verified identity messaging</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span style="font-family:'Orbitron',sans-serif;font-size:.42rem;letter-spacing:1.5px;color:rgba(0,200,255,.5);border:1px solid rgba(0,200,255,.25);padding:3px 6px;">EMULATION</span>
+              <span class="acc-arrow" style="color:rgba(255,255,255,.3);font-size:.7rem;">▾</span>
+            </div>
+          </div>
+          <div id="acc-pingg" style="display:none;padding:12px 14px;border-top:1px solid rgba(0,200,255,.1);background:rgba(0,0,0,.4);">
+            <div style="font-size:.78rem;color:rgba(255,255,255,.4);font-family:'Rajdhani',sans-serif;line-height:1.7;margin-bottom:10px;">PINGG is IPNOTEC's verified identity messaging layer. Every message is anchored to a real IPNOTEC ID. No spoofing. No noise. Only verified members.</div>
+            <a href="https://pingg-tau.vercel.app" target="_blank" rel="noopener" style="display:inline-block;font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:2px;color:var(--b);border:1px solid rgba(0,200,255,.35);padding:8px 14px;text-decoration:none;">PREVIEW EMULATION →</a>
+          </div>
+        </div>
+
+        <div style="border:1px solid rgba(106,14,255,.18);overflow:hidden;">
+          <div onclick="toggleAccordion('acc-pc',this)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;cursor:pointer;background:rgba(106,14,255,.03);">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="color:var(--i);font-size:1rem;">▣</span>
+              <div>
+                <div style="font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:2px;color:var(--i);">IPNOTEC PC</div>
+                <div style="font-family:'Rajdhani',sans-serif;font-size:.6rem;color:rgba(255,255,255,.25);margin-top:2px;">Your personal future computer</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span style="font-family:'Orbitron',sans-serif;font-size:.42rem;letter-spacing:1.5px;color:rgba(106,14,255,.5);border:1px solid rgba(106,14,255,.25);padding:3px 6px;">EMULATION</span>
+              <span class="acc-arrow" style="color:rgba(255,255,255,.3);font-size:.7rem;">▾</span>
+            </div>
+          </div>
+          <div id="acc-pc" style="display:none;padding:12px 14px;border-top:1px solid rgba(106,14,255,.1);background:rgba(0,0,0,.4);">
+            <div style="font-size:.78rem;color:rgba(255,255,255,.4);font-family:'Rajdhani',sans-serif;line-height:1.7;margin-bottom:10px;">IPNOTEC PC is your browser-based personal future computer, anchored to your IPNOTEC identity. Access it from any device. Yours forever. No login. Just your ID.</div>
+            <a href="https://i-pc.vercel.app" target="_blank" rel="noopener" style="display:inline-block;font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:2px;color:var(--i);border:1px solid rgba(106,14,255,.35);padding:8px 14px;text-decoration:none;">PREVIEW EMULATION →</a>
+          </div>
+        </div>
+
+        <div style="border:1px solid rgba(201,144,122,.12);overflow:hidden;">
+          <div onclick="toggleAccordion('acc-app',this)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;cursor:pointer;background:rgba(201,144,122,.02);">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="color:var(--rg);font-size:1rem;">✦</span>
+              <div>
+                <div style="font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:2px;color:var(--rg);">FULL IPNOTEC APP</div>
+                <div style="font-family:'Rajdhani',sans-serif;font-size:.6rem;color:rgba(255,255,255,.25);margin-top:2px;">Jan 10 2027 · 10:01 HRS IST</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span style="font-family:'Orbitron',sans-serif;font-size:.42rem;letter-spacing:1.5px;color:rgba(201,144,122,.4);border:1px solid rgba(201,144,122,.18);padding:3px 6px;">FULL LAUNCH</span>
+              <span class="acc-arrow" style="color:rgba(255,255,255,.3);font-size:.7rem;">▾</span>
+            </div>
+          </div>
+          <div id="acc-app" style="display:none;padding:12px 14px;border-top:1px solid rgba(201,144,122,.08);background:rgba(0,0,0,.4);">
+            <div style="font-size:.78rem;color:rgba(255,255,255,.4);font-family:'Rajdhani',sans-serif;line-height:1.7;margin-bottom:10px;">The full IPNOTEC platform drops on January 10 2027 at exactly 10:01 HRS IST. Your VIP profile, F11 group, verified node, PINGG access and IPNOTEC PC all go fully live. You're already inside.</div>
+            <div style="font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:3px;color:rgba(201,144,122,.4);border:1px solid rgba(201,144,122,.15);padding:8px 14px;text-align:center;">RESERVED · JAN 10 2027 · 10:01 HRS</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <button class="btn-main btn-green" style="font-size:.68rem;margin-top:14px;" onclick="goTo('landing')">← HOME</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════ F11 INVITE HUB ═══════════════════════ -->
+<div class="screen scrollable" id="screen-f11-invite" style="align-items:center;">
+  <div class="f11inv-wrap">
+
+    <!-- HEADER -->
+    <div class="f11inv-hdr">
+      <div class="step-lbl" style="font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:6px;color:rgba(255,255,255,.3);margin-bottom:8px;">◆ MY F11 · FUTURE 11 NETWORK</div>
+      <div class="f11inv-title">BUILD YOUR 11</div>
+      <div class="f11inv-sub">You + 10 invites = your personal F11 group.<br>One slot per VIBGYOR color + 2 open wildcards. Each accepted invite unlocks the full F11 experience.</div>
+    </div>
+
+    <!-- YOUR COLOR -->
+    <div class="f11inv-you" id="f11inv-you-card" style="border-color:#888;">
+      <div class="f11inv-you-sq" id="f11inv-you-sq" style="border-color:#888;color:#888;">N</div>
+      <div class="f11inv-you-info">
+        <div class="f11inv-you-lbl">YOU · SLOT 01 OF 11</div>
+        <div class="f11inv-you-name" id="f11inv-you-name">—</div>
+      </div>
+      <div style="font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:2px;color:var(--g);border:1px solid rgba(57,255,20,.4);padding:5px 8px;">CONFIRMED ✓</div>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="f11inv-progress">
+      <div class="f11inv-prog-lbl">INVITE PROGRESS</div>
+      <div class="f11inv-prog-bar"><div class="f11inv-prog-fill" id="f11inv-prog-fill"></div></div>
+      <div class="f11inv-prog-nums">
+        <span class="f11inv-prog-sent"><span id="f11inv-sent-count">0</span> / 10 INVITES SENT</span>
+        <span class="f11inv-prog-goal"><span id="f11inv-accept-count">0</span> ACCEPTED</span>
+      </div>
+    </div>
+
+    <!-- 8 VIBGYOR COLOR SLOTS -->
+    <div class="f11inv-slots-lbl">◈ VIBGYOR INVITE SLOTS — 8 COLORS</div>
+    <div id="f11inv-color-slots"></div>
+
+    <!-- 2 OPEN SLOTS -->
+    <div class="f11inv-slots-lbl" style="margin-top:18px;">◈ OPEN SLOTS — YOUR CHOICE · 2 REMAINING</div>
+    <div id="f11inv-open-slots"></div>
+
+    <!-- OPEN F11 BUTTON — unlocks after first invite sent -->
+    <button class="f11inv-open-btn" id="f11inv-open-btn" onclick="goTo('f11');initF11();playSound('confirm')">
+      ◆ OPEN F11 GROUP CHAT →
+    </button>
+
+    <!-- HINT -->
+    <div class="f11inv-hint">
+      Each invite link is sent to the recipient's phone number.<br>
+      When they create their IPNOTEC VIP profile, their F11 slot is confirmed.<br>
+      <strong style="color:rgba(255,230,0,.6);">All 10 must accept — then your F11 group opens immediately.</strong>
+    </div>
+
+    <button class="btn-main" style="width:100%;margin-top:16px;font-size:.68rem;opacity:.5;" onclick="goTo('reveal')">← BACK</button>
   </div>
 </div>
 
@@ -952,14 +1269,14 @@ body.classic #screen-processing{background:var(--cl-bg);}
   <div class="f11-wrap">
     <!-- HEADER -->
     <div class="f11-hdr" id="f11-hdr">
-      <div class="f11-back" onclick="goTo('reveal')" title="Back">‹</div>
+      <div class="f11-back" onclick="goTo('f11-invite')" title="Back">‹</div>
       <div class="f11-sq" id="f11-owner-sq" style="border-color:#BF00FF;color:#BF00FF;">F11</div>
       <div class="f11-info">
-        <div class="f11-name" id="f11-group-name">My F11 — NOVA·V·BLR</div>
-        <div class="f11-sub" id="f11-group-sub">11 members · <span id="f11-conf-ct">0/11</span> confirmed</div>
+        <div class="f11-name" id="f11-group-name">MY F11</div>
+        <div class="f11-sub" id="f11-group-sub">0 / 11 members added</div>
       </div>
       <div class="f11-hdr-btns">
-        <div class="f11-icon-btn" title="Search">⌕</div>
+        <div class="f11-icon-btn" id="f11-manage-btn" title="Manage Members" onclick="toggleF11Manage()" style="font-size:.65rem;letter-spacing:1px;padding:0 8px;font-family:'Orbitron',sans-serif;">MANAGE</div>
         <div class="i2-chip" onclick="openI2()" id="i2-chip-btn">I2 ▸</div>
       </div>
     </div>
@@ -967,20 +1284,34 @@ body.classic #screen-processing{background:var(--cl-bg);}
     <!-- IMODE BAR -->
     <div class="f11-imode-bar" id="f11-imode-bar">◉ IPNOTEC Mode active · names in white · text in wavelength color</div>
 
+    <!-- MEMBER MANAGEMENT PANEL -->
+    <div id="f11-manage-panel" style="display:none;background:rgba(0,0,0,.95);border-bottom:1px solid rgba(255,255,255,.08);padding:14px 16px;flex-shrink:0;">
+      <div style="font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:4px;color:rgba(255,255,255,.3);margin-bottom:10px;">◈ ADD / REMOVE MEMBERS BY IPNOTEC ID</div>
+      <div style="display:flex;gap:8px;margin-bottom:12px;">
+        <input id="f11-add-id-input" class="f11-inp" placeholder="IPN-XXXXXX or FUTURE·NAME" style="flex:1;font-size:.72rem;padding:9px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:#fff;outline:none;border-radius:0;font-family:'Space Mono',monospace;text-transform:uppercase;" oninput="this.value=this.value.toUpperCase()" onkeydown="if(event.key==='Enter')addF11Member()">
+        <button onclick="addF11Member()" style="padding:9px 14px;border:1px solid rgba(57,255,20,.4);color:var(--g);font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:2px;background:transparent;cursor:pointer;white-space:nowrap;border-radius:0;">ADD →</button>
+      </div>
+      <div id="f11-member-chips" style="display:flex;flex-wrap:wrap;gap:6px;min-height:24px;"></div>
+      <div id="f11-add-status" style="font-family:'Orbitron',sans-serif;font-size:.48rem;letter-spacing:2px;margin-top:8px;display:none;"></div>
+    </div>
+
     <!-- MEMBER STRIP -->
     <div class="f11-mbr-strip" id="f11-mbr-strip"></div>
 
     <!-- CONFIRM BANNER -->
-    <div class="f11-confirm-banner" id="f11-conf-banner">✓ All 11 members confirmed · Owner can trigger Final Go</div>
+    <div class="f11-confirm-banner" id="f11-conf-banner" style="display:none;">✓ All members added · Ready to launch F11</div>
 
     <!-- CHAT BODY -->
     <div class="f11-body" id="f11-body">
-      <div class="f11-sep"><div class="f11-sep-lbl">Today</div></div>
+      <div style="text-align:center;padding:40px 20px;">
+        <div style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:5px;color:rgba(255,255,255,.15);margin-bottom:12px;">◆ F11 GROUP READY</div>
+        <div style="font-size:.78rem;color:rgba(255,255,255,.25);font-family:'Rajdhani',sans-serif;line-height:1.8;">Your F11 is live.<br>Tap MANAGE to add members by IPNOTEC ID.<br>Start the conversation below.</div>
+      </div>
     </div>
 
     <!-- FINAL GO BAR -->
-    <div class="final-go-bar" id="final-go-bar">
-      <div class="fg-lbl">All confirmed · You are the owner · Ready to close</div>
+    <div class="final-go-bar" id="final-go-bar" style="display:none;">
+      <div class="fg-lbl">All 11 confirmed · You are the owner · Ready to close</div>
       <button class="fg-btn" onclick="triggerFinalGo()">FINAL GO →</button>
     </div>
 
@@ -1076,6 +1407,10 @@ body.classic #screen-processing{background:var(--cl-bg);}
     <span class="ftr-date-reveal" id="ftr-date-reveal">JAN 10TH 2027 &nbsp;·&nbsp; 10:01 HRS IST</span>
     <span id="countdown">—</span>
   </div>
+  <button id="mode-toggle" onclick="toggleMode()" title="Switch UI Mode">
+    <span id="mt-icon">⬡</span>
+    <span id="mt-label">CLASSIC</span>
+  </button>
   <button class="home-btn" onclick="goTo('landing')">
     <span>|</span>
     <span class="clock-face clock-cw"><span class="clock-hand"></span></span>
@@ -1160,14 +1495,14 @@ const IATA_CITIES=[
 ];
 
 const LAND_CITIES=[
-  {c:'JFK',t:'34%',l:'20%',col:'#BF00FF'},{c:'LAX',t:'42%',l:'11%',col:'#39FF14'},
-  {c:'LHR',t:'22%',l:'46%',col:'#00C8FF'},{c:'CDG',t:'25%',l:'48%',col:'#FFE600'},
-  {c:'DXB',t:'44%',l:'60%',col:'#FF6200'},{c:'BOM',t:'53%',l:'67%',col:'#6A0EFF'},
-  {c:'BLR',t:'58%',l:'68%',col:'#FF1744'},{c:'SIN',t:'63%',l:'80%',col:'#00C8FF'},
-  {c:'HKG',t:'47%',l:'77%',col:'#39FF14'},{c:'NRT',t:'32%',l:'86%',col:'#BF00FF'},
-  {c:'SYD',t:'76%',l:'88%',col:'#AAAAAA'},{c:'GRU',t:'71%',l:'33%',col:'#FFE600'},
-  {c:'JNB',t:'68%',l:'54%',col:'#FF6200'},{c:'ICN',t:'34%',l:'83%',col:'#FFFFFF'},
-  {c:'YYZ',t:'30%',l:'24%',col:'#FF1744'},
+  {c:'JFK',t:'27.4%',l:'29.5%',col:'#BF00FF'},{c:'LAX',t:'31.1%',l:'17.1%',col:'#39FF14'},
+  {c:'LHR',t:'21.4%',l:'49.9%',col:'#00C8FF'},{c:'CDG',t:'22.8%',l:'50.7%',col:'#FFE600'},
+  {c:'DXB',t:'36.0%',l:'65.4%',col:'#FF6200'},{c:'BOM',t:'39.4%',l:'70.2%',col:'#6A0EFF'},
+  {c:'BLR',t:'42.8%',l:'71.6%',col:'#FF1744'},{c:'SIN',t:'49.2%',l:'78.9%',col:'#00C8FF'},
+  {c:'HKG',t:'37.6%',l:'81.6%',col:'#39FF14'},{c:'NRT',t:'30.1%',l:'89.0%',col:'#BF00FF'},
+  {c:'SYD',t:'68.9%',l:'91.7%',col:'#AAAAAA'},{c:'GRU',t:'62.9%',l:'37.1%',col:'#FFE600'},
+  {c:'JNB',t:'64.5%',l:'57.8%',col:'#FF6200'},{c:'ICN',t:'29.2%',l:'85.1%',col:'#FFFFFF'},
+  {c:'YYZ',t:'25.7%',l:'27.9%',col:'#FF1744'},
 ];
 const PHRASES=['FROM NOTHING','COMES EVERYTHING','STEP FORWARD','YOUR FUTURE','THE FUTURE IS NOW','BEYOND LIMITS'];
 const VIBGYOR=['#BF00FF','#6A0EFF','#00C8FF','#39FF14','#FFE600','#FF6200','#FF1744','#AAAAAA','#FFFFFF'];
@@ -1216,6 +1551,22 @@ function playSound(type){
       // Short crisp send
       mk(1200,ctx.currentTime,.12,'sine',.06);
       mk(800,ctx.currentTime+.06,.1,'sine',.04);
+    } else if(type==='ticket'){
+      // Futuristic multi-stage ticket generation — building, locking, confirming
+      const t=ctx.currentTime;
+      // Stage 1: rapid data-stream blips ascending
+      [880,1047,1175,1319,1568].forEach((f,i)=>mk(f,t+i*.055,.15,'sine',.06));
+      // Stage 2: deep resonant pulse
+      mk(110,t+.32,.55,'sine',.05);mk(165,t+.34,.45,'sine',.04);
+      // Stage 3: identity-lock chime sequence
+      [523,659,784,1047].forEach((f,i)=>mk(f,t+.55+i*.07,.28,'sine',.08));
+      // Stage 4: final confirmation shimmer
+      const o2=ctx.createOscillator(),g2=ctx.createGain();
+      o2.connect(g2);g2.connect(ctx.destination);o2.type='sine';
+      o2.frequency.setValueAtTime(2093,t+.9);
+      o2.frequency.exponentialRampToValueAtTime(1047,t+1.1);
+      g2.gain.setValueAtTime(.065,t+.9);g2.gain.exponentialRampToValueAtTime(.001,t+1.3);
+      o2.start(t+.9);o2.stop(t+1.4);
     } else if(type==='node'){
       // Sci-fi blip
       const o=ctx.createOscillator(),g=ctx.createGain();
@@ -1233,21 +1584,21 @@ function playSound(type){
    NODE EMULATION DATA
 ══════════════════════════════════════════ */
 const NODE_USERS=[
-  {name:'ZARA·V',city:'BOM',color:'#BF00FF',id:'IPN···4821'},
-  {name:'KAI·X',city:'SIN',color:'#00C8FF',id:'IPN···9034'},
-  {name:'NOVA·7',city:'DXB',color:'#39FF14',id:'IPN···2267'},
-  {name:'REX·Ω',city:'LHR',color:'#FFE600',id:'IPN···5519'},
-  {name:'LYRA·3',city:'JFK',color:'#FF6200',id:'IPN···8803'},
-  {name:'ORION',city:'NRT',color:'#6A0EFF',id:'IPN···1144'},
-  {name:'VEGA·Q',city:'SYD',color:'#FF1744',id:'IPN···7721'},
-  {name:'ECHO·9',city:'DEL',color:'#FFFFFF',id:'IPN···3358'},
-  {name:'FLUX·M',city:'LAX',color:'#AAAAAA',id:'IPN···6642'},
-  {name:'PULSE',city:'BLR',color:'#39FF14',id:'IPN···9901'},
-  {name:'TITAN·2',city:'CDG',color:'#00C8FF',id:'IPN···4477'},
-  {name:'ASHA·K',city:'HKG',color:'#FFE600',id:'IPN···8832'},
-  {name:'ZERO·1',city:'ICN',color:'#BF00FF',id:'IPN···6619'},
-  {name:'STORM',city:'FRA',color:'#FF6200',id:'IPN···3344'},
-  {name:'ARIA·X',city:'GRU',color:'#6A0EFF',id:'IPN···8877'},
+  {name:'ZARA·V',city:'BOM',color:'#BF00FF',id:'IPN···4821',verified:true,company:'PVT LTD',focus:'Verified identity for fintech',website:'zara-ventures.in'},
+  {name:'KAI·X',city:'SIN',color:'#00C8FF',id:'IPN···9034',verified:false,company:'',focus:'',website:''},
+  {name:'NOVA·7',city:'DXB',color:'#39FF14',id:'IPN···2267',verified:true,company:'FOREIGN',focus:'Cross-border supply chain AI',website:'nova7.io'},
+  {name:'REX·Ω',city:'LHR',color:'#FFE600',id:'IPN···5519',verified:false,company:'',focus:'',website:''},
+  {name:'LYRA·3',city:'JFK',color:'#FF6200',id:'IPN···8803',verified:true,company:'SOLE PROP',focus:'Independent product design',website:'lyra3.design'},
+  {name:'ORION',city:'NRT',color:'#6A0EFF',id:'IPN···1144',verified:false,company:'',focus:'',website:''},
+  {name:'VEGA·Q',city:'SYD',color:'#FF1744',id:'IPN···7721',verified:true,company:'PVT LTD',focus:'Climate tech operations',website:'vegaq.com.au'},
+  {name:'ECHO·9',city:'DEL',color:'#FFFFFF',id:'IPN···3358',verified:false,company:'',focus:'',website:''},
+  {name:'FLUX·M',city:'LAX',color:'#AAAAAA',id:'IPN···6642',verified:false,company:'',focus:'',website:''},
+  {name:'PULSE',city:'BLR',color:'#39FF14',id:'IPN···9901',verified:true,company:'LLP',focus:'EV charging infrastructure',website:'pulse-ev.in'},
+  {name:'TITAN·2',city:'CDG',color:'#00C8FF',id:'IPN···4477',verified:true,company:'PUBLIC',focus:'Enterprise SaaS · 200+ clients',website:'titan2.eu'},
+  {name:'ASHA·K',city:'HKG',color:'#FFE600',id:'IPN···8832',verified:false,company:'',focus:'',website:''},
+  {name:'ZERO·1',city:'ICN',color:'#BF00FF',id:'IPN···6619',verified:true,company:'PVT LTD',focus:'Digital payments infrastructure',website:'zero1.co.kr'},
+  {name:'STORM',city:'FRA',color:'#FF6200',id:'IPN···3344',verified:false,company:'',focus:'',website:''},
+  {name:'ARIA·X',city:'GRU',color:'#6A0EFF',id:'IPN···8877',verified:true,company:'NGO',focus:'Digital literacy · rural Brazil',website:'ariax.org.br'},
 ];
 const TAKEN_NAMES=['NOVA SEVEN','ZERO ONE','CIPHER X','FLUX ALPHA','VEGA PRIME','ORION MAX','TITAN ZERO','ECHO NINE','PULSE THREE','STORM ONE','APEX FIVE','ZARA V','KAI X','LYRA THREE','REX OMEGA','NOVA X','ZERO X','CIPHER ZERO','FLUX X','VEGA X','ARIA SEVEN','NEXUS ONE','SPARK TWO','SIGNAL ZERO','STORM TWO'];
 
@@ -1329,12 +1680,26 @@ function hexToRgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.sli
     const d=document.createElement('div');
     d.className='city-node';d.id=`nd-${i}`;
     d.style.top=city.t;d.style.left=city.l;
-    d.innerHTML=`<div class="city-dot" style="background:${city.col};box-shadow:0 0 14px ${city.col},0 0 28px ${city.col};"></div><span class="city-code" style="color:${city.col};">${city.c}</span>`;
+    d.innerHTML=`<div class="city-dot" style="background:${city.col};box-shadow:0 0 10px ${city.col},0 0 20px ${city.col};"></div><span class="city-code" style="color:${city.col};">${city.c}</span>`;
     nc.appendChild(d);
   });
+  positionCityLayer();
+  window.addEventListener('resize',positionCityLayer);
   const dl=document.getElementById('iata-list');
   IATA_CITIES.forEach(c=>{const o=document.createElement('option');o.value=c;dl.appendChild(o);});
 })();
+
+function positionCityLayer(){
+  const scr=document.getElementById('screen-landing');
+  const W=scr.clientWidth,H=scr.clientHeight;
+  const MAP_ASPECT=1009.67/665.96;
+  let mW,mH,mL,mT;
+  if(W/H>MAP_ASPECT){mH=H;mW=H*MAP_ASPECT;}else{mW=W;mH=W/MAP_ASPECT;}
+  mL=(W-mW)/2;mT=(H-mH)/2;
+  const layer=document.getElementById('map-nodes');
+  layer.style.left=mL+'px';layer.style.top=mT+'px';
+  layer.style.width=mW+'px';layer.style.height=mH+'px';
+}
 
 function landingCycle(){
   document.querySelectorAll('.city-node').forEach(n=>n.classList.remove('active'));
@@ -1467,6 +1832,8 @@ function goTo(id){
   if(el){el.classList.add('active');}
   if(id==='final')spawnFinalStreams();
   if(id==='f11')initF11();
+  if(id==='f11-invite')initF11InviteHub();
+  if(id==='reveal')setTimeout(initBizSection,80);
 }
 function startFlow(path){
   S.path=path;makeDots('ph-dots',2,0);goTo('phone');
@@ -1493,13 +1860,15 @@ function makeDots(id,total,current){
    OTP FLOW
 ══════════════════════════════════════════ */
 function sendOTP(){
-  const raw=document.getElementById('phone-in').value.replace(/[\s\-\+]/g,'');
+  const cc=(document.getElementById('phone-cc').value||'91').replace(/\D/g,'');
+  const num=document.getElementById('phone-in').value.replace(/[\s\-\+]/g,'');
   const err=document.getElementById('phone-err');
-  if(raw.length<10){err.classList.add('show');return;}
+  if(num.length<8){err.classList.add('show');return;}
   err.classList.remove('show');
+  const raw=cc+num;
   S.phone=raw;
   S.genOTP=Math.floor(100000+Math.random()*900000).toString();
-  document.getElementById('otp-sub').innerHTML=`Code sent to <strong>+${raw}</strong>&nbsp;&nbsp;<span style="color:#666;font-size:.7rem;">[DEMO: ${S.genOTP}]</span>`;
+  document.getElementById('otp-sub').innerHTML=`Code sent to <strong>+${cc} ${num}</strong>&nbsp;&nbsp;<span style="color:#666;font-size:.7rem;">[DEMO: ${S.genOTP}]</span>`;
   ['otp-err','otp-suc'].forEach(id=>document.getElementById(id).classList.remove('show'));
   for(let i=0;i<6;i++){const b=document.getElementById(`o${i}`);if(b)b.value='';}
   goTo('otp');
@@ -1546,16 +1915,62 @@ let nodeCountVal=47;
 function buildFreeNode(){
   const grid=document.getElementById('node-grid');
   grid.innerHTML='';
+
+  // If user is VIP, prepend their own card at top
+  if(S.persona&&S.fullFutureName){
+    const meCard=document.createElement('div');
+    meCard.className='node-card';
+    meCard.style.borderColor=S.persona.c+'60';
+    meCard.style.background='rgba(255,255,255,.025)';
+    const isVerified=S.gstVerified||false;
+    const bizExpand=isVerified?`
+      <div class="nc-biz-toggle" onclick="toggleNodeBiz(this)">
+        <span>◈ BUSINESS PROFILE</span><span>▾</span>
+      </div>
+      <div class="nc-biz-body">
+        <div class="nc-biz-badge">✓ VERIFIED · ${S.bizEntity||'REGISTERED'}</div>
+        ${S.bizFocus?`<div class="nc-biz-focus">${S.bizFocus}</div>`:''}
+        ${S.bizWebsite?`<a class="nc-biz-link" href="https://${S.bizWebsite}" target="_blank" rel="noopener">${S.bizWebsite} →</a>`:''}
+      </div>`:'';
+    meCard.innerHTML=`
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div class="nc-avatar" style="background:${S.persona.c}22;border:2px solid ${S.persona.c};color:${S.persona.c};">${S.persona.k}</div>
+        <div style="flex:1;min-width:0;">
+          <div class="nc-name" style="color:${S.persona.c};text-shadow:0 0 10px ${S.persona.c}60;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${S.fullFutureName||S.fname}</div>
+          <div class="nc-city">${S.city||'BLR'} · YOU${S.bizEntity?`<span class="nc-entity">${S.bizEntity}</span>`:''}</div>
+        </div>
+      </div>
+      <div class="nc-id">${S.iid||'IPN···0000'}</div>
+      ${bizExpand}
+      <div style="font-family:'Orbitron',sans-serif;font-size:.44rem;letter-spacing:3px;color:rgba(255,255,255,.25);margin-top:8px;">YOUR NODE · LIVE</div>`;
+    const topBar=document.createElement('div');
+    topBar.style.cssText=`position:absolute;top:0;left:0;right:0;height:2px;background:${S.persona.c};opacity:.8;`;
+    meCard.appendChild(topBar);grid.appendChild(meCard);
+  }
+
   NODE_USERS.forEach((u,idx)=>{
     const card=document.createElement('div');card.className='node-card';
     card.style.borderColor=u.color+'30';
+    const bizExpand=u.verified?`
+      <div class="nc-biz-toggle" onclick="toggleNodeBiz(this)">
+        <span>◈ BUSINESS PROFILE</span><span>▾</span>
+      </div>
+      <div class="nc-biz-body">
+        <div class="nc-biz-badge">✓ VERIFIED · ${u.company}</div>
+        ${u.focus?`<div class="nc-biz-focus">${u.focus}</div>`:''}
+        ${u.website?`<a class="nc-biz-link" href="https://${u.website}" target="_blank" rel="noopener">${u.website} →</a>`:''}
+      </div>`:'';
     card.innerHTML=`
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
         <div class="nc-avatar" style="background:${u.color}22;border:2px solid ${u.color}55;color:${u.color};">${u.name.charAt(0)}</div>
-        <div><div class="nc-name" style="color:${u.color};text-shadow:0 0 10px ${u.color}60;">${u.name}</div><div class="nc-city">${u.city}</div></div>
+        <div style="flex:1;min-width:0;">
+          <div class="nc-name" style="color:${u.color};text-shadow:0 0 10px ${u.color}60;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${u.name}</div>
+          <div class="nc-city">${u.city}${u.company?`<span class="nc-entity">${u.company}</span>`:''}</div>
+        </div>
       </div>
       <div class="nc-id">${u.id}</div>
-      <div class="nc-btns">
+      ${bizExpand}
+      <div class="nc-btns" style="margin-top:8px;">
         <button class="nc-btn nc-ping" id="ping-btn-${idx}" onclick="pingNode(${idx})">PING</button>
         <button class="nc-btn nc-connect" onclick="openConnectModal(${idx})">CONNECT</button>
       </div>`;
@@ -1567,6 +1982,14 @@ function buildFreeNode(){
     nodeCountVal+=Math.random()>.5?1:-1;nodeCountVal=Math.max(40,Math.min(64,nodeCountVal));
     const el=document.getElementById('node-count-num');if(el)el.textContent=Math.round(nodeCountVal);
   },3200);
+}
+function toggleNodeBiz(row){
+  const body=row.nextElementSibling;
+  const arrow=row.querySelector('span:last-child');
+  const open=body.style.display==='block';
+  body.style.display=open?'none':'block';
+  arrow.textContent=open?'▾':'▴';
+  if(!open)playSound('lock');
 }
 function pingNode(idx){
   const btn=document.getElementById(`ping-btn-${idx}`);
@@ -1595,9 +2018,89 @@ function attemptConnect(){
   const st=document.getElementById('nm-status');st.style.display='block';
   st.style.borderColor='rgba(0,200,255,.4)';st.style.color='var(--b)';st.textContent='◈ VERIFYING IPNOTEC ID...';
   setTimeout(()=>{
-    st.style.borderColor='rgba(255,98,0,.4)';st.style.color='var(--o)';
-    st.textContent='⊘ IPNOTEC VIP REQUIRED — GET YOUR ID TO CONNECT GLOBALLY';
-  },1600);
+    st.style.borderColor='rgba(57,255,20,.4)';st.style.color='var(--g)';
+    st.textContent='✓ CONNECTION ACCEPTED — OPENING SECURE CHANNEL';
+    playSound('confirm');
+    setTimeout(()=>{closeNodeModal();openChat(currentNode);},900);
+  },1400);
+}
+
+/* ── 1-ON-1 CHAT EMULATION ── */
+const CHAT_AUTO_REPLIES=[
+  ['Hey! Great to connect on IPNOTEC 🤝','Which city are you based in?'],
+  ['Interesting — what brings you to the VIP network?','I joined because of the F11 concept. Very unique.'],
+  ['The VIBGYOR identity system is brilliant, honestly.','Which wavelength are you?'],
+  ['I\'m working on something in the identity space too.','Let\'s sync up — DM me your IID.'],
+  ['The Jan 10 2027 launch is going to be massive.','Are you building on top of IPNOTEC?'],
+  ['Love the PRIV aesthetic. Dark terminal vibes.','Real noiseless network — finally.'],
+  ['The F11 group concept is what got me.','11 is a powerful number.'],
+  ['BLR node is very active today.','How many in your F11 so far?'],
+];
+let chatReplyIdx=0,chatAutoTimer=null,currentChatNode=null;
+
+function openChat(u){
+  currentChatNode=u;
+  const modal=document.getElementById('chat-modal');
+  const hdr=document.getElementById('chat-hdr');
+  const av=document.getElementById('chat-av');
+  const nm=document.getElementById('chat-hdr-name');
+  av.textContent=u.name.charAt(0);av.style.borderColor=u.color;av.style.color=u.color;av.style.background=u.color+'18';
+  nm.textContent=u.name+' · '+u.city;nm.style.color=u.color;
+  hdr.style.borderBottomColor=u.color+'60';
+  document.getElementById('chat-typing-name').textContent=u.name;
+  const msgs=document.getElementById('chat-messages');msgs.innerHTML='';
+  chatReplyIdx=0;
+  // Opening system message
+  addChatMsg(null,'◈ SECURE IPNOTEC CHANNEL OPENED · END-TO-END VERIFIED',u.color,true);
+  // First message from them after short delay
+  setTimeout(()=>{showTyping();setTimeout(()=>{hideTyping();addChatMsg('them',`${CHAT_AUTO_REPLIES[0][0]}`,u.color);chatReplyIdx=1;},1800);},600);
+  modal.classList.add('show');
+  document.getElementById('chat-input').focus();
+}
+
+function closeChat(){
+  document.getElementById('chat-modal').classList.remove('show');
+  clearTimeout(chatAutoTimer);
+}
+
+function addChatMsg(side,text,color,isSystem){
+  const msgs=document.getElementById('chat-messages');
+  const d=document.createElement('div');
+  if(isSystem){
+    d.style.cssText='text-align:center;font-family:Orbitron,sans-serif;font-size:.44rem;letter-spacing:3px;color:rgba(255,255,255,.22);padding:6px 0;';
+    d.textContent=text;
+  } else {
+    d.className='chat-msg '+(side==='me'?'me':'them');
+    if(side==='them'){d.style.borderLeftColor=color;d.style.background=color+'0A';}
+    const from=document.createElement('div');from.className='chat-msg-from';
+    from.textContent=side==='me'?(S.fullFutureName||'YOU'):currentChatNode.name;
+    from.style.color=color;
+    const body=document.createElement('div');body.textContent=text;
+    const ts=document.createElement('div');ts.className='chat-msg-time';
+    const now=new Date();ts.textContent=now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
+    d.appendChild(from);d.appendChild(body);d.appendChild(ts);
+  }
+  msgs.appendChild(d);
+  msgs.scrollTop=msgs.scrollHeight;
+  playSound(side==='me'?'send':'receive');
+}
+
+function showTyping(){document.getElementById('chat-typing').classList.add('show');}
+function hideTyping(){document.getElementById('chat-typing').classList.remove('show');}
+
+function sendChatMsg(){
+  const inp=document.getElementById('chat-input');
+  const txt=inp.value.trim();if(!txt)return;
+  inp.value='';
+  addChatMsg('me',txt,currentChatNode?currentChatNode.color:'#00C8FF');
+  // Trigger auto reply
+  clearTimeout(chatAutoTimer);
+  chatAutoTimer=setTimeout(()=>{
+    showTyping();
+    const replies=CHAT_AUTO_REPLIES[chatReplyIdx%CHAT_AUTO_REPLIES.length];
+    const reply=replies[Math.floor(Math.random()*replies.length)];
+    setTimeout(()=>{hideTyping();addChatMsg('them',reply,currentChatNode.color);chatReplyIdx++;},1200+Math.random()*800);
+  },400+Math.random()*600);
 }
 
 /* ══════════════════════════════════════════
@@ -1682,6 +2185,7 @@ function saveCity(){
 ══════════════════════════════════════════ */
 function startJourney(){
   goTo('journey');
+  playSound('ticket');
   const col=S.pColor;
   const jn=document.getElementById('j-persona-letter');
   jn.innerText=S.persona.k;jn.style.color=col;jn.style.textShadow=`0 0 40px ${col},0 0 80px ${col}`;
@@ -1868,37 +2372,182 @@ function toggleMode(){
    F11 CHAT — INIT & RENDER
 ══════════════════════════════════════════ */
 let f11Inited=false;
+let f11Members=[]; // live member list built by user
 function initF11(){
-  if(f11Inited)return;
-  f11Inited=true;
+  f11Inited=false;
+  f11Members=[];
+  f11Confirmed=new Set();
+  f11MeConfirmed=false;
+  f11FinalGoDone=false;
+  f11IModeOn=false;
 
-  // Set owner sq color
   const ownerColor=S.pColor||'#BF00FF';
   const ownerSq=document.getElementById('f11-owner-sq');
-  ownerSq.style.borderColor=ownerColor;ownerSq.style.color=ownerColor;
+  if(ownerSq){ownerSq.style.borderColor=ownerColor;ownerSq.style.color=ownerColor;}
 
-  // Group name
   const pkey=S.persona?S.persona.k:'V';
   const pcc=S.cityCode||'BLR';
-  const fname=S.fname||'NOVA';
-  document.getElementById('f11-group-name').textContent=`My F11 — ${fname}·${pkey}·${pcc}`;
-  document.getElementById('i2-group-name').textContent=`${fname}·${pkey}·${pcc} F11`;
+  const fname=S.fname||'MY F11';
+  document.getElementById('f11-group-name').textContent=`MY F11 — ${fname}`;
+  const i2gn=document.getElementById('i2-group-name');if(i2gn)i2gn.textContent=`${fname}·${pkey}·${pcc} F11`;
 
   const now=new Date();
-  document.getElementById('i2-session-dt').textContent=now.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})+' · '+now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+  const i2dt=document.getElementById('i2-session-dt');
+  if(i2dt)i2dt.textContent=now.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})+' · '+now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
 
-  // Build member strip
+  // Add owner (self) as first member
+  f11Members.push({id:fname+'.'+pkey,full:`${fname}·${pkey}·${pcc}`,k:pkey,c:ownerColor,owner:true});
+
+  // Pre-populate from accepted invite state
+  if(typeof f11InviteState!=='undefined'){
+    const colorMap={V:'#BF00FF',I:'#6A0EFF',B:'#00C8FF',G:'#39FF14',Y:'#FFE600',O:'#FF6200',R:'#FF1744',N:'#AAAAAA',W:'#DDDDDD'};
+    Object.entries(f11InviteState.slots).forEach(([colorKey,slot])=>{
+      if(slot.accepted&&slot.phone&&f11Members.length<11){
+        const k=colorKey;
+        f11Members.push({id:'IPN-'+slot.phone.slice(-4),full:`CONTACT·${k}·NODE`,k,c:colorMap[k]||'#888'});
+      }
+    });
+    Object.entries(f11InviteState.openSlots).forEach(([_,slot])=>{
+      if(slot.accepted&&slot.phone&&f11Members.length<11){
+        f11Members.push({id:'IPN-'+slot.phone.slice(-4),full:`CONTACT·N·NODE`,k:'N',c:'#AAAAAA'});
+      }
+    });
+  }
+
+  // Clear chat body — blank start
+  const body=document.getElementById('f11-body');
+  body.innerHTML=`
+    <div style="text-align:center;padding:40px 20px;">
+      <div style="font-family:'Orbitron',sans-serif;font-size:.62rem;letter-spacing:5px;color:rgba(255,255,255,.18);margin-bottom:14px;">◆ F11 GROUP ACTIVE</div>
+      <div style="font-size:.8rem;color:rgba(255,255,255,.28);font-family:'Rajdhani',sans-serif;line-height:1.9;">
+        ${f11Members.length>1?`<span style="color:rgba(57,255,20,.5);">${f11Members.length-1} members pre-loaded from your invites.</span><br>`:''}
+        Use MANAGE to add more members by IPNOTEC ID.<br>Start the conversation below.
+      </div>
+    </div>`;
+
+  document.getElementById('f11-member-chips').innerHTML='';
+  document.getElementById('f11-add-id-input').value='';
+  const addStatus=document.getElementById('f11-add-status');if(addStatus)addStatus.style.display='none';
+
+  rebuildF11Strip();
+  rebuildMemberChips();
+
+  // Auto-open manage panel so user sees it immediately
+  const panel=document.getElementById('f11-manage-panel');
+  panel.style.display='block';
+  setTimeout(()=>document.getElementById('f11-add-id-input').focus(),200);
+
+  f11Inited=true;
+}
+
+function toggleF11Manage(){
+  const panel=document.getElementById('f11-manage-panel');
+  const isOpen=panel.style.display!=='none';
+  panel.style.display=isOpen?'none':'block';
+  if(!isOpen)setTimeout(()=>document.getElementById('f11-add-id-input').focus(),100);
+}
+
+// Pool of simulated members for emulation
+const F11_POOL=[
+  {id:'IPN-4821',full:'ZARA·V·BOM',k:'V',c:'#BF00FF'},
+  {id:'IPN-9034',full:'KAI·I·SIN',k:'I',c:'#6A0EFF'},
+  {id:'IPN-2267',full:'NOVA·B·DXB',k:'B',c:'#00C8FF'},
+  {id:'IPN-5519',full:'REX·G·LHR',k:'G',c:'#39FF14'},
+  {id:'IPN-8803',full:'LYRA·Y·JFK',k:'Y',c:'#FFE600'},
+  {id:'IPN-1144',full:'ORION·O·NRT',k:'O',c:'#FF6200'},
+  {id:'IPN-7721',full:'VEGA·R·SYD',k:'R',c:'#FF1744'},
+  {id:'IPN-3358',full:'ECHO·N·DEL',k:'N',c:'#AAAAAA'},
+  {id:'IPN-6642',full:'FLUX·W·LAX',k:'W',c:'#DDDDDD'},
+  {id:'IPN-9901',full:'PULSE·G·BLR',k:'G',c:'#39FF14'},
+];
+
+function addF11Member(){
+  const inp=document.getElementById('f11-add-id-input');
+  const val=inp.value.trim().toUpperCase();
+  const status=document.getElementById('f11-add-status');
+  if(!val){return;}
+  if(f11Members.length>=11){
+    status.style.display='block';status.style.color='var(--o)';status.textContent='⊘ F11 FULL — MAXIMUM 11 MEMBERS';return;
+  }
+  // Check duplicate
+  if(f11Members.find(m=>m.id===val||m.full.toUpperCase().includes(val))){
+    status.style.display='block';status.style.color='var(--o)';status.textContent='⊘ ALREADY IN YOUR F11';return;
+  }
+  status.style.display='block';status.style.color='var(--b)';status.textContent='◈ VERIFYING IPNOTEC ID...';
+  setTimeout(()=>{
+    // Try to match from pool, else create
+    let member=F11_POOL.find(m=>m.id===val||m.full.toUpperCase().includes(val));
+    if(!member){
+      const colors=['#BF00FF','#6A0EFF','#00C8FF','#39FF14','#FFE600','#FF6200','#FF1744','#AAAAAA'];
+      const c=colors[Math.floor(Math.random()*colors.length)];
+      const keys=['V','I','B','G','Y','O','R','N'];
+      const k=keys[Math.floor(Math.random()*keys.length)];
+      member={id:val,full:val+'·'+k,k,c};
+    }
+    f11Members.push(member);
+    inp.value='';
+    status.style.color='var(--g)';status.textContent=`✓ ${member.full} ADDED TO F11`;
+    rebuildF11Strip();
+    rebuildMemberChips();
+    setTimeout(()=>{
+      // Send a joining message from the new member
+      const now=new Date();const ts=now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');
+      addF11Sys(`${member.full} joined F11`);
+      setTimeout(()=>addF11Msg_custom(member,['Good to be here 🤝','Excited for what we build.','F11 is live!'][Math.floor(Math.random()*3)],ts),800+Math.random()*600);
+    },400);
+    playSound('confirm');
+  },900);
+}
+
+function removeF11Member(id){
+  const idx=f11Members.findIndex(m=>m.id===id);
+  if(idx<=0)return; // can't remove self (idx 0)
+  const removed=f11Members[idx];
+  f11Members.splice(idx,1);
+  rebuildF11Strip();
+  rebuildMemberChips();
+  addF11Sys(`${removed.full} removed from F11`);
+  playSound('lock');
+}
+
+function rebuildF11Strip(){
   const strip=document.getElementById('f11-mbr-strip');strip.innerHTML='';
-  F11_MBRS.forEach((m,i)=>{
-    const c=PC[m.k];
+  f11Members.forEach((m,i)=>{
     const d=document.createElement('div');d.className='f11-mbr';d.id=`f11-mbr-${i}`;
-    d.innerHTML=`<div class="f11-mbr-sq" id="f11-msq-${i}" style="background:${c}20;border-color:${c}66;color:${c};">${m.k}</div><div class="f11-mbr-lbl" style="color:${c}99;">${m.id}</div>`;
+    d.innerHTML=`<div class="f11-mbr-sq" style="background:${m.c}20;border-color:${m.c}66;color:${m.c};">${m.k}</div><div class="f11-mbr-lbl" style="color:${m.c}99;">${m.id}</div>`;
     strip.appendChild(d);
   });
+  document.getElementById('f11-group-sub').textContent=`${f11Members.length} / 11 members`;
+}
 
-  // Build seed messages
+function rebuildMemberChips(){
+  const chips=document.getElementById('f11-member-chips');chips.innerHTML='';
+  f11Members.forEach((m,i)=>{
+    if(i===0)return; // skip self
+    const chip=document.createElement('div');
+    chip.style.cssText=`display:flex;align-items:center;gap:5px;padding:4px 8px 4px 6px;border:1px solid ${m.c}55;background:${m.c}12;font-family:'Space Mono',monospace;font-size:.6rem;color:${m.c};`;
+    chip.innerHTML=`<span>${m.full}</span><span onclick="removeF11Member('${m.id}')" style="cursor:pointer;color:rgba(255,80,80,.6);font-size:.7rem;padding-left:4px;line-height:1;">✕</span>`;
+    chips.appendChild(chip);
+  });
+}
+
+function addF11Msg_custom(member,text,ts){
   const body=document.getElementById('f11-body');
-  F11_SEED.forEach(msg=>{addF11Msg(msg.f,msg.t,msg.ts);});
+  const div=document.createElement('div');
+  div.className='f11-msg them';
+  const c=member.c;
+  const bubBg=f11IModeOn?'#1a1a1a':'#fff';
+  const textColor=f11IModeOn?c:'#111';
+  const borderStyle=f11IModeOn?`border-left:2px solid ${c};`:'';
+  div.innerHTML=`<div class="f11-av" style="background:${c}20;border-color:${c}55;color:${c};">${member.k}</div>
+    <div class="f11-msg-inner">
+      <div class="f11-msg-name" style="color:${f11IModeOn?'#fff':c};">${member.full}</div>
+      <div class="f11-bubble" style="background:${bubBg};color:${textColor};${borderStyle}">${text}</div>
+      <div class="f11-msg-meta"><span class="f11-msg-time">${ts}</span></div>
+    </div>`;
+  body.appendChild(div);f11MsgCount++;
+  body.scrollTop=body.scrollHeight;
+  playSound('receive');
 }
 
 function addF11Msg(fromIdx,text,ts,isConfirm){
@@ -2245,6 +2894,227 @@ function shareI2(){
     });
   }
 }
+
+function toggleAccordion(id,hdr){
+  const body=document.getElementById(id);
+  const arrow=hdr.querySelector('.acc-arrow');
+  const isOpen=body.style.display!=='none';
+  body.style.display=isOpen?'none':'block';
+  if(arrow)arrow.textContent=isOpen?'▾':'▴';
+  if(!isOpen)playSound('lock');
+}
+
+/* ══════════════════════════════════════════
+   BUSINESS IDENTITY — REVEAL SCREEN
+══════════════════════════════════════════ */
+const COLOR_QUESTIONS={
+  V:{label:'WHAT IS YOUR CORE INNOVATION OR IP AREA?',placeholder:'e.g. Verified identity infrastructure'},
+  I:{label:'WHAT SECTORS DO YOU INVEST IN OR ADVISE?',placeholder:'e.g. Deep tech, fintech, climate'},
+  B:{label:'WHAT IS YOUR PRIMARY PRODUCT OR TECH STACK?',placeholder:'e.g. SaaS, mobile, embedded systems'},
+  G:{label:'WHAT INDUSTRY VERTICAL DO YOU GROW IN?',placeholder:'e.g. Retail, agri-tech, logistics'},
+  Y:{label:'WHAT IS YOUR PRIMARY CREATIVE MEDIUM?',placeholder:'e.g. Video, design, content, events'},
+  O:{label:'WHAT STAGE IS YOUR BUSINESS AT?',placeholder:'e.g. Pre-revenue / ₹10L ARR / Scaling'},
+  R:{label:'WHAT ARE YOU DISRUPTING — ONE LINE.',placeholder:'e.g. Making physical access paperless'},
+  N:{label:'WHAT IS YOUR PRIMARY BASE CITY?',placeholder:'e.g. Bengaluru / Remote / Nomad'},
+  W:{label:'WHAT POLICY AREA ARE YOU FOCUSED ON?',placeholder:'e.g. Digital identity, DPDP Act, open data'},
+};
+
+function initBizSection(){
+  const p=S.persona;if(!p)return;
+  const q=COLOR_QUESTIONS[p.k]||{label:'YOUR PRIMARY FOCUS AREA',placeholder:'Describe your work in one line'};
+  const lbl=document.getElementById('biz-color-q-lbl');
+  const inp=document.getElementById('biz-color-q-input');
+  if(lbl){lbl.textContent=q.label;lbl.style.color=p.c+'cc';}
+  if(inp){inp.placeholder=q.placeholder;inp.style.borderColor=p.c+'33';}
+  if(inp){inp.addEventListener('focus',()=>{inp.style.borderColor=p.c+'88';});
+  inp.addEventListener('blur',()=>{inp.style.borderColor=p.c+'33';});}
+}
+
+const GSTIN_RE=/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/;
+
+function verifyGST(){
+  const val=(document.getElementById('biz-gst').value||'').trim().toUpperCase();
+  const status=document.getElementById('biz-gst-status');
+  const btn=document.getElementById('biz-verify-btn');
+  if(!val){
+    status.className='biz-status err';status.textContent='⊘ GSTIN CANNOT BE EMPTY';return;
+  }
+  if(val.length!==15||!GSTIN_RE.test(val)){
+    status.className='biz-status err';status.textContent='⊘ INVALID GSTIN FORMAT — CHECK AND RE-ENTER';return;
+  }
+  // Simulate server verification
+  status.className='biz-status ok';status.textContent='◈ VERIFYING WITH GSTN...';
+  btn.textContent='CHECKING...';btn.disabled=true;
+  setTimeout(()=>{
+    S.gst=val;S.gstVerified=true;
+    status.textContent='✓ GSTIN VERIFIED — ✓ VERIFIED BADGE UNLOCKED ON YOUR NODE';
+    btn.textContent='✓ DONE';btn.className='biz-verify-btn verified';
+    playSound('lock');
+  },1800);
+}
+
+function saveBizAndClose(){
+  const entity=(document.getElementById('biz-entity').value)||'';
+  const gst=(document.getElementById('biz-gst').value||'').toUpperCase().trim();
+  const focusQ=(document.getElementById('biz-color-q-input').value||'').trim();
+  const website=(document.getElementById('biz-website').value||'').trim().replace(/^https?:\/\//,'');
+  if(entity)S.bizEntity=entity;
+  if(focusQ)S.bizFocus=focusQ;
+  if(website)S.bizWebsite=website;
+  if(gst&&!S.gstVerified){
+    if(gst.length===15&&GSTIN_RE.test(gst)){S.gst=gst;S.gstVerified=true;}
+  }
+  const sec=document.getElementById('biz-section');
+  sec.style.opacity='0.5';sec.style.pointerEvents='none';
+  const badge=document.getElementById('biz-done-badge');
+  badge.classList.add('show');
+  badge.innerHTML=`✓ BUSINESS IDENTITY SAVED${S.gstVerified?' · ✓ VERIFIED':''}${website?' · '+website:''}`;
+  playSound('confirm');
+}
+
+/* ══════════════════════════════════════════
+   F11 INVITE HUB
+══════════════════════════════════════════ */
+const F11_INVITE_COLORS=[
+  {k:'V',n:'VIOLET',c:'#BF00FF'},
+  {k:'I',n:'INDIGO',c:'#6A0EFF'},
+  {k:'B',n:'BLUE',c:'#00C8FF'},
+  {k:'G',n:'GREEN',c:'#39FF14'},
+  {k:'Y',n:'YELLOW',c:'#FFE600'},
+  {k:'O',n:'ORANGE',c:'#FF6200'},
+  {k:'R',n:'RED',c:'#FF1744'},
+  {k:'N',n:'NOMAD',c:'#AAAAAA'},
+  {k:'W',n:'POLICY',c:'#DDDDDD'},
+];
+const f11InviteState={slots:{},openSlots:{open1:{sent:false,phone:''},open2:{sent:false,phone:''}}};
+
+function initF11InviteHub(){
+  // Update "you" card with user's persona
+  const p=S.persona||{k:'N',n:'NOMAD',c:'#AAAAAA'};
+  const youCard=document.getElementById('f11inv-you-card');
+  const youSq=document.getElementById('f11inv-you-sq');
+  const youName=document.getElementById('f11inv-you-name');
+  youCard.style.borderColor=p.c;
+  youSq.style.borderColor=p.c;youSq.style.color=p.c;youSq.textContent=p.k;
+  youName.textContent=S.fullFutureName||S.fname||'YOUR·'+p.k+'·NODE';
+  youName.style.color=p.c;
+
+  // Build color slots (exclude user's own color)
+  const colorGrid=document.getElementById('f11inv-color-slots');
+  colorGrid.innerHTML='';
+  const filteredColors=F11_INVITE_COLORS.filter(c=>c.k!==p.k);
+  filteredColors.forEach(col=>{
+    if(!f11InviteState.slots[col.k]){f11InviteState.slots[col.k]={sent:false,accepted:false,phone:''};}
+    colorGrid.appendChild(buildInviteSlot(col,`color-${col.k}`,false));
+  });
+
+  // Build 2 open slots
+  const openGrid=document.getElementById('f11inv-open-slots');
+  openGrid.innerHTML='';
+  [{id:'open1',label:'OPEN SLOT 1',type:'Any wavelength · your choice'},{id:'open2',label:'OPEN SLOT 2',type:'Any wavelength · your choice'}].forEach(sl=>{
+    const openCol={k:'?',n:sl.label,c:'#555555',type:sl.type};
+    openGrid.appendChild(buildInviteSlot(openCol,sl.id,true));
+  });
+
+  updateInviteProgress();
+}
+
+function buildInviteSlot(col,slotId,isOpen){
+  const div=document.createElement('div');
+  div.className='f11inv-slot';div.id=`slot-${slotId}`;
+  const state=isOpen?f11InviteState.openSlots[slotId]:f11InviteState.slots[col.k];
+  if(state&&state.sent)div.classList.add(state.accepted?'accepted':'sent');
+  div.innerHTML=`
+    <div class="f11inv-slot-color" style="border-color:${col.c};color:${col.c};background:${col.c}18;">${col.k}</div>
+    <div class="f11inv-slot-info">
+      <div class="f11inv-slot-name" style="color:${col.c};">${col.n}</div>
+      <div class="f11inv-slot-type">${col.type||col.def||''}</div>
+      <input class="f11inv-slot-input" id="inp-${slotId}" type="tel" placeholder="91XXXXXXXXXX" inputmode="numeric" maxlength="15" ${state&&state.sent?'style="display:none"':''}>
+      <div class="f11inv-slot-sent-phone" id="phone-disp-${slotId}" style="${state&&state.sent?'display:block':'display:none'}">${state&&state.phone?'+'+state.phone:''}</div>
+      <div class="f11inv-slot-status" id="status-${slotId}">${state&&state.accepted?'✓ ACCEPTED':'◈ INVITE SENT'}</div>
+    </div>
+    <button class="f11inv-send-btn" style="border-color:${col.c};color:${col.c};" onclick="sendF11Invite('${slotId}','${isOpen}','${col.k}')" ${state&&state.sent?'style="display:none"':''}>SEND →</button>
+  `;
+  return div;
+}
+
+function sendF11Invite(slotId,isOpen,colorKey){
+  const inp=document.getElementById(`inp-${slotId}`);
+  if(!inp)return;
+  const phone=inp.value.replace(/[\s\-\+]/g,'');
+  if(phone.length<10){inp.style.borderColor='rgba(255,98,0,.6)';inp.placeholder='10+ digits required';setTimeout(()=>{inp.style.borderColor='';inp.placeholder='91XXXXXXXXXX';},2000);return;}
+  
+  // Update state
+  const isOpenBool=isOpen==='true';
+  if(isOpenBool){f11InviteState.openSlots[slotId].sent=true;f11InviteState.openSlots[slotId].phone=phone;}
+  else{f11InviteState.slots[colorKey].sent=true;f11InviteState.slots[colorKey].phone=phone;}
+
+  // Update UI
+  const slot=document.getElementById(`slot-${slotId}`);
+  slot.classList.add('sent');
+  inp.style.display='none';
+  const pd=document.getElementById(`phone-disp-${slotId}`);
+  if(pd){pd.textContent='+'+phone;pd.style.display='block';}
+  const st=document.getElementById(`status-${slotId}`);
+  if(st){st.textContent='◈ INVITE SENT';st.style.display='block';}
+  slot.querySelector('.f11inv-send-btn').style.display='none';
+
+  // Simulate acceptance after 3s for demo
+  setTimeout(()=>{
+    slot.classList.remove('sent');slot.classList.add('accepted');
+    if(st){st.textContent='✓ ACCEPTED';st.style.color='var(--g)';}
+    if(isOpenBool){f11InviteState.openSlots[slotId].accepted=true;}
+    else{f11InviteState.slots[colorKey].accepted=true;}
+    updateInviteProgress();playSound('confirm');
+  },3000+Math.random()*2000);
+
+  updateInviteProgress();playSound('lock');
+}
+
+function updateInviteProgress(){
+  const colorSent=Object.values(f11InviteState.slots).filter(s=>s.sent).length;
+  const openSent=Object.values(f11InviteState.openSlots).filter(s=>s.sent).length;
+  const totalSent=colorSent+openSent;
+  const totalAccepted=Object.values(f11InviteState.slots).filter(s=>s.accepted).length+Object.values(f11InviteState.openSlots).filter(s=>s.accepted).length;
+  document.getElementById('f11inv-sent-count').textContent=totalSent;
+  document.getElementById('f11inv-accept-count').textContent=totalAccepted;
+  const fill=document.getElementById('f11inv-prog-fill');
+  if(fill){fill.style.width=(totalSent/10*100)+'%';}
+  if(totalSent>=1){
+    const btn=document.getElementById('f11inv-open-btn');
+    if(totalAccepted>=10){
+      btn.classList.add('show');
+      btn.textContent='◆ ALL 11 LOCKED — OPEN F11 GROUP →';
+      btn.style.cssText='display:block;width:100%;padding:16px;margin-top:22px;font-family:Orbitron,sans-serif;font-size:clamp(.78rem,2.5vw,.92rem);font-weight:900;letter-spacing:3px;cursor:pointer;border:2px solid var(--y);background:var(--y);color:#000;box-shadow:0 0 24px rgba(255,230,0,.3);border-radius:0;';
+      btn.onclick=()=>{goTo('f11');initF11();playSound('confirm');};
+    } else if(totalAccepted>0){
+      btn.classList.add('show');
+      btn.textContent=`◆ ${totalAccepted}/10 ACCEPTED — KEEP INVITING TO UNLOCK F11`;
+      btn.style.cssText='display:block;width:100%;padding:16px;margin-top:22px;font-family:Orbitron,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2px;cursor:default;border:2px solid rgba(255,230,0,.3);background:transparent;color:rgba(255,230,0,.5);pointer-events:none;border-radius:0;';
+    }
+  }
+}
 </script>
+<!-- ═══════════════════════ 1-ON-1 CHAT MODAL ═══════════════════════ -->
+<div id="chat-modal">
+  <div class="chat-hdr" id="chat-hdr">
+    <div class="chat-av" id="chat-av">?</div>
+    <div class="chat-hdr-info">
+      <div class="chat-hdr-name" id="chat-hdr-name">—</div>
+      <div class="chat-hdr-status">◉ CONNECTED · IPNOTEC NODE</div>
+    </div>
+    <button class="chat-close" onclick="closeChat()">✕ CLOSE</button>
+  </div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="chat-typing" id="chat-typing">
+    <div class="ct-dot"></div><div class="ct-dot"></div><div class="ct-dot"></div>
+    <span id="chat-typing-name">—</span> is typing
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chat-input" placeholder="TYPE YOUR MESSAGE..." maxlength="200" onkeydown="if(event.key==='Enter')sendChatMsg()">
+    <button class="chat-send-btn" onclick="sendChatMsg()">SEND →</button>
+  </div>
+</div>
+
 </body>
 </html>
