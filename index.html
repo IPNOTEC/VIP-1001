@@ -306,11 +306,8 @@ select.tinput option{background:#000;color:#fff;}
 .final-future{font-family:'Orbitron',sans-serif;font-size:clamp(2.8rem,8.5vw,5.5rem);font-weight:900;letter-spacing:4px;animation:fglow 2.5s ease-in-out infinite .4s;}
 @keyframes fglow{0%,100%{text-shadow:0 0 25px currentColor;}50%{text-shadow:0 0 70px currentColor,0 0 140px currentColor;}}
 
-/* ─── MODE TOGGLE ─── */
-#mode-toggle{display:flex;align-items:center;gap:5px;padding:6px 11px;background:transparent;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);font-family:'Space Mono',monospace;font-size:.44rem;font-weight:700;letter-spacing:1.5px;cursor:pointer;transition:all .2s;white-space:nowrap;border-radius:0;flex-shrink:0;min-height:36px;}
-#mode-toggle:hover{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04);}
+/* footer stays 4-col: logo | mid | about | home-btn */
 footer{grid-template-columns:auto 1fr auto auto;}
-#mt-icon{font-size:.76rem;line-height:1;}
 
 /* ════════════════════════════════════════════════
    F11 CHAT SCREEN — SAMPLE B (WhatsApp/Telegram)
@@ -482,111 +479,71 @@ footer{grid-template-columns:auto 1fr auto auto;}
 .i2-tags{display:flex;flex-wrap:wrap;gap:6px;}
 .i2-tag{padding:4px 10px;border:1px solid;font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:1px;}
 
-/* ════════════════════════════
-   CLASSIC MODE OVERRIDES
-════════════════════════════ */
-:root{
-  --cl-bg:#38393B;--cl-surface:#2A2B2D;--cl-card:#2A2B2D;
-  --cl-border:rgba(255,255,255,0.08);--cl-amber:#FBBF24;
-  --cl-amber-dim:rgba(251,191,36,0.12);--cl-amber-border:rgba(251,191,36,0.35);
-  --cl-green:#4ADE80;--cl-red:#F87171;--cl-text:#F1F0EE;
-  --cl-muted:rgba(241,240,238,0.48);--cl-radius:8px;--cl-r-sm:6px;--cl-r-btn:6px;
-}
-body.classic{font-family:'Nunito Sans',sans-serif;background:var(--cl-bg);}
-body.classic::after{display:none;}
-body.classic ::-webkit-scrollbar-track{background:var(--cl-bg);}
-body.classic ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);}
-body.classic #mode-toggle{font-family:'Outfit',sans-serif;font-weight:600;font-size:.48rem;letter-spacing:1.5px;background:rgba(251,191,36,0.1);border:1px solid var(--cl-amber-border);color:var(--cl-amber);}
-body.classic #mode-toggle:hover{background:rgba(251,191,36,0.2);color:var(--cl-amber);border-color:var(--cl-amber);}
-body.classic .hdr{background:var(--cl-surface);border-bottom:1px solid var(--cl-border);font-family:'Outfit',sans-serif;font-weight:500;font-size:.82rem;letter-spacing:2px;}
-body.classic .hdr::after{display:none;}
-body.classic .hchar{animation:none;color:rgba(241,240,238,.55);}
-body.classic footer{background:var(--cl-surface);border-top:1px solid var(--cl-border);}
-body.classic .ftr-logo{font-family:'Outfit',sans-serif;font-weight:700;color:var(--cl-text);text-shadow:none;letter-spacing:2px;}
-body.classic .ftr-launch-txt{font-family:'Outfit',sans-serif;}
-body.classic .ftr-launch-txt strong{color:var(--cl-amber);text-shadow:none;}
-body.classic #countdown{color:var(--cl-muted);font-family:'Outfit',monospace;font-size:.55rem;text-shadow:none;}
-body.classic .home-btn{font-family:'Outfit',sans-serif;border-color:var(--cl-border);color:var(--cl-muted);}
-body.classic .home-btn:hover{background:rgba(255,255,255,.06);color:var(--cl-text);}
-body.classic .fbx{background:var(--cl-card);border:1px solid var(--cl-border);border-radius:var(--cl-radius);box-shadow:0 8px 32px rgba(0,0,0,.35);}
-body.classic .fbx::before,body.classic .fbx::after{display:none;}
-body.classic .corner{display:none;}
-body.classic .step-lbl{font-family:'Outfit',sans-serif;font-weight:500;font-size:.65rem;letter-spacing:2px;color:var(--cl-amber);opacity:1;text-shadow:none;}
-body.classic .form-title{font-family:'Outfit',sans-serif;font-weight:700;color:var(--cl-text);text-shadow:none;letter-spacing:.3px;}
-body.classic .form-sub{font-family:'Nunito Sans',sans-serif;color:var(--cl-muted);line-height:1.7;}
-body.classic .ilbl{font-family:'Outfit',sans-serif;font-weight:500;letter-spacing:.5px;font-size:.68rem;color:var(--cl-muted);}
-body.classic .tinput,body.classic select.tinput{background:rgba(255,255,255,0.05);border:1px solid var(--cl-border);border-radius:var(--cl-r-sm);color:var(--cl-text);font-family:'Nunito Sans',sans-serif;font-size:.95rem;letter-spacing:.2px;}
-body.classic .tinput:focus,body.classic select.tinput:focus{border-color:var(--cl-amber-border);box-shadow:0 0 0 3px rgba(251,191,36,.1);background:rgba(251,191,36,0.03);outline:none;}
-body.classic .otp-box{background:rgba(255,255,255,0.05);border:1px solid var(--cl-border);border-radius:var(--cl-r-sm);color:var(--cl-text);font-family:'Outfit',sans-serif;font-weight:700;}
-body.classic .btn-main{font-family:'Outfit',sans-serif;font-weight:600;letter-spacing:.5px;border-radius:var(--cl-r-btn);border:1px solid var(--cl-amber-border);color:var(--cl-amber);background:var(--cl-amber-dim);text-shadow:none;box-shadow:none;transition:.2s;}
-body.classic .btn-main:hover{background:var(--cl-amber);color:#1a1a1a;box-shadow:0 4px 16px rgba(251,191,36,.3);}
-body.classic .btn-vip{border-color:var(--cl-amber-border);color:var(--cl-amber);background:var(--cl-amber-dim);}
-body.classic .btn-vip:hover{background:var(--cl-amber);color:#1a1a1a;box-shadow:0 4px 16px rgba(251,191,36,.3);}
-body.classic .msgbox.err{border:1px solid rgba(248,113,113,.3);color:var(--cl-red);background:rgba(248,113,113,.07);font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);}
-body.classic .msgbox.suc{border:1px solid rgba(74,222,128,.3);color:var(--cl-green);background:rgba(74,222,128,.07);font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);}
-body.classic .msgbox.info{border:1px solid var(--cl-amber-border);color:var(--cl-amber);background:var(--cl-amber-dim);font-family:'Outfit',sans-serif;border-radius:var(--cl-r-sm);}
-body.classic .pdot{border-radius:4px;background:rgba(255,255,255,.12);}
-body.classic .pdot.done{background:var(--cl-amber);box-shadow:none;}
-body.classic .pdot.now{background:var(--cl-text);}
-body.classic .screen{background:var(--cl-bg);}
-body.classic .big-i{color:var(--cl-amber);text-shadow:none;animation:none;opacity:.9;}
-body.classic .path-card{border-radius:var(--cl-radius);background:var(--cl-card);border-width:1px;}
-body.classic .path-card::before{display:none;}
-body.classic .path-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.35);}
-body.classic .path-name{font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.5px;}
-body.classic .path-desc{font-family:'Nunito Sans',sans-serif;}
-body.classic .path-badge{font-family:'Outfit',sans-serif;font-weight:600;border-radius:20px;font-size:.58rem;letter-spacing:.5px;}
-body.classic .fp{border-color:rgba(74,222,128,.3);}
-body.classic .fp .path-name{color:var(--cl-green);text-shadow:none;}
-body.classic .fp .path-badge{color:var(--cl-green);border-color:rgba(74,222,128,.35);}
-body.classic .vp{border-color:var(--cl-amber-border);}
-body.classic .vp .path-name{color:var(--cl-amber);text-shadow:none;}
-body.classic .vp .path-badge{color:var(--cl-amber);border-color:var(--cl-amber-border);}
-body.classic .ptile{border-radius:var(--cl-radius);border-width:1px;}
-body.classic .pltr{text-shadow:none !important;}
-body.classic .pname{font-family:'Outfit',sans-serif;letter-spacing:.3px;}
-body.classic #screen-free-node{background:var(--cl-bg);}
-body.classic .node-header{background:var(--cl-surface);border-bottom:1px solid var(--cl-border);}
-body.classic .node-title{font-family:'Outfit',sans-serif;font-weight:600;color:var(--cl-green);letter-spacing:.5px;text-shadow:none;}
-body.classic .node-num{font-family:'Outfit',sans-serif;font-weight:700;text-shadow:none;color:var(--cl-amber);}
-body.classic .node-num-lbl,.body.classic .node-city-lbl{font-family:'Outfit',sans-serif;color:var(--cl-muted);}
-body.classic .ng-lbl{font-family:'Outfit',sans-serif;font-weight:500;color:var(--cl-muted);letter-spacing:.5px;font-size:.68rem;}
-body.classic .node-grid{display:flex;flex-direction:column;gap:0;background:transparent;}
-body.classic .node-card{border:none !important;background:transparent;padding:12px 16px;display:flex;align-items:flex-start;gap:12px;transition:background .15s;}
-body.classic .node-card:hover{background:rgba(255,255,255,.04);}
-body.classic .node-card+.node-card{border-top:1px solid rgba(255,255,255,.05) !important;}
-body.classic .nc-avatar{width:40px !important;height:40px !important;border-width:1.5px !important;}
-body.classic .nc-name{font-family:'Outfit',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.1px;text-shadow:none !important;}
-body.classic .nc-city{font-family:'Nunito Sans',sans-serif;font-size:.7rem;color:var(--cl-muted);letter-spacing:.3px;margin-top:2px;}
-body.classic .nc-btn{font-family:'Outfit',sans-serif;font-weight:600;font-size:.6rem;letter-spacing:.3px;border-radius:20px;padding:5px 14px;}
-body.classic .nc-ping{border-color:rgba(251,191,36,.4);color:var(--cl-amber);}
-body.classic .nc-connect{border-color:rgba(74,222,128,.35);color:var(--cl-green);}
-body.classic .node-cta{margin:0 12px 16px;border-radius:var(--cl-radius);border:1px solid var(--cl-amber-border);background:var(--cl-amber-dim);}
-body.classic .node-cta-title{font-family:'Outfit',sans-serif;font-weight:700;color:var(--cl-amber);text-shadow:none;letter-spacing:.5px;}
-body.classic .nm-box{border-radius:var(--cl-radius);border:1px solid var(--cl-border);background:var(--cl-surface);box-shadow:0 20px 60px rgba(0,0,0,.55);}
-body.classic .nm-box::before{display:none;}
-body.classic #screen-journey{background:var(--cl-bg);}
-body.classic .jname{font-family:'Outfit',sans-serif;font-weight:800;text-shadow:none;animation:none;}
-body.classic .jcity{font-family:'Outfit',sans-serif;font-weight:600;letter-spacing:1px;text-shadow:none;}
-body.classic .pcard{border:1px solid var(--cl-border);border-radius:var(--cl-r-sm);background:rgba(255,255,255,.04);}
-body.classic .jpfill{border-radius:3px;background:var(--cl-amber) !important;box-shadow:none !important;}
-body.classic .jpbar{border-radius:3px;background:rgba(255,255,255,.08);}
-body.classic .tkt-panel{border:1px solid var(--cl-amber-border);border-radius:var(--cl-radius);background:var(--cl-amber-dim);}
-body.classic .tkt-panel::before,body.classic .tkt-panel::after{display:none;}
-body.classic .tkt-number{font-family:'Outfit',monospace;font-weight:700;text-shadow:none;color:var(--cl-amber);}
-body.classic .pay-amount{font-family:'Outfit',sans-serif;font-weight:800;text-shadow:none;color:var(--cl-amber);}
-body.classic .pay-btn{border-radius:var(--cl-r-btn);font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:1px;background:var(--cl-amber);color:#1a1a1a;box-shadow:0 4px 16px rgba(251,191,36,.3);animation:none;border:none;}
-body.classic .order-box{border:1px solid var(--cl-border);border-radius:var(--cl-r-sm);background:rgba(255,255,255,.03);}
-body.classic .order-row{font-family:'Nunito Sans',sans-serif;}
-body.classic #screen-final{background:var(--cl-bg);}
-body.classic .final-see{font-family:'Outfit',sans-serif;font-weight:800;animation:none;text-shadow:none;color:var(--cl-amber);}
-body.classic .final-in{font-family:'Outfit',sans-serif;font-weight:800;animation:none;text-shadow:none;color:var(--cl-muted);}
-body.classic .final-future{font-family:'Outfit',sans-serif;font-weight:800;animation:none;text-shadow:none;color:var(--cl-text);}
-body.classic .rev-item{border:1px solid var(--cl-border);border-radius:var(--cl-r-sm);background:rgba(255,255,255,.03);}
-body.classic .rev-title{font-family:'Outfit',sans-serif;font-weight:800;}
-body.classic .pingg-launch{border-radius:var(--cl-r-btn);animation:none;font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.5px;border:1px solid var(--cl-amber-border);color:var(--cl-amber);background:var(--cl-amber-dim);text-shadow:none;box-shadow:none;}
-body.classic .pingg-launch:hover{background:var(--cl-amber);color:#1a1a1a;box-shadow:0 4px 16px rgba(251,191,36,.3);}
-body.classic #screen-processing{background:var(--cl-bg);}
+/* ─── ABOUT SCREEN ─── */
+#screen-about{background:#000;flex-direction:column;overflow-y:auto;justify-content:flex-start;}
+.abt-wrap{width:min(680px,96vw);margin:0 auto;padding:28px 16px 48px;}
+.abt-back{display:inline-flex;align-items:center;gap:8px;font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:3px;color:rgba(255,255,255,.25);background:transparent;border:1px solid rgba(255,255,255,.08);padding:7px 14px;cursor:pointer;margin-bottom:24px;transition:.2s;border-radius:0;}
+.abt-back:hover{color:rgba(255,255,255,.65);border-color:rgba(255,255,255,.2);}
+/* FOMO hero */
+.abt-hero{text-align:center;padding:24px 0 32px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:32px;position:relative;}
+.abt-eyebrow{font-family:'Orbitron',sans-serif;font-size:clamp(.48rem,1.5vw,.58rem);letter-spacing:7px;color:rgba(255,255,255,.55);margin-bottom:16px;}
+.abt-slots-row{display:flex;align-items:baseline;gap:10px;justify-content:center;margin-bottom:6px;}
+.abt-slots-num{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(3.2rem,12vw,5.5rem);color:#fff;text-shadow:0 0 60px rgba(255,255,255,.1);line-height:1;}
+.abt-slots-denom{font-family:'Orbitron',sans-serif;font-size:clamp(.6rem,2vw,.82rem);letter-spacing:4px;color:rgba(255,255,255,.5);align-self:center;}
+.abt-slots-of{font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:5px;color:rgba(255,255,255,.35);margin-bottom:18px;}
+.abt-prog-bar{width:min(320px,88%);height:2px;background:#111;margin:0 auto 18px;}
+.abt-prog-fill{height:100%;background:linear-gradient(90deg,#333,var(--rg));width:.3%;}
+.abt-badge{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid rgba(201,144,122,.3);background:rgba(201,144,122,.04);margin-bottom:16px;}
+.abt-badge-num{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(.85rem,3vw,1.05rem);color:var(--rg);text-shadow:0 0 14px rgba(201,144,122,.5);letter-spacing:2px;}
+.abt-badge-lbl{font-family:'Orbitron',sans-serif;font-size:.48rem;letter-spacing:3px;color:rgba(201,144,122,.5);}
+.abt-tagline{font-family:'Orbitron',sans-serif;font-size:clamp(.62rem,2vw,.8rem);font-weight:900;letter-spacing:3px;color:#fff;margin-bottom:8px;}
+.abt-sub{font-family:'Rajdhani',sans-serif;font-size:clamp(.88rem,2.5vw,1rem);color:rgba(255,255,255,.7);line-height:1.75;max-width:500px;margin:0 auto 22px;}
+/* Ticker */
+.abt-ticker{overflow:hidden;height:26px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);display:flex;align-items:center;margin-bottom:30px;}
+.abt-ticker-inner{display:flex;white-space:nowrap;animation:abtTick 20s linear infinite;}
+.abt-tick-item{font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:2px;color:rgba(255,255,255,.5);padding:0 22px;}
+.abt-tick-item span{color:var(--rg);}
+@keyframes abtTick{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+/* Section blocks */
+.abt-section{margin-bottom:32px;}
+.abt-sec-eyebrow{font-family:'Orbitron',sans-serif;font-size:.5rem;letter-spacing:6px;color:rgba(255,255,255,.45);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1);}
+/* 4 Wheels grid */
+.abt-wheels-intro{font-family:'Rajdhani',sans-serif;font-size:clamp(.9rem,2.5vw,1.02rem);color:rgba(255,255,255,.72);line-height:1.85;margin-bottom:22px;letter-spacing:.3px;}
+.abt-wheels-intro strong{color:#fff;}
+.abt-wheels-intro em{color:var(--b);font-style:normal;}
+.abt-wheels{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;}
+@media(max-width:560px){.abt-wheels{grid-template-columns:1fr 1fr;}}
+.abt-wcard{border:1px solid rgba(255,255,255,.12);padding:18px 14px;background:rgba(255,255,255,.025);}
+.abt-wcard.w4{border-color:rgba(201,144,122,.4);background:rgba(201,144,122,.06);}
+.abt-wcard.w4::before{content:'';display:block;height:2px;background:linear-gradient(90deg,transparent,var(--rg),transparent);margin:-18px -14px 14px;}
+.abt-wnum{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(1.6rem,5vw,2.4rem);color:rgba(255,255,255,.12);line-height:1;margin-bottom:8px;}
+.abt-wcard.w4 .abt-wnum{color:rgba(201,144,122,.2);}
+.abt-wtitle{font-family:'Orbitron',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.7);margin-bottom:6px;}
+.abt-wcard.w4 .abt-wtitle{color:var(--rg);text-shadow:0 0 10px rgba(201,144,122,.3);}
+.abt-wdesc{font-family:'Rajdhani',sans-serif;font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.6;}
+.abt-wcard.w4 .abt-wdesc{color:rgba(255,255,255,.78);}
+.abt-wera{font-family:'Orbitron',sans-serif;font-size:.44rem;letter-spacing:3px;color:rgba(255,255,255,.35);margin-top:8px;}
+.abt-wcard.w4 .abt-wera{color:var(--y);text-shadow:0 0 8px rgba(255,230,0,.25);}
+.abt-callout{border:1px solid rgba(201,144,122,.25);padding:20px 24px;background:rgba(201,144,122,.04);text-align:center;margin-top:16px;position:relative;overflow:hidden;}
+.abt-callout::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:2px;background:linear-gradient(90deg,transparent,var(--rg));animation:calloutScan 4s linear infinite;}
+.abt-callout-text{font-family:'Orbitron',sans-serif;font-size:clamp(.65rem,2vw,.88rem);font-weight:900;letter-spacing:3px;color:#fff;line-height:1.5;}
+.abt-callout-text .sig-acc{color:var(--rg);text-shadow:0 0 14px rgba(201,144,122,.4);}
+/* Manifesto stanzas */
+.abt-stanza{padding:22px 0;border-bottom:1px solid rgba(255,255,255,.06);display:grid;grid-template-columns:90px 1fr;gap:20px;}
+@media(max-width:480px){.abt-stanza{grid-template-columns:1fr;gap:6px;}}
+.abt-stanza:last-child{border-bottom:none;}
+.abt-stanza-num{font-family:'Orbitron',sans-serif;font-size:.48rem;letter-spacing:4px;color:rgba(255,255,255,.4);}
+.abt-stanza-bar{width:2px;height:36px;background:rgba(255,255,255,.1);margin-top:5px;}
+.abt-stanza-head{font-family:'Orbitron',sans-serif;font-size:clamp(.72rem,2.5vw,.92rem);font-weight:900;letter-spacing:3px;color:#fff;margin-bottom:8px;line-height:1.3;}
+.abt-stanza-body{font-family:'Rajdhani',sans-serif;font-size:clamp(.9rem,2.5vw,1.02rem);color:rgba(255,255,255,.72);line-height:1.85;}
+.abt-stanza-body em{color:var(--b);font-style:normal;}
+.abt-stanza-body strong{color:#fff;font-weight:700;}
+/* Founding CTA */
+.abt-cta-block{margin-top:32px;border:2px solid rgba(201,144,122,.3);padding:28px 24px;background:rgba(201,144,122,.04);text-align:center;position:relative;overflow:hidden;}
+.abt-cta-block::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:2px;background:linear-gradient(90deg,transparent,var(--rg));animation:calloutScan 5s linear infinite;}
+.abt-cta-title{font-family:'Orbitron',sans-serif;font-size:clamp(.72rem,2.5vw,.92rem);font-weight:900;letter-spacing:4px;color:#fff;margin-bottom:8px;}
+.abt-cta-body{font-family:'Rajdhani',sans-serif;font-size:clamp(.9rem,2.5vw,1.02rem);color:rgba(255,255,255,.72);line-height:1.75;margin-bottom:20px;max-width:460px;margin-left:auto;margin-right:auto;}
+.abt-cta-body strong{color:var(--rg);}
 
 /* ─── BUSINESS PROFILE (REVEAL SCREEN) ─── */
 .biz-section{border:1px solid rgba(255,230,0,.15);background:rgba(255,230,0,.015);padding:14px 18px 18px;margin-bottom:16px;}
@@ -725,21 +682,237 @@ body.classic #screen-processing{background:var(--cl-bg);}
     <div class="igrp">
       <label class="ilbl">COUNTRY CODE + NUMBER</label>
       <div style="display:flex;gap:8px;">
-        <select class="tinput" id="phone-cc" style="width:120px;flex-shrink:0;padding:0 8px;font-size:.72rem;">
+        <select class="tinput" id="phone-cc" style="width:160px;flex-shrink:0;padding:0 8px;font-size:.72rem;">
           <option value="91">+91 🇮🇳 IN</option>
-          <option value="1">+1 🇺🇸 US</option>
-          <option value="44">+44 🇬🇧 UK</option>
-          <option value="971">+971 🇦🇪 UAE</option>
-          <option value="65">+65 🇸🇬 SG</option>
+          <option value="93">+93 🇦🇫 AF</option>
+          <option value="355">+355 🇦🇱 AL</option>
+          <option value="213">+213 🇩🇿 DZ</option>
+          <option value="1684">+1684 🇦🇸 AS</option>
+          <option value="376">+376 🇦🇩 AD</option>
+          <option value="244">+244 🇦🇴 AO</option>
+          <option value="1264">+1264 🇦🇮 AI</option>
+          <option value="1268">+1268 🇦🇬 AG</option>
+          <option value="54">+54 🇦🇷 AR</option>
+          <option value="374">+374 🇦🇲 AM</option>
+          <option value="297">+297 🇦🇼 AW</option>
           <option value="61">+61 🇦🇺 AU</option>
-          <option value="81">+81 🇯🇵 JP</option>
-          <option value="49">+49 🇩🇪 DE</option>
-          <option value="33">+33 🇫🇷 FR</option>
-          <option value="86">+86 🇨🇳 CN</option>
+          <option value="43">+43 🇦🇹 AT</option>
+          <option value="994">+994 🇦🇿 AZ</option>
+          <option value="1242">+1242 🇧🇸 BS</option>
+          <option value="973">+973 🇧🇭 BH</option>
+          <option value="880">+880 🇧🇩 BD</option>
+          <option value="1246">+1246 🇧🇧 BB</option>
+          <option value="375">+375 🇧🇾 BY</option>
+          <option value="32">+32 🇧🇪 BE</option>
+          <option value="501">+501 🇧🇿 BZ</option>
+          <option value="229">+229 🇧🇯 BJ</option>
+          <option value="1441">+1441 🇧🇲 BM</option>
+          <option value="975">+975 🇧🇹 BT</option>
+          <option value="591">+591 🇧🇴 BO</option>
+          <option value="387">+387 🇧🇦 BA</option>
+          <option value="267">+267 🇧🇼 BW</option>
           <option value="55">+55 🇧🇷 BR</option>
-          <option value="27">+27 🇿🇦 ZA</option>
-          <option value="234">+234 🇳🇬 NG</option>
+          <option value="673">+673 🇧🇳 BN</option>
+          <option value="359">+359 🇧🇬 BG</option>
+          <option value="226">+226 🇧🇫 BF</option>
+          <option value="257">+257 🇧🇮 BI</option>
+          <option value="855">+855 🇰🇭 KH</option>
+          <option value="237">+237 🇨🇲 CM</option>
+          <option value="1">+1 🇨🇦 CA</option>
+          <option value="238">+238 🇨🇻 CV</option>
+          <option value="1345">+1345 🇰🇾 KY</option>
+          <option value="236">+236 🇨🇫 CF</option>
+          <option value="235">+235 🇹🇩 TD</option>
+          <option value="56">+56 🇨🇱 CL</option>
+          <option value="86">+86 🇨🇳 CN</option>
+          <option value="57">+57 🇨🇴 CO</option>
+          <option value="269">+269 🇰🇲 KM</option>
+          <option value="243">+243 🇨🇩 CD</option>
+          <option value="242">+242 🇨🇬 CG</option>
+          <option value="682">+682 🇨🇰 CK</option>
+          <option value="506">+506 🇨🇷 CR</option>
+          <option value="225">+225 🇨🇮 CI</option>
+          <option value="385">+385 🇭🇷 HR</option>
+          <option value="53">+53 🇨🇺 CU</option>
+          <option value="599">+599 🇨🇼 CW</option>
+          <option value="357">+357 🇨🇾 CY</option>
+          <option value="420">+420 🇨🇿 CZ</option>
+          <option value="45">+45 🇩🇰 DK</option>
+          <option value="253">+253 🇩🇯 DJ</option>
+          <option value="1767">+1767 🇩🇲 DM</option>
+          <option value="1809">+1809 🇩🇴 DO</option>
+          <option value="593">+593 🇪🇨 EC</option>
+          <option value="20">+20 🇪🇬 EG</option>
+          <option value="503">+503 🇸🇻 SV</option>
+          <option value="240">+240 🇬🇶 GQ</option>
+          <option value="291">+291 🇪🇷 ER</option>
+          <option value="372">+372 🇪🇪 EE</option>
+          <option value="268">+268 🇸🇿 SZ</option>
+          <option value="251">+251 🇪🇹 ET</option>
+          <option value="500">+500 🇫🇰 FK</option>
+          <option value="298">+298 🇫🇴 FO</option>
+          <option value="679">+679 🇫🇯 FJ</option>
+          <option value="358">+358 🇫🇮 FI</option>
+          <option value="33">+33 🇫🇷 FR</option>
+          <option value="594">+594 🇬🇫 GF</option>
+          <option value="689">+689 🇵🇫 PF</option>
+          <option value="241">+241 🇬🇦 GA</option>
+          <option value="220">+220 🇬🇲 GM</option>
+          <option value="995">+995 🇬🇪 GE</option>
+          <option value="49">+49 🇩🇪 DE</option>
+          <option value="233">+233 🇬🇭 GH</option>
+          <option value="350">+350 🇬🇮 GI</option>
+          <option value="30">+30 🇬🇷 GR</option>
+          <option value="299">+299 🇬🇱 GL</option>
+          <option value="1473">+1473 🇬🇩 GD</option>
+          <option value="590">+590 🇬🇵 GP</option>
+          <option value="1671">+1671 🇬🇺 GU</option>
+          <option value="502">+502 🇬🇹 GT</option>
+          <option value="224">+224 🇬🇳 GN</option>
+          <option value="245">+245 🇬🇼 GW</option>
+          <option value="592">+592 🇬🇾 GY</option>
+          <option value="509">+509 🇭🇹 HT</option>
+          <option value="504">+504 🇭🇳 HN</option>
+          <option value="852">+852 🇭🇰 HK</option>
+          <option value="36">+36 🇭🇺 HU</option>
+          <option value="354">+354 🇮🇸 IS</option>
+          <option value="62">+62 🇮🇩 ID</option>
+          <option value="98">+98 🇮🇷 IR</option>
+          <option value="964">+964 🇮🇶 IQ</option>
+          <option value="353">+353 🇮🇪 IE</option>
+          <option value="972">+972 🇮🇱 IL</option>
+          <option value="39">+39 🇮🇹 IT</option>
+          <option value="1876">+1876 🇯🇲 JM</option>
+          <option value="81">+81 🇯🇵 JP</option>
+          <option value="962">+962 🇯🇴 JO</option>
+          <option value="7">+7 🇰🇿 KZ</option>
           <option value="254">+254 🇰🇪 KE</option>
+          <option value="686">+686 🇰🇮 KI</option>
+          <option value="383">+383 🇽🇰 XK</option>
+          <option value="965">+965 🇰🇼 KW</option>
+          <option value="996">+996 🇰🇬 KG</option>
+          <option value="856">+856 🇱🇦 LA</option>
+          <option value="371">+371 🇱🇻 LV</option>
+          <option value="961">+961 🇱🇧 LB</option>
+          <option value="266">+266 🇱🇸 LS</option>
+          <option value="231">+231 🇱🇷 LR</option>
+          <option value="218">+218 🇱🇾 LY</option>
+          <option value="423">+423 🇱🇮 LI</option>
+          <option value="370">+370 🇱🇹 LT</option>
+          <option value="352">+352 🇱🇺 LU</option>
+          <option value="853">+853 🇲🇴 MO</option>
+          <option value="261">+261 🇲🇬 MG</option>
+          <option value="265">+265 🇲🇼 MW</option>
+          <option value="60">+60 🇲🇾 MY</option>
+          <option value="960">+960 🇲🇻 MV</option>
+          <option value="223">+223 🇲🇱 ML</option>
+          <option value="356">+356 🇲🇹 MT</option>
+          <option value="692">+692 🇲🇭 MH</option>
+          <option value="596">+596 🇲🇶 MQ</option>
+          <option value="222">+222 🇲🇷 MR</option>
+          <option value="230">+230 🇲🇺 MU</option>
+          <option value="262">+262 🇾🇹 YT</option>
+          <option value="52">+52 🇲🇽 MX</option>
+          <option value="691">+691 🇫🇲 FM</option>
+          <option value="373">+373 🇲🇩 MD</option>
+          <option value="377">+377 🇲🇨 MC</option>
+          <option value="976">+976 🇲🇳 MN</option>
+          <option value="382">+382 🇲🇪 ME</option>
+          <option value="1664">+1664 🇲🇸 MS</option>
+          <option value="212">+212 🇲🇦 MA</option>
+          <option value="258">+258 🇲🇿 MZ</option>
+          <option value="95">+95 🇲🇲 MM</option>
+          <option value="264">+264 🇳🇦 NA</option>
+          <option value="674">+674 🇳🇷 NR</option>
+          <option value="977">+977 🇳🇵 NP</option>
+          <option value="31">+31 🇳🇱 NL</option>
+          <option value="687">+687 🇳🇨 NC</option>
+          <option value="64">+64 🇳🇿 NZ</option>
+          <option value="505">+505 🇳🇮 NI</option>
+          <option value="227">+227 🇳🇪 NE</option>
+          <option value="234">+234 🇳🇬 NG</option>
+          <option value="683">+683 🇳🇺 NU</option>
+          <option value="672">+672 🇳🇫 NF</option>
+          <option value="850">+850 🇰🇵 KP</option>
+          <option value="389">+389 🇲🇰 MK</option>
+          <option value="1670">+1670 🇲🇵 MP</option>
+          <option value="47">+47 🇳🇴 NO</option>
+          <option value="968">+968 🇴🇲 OM</option>
+          <option value="92">+92 🇵🇰 PK</option>
+          <option value="680">+680 🇵🇼 PW</option>
+          <option value="970">+970 🇵🇸 PS</option>
+          <option value="507">+507 🇵🇦 PA</option>
+          <option value="675">+675 🇵🇬 PG</option>
+          <option value="595">+595 🇵🇾 PY</option>
+          <option value="51">+51 🇵🇪 PE</option>
+          <option value="63">+63 🇵🇭 PH</option>
+          <option value="48">+48 🇵🇱 PL</option>
+          <option value="351">+351 🇵🇹 PT</option>
+          <option value="1787">+1787 🇵🇷 PR</option>
+          <option value="974">+974 🇶🇦 QA</option>
+          <option value="40">+40 🇷🇴 RO</option>
+          <option value="7">+7 🇷🇺 RU</option>
+          <option value="250">+250 🇷🇼 RW</option>
+          <option value="290">+290 🇸🇭 SH</option>
+          <option value="1869">+1869 🇰🇳 KN</option>
+          <option value="1758">+1758 🇱🇨 LC</option>
+          <option value="508">+508 🇵🇲 PM</option>
+          <option value="1784">+1784 🇻🇨 VC</option>
+          <option value="685">+685 🇼🇸 WS</option>
+          <option value="378">+378 🇸🇲 SM</option>
+          <option value="239">+239 🇸🇹 ST</option>
+          <option value="966">+966 🇸🇦 SA</option>
+          <option value="221">+221 🇸🇳 SN</option>
+          <option value="381">+381 🇷🇸 RS</option>
+          <option value="248">+248 🇸🇨 SC</option>
+          <option value="232">+232 🇸🇱 SL</option>
+          <option value="65">+65 🇸🇬 SG</option>
+          <option value="1721">+1721 🇸🇽 SX</option>
+          <option value="421">+421 🇸🇰 SK</option>
+          <option value="386">+386 🇸🇮 SI</option>
+          <option value="677">+677 🇸🇧 SB</option>
+          <option value="252">+252 🇸🇴 SO</option>
+          <option value="27">+27 🇿🇦 ZA</option>
+          <option value="82">+82 🇰🇷 KR</option>
+          <option value="211">+211 🇸🇸 SS</option>
+          <option value="34">+34 🇪🇸 ES</option>
+          <option value="94">+94 🇱🇰 LK</option>
+          <option value="249">+249 🇸🇩 SD</option>
+          <option value="597">+597 🇸🇷 SR</option>
+          <option value="47">+47 🇸🇯 SJ</option>
+          <option value="46">+46 🇸🇪 SE</option>
+          <option value="41">+41 🇨🇭 CH</option>
+          <option value="963">+963 🇸🇾 SY</option>
+          <option value="886">+886 🇹🇼 TW</option>
+          <option value="992">+992 🇹🇯 TJ</option>
+          <option value="255">+255 🇹🇿 TZ</option>
+          <option value="66">+66 🇹🇭 TH</option>
+          <option value="670">+670 🇹🇱 TL</option>
+          <option value="228">+228 🇹🇬 TG</option>
+          <option value="690">+690 🇹🇰 TK</option>
+          <option value="676">+676 🇹🇴 TO</option>
+          <option value="1868">+1868 🇹🇹 TT</option>
+          <option value="216">+216 🇹🇳 TN</option>
+          <option value="90">+90 🇹🇷 TR</option>
+          <option value="993">+993 🇹🇲 TM</option>
+          <option value="1649">+1649 🇹🇨 TC</option>
+          <option value="688">+688 🇹🇻 TV</option>
+          <option value="256">+256 🇺🇬 UG</option>
+          <option value="380">+380 🇺🇦 UA</option>
+          <option value="971">+971 🇦🇪 AE</option>
+          <option value="44">+44 🇬🇧 GB</option>
+          <option value="1">+1 🇺🇸 US</option>
+          <option value="598">+598 🇺🇾 UY</option>
+          <option value="998">+998 🇺🇿 UZ</option>
+          <option value="678">+678 🇻🇺 VU</option>
+          <option value="39">+39 🇻🇦 VA</option>
+          <option value="58">+58 🇻🇪 VE</option>
+          <option value="84">+84 🇻🇳 VN</option>
+          <option value="1340">+1340 🇻🇮 VI</option>
+          <option value="681">+681 🇼🇫 WF</option>
+          <option value="967">+967 🇾🇪 YE</option>
+          <option value="260">+260 🇿🇲 ZM</option>
+          <option value="263">+263 🇿🇼 ZW</option>
         </select>
         <input type="tel" class="tinput" id="phone-in" placeholder="9876543210" maxlength="12" inputmode="numeric" style="flex:1;">
       </div>
@@ -1397,20 +1570,143 @@ body.classic #screen-processing{background:var(--cl-bg);}
   </div>
 </div>
 
+<!-- ═══════════════════════ ABOUT V[IP] ═══════════════════════ -->
+<div class="screen scrollable" id="screen-about">
+  <div class="abt-wrap">
+
+    <button class="abt-back" onclick="goTo('landing')">← BACK TO LANDING</button>
+
+    <!-- FOMO HERO -->
+    <div class="abt-hero">
+      <div class="abt-eyebrow">FOUNDING TRAVELLER PROGRAMME · IPNOTEC VIP</div>
+      <div class="abt-slots-row">
+        <div class="abt-slots-num" id="abt-slots-num">998</div>
+        <div class="abt-slots-denom">REMAINING</div>
+      </div>
+      <div class="abt-slots-of">OF 1001 · ORIGINAL FOUNDING TRAVELLERS</div>
+      <div class="abt-prog-bar"><div class="abt-prog-fill" id="abt-prog-fill"></div></div>
+      <div class="abt-badge">
+        <div class="abt-badge-num">◆ 1001</div>
+        <div class="abt-badge-lbl">FOUNDING MEMBER<br>BADGE · PERMANENT</div>
+      </div>
+      <div class="abt-tagline">IDENTITY · NETWORK · FUTURE</div>
+      <div class="abt-sub">The internet has always known your device.<br>Now it will know <strong style="color:rgba(255,255,255,.72);">you.</strong></div>
+      <button class="btn-main btn-vip" style="font-size:.78rem;padding:16px 36px;" onclick="goTo('landing');startFlow('vip')">◆ CLAIM YOUR FOUNDING SEAT · RS 1001 →</button>
+      <div style="font-family:'Orbitron',sans-serif;font-size:.44rem;letter-spacing:3px;color:rgba(255,255,255,.35);margin-top:12px;">SPOT LOCKS ON PAYMENT · NON-TRANSFERABLE</div>
+    </div>
+
+    <!-- LIVE TICKER -->
+    <div class="abt-ticker">
+      <div class="abt-ticker-inner">
+        <span class="abt-tick-item">◈ SLOT <span>#0001</span> CLAIMED · BLR</span>
+        <span class="abt-tick-item">◈ SLOT <span>#0002</span> CLAIMED · MUM</span>
+        <span class="abt-tick-item">◈ SLOT <span>#0003</span> CLAIMED · DEL</span>
+        <span class="abt-tick-item">◉ 998 SLOTS REMAINING · BE AMONG THE FIRST 1001</span>
+        <span class="abt-tick-item">◆ IPNOTEC VIP · PURE SIGNAL · NO NOISE · RS 1001</span>
+        <span class="abt-tick-item">◈ IDENTITY · NETWORK · FUTURE</span>
+        <span class="abt-tick-item">◈ SLOT <span>#0001</span> CLAIMED · BLR</span>
+        <span class="abt-tick-item">◈ SLOT <span>#0002</span> CLAIMED · MUM</span>
+        <span class="abt-tick-item">◈ SLOT <span>#0003</span> CLAIMED · DEL</span>
+        <span class="abt-tick-item">◉ 998 SLOTS REMAINING · BE AMONG THE FIRST 1001</span>
+        <span class="abt-tick-item">◆ IPNOTEC VIP · PURE SIGNAL · NO NOISE · RS 1001</span>
+        <span class="abt-tick-item">◈ IDENTITY · NETWORK · FUTURE</span>
+      </div>
+    </div>
+
+    <!-- 4 WHEELS -->
+    <div class="abt-section">
+      <div class="abt-sec-eyebrow">THE EVOLUTION · 4 WHEELS THEORY</div>
+      <p class="abt-wheels-intro">Throughout history, three forces drove every revolution that changed the course of human civilization. They built empires, connected continents, ignited ideas. But <strong>the digital age broke the contract.</strong> Your identity got lost in the noise. Replaced by devices. Harvested by algorithms. Rented by platforms. <em>IPNOTEC fixes this — at the point of connection itself.</em></p>
+      <div class="abt-wheels">
+        <div class="abt-wcard">
+          <div class="abt-wnum">01</div>
+          <div class="abt-wtitle">PEOPLE</div>
+          <div class="abt-wdesc">Community, kinship, collective intelligence. The original network.</div>
+          <div class="abt-wera">CIVILIZATION ERA</div>
+        </div>
+        <div class="abt-wcard">
+          <div class="abt-wnum">02</div>
+          <div class="abt-wtitle">PLACES</div>
+          <div class="abt-wdesc">Geography, trade routes, identity anchored to location.</div>
+          <div class="abt-wera">EXPLORATION ERA</div>
+        </div>
+        <div class="abt-wcard">
+          <div class="abt-wnum">03</div>
+          <div class="abt-wtitle">PURPOSE</div>
+          <div class="abt-wdesc">Ideas, movements, the force of belief that creates lasting change.</div>
+          <div class="abt-wera">INDUSTRIAL ERA</div>
+        </div>
+        <div class="abt-wcard w4">
+          <div class="abt-wnum">04</div>
+          <div class="abt-wtitle">IPNOTEC</div>
+          <div class="abt-wdesc">Identity-first. Verified. Permanent. The noiseless future.</div>
+          <div class="abt-wera">◆ NOW</div>
+        </div>
+      </div>
+      <div class="abt-callout">
+        <div class="abt-callout-text"><span class="sig-acc">PURE SIGNAL.</span>&nbsp;&nbsp;<span style="color:rgba(255,255,255,.65);">NO NOISE.</span><br><span style="font-size:.75em;color:rgba(255,255,255,.5);letter-spacing:2px;">IPNOTEC IS THE 4TH WHEEL — YOUR IDENTITY IS THE INTERNET.</span></div>
+      </div>
+    </div>
+
+    <!-- MANIFESTO -->
+    <div class="abt-section">
+      <div class="abt-sec-eyebrow">WHY IPNOTEC EXISTS</div>
+
+      <div class="abt-stanza">
+        <div><div class="abt-stanza-num">01 · PROBLEM</div><div class="abt-stanza-bar"></div></div>
+        <div>
+          <div class="abt-stanza-head">THE INTERNET HAS AN IDENTITY PROBLEM</div>
+          <div class="abt-stanza-body">You connect to the world every day. But the world doesn't know who you are. <em>Your IP changes. Your identity doesn't.</em> Every login is a disguise. Every session is a stranger. IPNOTEC is built to fix this — at the point of connection itself.</div>
+        </div>
+      </div>
+
+      <div class="abt-stanza">
+        <div><div class="abt-stanza-num">02 · SOLUTION</div><div class="abt-stanza-bar"></div></div>
+        <div>
+          <div class="abt-stanza-head">YOUR IDENTITY IS YOUR ACCESS POINT</div>
+          <div class="abt-stanza-body">Phone-verified. Persona-locked. City-stamped. When you connect through an IPNOTEC node, you are <em>you</em> — not a device, not an IP address. <strong>A permanent, verified future identity</strong> that follows you wherever the network lives. People. Places. Purpose. And now — identity.</div>
+        </div>
+      </div>
+
+      <div class="abt-stanza">
+        <div><div class="abt-stanza-num">03 · THE 1001</div><div class="abt-stanza-bar"></div></div>
+        <div>
+          <div class="abt-stanza-head">WE ARE BUILDING THIS WITH 1001 PEOPLE</div>
+          <div class="abt-stanza-body">Not 1 million. Not 100,000. <strong>Exactly 1001.</strong> The founding travellers who will step into the future before the world knows it exists. Each one receives a permanent ticket number, a unique VIBGYOU identity wavelength, and a place at the first node. <em>This is not a waitlist. This is your founding seat.</em></div>
+        </div>
+      </div>
+
+      <div class="abt-stanza">
+        <div><div class="abt-stanza-num">04 · THE FUTURE</div><div class="abt-stanza-bar"></div></div>
+        <div>
+          <div class="abt-stanza-head">WILL YOU BE ONE OF THEM?</div>
+          <div class="abt-stanza-body">Three slots have been claimed. <strong>998 remain.</strong> For <em>RS 1001</em> — a number that is not a coincidence — you can be among the first 1001 humans whose identity is the internet. Not a user. Not a subscriber. <strong>A founding traveller of a noiseless future.</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOUNDING CTA -->
+    <div class="abt-cta-block">
+      <div class="abt-cta-title">◆ FOUNDING MEMBER · 1001 BADGE</div>
+      <div class="abt-cta-body">The first 1001 members receive a <strong>permanent Founding Member badge</strong> that shows on their V[IP] member card — visible to every member in the network. Your ticket number is your identity serial. <strong>Locked forever to you.</strong> Once 1001 are claimed, this badge is gone.</div>
+      <button class="btn-main btn-vip" style="font-size:.82rem;padding:18px 40px;" onclick="goTo('landing');startFlow('vip')">◆ BECOME A FOUNDING MEMBER · RS 1001 →</button>
+      <div style="font-family:'Orbitron',sans-serif;font-size:.44rem;letter-spacing:3px;color:rgba(255,255,255,.35);margin-top:14px;">PURE SIGNAL · NO NOISE · ONE-TIME · PERMANENT</div>
+    </div>
+
+  </div>
+</div>
+
 </div><!-- /cw -->
 
 <!-- ─── FOOTER ─── -->
 <footer id="site-footer">
   <div class="ftr-logo">IPNOTEC</div>
   <div class="ftr-mid" onclick="toggleLaunchDate()" title="Click to reveal launch date">
-    <span class="ftr-launch-txt" id="ftr-launch-txt">LAUNCH &nbsp;<strong>10</strong>&nbsp;&nbsp;<strong>01</strong></span>
+    <span class="ftr-launch-txt" id="ftr-launch-txt">APP LAUNCH &nbsp;<strong>10</strong>&nbsp;&nbsp;<strong>01</strong></span>
     <span class="ftr-date-reveal" id="ftr-date-reveal">JAN 10TH 2027 &nbsp;·&nbsp; 10:01 HRS IST</span>
     <span id="countdown">—</span>
   </div>
-  <button id="mode-toggle" onclick="toggleMode()" title="Switch UI Mode">
-    <span id="mt-icon">⬡</span>
-    <span id="mt-label">CLASSIC</span>
-  </button>
+  <button class="home-btn" onclick="goTo('about');playSound('lock')" style="border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.3);font-size:.44rem;letter-spacing:2px;padding:6px 10px;min-height:36px;gap:4px;">ABOUT V[IP]</button>
   <button class="home-btn" onclick="goTo('landing')">
     <span>|</span>
     <span class="clock-face clock-cw"><span class="clock-hand"></span></span>
@@ -1469,29 +1765,128 @@ const PERSONAS=[
    IATA CITIES
 ══════════════════════════════════════════ */
 const IATA_CITIES=[
-  "Accra [ACC]","Addis Ababa [ADD]","Ahmedabad [AMD]","Amsterdam [AMS]",
-  "Athens [ATH]","Auckland [AKL]","Bali [DPS]","Bangkok [BKK]",
-  "Barcelona [BCN]","Beijing [PEK]","Bengaluru [BLR]","Berlin [BER]",
-  "Brussels [BRU]","Buenos Aires [EZE]","Cairo [CAI]","Cape Town [CPT]",
-  "Casablanca [CMN]","Chennai [MAA]","Chicago [ORD]","Colombo [CMB]",
-  "Copenhagen [CPH]","Dallas [DFW]","Dar es Salaam [DAR]","Delhi [DEL]",
-  "Dhaka [DAC]","Doha [DOH]","Dubai [DXB]","Dublin [DUB]",
-  "Edinburgh [EDI]","Frankfurt [FRA]","Geneva [GVA]","Goa [GOI]",
-  "Guangzhou [CAN]","Hanoi [HAN]","Helsinki [HEL]","Ho Chi Minh City [SGN]",
-  "Hong Kong [HKG]","Hyderabad [HYD]","Istanbul [IST]","Jakarta [CGK]",
-  "Jaipur [JAI]","Johannesburg [JNB]","Kampala [EBB]","Karachi [KHI]",
-  "Kathmandu [KTM]","Kigali [KGL]","Kolkata [CCU]","Kuala Lumpur [KUL]",
-  "Kuwait City [KWI]","Lagos [LOS]","Lahore [LHE]","Lisbon [LIS]",
-  "London [LHR]","Los Angeles [LAX]","Lusaka [LUN]","Madrid [MAD]",
-  "Male [MLE]","Manchester [MAN]","Manila [MNL]","Melbourne [MEL]",
-  "Mexico City [MEX]","Miami [MIA]","Milan [MXP]","Moscow [SVO]",
-  "Mumbai [BOM]","Muscat [MCT]","Nairobi [NBO]","New York [JFK]",
-  "Oslo [OSL]","Paris [CDG]","Prague [PRG]","Pune [PNQ]",
-  "Riyadh [RUH]","Rome [FCO]","San Francisco [SFO]","Sao Paulo [GRU]",
-  "Seoul [ICN]","Shanghai [PVG]","Singapore [SIN]","Stockholm [ARN]",
-  "Sydney [SYD]","Tel Aviv [TLV]","Tokyo [NRT]","Toronto [YYZ]",
-  "Vancouver [YVR]","Vienna [VIE]","Warsaw [WAW]","Yangon [RGN]",
-  "Zurich [ZRH]"
+  /* ── AFRICA ── */
+  "Abidjan [ABJ]","Abuja [ABV]","Accra [ACC]","Addis Ababa [ADD]",
+  "Alexandria [HBE]","Algiers [ALG]","Antananarivo [TNR]","Aswan [ASW]",
+  "Bamako [BKO]","Brazzaville [BZV]","Bujumbura [BJM]","Cape Town [CPT]",
+  "Casablanca [CMN]","Conakry [CKY]","Cotonou [COO]","Dakar [DKR]",
+  "Dar es Salaam [DAR]","Djibouti [JIB]","Douala [DLA]","Entebbe [EBB]",
+  "Freetown [FNA]","Gaborone [GBE]","Harare [HRE]","Johannesburg [JNB]",
+  "Kano [KAN]","Khartoum [KRT]","Kigali [KGL]","Kinshasa [FIH]",
+  "Lagos [LOS]","Libreville [LBV]","Lilongwe [LLW]","Lome [LFW]",
+  "Luanda [LAD]","Lusaka [LUN]","Maputo [MPM]","Marrakech [RAK]",
+  "Mauritius [MRU]","Mombasa [MBA]","Monrovia [ROB]","Nairobi [NBO]",
+  "N'Djamena [NDJ]","Niamey [NIM]","Nouakchott [NKC]","Ouagadougou [OUA]",
+  "Port Louis [MRU]","Reunion [RUN]","Seychelles [SEZ]","Tripoli [TIP]",
+  "Tunis [TUN]","Windhoek [WDH]","Zanzibar [ZNZ]",
+  /* ── MIDDLE EAST ── */
+  "Abu Dhabi [AUH]","Amman [AMM]","Baghdad [BGW]","Bahrain [BAH]",
+  "Beirut [BEY]","Cairo [CAI]","Damascus [DAM]","Dammam [DMM]",
+  "Doha [DOH]","Dubai [DXB]","Erbil [EBL]","Hurghada [HRG]",
+  "Jeddah [JED]","Jerusalem [TLV]","Kuwait City [KWI]","Luxor [LXR]",
+  "Medina [MED]","Muscat [MCT]","Riyadh [RUH]","Sanaa [SAH]",
+  "Sharjah [SHJ]","Tel Aviv [TLV]",
+  /* ── SOUTH ASIA ── */
+  "Agartala [IXA]","Ahmedabad [AMD]","Amritsar [ATQ]","Aurangabad [IXU]",
+  "Bagdogra [IXB]","Bengaluru [BLR]","Bhopal [BHO]","Bhubaneswar [BBI]",
+  "Chandigarh [IXC]","Chennai [MAA]","Coimbatore [CJB]","Colombo [CMB]",
+  "Dehradun [DED]","Delhi [DEL]","Dhaka [DAC]","Dibrugarh [DIB]",
+  "Goa [GOI]","Guwahati [GAU]","Hubli [HBX]","Hyderabad [HYD]",
+  "Imphal [IMF]","Indore [IDR]","Islamabad [ISB]","Jaipur [JAI]",
+  "Jammu [IXJ]","Jodhpur [JDH]","Kabul [KBL]","Karachi [KHI]",
+  "Kathmandu [KTM]","Kochi [COK]","Kolkata [CCU]","Lahore [LHE]",
+  "Leh [IXL]","Lucknow [LKO]","Madurai [IXM]","Male [MLE]",
+  "Mangalore [IXE]","Mumbai [BOM]","Nagpur [NAG]","Patna [PAT]",
+  "Peshawar [PEW]","Pokhara [PKR]","Port Blair [IXZ]","Pune [PNQ]",
+  "Quetta [UET]","Raipur [RPR]","Ranchi [IXR]","Srinagar [SXR]",
+  "Thiruvananthapuram [TRV]","Tiruchirappalli [TRZ]","Udaipur [UDR]",
+  "Vadodara [BDQ]","Varanasi [VNS]","Visakhapatnam [VTZ]",
+  /* ── SOUTHEAST ASIA ── */
+  "Bali [DPS]","Bangkok [BKK]","Cebu [CEB]","Chiang Mai [CNX]",
+  "Bali [DPS]","Bangkok [BKK]","Bandung [BDO]","Cebu [CEB]",
+  "Chiang Mai [CNX]","Da Nang [DAD]","Hanoi [HAN]","Ho Chi Minh City [SGN]",
+  "Jakarta [CGK]","Kota Kinabalu [BKI]","Kuala Lumpur [KUL]","Lombok [LOP]",
+  "Luang Prabang [LPQ]","Macau [MFM]","Makassar [UPG]","Mandalay [MDL]",
+  "Manila [MNL]","Medan [KNO]","Phnom Penh [PNH]","Phuket [HKT]",
+  "Siem Reap [REP]","Singapore [SIN]","Surabaya [SUB]","Vientiane [VTE]",
+  "Yangon [RGN]",
+  /* ── EAST ASIA ── */
+  "Beijing [PEK]","Busan [PUS]","Chengdu [CTU]","Chongqing [CKG]",
+  "Dalian [DLC]","Fukuoka [FUK]","Guangzhou [CAN]","Guilin [KWL]",
+  "Haikou [HAK]","Hangzhou [HGH]","Harbin [HRB]","Hong Kong [HKG]",
+  "Jeju [CJU]","Kunming [KMG]","Nagoya [NGO]","Nanchang [KHN]",
+  "Nanjing [NKG]","Osaka [KIX]","Qingdao [TAO]","Sanya [SYX]",
+  "Sapporo [CTS]","Seoul [ICN]","Shanghai [PVG]","Shenyang [SHE]",
+  "Shenzhen [SZX]","Taipei [TPE]","Tianjin [TSN]","Tokyo [NRT]",
+  "Urumqi [URC]","Wuhan [WUH]","Xi'an [XIY]","Xiamen [XMN]",
+  "Zhengzhou [CGO]",
+  /* ── CENTRAL ASIA ── */
+  "Almaty [ALA]","Ashgabat [ASB]","Astana [NQZ]","Baku [GYD]",
+  "Bishkek [FRU]","Dushanbe [DYU]","Tbilisi [TBS]","Tashkent [TAS]",
+  "Yerevan [EVN]",
+  /* ── EUROPE ── */
+  "Amsterdam [AMS]","Athens [ATH]","Barcelona [BCN]","Basel [BSL]",
+  "Belgrade [BEG]","Berlin [BER]","Bilbao [BIO]","Bologna [BLQ]",
+  "Bratislava [BTS]","Brussels [BRU]","Bucharest [OTP]","Budapest [BUD]",
+  "Cardiff [CWL]","Catania [CTA]","Cologne [CGN]","Copenhagen [CPH]",
+  "Dubrovnik [DBV]","Dublin [DUB]","Dusseldorf [DUS]","Edinburgh [EDI]",
+  "Eindhoven [EIN]","Florence [FLR]","Frankfurt [FRA]","Geneva [GVA]",
+  "Glasgow [GLA]","Gothenburg [GOT]","Hamburg [HAM]","Helsinki [HEL]",
+  "Ibiza [IBZ]","Istanbul [IST]","Izmir [ADB]","Kiev [KBP]",
+  "Krakow [KRK]","Larnaca [LCA]","Leeds Bradford [LBA]","Lisbon [LIS]",
+  "Ljubljana [LJU]","London [LHR]","London Gatwick [LGW]","London Stansted [STN]",
+  "Luxembourg [LUX]","Lyon [LYS]","Madrid [MAD]","Malaga [AGP]",
+  "Malmo [MMX]","Malta [MLA]","Manchester [MAN]","Marseille [MRS]",
+  "Milan [MXP]","Milan Linate [LIN]","Munich [MUC]","Naples [NAP]",
+  "Nice [NCE]","Oslo [OSL]","Palermo [PMO]","Palma [PMI]",
+  "Paris [CDG]","Paris Orly [ORY]","Porto [OPO]","Prague [PRG]",
+  "Reykjavik [KEF]","Riga [RIX]","Rome [FCO]","Salzburg [SZG]",
+  "Sarajevo [SJJ]","Seville [SVQ]","Skopje [SKP]","Sofia [SOF]",
+  "Split [SPU]","Stockholm [ARN]","Stuttgart [STR]","Tallinn [TLL]",
+  "Tenerife [TFS]","Tirana [TIA]","Turin [TRN]","Valencia [VLC]",
+  "Venice [VCE]","Vienna [VIE]","Vilnius [VNO]","Warsaw [WAW]",
+  "Wroclaw [WRO]","Zurich [ZRH]",
+  /* ── RUSSIA & CIS ── */
+  "Ekaterinburg [SVX]","Irkutsk [IKT]","Kazan [KZN]","Krasnodar [KRR]",
+  "Minsk [MSQ]","Moscow [SVO]","Moscow Domodedovo [DME]","Novosibirsk [OVB]",
+  "St Petersburg [LED]","Vladivostok [VVO]",
+  /* ── NORTH AMERICA ── */
+  "Anchorage [ANC]","Atlanta [ATL]","Austin [AUS]","Baltimore [BWI]",
+  "Boston [BOS]","Buffalo [BUF]","Calgary [YYC]","Charlotte [CLT]",
+  "Chicago [ORD]","Chicago Midway [MDW]","Cincinnati [CVG]","Cleveland [CLE]",
+  "Dallas [DFW]","Dallas Love [DAL]","Denver [DEN]","Detroit [DTW]",
+  "Edmonton [YEG]","Fort Lauderdale [FLL]","Guadalajara [GDL]","Halifax [YHZ]",
+  "Honolulu [HNL]","Houston [IAH]","Houston Hobby [HOU]","Indianapolis [IND]",
+  "Jacksonville [JAX]","Kansas City [MCI]","Las Vegas [LAS]","Los Angeles [LAX]",
+  "Memphis [MEM]","Mexico City [MEX]","Miami [MIA]","Milwaukee [MKE]",
+  "Minneapolis [MSP]","Monterrey [MTY]","Montreal [YUL]","Nashville [BNA]",
+  "New Orleans [MSY]","New York [JFK]","New York Newark [EWR]","New York LaGuardia [LGA]",
+  "Oakland [OAK]","Oklahoma City [OKC]","Orlando [MCO]","Ottawa [YOW]",
+  "Philadelphia [PHL]","Phoenix [PHX]","Pittsburgh [PIT]","Portland [PDX]",
+  "Quebec City [YQB]","Raleigh [RDU]","Sacramento [SMF]","Salt Lake City [SLC]",
+  "San Antonio [SAT]","San Diego [SAN]","San Francisco [SFO]","San Jose [SJC]",
+  "Seattle [SEA]","St Louis [STL]","Tampa [TPA]","Tijuana [TIJ]",
+  "Toronto [YYZ]","Vancouver [YVR]","Washington DC [IAD]","Washington DC Reagan [DCA]",
+  "Winnipeg [YWG]",
+  /* ── CARIBBEAN & CENTRAL AMERICA ── */
+  "Antigua [ANU]","Aruba [AUA]","Barbados [BGI]","Bogota [BOG]",
+  "Cancun [CUN]","Cartagena [CTG]","Guatemala City [GUA]","Havana [HAV]",
+  "Kingston [KIN]","Managua [MGA]","Montego Bay [MBJ]","Nassau [NAS]",
+  "Panama City [PTY]","Port of Spain [POS]","Punta Cana [PUJ]",
+  "San Jose CR [SJO]","San Juan [SJU]","Santo Domingo [SDQ]","Tegucigalpa [TGU]",
+  /* ── SOUTH AMERICA ── */
+  "Asuncion [ASU]","Belo Horizonte [CNF]","Bogota [BOG]","Brasilia [BSB]",
+  "Buenos Aires [EZE]","Cali [CLO]","Caracas [CCS]","Cordoba [COR]",
+  "Cusco [CUZ]","Florianopolis [FLN]","Guayaquil [GYE]","La Paz [LPB]",
+  "Lima [LIM]","Manaus [MAO]","Medellin [MDE]","Mendoza [MDZ]",
+  "Montevideo [MVD]","Quito [UIO]","Recife [REC]","Rio de Janeiro [GIG]",
+  "Rosario [ROS]","Salvador [SSA]","Santiago [SCL]","Sao Paulo [GRU]",
+  /* ── OCEANIA ── */
+  "Adelaide [ADL]","Auckland [AKL]","Brisbane [BNE]","Cairns [CNS]",
+  "Christchurch [CHC]","Darwin [DRW]","Fiji [NAN]","Gold Coast [OOL]",
+  "Guam [GUM]","Hobart [HBA]","Launceston [LST]","Melbourne [MEL]",
+  "Noumea [NOU]","Papua New Guinea [POM]","Perth [PER]","Queenstown [ZQN]",
+  "Sydney [SYD]","Wellington [WLG]"
 ];
 
 const LAND_CITIES=[
@@ -1584,21 +1979,21 @@ function playSound(type){
    NODE EMULATION DATA
 ══════════════════════════════════════════ */
 const NODE_USERS=[
-  {name:'ZARA·V',city:'BOM',color:'#BF00FF',id:'IPN···4821',verified:true,company:'PVT LTD',focus:'Verified identity for fintech',website:'zara-ventures.in'},
-  {name:'KAI·X',city:'SIN',color:'#00C8FF',id:'IPN···9034',verified:false,company:'',focus:'',website:''},
-  {name:'NOVA·7',city:'DXB',color:'#39FF14',id:'IPN···2267',verified:true,company:'FOREIGN',focus:'Cross-border supply chain AI',website:'nova7.io'},
-  {name:'REX·Ω',city:'LHR',color:'#FFE600',id:'IPN···5519',verified:false,company:'',focus:'',website:''},
-  {name:'LYRA·3',city:'JFK',color:'#FF6200',id:'IPN···8803',verified:true,company:'SOLE PROP',focus:'Independent product design',website:'lyra3.design'},
-  {name:'ORION',city:'NRT',color:'#6A0EFF',id:'IPN···1144',verified:false,company:'',focus:'',website:''},
-  {name:'VEGA·Q',city:'SYD',color:'#FF1744',id:'IPN···7721',verified:true,company:'PVT LTD',focus:'Climate tech operations',website:'vegaq.com.au'},
-  {name:'ECHO·9',city:'DEL',color:'#FFFFFF',id:'IPN···3358',verified:false,company:'',focus:'',website:''},
-  {name:'FLUX·M',city:'LAX',color:'#AAAAAA',id:'IPN···6642',verified:false,company:'',focus:'',website:''},
-  {name:'PULSE',city:'BLR',color:'#39FF14',id:'IPN···9901',verified:true,company:'LLP',focus:'EV charging infrastructure',website:'pulse-ev.in'},
-  {name:'TITAN·2',city:'CDG',color:'#00C8FF',id:'IPN···4477',verified:true,company:'PUBLIC',focus:'Enterprise SaaS · 200+ clients',website:'titan2.eu'},
-  {name:'ASHA·K',city:'HKG',color:'#FFE600',id:'IPN···8832',verified:false,company:'',focus:'',website:''},
-  {name:'ZERO·1',city:'ICN',color:'#BF00FF',id:'IPN···6619',verified:true,company:'PVT LTD',focus:'Digital payments infrastructure',website:'zero1.co.kr'},
-  {name:'STORM',city:'FRA',color:'#FF6200',id:'IPN···3344',verified:false,company:'',focus:'',website:''},
-  {name:'ARIA·X',city:'GRU',color:'#6A0EFF',id:'IPN···8877',verified:true,company:'NGO',focus:'Digital literacy · rural Brazil',website:'ariax.org.br'},
+  {name:'ZARA·V',city:'BOM',color:'#BF00FF',id:'IPN···4821',verified:true,company:'PVT LTD',focus:'Verified identity for fintech',website:'zara-ventures.in',founding:1},
+  {name:'KAI·X',city:'SIN',color:'#00C8FF',id:'IPN···9034',verified:false,company:'',focus:'',website:'',founding:2},
+  {name:'NOVA·7',city:'DXB',color:'#39FF14',id:'IPN···2267',verified:true,company:'FOREIGN',focus:'Cross-border supply chain AI',website:'nova7.io',founding:3},
+  {name:'REX·Ω',city:'LHR',color:'#FFE600',id:'IPN···5519',verified:false,company:'',focus:'',website:'',founding:4},
+  {name:'LYRA·3',city:'JFK',color:'#FF6200',id:'IPN···8803',verified:true,company:'SOLE PROP',focus:'Independent product design',website:'lyra3.design',founding:5},
+  {name:'ORION',city:'NRT',color:'#6A0EFF',id:'IPN···1144',verified:false,company:'',focus:'',website:'',founding:6},
+  {name:'VEGA·Q',city:'SYD',color:'#FF1744',id:'IPN···7721',verified:true,company:'PVT LTD',focus:'Climate tech operations',website:'vegaq.com.au',founding:7},
+  {name:'ECHO·9',city:'DEL',color:'#FFFFFF',id:'IPN···3358',verified:false,company:'',focus:'',website:'',founding:8},
+  {name:'FLUX·M',city:'LAX',color:'#AAAAAA',id:'IPN···6642',verified:false,company:'',focus:'',website:'',founding:9},
+  {name:'PULSE',city:'BLR',color:'#39FF14',id:'IPN···9901',verified:true,company:'LLP',focus:'EV charging infrastructure',website:'pulse-ev.in',founding:10},
+  {name:'TITAN·2',city:'CDG',color:'#00C8FF',id:'IPN···4477',verified:true,company:'PUBLIC',focus:'Enterprise SaaS · 200+ clients',website:'titan2.eu',founding:11},
+  {name:'ASHA·K',city:'HKG',color:'#FFE600',id:'IPN···8832',verified:false,company:'',focus:'',website:'',founding:12},
+  {name:'ZERO·1',city:'ICN',color:'#BF00FF',id:'IPN···6619',verified:true,company:'PVT LTD',focus:'Digital payments infrastructure',website:'zero1.co.kr',founding:13},
+  {name:'STORM',city:'FRA',color:'#FF6200',id:'IPN···3344',verified:false,company:'',focus:'',website:'',founding:14},
+  {name:'ARIA·X',city:'GRU',color:'#6A0EFF',id:'IPN···8877',verified:true,company:'NGO',focus:'Digital literacy · rural Brazil',website:'ariax.org.br',founding:15},
 ];
 const TAKEN_NAMES=['NOVA SEVEN','ZERO ONE','CIPHER X','FLUX ALPHA','VEGA PRIME','ORION MAX','TITAN ZERO','ECHO NINE','PULSE THREE','STORM ONE','APEX FIVE','ZARA V','KAI X','LYRA THREE','REX OMEGA','NOVA X','ZERO X','CIPHER ZERO','FLUX X','VEGA X','ARIA SEVEN','NEXUS ONE','SPARK TWO','SIGNAL ZERO','STORM TWO'];
 
@@ -1829,11 +2224,12 @@ function setReminder(){
 function goTo(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   const el=document.getElementById(`screen-${id}`);
-  if(el){el.classList.add('active');}
+  if(el){el.classList.add('active');if(el.classList.contains('scrollable'))el.scrollTop=0;}
   if(id==='final')spawnFinalStreams();
   if(id==='f11')initF11();
   if(id==='f11-invite')initF11InviteHub();
   if(id==='reveal')setTimeout(initBizSection,80);
+  if(id==='about'){setTimeout(()=>{const f=document.getElementById('abt-prog-fill');if(f){f.style.transition='width 1.4s ease';f.style.width='0.3%';}},200);}
 }
 function startFlow(path){
   S.path=path;makeDots('ph-dots',2,0);goTo('phone');
@@ -1941,6 +2337,7 @@ function buildFreeNode(){
         </div>
       </div>
       <div class="nc-id">${S.iid||'IPN···0000'}</div>
+      ${S.ticketNumber?`<span style="font-family:'Orbitron',sans-serif;font-size:.5rem;font-weight:900;letter-spacing:2px;color:${S.pColor||'#888'};opacity:.85;">1001</span>`:''}
       ${bizExpand}
       <div style="font-family:'Orbitron',sans-serif;font-size:.44rem;letter-spacing:3px;color:rgba(255,255,255,.25);margin-top:8px;">YOUR NODE · LIVE</div>`;
     const topBar=document.createElement('div');
@@ -1968,6 +2365,7 @@ function buildFreeNode(){
           <div class="nc-city">${u.city}${u.company?`<span class="nc-entity">${u.company}</span>`:''}</div>
         </div>
       </div>
+      ${u.founding?`<span style="font-family:'Orbitron',sans-serif;font-size:.5rem;font-weight:900;letter-spacing:2px;color:${u.color};opacity:.85;">1001</span>`:''}
       <div class="nc-id">${u.id}</div>
       ${bizExpand}
       <div class="nc-btns" style="margin-top:8px;">
@@ -2354,19 +2752,6 @@ function updateCountdown(){
   el.innerText=`${d}D ${String(h).padStart(2,'0')}H ${String(m).padStart(2,'0')}M ${String(sec).padStart(2,'0')}S`;
 }
 setInterval(updateCountdown,1000);updateCountdown();
-
-/* ══════════════════════════════════════════
-   CLASSIC / VIP MODE TOGGLE
-══════════════════════════════════════════ */
-function toggleMode(){
-  const isClassic=document.body.classList.toggle('classic');
-  const icon=document.getElementById('mt-icon'),label=document.getElementById('mt-label');
-  if(isClassic){icon.textContent='◆';label.textContent='VIP MODE';
-    document.querySelectorAll('.hchar').forEach(ch=>{ch.style.animationPlayState='paused';});
-  } else {icon.textContent='⬡';label.textContent='CLASSIC';
-    document.querySelectorAll('.hchar').forEach(ch=>{ch.style.animationPlayState='running';});
-  }
-}
 
 /* ══════════════════════════════════════════
    F11 CHAT — INIT & RENDER
